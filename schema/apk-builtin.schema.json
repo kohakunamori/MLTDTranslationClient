@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MLTDAPKBuiltinManifest",
+  "description": "Surfaces baked into the APK's embedded data.unity3d",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "kind",
+    "provenance",
+    "surfaces"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "kind": {
+      "type": "string",
+      "const": "mltd-apk-builtin-manifest"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "storage_architecture": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "verification_manifest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "client_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "assets_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artifact_status": {
+          "type": "string"
+        },
+        "reviewed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "counts": {
+      "type": "object"
+    },
+    "surfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "kind",
+          "target"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "bottom-bar-atlas",
+              "runtime-bi",
+              "cjk-font"
+            ]
+          },
+          "kind": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "kind": "mltd-apk-builtin-manifest",
+  "generated_at": "2026-09-27T00:00:00Z",
+  "storage_architecture": {
+    "binary_in_repo": false,
+    "delivery": "apk_embedded_data_unity3d",
+    "note": "These surfaces cannot be delivered by the asset-server overlay."
+  },
+  "provenance": {
+    "verification_manifest": "build/runs/client/9.0.200/apk-bi-font-candidate-verification-20260924/verification-summary.json",
+    "client_version": "9.0.200",
+    "assets_version": "1077100",
+    "artifact_status": "unreviewed_candidate",
+    "reviewed": false
+  },
+  "counts": {
+    "surfaces": 3
+  },
+  "surfaces": [
+    {
+      "name": "bottom-bar-atlas",
+      "kind": "baked-sprite-atlas",
+      "target": "sharedassets1.assets:4",
+      "texture": "theater_system_footer_main",
+      "manifest": "manifests/bottom-bar.manifest.json",
+      "slot_count": 7
+    },
+    {
+      "name": "runtime-bi",
+      "kind": "encrypted-gtx-textasset",
+      "target": "data.unity3d:646",
+      "textasset": "BI_jp.gtx",
+      "records": 632,
+      "unique_keys": 628,
+      "values_with_kana_after": 0,
+      "values_with_han_after": 586,
+      "source": {
+        "relative_path": "data.unity3d",
+        "sha256": "f84edf03b9ea1df977c0e4c158de043eef0d6e4c948cb7a6071a143437745158",
+        "bytes": 88571345
+      }
+    },
+    {
+      "name": "cjk-font",
+      "kind": "unity-font-object",
+      "target": "data.unity3d:48",
+      "family": "TUDShinGoPr6-Regular",
+      "sha256": "d7aed6d5196472fae27fa09aedb85887ec72d96d4999bf45ddcc5f4b40c2ec5d",
+      "source_asset": "Noto Sans CJK SC"
+    }
+  ]
+}
