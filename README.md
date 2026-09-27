@@ -16,12 +16,14 @@
   （`sharedassets1.assets` path_id 4 / `theater_system_footer_main` 512×512）。
 - `manifests/apk-builtin.manifest.json`：APK 内置面总索引——底栏图集、运行时 BI 文案表
   （`BI_jp.gtx`）与 CJK 字体对象，各带 SHA-256 与来源验证报告。
-- `manifests/asset-version.json`：本仓库跟踪的日版资源版本（`main` 恒为最新）。
+- `manifests/asset-version.json`：**APK 实际构建所用**的客户端 + 资源 cohort
+  （由 APK 构建流水线回写，本仓库不跟随上游资源版本）。
 - `schema/apk-builtin.schema.json`：上述索引的 JSON Schema。
 
 ## 版本分支与标签
 
-`main` 始终跟踪**最新**资源版本；每条已离开主线的资源版本另以两个 ref 冻结：
+`main` 与 `manifests/asset-version.json` 由 APK 构建流水线推进，**不做上游版本跟随**；
+每条用于构建 APK 的 cohort 另以两个 ref 冻结：
 
 - 标签 `assets-<资源版本>`（如 `assets-1077100`）。
 - 分支 `release/<客户端版本>+<资源版本>`（如 `release/9.0.200+1077100`）。
