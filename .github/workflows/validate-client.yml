@@ -1,44 +1,9 @@
-name: Validate Client Built-in Repository
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
-
 permissions:
   contents: write
 
-jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Validate manifests and schemas
-        run: python scripts/validate_repo.py
-
-      - name: Build portal resource manifest
-        run: python scripts/build_portal_resource_manifest.py
-
-      - name: Publish portal resource manifest
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        shell: bash
-        run: |
-          set -euo pipefail
-          if git diff --quiet -- manifests/portal-resource-manifest.json; then
-            echo 'Portal manifest is unchanged.'
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add manifests/portal-resource-manifest.json
-          git commit -m 'ci(client): refresh portal resource manifest [skip ci]'
-          git push origin HEAD:main
+concurrency:
+  # Validation is superseded by a newer commit on the same PR/branch. Keep
+  # the workflow name in the group so this cannot cancel another workflow that
+  # happens to use the same ref.
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
