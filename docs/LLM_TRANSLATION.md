@@ -6,7 +6,9 @@ pool 和术语表。Client 的翻译源是嵌套 JSON，因此
 `zh` 为空的 `ja` 条目，按源文本 SHA-256 调用共享翻译池，再把结果写回原
 JSON。
 
-工作流每天定时运行，也可以手动触发。结果写为 `status=pending` 和
+工作流每天定时运行，也可以手动触发；手动触发时可将 `smoke_test` 设为
+`true`，用一条合成文本验证 Secret 和 provider，而不会修改仓库源文件。正常
+翻译结果写为 `status=pending` 和
 `translation_stage=llm_translated`，随后仍需人工审核。当前仓库的 Client 源
 只有已经填写的底栏条目；运行时不会翻译 APK 中未提交到仓库的二进制
 `data.unity3d` 文本。

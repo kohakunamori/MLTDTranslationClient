@@ -9,6 +9,11 @@ on:
         description: 'Optional queue limit for a smoke run'
         required: false
         default: '0'
+      smoke_test:
+        description: 'Send one synthetic row to verify provider credentials without changing sources'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -52,9 +57,27 @@ jobs:
       - name: Collect untranslated Client rows
         id: collect
         shell: bash
+        env:
+          SMOKE_TEST: ${{ inputs.smoke_test }}
         run: |
           set -euo pipefail
-          python scripts/llm_translate_untranslated.py collect --output .llm-queue.jsonl
+          if [ "$SMOKE_TEST" = true ]; then
+            python - .llm-queue.jsonl <<'PY'
+            import hashlib, json, pathlib, sys
+            source = "プロバイダ疎通テスト"
+            pathlib.Path(sys.argv[1]).write_text(json.dumps({
+                "source": source,
+                "source_sha256": hashlib.sha256(source.encode()).hexdigest(),
+                "bundle": "smoke-test",
+                "key": "smoke-test",
+                "task": "UI",
+                "translation": "",
+                "status": "pending",
+            }, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+            PY
+          else
+            python scripts/llm_translate_untranslated.py collect --output .llm-queue.jsonl
+          fi
           echo "items=$(wc -l < .llm-queue.jsonl)" >> "$GITHUB_OUTPUT"
 
       - name: Materialize provider configuration from secrets
