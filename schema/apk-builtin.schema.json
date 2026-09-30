@@ -1,89 +1,55 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "MLTDAPKBuiltinManifest",
-  "description": "Surfaces baked into the APK's embedded data.unity3d",
+  "$id": "https://mltd.internal/schemas/apk-builtin.schema.json",
+  "title": "MLTD APK built-in localization source manifest",
+  "description": "Client-axis source text/image inputs for CI generation of APK-resident Unity3D data. Assets versions are not part of this contract.",
   "type": "object",
-  "required": [
-    "schema_version",
-    "kind",
-    "provenance",
-    "surfaces"
-  ],
+  "required": ["schema_version", "kind", "provenance", "surfaces"],
+  "additionalProperties": false,
   "properties": {
-    "schema_version": {
-      "type": "integer",
-      "const": 1
-    },
-    "kind": {
-      "type": "string",
-      "const": "mltd-apk-builtin-manifest"
-    },
-    "generated_at": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "storage_architecture": {
-      "type": "object"
-    },
+    "schema_version": {"type": "integer", "const": 2},
+    "kind": {"const": "mltd-apk-builtin-manifest"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "storage_architecture": {"type": "object"},
     "provenance": {
       "type": "object",
+      "required": ["client_version", "axis", "artifact_status", "reviewed"],
+      "additionalProperties": false,
       "properties": {
-        "verification_manifest": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "client_version": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "assets_version": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "artifact_status": {
-          "type": "string"
-        },
-        "reviewed": {
-          "type": "boolean"
-        }
+        "verification_manifest": {"type": ["string", "null"]},
+        "client_version": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+){1,3}$"},
+        "axis": {"const": "client"},
+        "artifact_status": {"type": "string"},
+        "reviewed": {"type": "boolean"}
       }
     },
-    "counts": {
-      "type": "object"
-    },
+    "counts": {"type": "object"},
     "surfaces": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": [
-          "name",
-          "kind",
-          "target"
-        ],
+        "required": ["name", "kind", "target"],
+        "additionalProperties": true,
         "properties": {
-          "name": {
-            "type": "string",
-            "enum": [
-              "bottom-bar-atlas",
-              "runtime-bi",
-              "cjk-font"
-            ]
-          },
-          "kind": {
-            "type": "string"
-          },
-          "target": {
-            "type": "string"
-          }
+          "name": {"type": "string", "enum": ["bottom-bar-atlas", "runtime-bi", "cjk-font"]},
+          "kind": {"type": "string"},
+          "target": {"type": "string"},
+          "translation_source": {"$ref": "#/$defs/source"}
         }
       }
     }
   },
-  "additionalProperties": false
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["relative_path", "sha256", "bytes", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "relative_path": {"type": "string", "pattern": "^(?!/)(?!.*\\.\\.).+"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "kind": {"type": "string", "enum": ["json-source", "image-source"]}
+      }
+    }
+  }
 }
