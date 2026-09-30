@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "kind": "mltd-bottom-bar-manifest",
   "generated_at": "2026-09-27T00:00:00Z",
   "atlas_target": {
@@ -75,7 +75,7 @@
       "build/runs/client/9.0.200/oneplus8t-official-root-install-20260926/device-install-record.json: installed candidate renders these labels under the 剧场时光 application label",
       "user ruling 2026-09-26: application label stays 剧场时光; the bottom bar keeps the existing Chinese wording"
     ],
-    "catalogue": "client/apk-ui-strings-zhcn.json",
+    "catalogue": "localization/9.0.200/apk-ui-strings-zhcn.json",
     "policy": {
       "missing_translation": "keep the original Japanese pixels for that slot, mark it as fallback, and report coverage",
       "baked_pixels_are_not_text_records": "these strings live in a Texture2D atlas, so they cannot ride the BI text / FontRender surfaces"

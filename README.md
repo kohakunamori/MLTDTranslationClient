@@ -1,41 +1,47 @@
-# MLTD 客户端内置汉化资源库 (THE IDOLM@STER MILLION LIVE! THEATER DAYS Client Built-in Localization)
+# MLTDTranslationClient — APK 内置汉化源
 
-本仓库承载**只能随 APK 下发**的汉化面：它们被烘焙进 APK 内的
-`assets/bin/Data/data.unity3d`，assets 服务器（`/cn/<asset>/` overlay）不会也不路由器。
+本仓库只管理 **Client 轴** 的 APK 内置汉化输入。它不管理服务器下发的
+Assets，也不保存 `asset_version`、`base_version` 或任何把 Client 与 Assets
+拼接在一起的复合版本。
 
-文本译文与贴图等经服务器下发的面，由配套仓库
-[MLTDTranslationAssets](https://github.com/kohakunamori/MLTDTranslationAssets) 维护。
+## 仓库边界
 
-> 状态：`manifests/apk-builtin.manifest.json` 的 `provenance.artifact_status`
-> 记录每个被打包面的验收状态（当前为 `unreviewed_candidate`，即未人工审校的候选）。
-> 本仓库只做元数据索引，不携带任何二进制。
+- `localization/<client_version>/`：该 APK 版本的可编辑汉化文字、普通图片和
+  资源元数据；贡献者提交的是源内容，不是 Unity3D 二进制。
+- `manifests/apk-builtin.manifest.json`：Client 版本、输入资源路径、SHA-256
+  和审核状态。`provenance.client_version` 是唯一版本轴。
+- `manifests/bottom-bar.manifest.json`：底栏翻译源与 Unity 目标定位信息。
+- `schema/` 与 `scripts/validate_repo.py`：提交门禁。
 
-## 目录结构
+官方基线 APK、字体、密钥等私有输入不进入此仓库。CI 在私有构建仓库中读取
+本仓库某个明确 commit 的汉化源，然后生成最终 APK 内置 Unity3D 内容；APK
+通过私有构建流水线发布到本仓库的 GitHub Release。生成物与源输入的版本边界
+分别由 `client_version`、`source_commit`、`translation_commit` 和构建报告记录。
 
-- `manifests/bottom-bar.manifest.json`：底栏 7 个标签的日/中对照与图集坐标
-  （`sharedassets1.assets` path_id 4 / `theater_system_footer_main` 512×512）。
-- `manifests/apk-builtin.manifest.json`：APK 内置面总索引——底栏图集、运行时 BI 文案表
-  （`BI_jp.gtx`）与 CJK 字体对象，各带 SHA-256 与来源验证报告。
-- `manifests/asset-version.json`：**APK 实际构建所用**的客户端 + 资源 cohort
-  （由 APK 构建流水线回写，本仓库不跟随上游资源版本）。
-- `schema/apk-builtin.schema.json`：上述索引的 JSON Schema。
+## 版本与复用
 
-## 版本分支与标签
+同一套汉化内容可以被多个 Client 版本复用，但必须在目标版本的 manifest 中
+重新声明并通过 CI 校验。Assets 仓库的复用规则（`exact`、
+`verified-compatible`、`suggested`、`blocked`）不在本仓库复制；APK 构建也
+不会读取 Assets manifest、NAS 或 R2。
 
-`main` 与 `manifests/asset-version.json` 由 APK 构建流水线推进，**不做上游版本跟随**；
-每条用于构建 APK 的 cohort 另以两个 ref 冻结：
+## 协作流程
 
-- 标签 `assets-<资源版本>`（如 `assets-1077100`）。
-- 分支 `release/<客户端版本>+<资源版本>`（如 `release/9.0.200+1077100`）。
+1. 普通用户通过 Portal 登录 GitHub；
+2. Portal 在用户 fork 中创建 branch 并写入 `localization/<client_version>/`；
+3. Portal 向本仓库创建 Pull Request；
+4. GitHub Actions 校验 manifest、资源路径和 hash；
+5. 维护者在 GitHub 审核并合并；
+6. 合并后的 commit 成为私有 APK 构建的唯一 Client 输入。
 
-## 为什么单独成库
+GitHub PR 是审核权威，Portal 只镜像状态和 diff，不在 D1 中复制一份最终审核
+结论。
 
-底栏标签是图集里的**像素**（`Texture2D` atlas），BI 文案是 `data.unity3d` 内的加密
-`TextAsset`，字体是同文件内的 Font 对象——三者都不能通过文本 overlay 替换。它们与文本
-译文的生产方、验收门槛与发布通道完全不同，因此各自独立成库，避免一方的版本冻结或
-CI 规则误伤另一方。
+## 当前状态
 
-## 许可证与致谢
+当前 `9.0.200` 的底栏源已进入 `localization/9.0.200/`，整体 APK 内置汉化
+仍标记为 `unreviewed_candidate`。这意味着它可以参与候选构建，但不能被文档
+或 CI 宣称为已完成的稳定设备验收。
 
-游戏原始文本、角色、图片、字体与音频著作权均归 Bandai Namco Entertainment Inc. 所有。
-汉化成果遵循 [CC-BY-NC-SA 4.0](LICENSE)。
+本仓库不包含可执行 APK；APK 发布由私有仓库负责，发布前必须同时通过其
+arm64 构建、签名、验证和 release gate。

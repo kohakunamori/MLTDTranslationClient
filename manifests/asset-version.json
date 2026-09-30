@@ -1,7 +1,0 @@
-{
-  "client_version": "9.0.200",
-  "asset_version": 1077100,
-  "source": "build/runs/client/9.0.200/apk-bi-font-candidate-verification-20260924/verification-summary.json",
-  "artifact_status": "unreviewed_candidate",
-  "note": "Anchor updated by the APK build pipeline; this repository does not follow upstream releases."
-}
