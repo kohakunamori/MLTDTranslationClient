@@ -42,9 +42,13 @@ GitHub PR 是审核权威，Portal 只镜像状态和 diff，不在 D1 中复制
 `.github/workflows/llm-translate-client.yml` 每日运行，也支持手动触发。它
 复用 Assets 仓库的 provider pool 和术语表，自动处理
 `localization/**/*.json` 中 `zh` 为空的 `ja` 条目；结果写为
-`pending + translation_stage=llm_translated`，仍需人工审核。当前 Client 仓库
-没有未翻译的 JSON 条目，因此手动运行只执行校验，不会调用 provider。APK 中
+`accepted + translation_stage=llm_translated`，翻译结果直接进入构建，不再等待
+人工审核。当前 Client 仓库没有未翻译的 JSON 条目，因此手动运行只执行校验，
+不会调用 provider。APK 中
 未提交到仓库的 `data.unity3d` 二进制文本不在此 CI 的输入范围内。
+
+LLM 提交到 `main` 后，`notify-private-build.yml` 会把同一个 commit SHA 发送给
+私有 APK 构建仓库，自动开始 Client 构建。
 
 ## 当前状态
 

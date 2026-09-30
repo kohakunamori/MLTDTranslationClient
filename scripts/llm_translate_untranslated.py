@@ -106,7 +106,10 @@ def apply(args: argparse.Namespace) -> int:
             if translation is None or not eligible(row):
                 continue
             row["zh"] = translation
-            row["status"] = "pending"
+            # Client policy promotes LLM output directly into the buildable
+            # state.  Keep the provenance marker so downstream tooling can
+            # distinguish it from a human-authored translation.
+            row["status"] = "accepted"
             row["translation_stage"] = "llm_translated"
             row["updated_at"] = timestamp
             changed = True
