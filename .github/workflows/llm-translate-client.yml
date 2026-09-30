@@ -62,19 +62,19 @@ jobs:
         run: |
           set -euo pipefail
           if [ "$SMOKE_TEST" = true ]; then
-            python - .llm-queue.jsonl <<'PY'
-            import hashlib, json, pathlib, sys
-            source = "プロバイダ疎通テスト"
-            pathlib.Path(sys.argv[1]).write_text(json.dumps({
-                "source": source,
-                "source_sha256": hashlib.sha256(source.encode()).hexdigest(),
-                "bundle": "smoke-test",
-                "key": "smoke-test",
-                "task": "UI",
-                "translation": "",
-                "status": "pending",
-            }, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
-            PY
+          python - .llm-queue.jsonl <<'PY'
+          import hashlib, json, pathlib, sys
+          source = "プロバイダ疎通テスト"
+          pathlib.Path(sys.argv[1]).write_text(json.dumps({
+              "source": source,
+              "source_sha256": hashlib.sha256(source.encode()).hexdigest(),
+              "bundle": "smoke-test",
+              "key": "smoke-test",
+              "task": "UI",
+              "translation": "",
+              "status": "pending",
+          }, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+          PY
           else
             python scripts/llm_translate_untranslated.py collect --output .llm-queue.jsonl
           fi
