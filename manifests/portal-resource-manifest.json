@@ -1,0 +1,69 @@
+{
+  "categories": [
+    {
+      "accepted": 7,
+      "bundles": {
+        "bottom-bar.manifest.json": {
+          "pending": 0,
+          "total": 7,
+          "translated": 7,
+          "untranslated": 0
+        }
+      },
+      "description": "Client 仓库可直接编辑的内置界面文字资源",
+      "domain": "system",
+      "entry": "client",
+      "icon": "📱",
+      "id": "system_ui",
+      "name": "APK 底栏与系统界面",
+      "pending": 0,
+      "progress_percent": 100.0,
+      "total": 7,
+      "unit": "槽",
+      "untranslated": 0
+    }
+  ],
+  "domains": [
+    {
+      "accepted": 7,
+      "categories": [
+        "system_ui"
+      ],
+      "icon": "⚙️",
+      "id": "system",
+      "name": "系统界面",
+      "progress_percent": 100.0,
+      "total": 7
+    }
+  ],
+  "generated_at": "2026-09-27T00:00:00Z",
+  "kind": "client",
+  "release": {
+    "abi": "arm64-v8a",
+    "client_resources_commit": "dbfaa1db0bdfebc7e55a48fb04b836b9b5a169ed",
+    "client_version": "9.0.200",
+    "manifest_sha256": "56df8519ef7b80e66fb68a4bd353f49bfb8a075b31df66b333ef0f8e8ebd76ae",
+    "release_id": "client-9.0.200-arm64",
+    "status": "candidate",
+    "updated_at": "2026-09-27T00:00:00Z"
+  },
+  "schema": "mltd.portal.resource-manifest/v1",
+  "source": {
+    "bottom_bar_manifest_sha256": "c7fba28e2f9c74e44acf55af0832e4d9f46a734088d30e90a0ea590c3b2e6b3c",
+    "builtin_manifest_sha256": "56df8519ef7b80e66fb68a4bd353f49bfb8a075b31df66b333ef0f8e8ebd76ae",
+    "commit": "dbfaa1db0bdfebc7e55a48fb04b836b9b5a169ed",
+    "repository": "kohakunamori/MLTDTranslationClient",
+    "summary": "github-client-repository",
+    "surface_count": 3
+  },
+  "summary_ready": true,
+  "totals": {
+    "blocked": 0,
+    "pending": 0,
+    "reused": 0,
+    "suggested": 0,
+    "total": 7,
+    "translated": 7,
+    "untranslated": 0
+  }
+}
