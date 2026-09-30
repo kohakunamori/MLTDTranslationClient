@@ -9,14 +9,15 @@ Checks:
 3. Every declared client translation source exists and matches its hash/size.
 4. The client manifest contains no Assets-axis version field.
 5. schema/apk-builtin.schema.json is valid JSON.
-
-Nothing here reads a binary: the repository is metadata-only by design.
+6. Optional bottom-bar visual sources are real PNGs with the declared geometry,
+   hash, and byte count.
 """
 from __future__ import annotations
 
 import json
 import hashlib
 import sys
+import struct
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,6 +38,13 @@ def load(path: Path, label: str) -> dict:
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def png_size(path: Path) -> tuple[int, int]:
+    raw = path.read_bytes()
+    if len(raw) < 24 or raw[:8] != b"\x89PNG\r\n\x1a\n" or raw[12:16] != b"IHDR":
+        raise ValueError("not a PNG with an IHDR header")
+    return struct.unpack(">II", raw[16:24])
 
 
 def reject_assets_axis(node: object, path: str = "<root>") -> None:
@@ -70,6 +78,42 @@ def validate_bottom_bar(root: Path) -> dict[str, int]:
     if atlas.get("slot_count") != len(slots):
         print("ERROR: atlas_target.slot_count disagrees with slots", file=sys.stderr)
         sys.exit(1)
+    visuals = doc.get("visual_assets")
+    if visuals is not None:
+        canvas = visuals.get("canvas_size")
+        segments = visuals.get("segment_x")
+        if (not isinstance(canvas, list) or len(canvas) != 2
+                or any(isinstance(part, bool) or int(part) <= 0 for part in canvas)):
+            print("ERROR: bottom-bar visual_assets.canvas_size is invalid", file=sys.stderr)
+            sys.exit(1)
+        if (not isinstance(segments, list) or len(segments) != len(slots) + 1
+                or [int(part) for part in segments] != sorted(set(int(part) for part in segments))
+                or int(segments[0]) != 0 or int(segments[-1]) != int(canvas[0])):
+            print("ERROR: bottom-bar visual_assets.segment_x is invalid", file=sys.stderr)
+            sys.exit(1)
+        for state in ("off", "on"):
+            source = visuals.get(state)
+            if not isinstance(source, dict):
+                print(f"ERROR: bottom-bar visual_assets.{state} is missing", file=sys.stderr)
+                sys.exit(1)
+            relative = source.get("path")
+            path = root / str(relative or "")
+            if (not isinstance(relative, str) or not relative
+                    or Path(relative).is_absolute() or ".." in Path(relative).parts
+                    or not path.is_file()):
+                print(f"ERROR: missing bottom-bar visual source {relative}", file=sys.stderr)
+                sys.exit(1)
+            if source.get("sha256") != sha256(path) or source.get("bytes") != path.stat().st_size:
+                print(f"ERROR: bottom-bar visual source hash/size mismatch for {relative}", file=sys.stderr)
+                sys.exit(1)
+            try:
+                size = list(png_size(path))
+            except Exception as exc:
+                print(f"ERROR: bottom-bar visual source is not readable: {relative}: {exc}", file=sys.stderr)
+                sys.exit(1)
+            if size != [int(canvas[0]), int(canvas[1])] or source.get("size") != size:
+                print(f"ERROR: bottom-bar visual source dimensions mismatch for {relative}", file=sys.stderr)
+                sys.exit(1)
     return {"slots": len(slots)}
 
 
@@ -130,6 +174,19 @@ def validate_builtin(root: Path) -> dict[str, int]:
         if source.get("bytes") != path.stat().st_size:
             print(f"ERROR: translation source size mismatch for {relative}", file=sys.stderr)
             sys.exit(1)
+        for visual in surface.get("visual_sources", []) or []:
+            relative = visual.get("relative_path") if isinstance(visual, dict) else None
+            if (not isinstance(relative, str) or not relative or relative.startswith("/")
+                    or ".." in Path(relative).parts):
+                print(f"ERROR: invalid visual source path on {surface.get('name')!r}", file=sys.stderr)
+                sys.exit(1)
+            path = root / relative
+            if not path.is_file():
+                print(f"ERROR: missing visual source {relative}", file=sys.stderr)
+                sys.exit(1)
+            if visual.get("sha256") != sha256(path) or visual.get("bytes") != path.stat().st_size:
+                print(f"ERROR: visual source hash/size mismatch for {relative}", file=sys.stderr)
+                sys.exit(1)
     return {"surfaces": len(surfaces), "client_version": client_version}
 
 

@@ -10,7 +10,10 @@ Assets，也不保存 `asset_version`、`base_version` 或任何把 Client 与 A
   资源元数据；贡献者提交的是源内容，不是 Unity3D 二进制。
 - `manifests/apk-builtin.manifest.json`：Client 版本、输入资源路径、SHA-256
   和审核状态。`provenance.client_version` 是唯一版本轴。
-- `manifests/bottom-bar.manifest.json`：底栏翻译源与 Unity 目标定位信息。
+- `manifests/bottom-bar.manifest.json`：底栏翻译源、Unity 目标定位信息，以及
+  `localization/9.0.200/visuals/` 中按原始 2838×228 条带保存的 OFF/ON 图像源。
+  这两份图像源优先于字体重绘，避免生成器改变底栏长宽比或在不同颜色状态下
+  引入不连续的底色。
 - `schema/` 与 `scripts/validate_repo.py`：提交门禁。
 
 官方基线 APK、字体、密钥等私有输入不进入此仓库。CI 在私有构建仓库中读取

@@ -80,5 +80,40 @@
       "missing_translation": "keep the original Japanese pixels for that slot, mark it as fallback, and report coverage",
       "baked_pixels_are_not_text_records": "these strings live in a Texture2D atlas, so they cannot ride the BI text / FontRender surfaces"
     }
+  },
+  "visual_assets": {
+    "canvas_size": [
+      2838,
+      228
+    ],
+    "segment_x": [
+      0,
+      410,
+      813,
+      1218,
+      1617,
+      2024,
+      2434,
+      2838
+    ],
+    "source_kind": "ai_generated_normalized_strip",
+    "off": {
+      "path": "localization/9.0.200/visuals/bottom-bar-off-v4.png",
+      "sha256": "09628308994bdb0202f1a813cbec178657e54eb245530fb24ccd268b37fe87aa",
+      "bytes": 463940,
+      "size": [
+        2838,
+        228
+      ]
+    },
+    "on": {
+      "path": "localization/9.0.200/visuals/bottom-bar-on-v2.png",
+      "sha256": "99e2f9d69b5bc190e158ee5ec6a28ef6b7a41104c73af65af053f36847362c4d",
+      "bytes": 604092,
+      "size": [
+        2838,
+        228
+      ]
+    }
   }
 }
