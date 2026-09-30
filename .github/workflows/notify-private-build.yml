@@ -1,0 +1,23 @@
+name: Notify private APK build
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger the private build for this exact commit
+        env:
+          GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
+          TARGET_REPOSITORY: kohakunamori/MLTDModifiedAPK
+        run: |
+          gh api --method POST "repos/$TARGET_REPOSITORY/dispatches" \
+            -f event_type=client-resources-updated \
+            -f client_payload[client_repository]="${{ github.repository }}" \
+            -f client_payload[client_branch]="${{ github.ref_name }}" \
+            -f client_payload[client_commit]="${{ github.sha }}"
