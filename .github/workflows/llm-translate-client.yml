@@ -1,0 +1,132 @@
+name: Auto-apply LLM translations (Client)
+
+on:
+  schedule:
+    - cron: '27 2 * * *'
+  workflow_dispatch:
+    inputs:
+      max_items:
+        description: 'Optional queue limit for a smoke run'
+        required: false
+        default: '0'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: client-llm-translation
+  cancel-in-progress: false
+
+env:
+  PYTHONUNBUFFERED: '1'
+  PYTHONPATH: ${{ github.workspace }}/.translation-engine
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Client sources
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Reuse the reviewed Assets provider pool and prompt compiler.  The
+      # Client adapter below converts its nested JSON into the pool's JSONL
+      # queue and applies results back by source hash.
+      - name: Checkout translation engine
+        uses: actions/checkout@v4
+        with:
+          repository: kohakunamori/MLTDTranslationAssets
+          ref: main
+          path: .translation-engine
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install translation dependencies
+        run: python -m pip install --disable-pip-version-check httpx msgpack UnityPy Pillow pycryptodome
+
+      - name: Materialize provider configuration from secrets
+        shell: bash
+        env:
+          MLTD_LLM_API_KEY: ${{ secrets.MLTD_LLM_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$MLTD_LLM_API_KEY"
+          cfg_dir="$RUNNER_TEMP/mltd-llm"
+          install -d -m 700 "$cfg_dir"
+          cp .translation-engine/configs/api-models.example.json "$cfg_dir/api-models.local.json"
+          cp .translation-engine/configs/api-models.presets.example.json "$cfg_dir/api-models.presets.json"
+          python - "$cfg_dir/api-runtime.local.json" "$MLTD_LLM_API_KEY" <<'PY'
+          import json, pathlib, sys
+          pathlib.Path(sys.argv[1]).write_text(json.dumps({
+              "schema_version": 3,
+              "environment": {"api_key": {"MLTD_API_KEY": sys.argv[2]}},
+          }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          PY
+          chmod 600 "$cfg_dir"/*
+          echo "MLTD_LLM_CONFIG_PATH=$cfg_dir/api-models.local.json" >> "$GITHUB_ENV"
+          echo "LLM_CONFIG_PATH=$cfg_dir/api-models.local.json" >> "$GITHUB_ENV"
+
+      - name: Collect untranslated Client rows
+        run: python scripts/llm_translate_untranslated.py collect --output .llm-queue.jsonl
+
+      - name: Prepare project prompt inputs
+        run: printf '%s\n' '{"schema_version":1,"speakers":{}}' > .llm-character-evidence.json
+
+      - name: Translate with the shared provider pool
+        shell: bash
+        run: |
+          set -euo pipefail
+          count=$(wc -l < .llm-queue.jsonl)
+          if [ "$count" -eq 0 ]; then echo 'No untranslated rows.'; exit 0; fi
+          args=(
+            --input .llm-queue.jsonl
+            --output .llm-draft.jsonl
+            --failed-output .llm-failed.jsonl
+            --summary .llm-summary.json
+            --config "$MLTD_LLM_CONFIG_PATH"
+            --no-default-resume
+            --batch-mode single
+            --glossary .translation-engine/glossary/authoritative-terms.json
+            --authoritative-terms .translation-engine/glossary/authoritative-terms.json
+            --character-evidence .llm-character-evidence.json
+            --prompt-source compiled
+            --system-prompt .llm-system-prompt.md
+            --prompt-manifest .translation-engine/pipelines/text/configs/mltd-zhcn-system.manifest.json
+          )
+          limit='${{ inputs.max_items }}'
+          if [ -n "$limit" ] && [ "$limit" != 0 ]; then args+=(--max-items "$limit"); fi
+          python .translation-engine/pipelines/text/translate_mltd_api_pool.py "${args[@]}"
+
+      - name: Apply and validate LLM translations
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f .llm-draft.jsonl ]; then
+            echo 'No draft output.'
+            python scripts/validate_repo.py
+            exit 0
+          fi
+          python scripts/llm_translate_untranslated.py apply --draft .llm-draft.jsonl
+          python scripts/validate_repo.py
+
+      - name: Commit LLM translations to main
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- localization manifests)" ]; then echo 'No changes to publish.'; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add localization manifests
+          git commit -m 'ci(client): apply LLM translations'
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then exit 0; fi
+            if [ "$attempt" -eq 3 ]; then exit 1; fi
+            git fetch origin main
+            git rebase origin/main
+            python scripts/validate_repo.py
+          done
