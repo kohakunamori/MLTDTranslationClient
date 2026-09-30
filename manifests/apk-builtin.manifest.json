@@ -28,8 +28,8 @@
       "slot_count": 7,
       "translation_source": {
         "relative_path": "localization/9.0.200/apk-ui-strings-zhcn.json",
-        "sha256": "8d97fb3f3803c926e370f0948c206750da4f4da3d846f14529150df0d46774c6",
-        "bytes": 3608,
+        "sha256": "0dd9921706d9f0cd0a653acacec8f73897536d0f0616f142374a617b04f9c9e4",
+        "bytes": 3494,
         "kind": "json-source"
       },
       "visual_sources": [

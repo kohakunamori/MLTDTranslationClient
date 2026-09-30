@@ -36,8 +36,16 @@ def load(path: Path, label: str) -> dict:
         sys.exit(1)
 
 
+def canonical_bytes(path: Path) -> bytes:
+    """Hash text sources as Git stores them, regardless of local checkout EOLs."""
+    data = path.read_bytes()
+    if path.suffix.lower() in {".json", ".md", ".py", ".txt"}:
+        return data.replace(b"\r\n", b"\n")
+    return data
+
+
 def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    return hashlib.sha256(canonical_bytes(path)).hexdigest()
 
 
 def png_size(path: Path) -> tuple[int, int]:
@@ -171,7 +179,7 @@ def validate_builtin(root: Path) -> dict[str, int]:
         if source.get("sha256") != sha256(path):
             print(f"ERROR: translation source hash mismatch for {relative}", file=sys.stderr)
             sys.exit(1)
-        if source.get("bytes") != path.stat().st_size:
+        if source.get("bytes") != len(canonical_bytes(path)):
             print(f"ERROR: translation source size mismatch for {relative}", file=sys.stderr)
             sys.exit(1)
         for visual in surface.get("visual_sources", []) or []:
