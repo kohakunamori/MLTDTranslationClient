@@ -3,13 +3,36 @@ name: Validate Client Built-in Repository
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'localization/**'
+      - 'manifests/**'
+      - 'schema/**'
+      - 'scripts/**'
+      - '.github/workflows/validate-client.yml'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'localization/**'
+      - 'manifests/**'
+      - 'schema/**'
+      - 'scripts/**'
+      - '.github/workflows/validate-client.yml'
   workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  # Validation is superseded by a newer commit on the same PR/branch. Keep
+  # the workflow name in the group so this cannot cancel another workflow that
+  # happens to use the same ref.
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
