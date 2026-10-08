@@ -40,7 +40,7 @@
   "kind": "client",
   "release": {
     "abi": "arm64-v8a",
-    "client_resources_commit": "7fdda18f95b9ea821e5f96f772a2d9eedad32a1f",
+    "client_resources_commit": "f1682facc6c592f7cb53130a1c4d4448bbb3ece5",
     "client_version": "9.0.200",
     "manifest_sha256": "02a320379cab94a3f08e1f66e8c9b81ee996046db0f473d6be62cf008be1e4e2",
     "release_id": "client-9.0.200-arm64",
@@ -51,7 +51,7 @@
   "source": {
     "bottom_bar_manifest_sha256": "a772277f39b0e5d9250225ec2f90096e612e59b7723edd189c34d15da3df6f0a",
     "builtin_manifest_sha256": "02a320379cab94a3f08e1f66e8c9b81ee996046db0f473d6be62cf008be1e4e2",
-    "commit": "7fdda18f95b9ea821e5f96f772a2d9eedad32a1f",
+    "commit": "f1682facc6c592f7cb53130a1c4d4448bbb3ece5",
     "repository": "kohakunamori/MLTDTranslationClient",
     "summary": "github-client-repository",
     "surface_count": 3
