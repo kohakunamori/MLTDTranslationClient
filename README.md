@@ -7,7 +7,7 @@ Assets，也不保存 `asset_version`、`base_version` 或任何把 Client 与 A
 ## 仓库边界
 
 - `localization/<client_version>/`：该 APK 版本的可编辑汉化文字、普通图片和
-  资源元数据；贡献者提交的是源内容，不是 Unity3D 二进制。
+  资源元数据；提交的是源内容，不是 Unity3D 二进制。
 - `manifests/apk-builtin.manifest.json`：Client 版本、输入资源路径、SHA-256
   和审核状态。`provenance.client_version` 是唯一版本轴。
 - `manifests/bottom-bar.manifest.json`：底栏翻译源、Unity 目标定位信息，以及
@@ -30,17 +30,20 @@ Assets，也不保存 `asset_version`、`base_version` 或任何把 Client 与 A
 `verified-compatible`、`suggested`、`blocked`）不在本仓库复制；APK 构建也
 不会读取 Assets manifest、NAS 或 R2。
 
-## 协作流程
+## 变更流程
 
-1. 普通用户通过 Portal 登录 GitHub；
-2. Portal 在用户 fork 中创建 branch 并写入 `localization/<client_version>/`；
-3. Portal 向本仓库创建 Pull Request；
-4. GitHub Actions 校验 manifest、资源路径和 hash；
-5. 维护者在 GitHub 审核并合并；
-6. 合并后的 commit 成为私有 APK 构建的唯一 Client 输入。
+本仓库**不接受外部贡献**，只有维护者直接提交，没有 fork、Portal 提交和
+Pull Request 环节：
 
-GitHub PR 是审核权威，Portal 只镜像状态和 diff，不在 D1 中复制一份最终审核
-结论。
+1. 维护者在本地修改 `localization/<client_version>/`、`manifests/` 或
+   `schema/`；
+2. push 到 `main` 触发 `.github/workflows/validate-client.yml`：校验 manifest、
+   资源路径和 hash，并允许 `scripts/build_portal_resource_manifest.py` 刷新
+   `manifests/portal-resource-manifest.json`；
+3. push 到 `main` 的 commit 就是私有 APK 构建的唯一 Client 输入。
+
+维护者直推 `main`，因此没有「合并前审核」这道关卡：`scripts/validate_repo.py`
+必须在本地跑过，`main` 上的每个 commit 都是可直接构建的输入。
 
 ## LLM 翻译 CI
 
