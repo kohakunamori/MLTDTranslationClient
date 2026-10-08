@@ -76,36 +76,36 @@
       ],
       "visual_assets": {
         "canvas_size": [
-          2838,
-          228
+          946,
+          76
         ],
         "segment_x": [
           0,
-          410,
-          813,
-          1218,
-          1617,
-          2024,
-          2434,
-          2838
+          138,
+          272,
+          406,
+          540,
+          674,
+          808,
+          946
         ],
-        "source_kind": "ai_generated_normalized_strip",
+        "source_kind": "ai_generated_native_strip",
         "off": {
-          "path": "visuals/9.0.200/bottom-bar-off-v4.png",
-          "sha256": "09628308994bdb0202f1a813cbec178657e54eb245530fb24ccd268b37fe87aa",
-          "bytes": 463940,
+          "path": "visuals/bottom-bar-off-v5.png",
+          "sha256": "d3c1bbffc483437a72135f040406c074479fdd836a58c101e2646f1fc4306289",
+          "bytes": 87107,
           "size": [
-            2838,
-            228
+            946,
+            76
           ]
         },
         "on": {
-          "path": "visuals/9.0.200/bottom-bar-on-v2.png",
-          "sha256": "99e2f9d69b5bc190e158ee5ec6a28ef6b7a41104c73af65af053f36847362c4d",
-          "bytes": 604092,
+          "path": "visuals/bottom-bar-on-v3.png",
+          "sha256": "87fc1686f6ca4d9317169c88e854cf5991f564ccb24abe4dd2cec247240585e6",
+          "bytes": 113516,
           "size": [
-            2838,
-            228
+            946,
+            76
           ]
         }
       }

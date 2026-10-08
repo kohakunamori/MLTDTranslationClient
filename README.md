@@ -11,7 +11,9 @@ Assets，也不保存 `asset_version`、`base_version` 或任何把 Client 与 A
 - `manifests/apk-builtin.manifest.json`：Client 版本、输入资源路径、SHA-256
   和审核状态。`provenance.client_version` 是唯一版本轴。
 - `manifests/bottom-bar.manifest.json`：底栏翻译源、Unity 目标定位信息，以及
-  `localization/9.0.200/visuals/` 中按原始 2838×228 条带保存的 OFF/ON 图像源。
+  `localization/9.0.200/visuals/` 中按**原生 946×76** 条带保存的 OFF/ON 图像源
+  （`segment_x = [0,138,272,406,540,674,808,946]`，槽宽 138/134，7 槽共 946）。
+  原生尺寸让生成器每槽的 `crop → resize(rect)` 退化为恒等操作，像素零重采样。
   这两份图像源优先于字体重绘，避免生成器改变底栏长宽比或在不同颜色状态下
   引入不连续的底色。
 - `schema/` 与 `scripts/validate_repo.py`：提交门禁。

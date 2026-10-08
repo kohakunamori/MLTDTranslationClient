@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "kind": "mltd-bottom-bar-manifest",
-  "generated_at": "2026-09-27T00:00:00Z",
+  "generated_at": "2026-10-08T00:00:00Z",
   "atlas_target": {
     "serialized_file": "sharedassets1.assets",
     "path_id": 4,
@@ -59,21 +59,12 @@
       "provenance": "project_decision"
     }
   ],
-  "previews": {
-    "montage_off": {
-      "sha256": "49d7721967789b9020802c22713dc3e8ecf5307504176bb6cfccfb1623c03a5e",
-      "bytes": 97119
-    },
-    "montage_on": {
-      "sha256": "c371d85cc33b0f5419daf020f5e2364bac525fd04686e64020e66f825d4ce87e",
-      "bytes": 112776
-    }
-  },
   "provenance": {
     "evidence": [
       "work/agents/client/bottom-nav-text-fix-20260924/HANDOFF.md: Japanese originals read from the OnePlus 8T smoke capture and confirmed as baked atlas pixels by a UnityPy object audit",
       "build/runs/client/9.0.200/oneplus8t-official-root-install-20260926/device-install-record.json: installed candidate renders these labels under the 剧场时光 application label",
-      "user ruling 2026-09-26: application label stays 剧场时光; the bottom bar keeps the existing Chinese wording"
+      "user ruling 2026-09-26: application label stays 剧场时光; the bottom bar keeps the existing Chinese wording",
+      "work/agents/client/footer-model-roundtrip-20261008: the OFF/ON strips were re-authored at the native 946x76 canvas (segment_x [0,138,272,406,540,674,808,946], 138/134 px slots, 76 px tall), so the generator's per-slot crop(resize) is an identity and no resampling touches the pixels"
     ],
     "catalogue": "localization/9.0.200/apk-ui-strings-zhcn.json",
     "policy": {
@@ -83,36 +74,36 @@
   },
   "visual_assets": {
     "canvas_size": [
-      2838,
-      228
+      946,
+      76
     ],
     "segment_x": [
       0,
-      410,
-      813,
-      1218,
-      1617,
-      2024,
-      2434,
-      2838
+      138,
+      272,
+      406,
+      540,
+      674,
+      808,
+      946
     ],
-    "source_kind": "ai_generated_normalized_strip",
+    "source_kind": "ai_generated_native_strip",
     "off": {
-      "path": "localization/9.0.200/visuals/bottom-bar-off-v4.png",
-      "sha256": "09628308994bdb0202f1a813cbec178657e54eb245530fb24ccd268b37fe87aa",
-      "bytes": 463940,
+      "path": "localization/9.0.200/visuals/bottom-bar-off-v5.png",
+      "sha256": "d3c1bbffc483437a72135f040406c074479fdd836a58c101e2646f1fc4306289",
+      "bytes": 87107,
       "size": [
-        2838,
-        228
+        946,
+        76
       ]
     },
     "on": {
-      "path": "localization/9.0.200/visuals/bottom-bar-on-v2.png",
-      "sha256": "99e2f9d69b5bc190e158ee5ec6a28ef6b7a41104c73af65af053f36847362c4d",
-      "bytes": 604092,
+      "path": "localization/9.0.200/visuals/bottom-bar-on-v3.png",
+      "sha256": "87fc1686f6ca4d9317169c88e854cf5991f564ccb24abe4dd2cec247240585e6",
+      "bytes": 113516,
       "size": [
-        2838,
-        228
+        946,
+        76
       ]
     }
   }

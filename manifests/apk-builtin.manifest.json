@@ -28,31 +28,31 @@
       "slot_count": 7,
       "translation_source": {
         "relative_path": "localization/9.0.200/apk-ui-strings-zhcn.json",
-        "sha256": "0dd9921706d9f0cd0a653acacec8f73897536d0f0616f142374a617b04f9c9e4",
-        "bytes": 3494,
+        "sha256": "182cb5aa7ef06156ea3ebc425f8aeb8b0ef946453aa97c5c507e938f2fb41f5c",
+        "bytes": 3462,
         "kind": "json-source"
       },
       "visual_sources": [
         {
-          "relative_path": "localization/9.0.200/visuals/bottom-bar-off-v4.png",
-          "sha256": "09628308994bdb0202f1a813cbec178657e54eb245530fb24ccd268b37fe87aa",
-          "bytes": 463940,
+          "relative_path": "localization/9.0.200/visuals/bottom-bar-off-v5.png",
+          "sha256": "d3c1bbffc483437a72135f040406c074479fdd836a58c101e2646f1fc4306289",
+          "bytes": 87107,
           "kind": "image-source",
           "state": "off",
           "size": [
-            2838,
-            228
+            946,
+            76
           ]
         },
         {
-          "relative_path": "localization/9.0.200/visuals/bottom-bar-on-v2.png",
-          "sha256": "99e2f9d69b5bc190e158ee5ec6a28ef6b7a41104c73af65af053f36847362c4d",
-          "bytes": 604092,
+          "relative_path": "localization/9.0.200/visuals/bottom-bar-on-v3.png",
+          "sha256": "87fc1686f6ca4d9317169c88e854cf5991f564ccb24abe4dd2cec247240585e6",
+          "bytes": 113516,
           "kind": "image-source",
           "state": "on",
           "size": [
-            2838,
-            228
+            946,
+            76
           ]
         }
       ]
