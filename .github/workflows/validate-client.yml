@@ -9,7 +9,8 @@ on:
       - 'schema/**'
       - 'scripts/**'
       - 'tests/**'
-      - '.github/workflows/validate-client.yml'
+      - '.github/workflows/**'
+      - 'requirements*.txt'
   workflow_dispatch:
 
 permissions:

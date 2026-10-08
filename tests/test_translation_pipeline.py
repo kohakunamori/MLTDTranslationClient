@@ -58,6 +58,20 @@ class TranslationPipelineTests(unittest.TestCase):
             with self.subTest(translation=translation), self.assertRaises(ValueError):
                 llm.validate_translation('続ける {0}', translation)
 
+    def test_collect_reuses_unambiguous_accepted_sources_without_provider_calls(self):
+        for choices, expected in ((['继续 {0}'], 0), (['继续 {0}', '接着 {0}'], 1)):
+            with self.subTest(choices=choices), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                rows = [{'ja': '続ける {0}', 'zh': zh, 'status': 'accepted'} for zh in choices]
+                rows.append({'ja': '続ける {0}', 'zh': '', 'status': 'untranslated'})
+                source = self.fixture(root, rows)
+                with patch.object(llm, 'ROOT', root):
+                    queue = root / 'queue.jsonl'
+                    llm.collect(argparse.Namespace(output=queue))
+                self.assertEqual(len(queue.read_text(encoding='utf-8').splitlines()), expected)
+                last = json.loads(source.read_text(encoding='utf-8'))['rows'][-1]
+                self.assertEqual(last['zh'], choices[0] if not expected else '')
+
     def test_dispatch_waits_for_complete_translation_and_preserves_commit(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

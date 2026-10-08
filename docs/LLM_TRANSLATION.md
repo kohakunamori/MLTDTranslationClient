@@ -31,8 +31,9 @@ LLM 队列按原文 SHA-256 去重，回写时更新所有对应空项。占位�
 
 工作流用本仓库的 `GITHUB_TOKEN` 提交源内容。由于该 token 的 push 不会触发
 另一个 push 工作流，翻译工作流成功提交后显式发送 `client-resources-updated`，
-载荷包含 Client commit、版本及官方 base/split SHA-256。通知失败时重新运行
-即使没有源文件变化也会重发，Private Build 的现有 poller 负责重复构建去重。
+载荷包含 Client commit、版本及官方 base/split SHA-256。仅资源变化时自动通知，
+没有变化不启动重复构建工作流；通知失败由 Private Build 每日安全检查恢复，
+也可手动设置 `retry_build=true` 重发。Private Build 的 poller 仍负责构建去重。
 参见 [GitHub token 的触发规则](https://docs.github.com/en/actions/concepts/security/github_token)。
 
 Private Build 保持自己的签名与输入包 secrets，并用其已有 Client Release App
@@ -54,3 +55,18 @@ Private Build 保持自己的签名与输入包 secrets，并用其已有 Client
 自动提取范围是 runtime BI。底栏沿用已入库图像源并检查目标图集和 Sprite，
 任意新增图片文字不自动 OCR/重绘，服务器下发 Assets 仍走独立仓库。
 “最新”仅指 Hotplay 当前返回版本，没有独立核对 Google Play。
+
+## 配额节约
+
+- 每天先查询 catalogue，比较版本、版本号、base/split 的 MD5 和大小；这些信息、
+  提取工具及原生目标均未变时，复用上次已验证的源目录，跳过游戏 APK 下载和 Unity 提取。
+  同版本重新打包、目标适配变更、源目录缺失都会重新提取。首次迁移也会完整获取一次。
+- 缓存经过固定 SHA-256 校验的 GamesToday 协议客户端，以及 pip 下载；不缓存官方游戏
+  APK、私有工具源码、签名材料或 LLM 密钥。缓存缺失时自动重新获取。
+- 相同日文已有唯一有效译文时直接复用；有冲突时保留待译。空队列跳过翻译引擎 checkout、
+  provider 依赖、LLM 请求和翻译诊断上传，避免用旧结果覆盖人工修改。
+- Private Build 的轮询只在 Linux 安装 `jsonschema`，并为定时检查复用精确 commit 的
+  Client 输入缓存。缓存只含不可变源文件及 lock，排除可变的 poll state、plan 和 fingerprint。
+  完整构建仍在 Windows；相同提交与构建输入已有成功结果时跳过构建。
+- 无变化默认也跳过手动重复通知；需要恢复通知时勾选 `retry_build`。该选项仍不会绕过
+  Private Build 的去重、失败退避或发布校验。

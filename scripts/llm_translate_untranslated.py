@@ -70,6 +70,28 @@ def eligible(row: dict[str, Any]) -> bool:
 
 
 def collect(args: argparse.Namespace) -> int:
+    # Resolve identical Japanese sources locally before spending provider tokens.
+    candidates: dict[str, set[str]] = {}
+    documents = [(path, json.loads(path.read_text(encoding='utf-8'))) for path in source_files()]
+    for _, document in documents:
+        for _, row in records(document):
+            if row['zh'] and row.get('status') in (None, 'accepted'):
+                validate_translation(row['ja'], row['zh'])
+                candidates.setdefault(row['ja'], set()).add(row['zh'])
+    reused = 0
+    for path, document in documents:
+        changed = False
+        for _, row in records(document):
+            choices = candidates.get(row['ja'], set())
+            if eligible(row) and len(choices) == 1:
+                row.update(zh=next(iter(choices)), status='accepted', translation_stage='reused_exact_source')
+                changed = True
+                reused += 1
+        if changed:
+            path.write_text(json.dumps(document, ensure_ascii=False, indent=2) + '\n',
+                            encoding='utf-8', newline='\n')
+    if reused:
+        refresh_source_hashes()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     seen: set[str] = set()
     count = 0
@@ -94,7 +116,7 @@ def collect(args: argparse.Namespace) -> int:
                     "status": "pending",
                 }, ensure_ascii=False, separators=(",", ":")) + "\n")
                 count += 1
-    print(json.dumps({"queue": str(args.output), "items": count}, ensure_ascii=False))
+    print(json.dumps({"queue": str(args.output), "items": count, "reused": reused}, ensure_ascii=False))
     return 0
 
 
