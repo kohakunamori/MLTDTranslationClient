@@ -9,22 +9,15 @@ on:
       - 'schema/**'
       - 'scripts/**'
       - '.github/workflows/validate-client.yml'
-  pull_request:
-    branches: [ main ]
-    paths:
-      - 'localization/**'
-      - 'manifests/**'
-      - 'schema/**'
-      - 'scripts/**'
-      - '.github/workflows/validate-client.yml'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  # A newer commit on the same PR/branch supersedes this validation run.
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  # A newer commit on the branch supersedes this validation run. External pull
+  # requests are no longer accepted, so the maintainer's push is the only entry point.
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
