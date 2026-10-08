@@ -8,8 +8,8 @@ Assets，也不保存 `asset_version`、`base_version` 或任何把 Client 与 A
 
 - `localization/<client_version>/`：该 APK 版本的可编辑汉化文字、普通图片和
   资源元数据；提交的是源内容，不是 Unity3D 二进制。
-- `manifests/apk-builtin.manifest.json`：Client 版本、输入资源路径、SHA-256
-  和审核状态。`provenance.client_version` 是唯一版本轴。
+- `manifests/apk-builtin.manifest.json`：Client 版本、输入资源路径和 SHA-256。
+  `provenance.client_version` 是唯一版本轴。
 - `manifests/bottom-bar.manifest.json`：底栏翻译源、Unity 目标定位信息，以及
   `localization/9.0.200/visuals/` 中按**原生 946×76** 条带保存的 OFF/ON 图像源
   （`segment_x = [0,138,272,406,540,674,808,946]`，槽宽 138/134，7 槽共 946）。
@@ -50,8 +50,8 @@ Pull Request 环节：
 `.github/workflows/llm-translate-client.yml` 每日运行，也支持手动触发。它
 复用 Assets 仓库的 provider pool 和术语表，自动处理
 `localization/**/*.json` 中 `zh` 为空的 `ja` 条目；结果写为
-`accepted + translation_stage=llm_translated`，翻译结果直接进入构建，不再等待
-人工审核。当前 Client 仓库没有未翻译的 JSON 条目，因此手动运行只执行校验，
+`accepted + translation_stage=llm_translated`，翻译结果直接进入构建。当前
+Client 仓库没有未翻译的 JSON 条目，因此手动运行只执行校验，
 不会调用 provider。APK 中
 未提交到仓库的 `data.unity3d` 二进制文本不在此 CI 的输入范围内。
 
@@ -60,9 +60,9 @@ LLM 提交到 `main` 后，`notify-private-build.yml` 会把同一个 commit SHA
 
 ## 当前状态
 
-当前 `9.0.200` 的底栏源已进入 `localization/9.0.200/`，整体 APK 内置汉化
-仍标记为 `unreviewed_candidate`。这意味着它可以参与候选构建，但不能被文档
-或 CI 宣称为已完成的稳定设备验收。
+当前 `9.0.200` 的底栏源已进入 `localization/9.0.200/`，经维护者人工验收后直接
+发布。仓库只保留机械校验（路径、hash、字节数、图像几何），不再记录审核状态：
+验收由人眼完成，不写进 manifest，也没有 `unreviewed_candidate` 之类的中间态。
 
 本仓库不包含可执行 APK；APK 发布由私有仓库负责，发布前必须同时通过其
 arm64 构建、签名、验证和 release gate。

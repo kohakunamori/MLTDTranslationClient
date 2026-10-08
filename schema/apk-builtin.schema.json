@@ -13,14 +13,11 @@
     "storage_architecture": {"type": "object"},
     "provenance": {
       "type": "object",
-      "required": ["client_version", "axis", "artifact_status", "reviewed"],
+      "required": ["client_version", "axis"],
       "additionalProperties": false,
       "properties": {
-        "verification_manifest": {"type": ["string", "null"]},
         "client_version": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+){1,3}$"},
-        "axis": {"const": "client"},
-        "artifact_status": {"type": "string"},
-        "reviewed": {"type": "boolean"}
+        "axis": {"const": "client"}
       }
     },
     "counts": {"type": "object"},

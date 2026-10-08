@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "kind": "mltd-apk-builtin-manifest",
-  "generated_at": "2026-09-27T00:00:00Z",
+  "generated_at": "2026-10-08T00:00:00Z",
   "storage_architecture": {
     "binary_in_repo": false,
     "delivery": "apk_embedded_data_unity3d",
@@ -9,10 +9,7 @@
     "translation_sources": "repo_text_and_images; generated_unity3d_is_a_CI_output_and_APK_release_asset"
   },
   "provenance": {
-    "verification_manifest": "build/runs/client/9.0.200/apk-bi-font-candidate-verification-20260924/verification-summary.json",
     "client_version": "9.0.200",
-    "artifact_status": "unreviewed_candidate",
-    "reviewed": false,
     "axis": "client"
   },
   "counts": {

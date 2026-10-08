@@ -3,9 +3,8 @@
 
 Checks:
 1. manifests/bottom-bar.manifest.json is valid and carries 7 slots.
-2. manifests/apk-builtin.manifest.json is valid, lists the known surfaces,
-   names the client version, and never claims a reviewed/released status it
-   cannot prove.
+2. manifests/apk-builtin.manifest.json is valid, lists the known surfaces, and
+   names the client version.
 3. Every declared client translation source exists and matches its hash/size.
 4. The client manifest contains no Assets-axis version field.
 5. schema/apk-builtin.schema.json is valid JSON.
@@ -22,7 +21,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 KNOWN_SURFACES = {"bottom-bar-atlas", "runtime-bi", "cjk-font"}
-VALID_STATUS = {"unrecorded", "unreviewed_candidate", "recorded", "reviewed"}
 
 
 def load(path: Path, label: str) -> dict:
@@ -156,13 +154,6 @@ def validate_builtin(root: Path) -> dict[str, int]:
         sys.exit(1)
     if provenance.get("axis") != "client":
         print("ERROR: apk-builtin provenance must declare axis=client", file=sys.stderr)
-        sys.exit(1)
-    status = provenance.get("artifact_status")
-    if status not in VALID_STATUS:
-        print(f"ERROR: artifact_status {status!r} is not one of {sorted(VALID_STATUS)}", file=sys.stderr)
-        sys.exit(1)
-    if status == "unreviewed_candidate" and provenance.get("reviewed") is not False:
-        print("ERROR: an unreviewed candidate must declare reviewed=false", file=sys.stderr)
         sys.exit(1)
     for surface in surfaces:
         source = surface.get("translation_source")

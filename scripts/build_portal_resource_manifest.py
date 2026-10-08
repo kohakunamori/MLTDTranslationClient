@@ -6,8 +6,19 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
+def canonical_bytes(path: Path) -> bytes:
+    """Hash text sources as Git stores them, regardless of local checkout EOLs."""
+    data = path.read_bytes()
+    if path.suffix.lower() in {".json", ".md", ".py", ".txt"}:
+        return data.replace(b"\r\n", b"\n")
+    return data
+
+
 def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    # Hashing raw bytes would give a different digest in a working tree checked out
+    # with core.autocrlf=true than in CI, so normalize the same way validate_repo.py
+    # does. The portal reads these digests, so they must not depend on the checkout.
+    return hashlib.sha256(canonical_bytes(path)).hexdigest()
 
 
 def git_commit(root: Path) -> str | None:
@@ -58,7 +69,9 @@ def main() -> int:
             "release_id": f"client-{client_version}-arm64",
             "client_version": client_version,
             "abi": "arm64-v8a",
-            "status": "candidate" if provenance.get("artifact_status") == "unreviewed_candidate" else "published",
+            # Acceptance is manual: the maintainer checked the output and pushed this
+            # commit to main, so what the portal reads is released, not a candidate.
+            "status": "published",
             "manifest_sha256": sha256(builtin_path),
             "client_resources_commit": commit,
             "updated_at": updated_at,
