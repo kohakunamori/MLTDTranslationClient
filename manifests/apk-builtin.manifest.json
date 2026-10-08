@@ -57,16 +57,20 @@
     {
       "name": "runtime-bi",
       "kind": "encrypted-gtx-textasset",
-      "target": "data.unity3d:646",
+      "target": "resources.assets:646",
       "textasset": "BI_jp.gtx",
       "records": 632,
       "unique_keys": 628,
-      "values_with_kana_after": 0,
-      "values_with_han_after": 586,
       "source": {
         "relative_path": "data.unity3d",
-        "sha256": "f84edf03b9ea1df977c0e4c158de043eef0d6e4c948cb7a6071a143437745158",
-        "bytes": 88571345
+        "sha256": "441fbbabd8bb46953fd229fdc4dafe3c023a8ce0871d59d6b695e950e85c9f45",
+        "bytes": 69387196
+      },
+      "translation_source": {
+        "relative_path": "localization/9.0.200/runtime-bi-zhcn.json",
+        "kind": "json-source",
+        "sha256": "e6aa9221e2acde9118c9ee16d59c163ddc7c0287592a4537d10d2b5aa2445adb",
+        "bytes": 285164
       }
     },
     {

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "kind": "mltd-apk-source-state",
+  "client_version": "9.0.200",
+  "provider": "hotplay",
+  "latest_scope": "latest returned by Hotplay; not independently verified against Google Play",
+  "build_supported": true,
+  "build_target": "jp-9.0.200-arm64",
+  "source_apk_sha256": "8e460dae8eee4c68ba1d6d822f3f699c942c40daa9e15bcee5cf68350a9692de",
+  "source_entry_sha256": "441fbbabd8bb46953fd229fdc4dafe3c023a8ce0871d59d6b695e950e85c9f45",
+  "source_split_sha256": "891680f2828649f174bb14f81229657f7b58185f83969df60acc5df643cb514a",
+  "catalogue": "localization/9.0.200/runtime-bi-zhcn.json",
+  "records": 632,
+  "translatable_records": 585
+}
