@@ -132,7 +132,11 @@ jobs:
         run: printf '%s\n' '{"schema_version":1,"speakers":{}}' > .llm-character-evidence.json
 
       - name: Translate with the shared provider pool
+        id: translate
         if: steps.collect.outputs.items != '0'
+        # Preserve extracted sources and any completed drafts even if a provider
+        # run fails; the next run resumes from the still-empty catalogue rows.
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -203,12 +207,18 @@ jobs:
       # GITHUB_TOKEN pushes do not trigger the separate push notifier. Dispatch
       # directly, including on a no-change retry after a previous dispatch error.
       - name: Dispatch the exact translated Client commit to Private Build
-        if: inputs.smoke_test != true && steps.sync.outputs.build_supported == 'true'
+        if: inputs.smoke_test != true && steps.sync.outputs.build_supported == 'true' && steps.translate.outcome != 'failure'
         env:
           GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
           CLIENT_REPOSITORY: ${{ github.repository }}
           CLIENT_COMMIT: ${{ steps.publish.outputs.commit }}
         run: python scripts/dispatch_private_build.py --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT" --require-ready
+
+      - name: Report provider failure after saving source progress
+        if: steps.translate.outcome == 'failure'
+        run: |
+          echo '::error::Translation provider failed. Extracted sources and completed valid translations were preserved; the next run continues the empty rows. No APK build was dispatched.'
+          exit 1
 
       - name: Report unsupported native version
         if: inputs.smoke_test != true && steps.sync.outputs.build_supported == 'false'

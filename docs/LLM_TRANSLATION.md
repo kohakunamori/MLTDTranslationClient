@@ -46,6 +46,8 @@ Private Build 保持自己的签名与输入包 secrets，并用其已有 Client
 - 未支持的 native 版本：仍保存提取和翻译源，报告失败；需要 Private Build 增加
   对应版本的原生适配与输入包，然后重新运行。不会退回旧版本 APK。
 - 下载、官方证书、GTX 格式、源 hash、占位符或构建验证失败都会停止发布。
+- Provider 运行失败时仍提交已提取的源和已完成的有效译文，再将本次运行标为
+  失败；下次只翻译剩余空项，失败运行不会触发 APK 构建。
 - `client-translation-report-*` artifact 保存翻译摘要、失败条目和 APK source state；
   不包含 APK、私有工具源码或密钥。
 
