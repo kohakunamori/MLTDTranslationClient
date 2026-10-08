@@ -11,5 +11,22 @@
   "source_split_sha256": "891680f2828649f174bb14f81229657f7b58185f83969df60acc5df643cb514a",
   "catalogue": "localization/9.0.200/runtime-bi-zhcn.json",
   "records": 632,
-  "translatable_records": 585
+  "translatable_records": 585,
+  "source_identity": {
+    "provider": "hotplay",
+    "client_version": "9.0.200",
+    "version_code": 90200,
+    "abi": "arm64-v8a",
+    "artifacts": {
+      "base_apk": {
+        "provider_md5": "4fc8df10c141501732a810e6a2c3ed98",
+        "bytes": 108228333
+      },
+      "arm64_split": {
+        "provider_md5": "c0345a1634465e6d1b4c562ef01e8853",
+        "bytes": 65063123
+      }
+    }
+  },
+  "extractor_fingerprint": "6d8472f74d068feec055c5d3f50ef71608e2c57f393fb47207c4ffa225d089f2"
 }
