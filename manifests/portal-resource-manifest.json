@@ -19,7 +19,7 @@
       "pending": 0,
       "progress_percent": 100.0,
       "total": 7,
-      "unit": "槽",
+      "unit": "条",
       "untranslated": 0
     }
   ],
@@ -40,7 +40,7 @@
   "kind": "client",
   "release": {
     "abi": "arm64-v8a",
-    "client_resources_commit": "7a6faeed2d228b056c13f3d0912985f79bcf7957",
+    "client_resources_commit": "d76258520926134835a2df89a3fbe44fea8d4013",
     "client_version": "9.0.200",
     "manifest_sha256": "32e56a4bb82f4c1a00e26c13f5e69d6d829e3f43a78bda5769e5d204c7f84bc9",
     "release_id": "client-9.0.200-arm64",
@@ -51,7 +51,7 @@
   "source": {
     "bottom_bar_manifest_sha256": "a772277f39b0e5d9250225ec2f90096e612e59b7723edd189c34d15da3df6f0a",
     "builtin_manifest_sha256": "32e56a4bb82f4c1a00e26c13f5e69d6d829e3f43a78bda5769e5d204c7f84bc9",
-    "commit": "7a6faeed2d228b056c13f3d0912985f79bcf7957",
+    "commit": "d76258520926134835a2df89a3fbe44fea8d4013",
     "repository": "kohakunamori/MLTDTranslationClient",
     "summary": "github-client-repository",
     "surface_count": 3
