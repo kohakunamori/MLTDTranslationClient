@@ -47,16 +47,28 @@ Pull Request 环节：
 
 ## LLM 翻译 CI
 
-`.github/workflows/llm-translate-client.yml` 每日运行，也支持手动触发。它
-复用 Assets 仓库的 provider pool 和术语表，自动处理
-`localization/**/*.json` 中 `zh` 为空的 `ja` 条目；结果写为
-`accepted + translation_stage=llm_translated`，翻译结果直接进入构建。当前
-Client 仓库没有未翻译的 JSON 条目，因此手动运行只执行校验，
-不会调用 provider。APK 中
-未提交到仓库的 `data.unity3d` 二进制文本不在此 CI 的输入范围内。
+`.github/workflows/llm-translate-client.yml` 每日运行，也支持手动触发。完整流程是：
 
-LLM 提交到 `main` 后，`notify-private-build.yml` 会把同一个 commit SHA 发送给
-私有 APK 构建仓库，自动开始 Client 构建。
+1. 从 Private Build 的 `main` 读取 APK 获取、签名验证和 GTX 解析工具，获取
+   Hotplay 返回的最新版本；校验官方发布者证书、base/split 身份和文件完整性。
+2. 从官方 APK 的 `data.unity3d` 导出 `BI_jp.gtx`，保存到
+   `localization/<client_version>/runtime-bi-zhcn.json`；记录顺序、重复键和原文
+   SHA-256 保持不变，法律署名及非文本记录保留原样。
+3. 复用原文完全相同的已有译文，使用 Assets 的 provider pool 和术语表翻译
+   剩余条目；结果写为 `accepted + translation_stage=llm_translated`。
+4. 刷新源文件 hash、校验并提交到本仓库 `main`，直接将该 commit SHA 通知
+   `kohakunamori/MLTDModifiedAPK`。无需等待 bot push 触发另一个工作流。
+5. Private Build 读取指定 commit，在构建时生成 BI 二进制、合成底栏及字体，
+   通过构建、签名和 release gate 后，将 APK Release 发布回本仓库。
+
+`manifests/apk-source-state.json` 记录最近获取的 APK 版本、hash 和 native 构建
+支持状态。未知 native 版本仍可提取和翻译文字，但不会用旧补丁构建；工作流
+保存翻译源后报告缺少构建适配。部分翻译不会触发构建，后续运行继续处理空项。
+最新版本的范围是 Hotplay 的当前目录，不能视为已核对 Google Play 的最新版本。
+当前自动提取范围是 runtime BI；底栏使用已入库的图像源，新增图片文字不会
+自动 OCR/重绘。APK、工具源码、字体和密钥仍不进入本仓库。
+
+配置和诊断见 [docs/LLM_TRANSLATION.md](docs/LLM_TRANSLATION.md)。
 
 ## 当前状态
 

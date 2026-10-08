@@ -8,3 +8,7 @@ __pycache__/
 node_modules/
 .idea/
 .vscode/
+.apk-tools/
+.translation-engine/
+.llm-*
+.pytest_cache/

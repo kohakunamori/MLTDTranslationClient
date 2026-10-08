@@ -3,6 +3,9 @@ name: Notify private APK build
 on:
   push:
     branches: [main]
+    paths:
+      - 'localization/**'
+      - 'manifests/**'
 
 permissions:
   contents: read
@@ -11,13 +14,18 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate the Client input before dispatch
+        run: python scripts/validate_repo.py
       - name: Trigger the private build for this exact commit
         env:
           GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
-          TARGET_REPOSITORY: kohakunamori/MLTDModifiedAPK
+          CLIENT_REPOSITORY: ${{ github.repository }}
+          CLIENT_COMMIT: ${{ github.sha }}
         run: |
-          gh api --method POST "repos/$TARGET_REPOSITORY/dispatches" \
-            -f event_type=client-resources-updated \
-            -f client_payload[client_repository]="${{ github.repository }}" \
-            -f client_payload[client_branch]="${{ github.ref_name }}" \
-            -f client_payload[client_commit]="${{ github.sha }}"
+          python scripts/dispatch_private_build.py --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT"

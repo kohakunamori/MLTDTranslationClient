@@ -11,11 +11,37 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterator
 
 ROOT = Path(__file__).resolve().parents[1]
+PROTECTED_TOKENS = re.compile(r"\{[^{}]+\}|%[-+0 #]*\d*(?:\.\d+)?[a-zA-Z]|<[^<>\r\n]+>|\\[nrt]|\\[0-9]{2}\\")
+
+
+def validate_translation(source: str, translation: str) -> None:
+    if any(char in translation for char in ('|', '^', '\0')):
+        raise ValueError('LLM output contains a reserved BI delimiter')
+    if Counter(PROTECTED_TOKENS.findall(source)) != Counter(PROTECTED_TOKENS.findall(translation)):
+        raise ValueError('LLM output changed protected formatting tokens')
+
+
+def refresh_source_hashes() -> None:
+    path = ROOT / 'manifests/apk-builtin.manifest.json'
+    document = json.loads(path.read_text(encoding='utf-8'))
+    changed = False
+    for surface in document['surfaces']:
+        source = surface.get('translation_source')
+        if source:
+            data = (ROOT / source['relative_path']).read_bytes().replace(b'\r\n', b'\n')
+            new_hash, size = hashlib.sha256(data).hexdigest(), len(data)
+            if source.get('sha256') != new_hash or source.get('bytes') != size:
+                source.update(sha256=new_hash, bytes=size)
+                changed = True
+    if changed:
+        path.write_text(json.dumps(document, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
 
 
 def source_id(value: str) -> str:
@@ -83,8 +109,7 @@ def apply(args: argparse.Namespace) -> int:
         translation = str(row.get("translation", "")).strip()
         if not source or sid != source_id(source) or not translation:
             continue
-        if "|" in translation or "^" in translation:
-            raise SystemExit(f"LLM output contains reserved delimiter for {sid}")
+        validate_translation(source, translation)
         prior = translations.get(sid)
         if prior is not None and prior != translation:
             raise SystemExit(f"conflicting LLM output for source {sid}")
@@ -120,6 +145,7 @@ def apply(args: argparse.Namespace) -> int:
                 encoding="utf-8",
                 newline="\n",
             )
+    refresh_source_hashes()
     print(json.dumps({"updated": updated, "drafts": len(translations),
                       "stage": "llm_translated"}, ensure_ascii=False))
     return 0

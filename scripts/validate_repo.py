@@ -17,6 +17,7 @@ import json
 import hashlib
 import sys
 import struct
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -199,12 +200,42 @@ def validate_schema(root: Path) -> None:
         sys.exit(1)
 
 
+def validate_runtime_sources(root: Path) -> None:
+    from llm_translate_untranslated import source_id, validate_translation
+    for path in sorted((root / 'localization').glob('*/runtime-bi-zhcn.json')):
+        doc = load(path, 'runtime BI catalogue')
+        if (doc.get('kind') != 'mltd-apk-runtime-bi-source'
+                or doc.get('client_version') != path.parent.name
+                or doc.get('apk_entry') != 'assets/bin/Data/data.unity3d'
+                or not isinstance(doc.get('rows'), list) or not doc['rows']):
+            raise ValueError(f'Invalid runtime BI catalogue: {path}')
+        for field in ('source_apk_sha256', 'source_entry_sha256'):
+            if not re.fullmatch(r'[0-9a-f]{64}', str(doc.get(field, ''))):
+                raise ValueError(f'Invalid {field}: {path}')
+        for index, row in enumerate(doc['rows']):
+            source, zh = row.get('ja'), row.get('zh')
+            if (row.get('record_index') != index or not isinstance(row.get('key'), str)
+                    or not isinstance(source, str) or not isinstance(zh, str)
+                    or row.get('source_sha256') != source_id(source)):
+                raise ValueError(f'Invalid BI source identity/order: {path}:{index}')
+            if row.get('translatable') is True:
+                if row.get('status') not in ('accepted', 'untranslated'):
+                    raise ValueError(f'Invalid BI translation status: {path}:{index}')
+                if row['status'] == 'accepted':
+                    if not zh.strip():
+                        raise ValueError(f'Empty accepted BI translation: {path}:{index}')
+                    validate_translation(source, zh)
+            elif row.get('translatable') is not False or zh != source or row.get('status') != 'passthrough':
+                raise ValueError(f'Invalid BI passthrough record: {path}:{index}')
+
+
 def main() -> int:
     print(f"Validating APK built-in repository at: {ROOT}")
     bottom_bar = validate_bottom_bar(ROOT)
     builtin = validate_builtin(ROOT)
     reject_assets_axis(load(ROOT / "manifests" / "apk-builtin.manifest.json", "apk-builtin manifest"))
     validate_schema(ROOT)
+    validate_runtime_sources(ROOT)
 
     print("\nRepository validation SUCCESSFUL!")
     print(f"Bottom-bar slots: {bottom_bar['slots']}")

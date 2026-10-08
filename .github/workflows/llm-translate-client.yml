@@ -1,4 +1,4 @@
-name: Auto-apply LLM translations (Client)
+name: Sync latest APK and auto-translate Client resources
 
 on:
   schedule:
@@ -29,11 +29,13 @@ env:
 jobs:
   draft:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       - name: Checkout Client sources
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: main
 
       # Reuse the reviewed Assets provider pool and prompt compiler.  The
       # Client adapter below converts its nested JSON into the pool's JSONL
@@ -46,13 +48,35 @@ jobs:
           path: .translation-engine
           fetch-depth: 1
 
+      - name: Checkout private APK extraction tooling
+        if: inputs.smoke_test != true
+        uses: actions/checkout@v4
+        with:
+          repository: kohakunamori/MLTDModifiedAPK
+          ref: main
+          token: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
+          path: .apk-tools
+          persist-credentials: false
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Install translation dependencies
-        run: python -m pip install --disable-pip-version-check httpx msgpack UnityPy Pillow pycryptodome
+        run: python -m pip install --disable-pip-version-check httpx msgpack UnityPy==1.10.18 Pillow pycryptodome requests
+
+      - name: Acquire latest publisher-signed APK and extract BI sources
+        id: sync
+        if: inputs.smoke_test != true
+        working-directory: .apk-tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m client.apk_resource_sync sync \
+            --client-root "$GITHUB_WORKSPACE" \
+            --output-dir "$RUNNER_TEMP/client-apk-source" \
+            --github-output "$GITHUB_OUTPUT"
 
       - name: Collect untranslated Client rows
         id: collect
@@ -133,8 +157,11 @@ jobs:
 
       - name: Apply and validate LLM translations
         shell: bash
+        env:
+          SMOKE_TEST: ${{ inputs.smoke_test }}
         run: |
           set -euo pipefail
+          if [ "$SMOKE_TEST" = true ]; then python scripts/validate_repo.py; exit 0; fi
           if [ ! -f .llm-draft.jsonl ]; then
             echo 'No draft output.'
             python scripts/validate_repo.py
@@ -143,19 +170,60 @@ jobs:
           python scripts/llm_translate_untranslated.py apply --draft .llm-draft.jsonl
           python scripts/validate_repo.py
 
-      - name: Commit LLM translations to main
+      - name: Refresh Client portal summary
+        if: inputs.smoke_test != true
+        run: python scripts/build_portal_resource_manifest.py
+
+      - name: Commit synchronized APK sources and translations to main
+        id: publish
+        if: inputs.smoke_test != true
         shell: bash
         run: |
           set -euo pipefail
-          if [ -z "$(git status --porcelain -- localization manifests)" ]; then echo 'No changes to publish.'; exit 0; fi
+          if [ -z "$(git status --porcelain -- localization manifests)" ]; then
+            echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+            echo 'No source changes to publish.'
+            exit 0
+          fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add localization manifests
-          git commit -m 'ci(client): apply LLM translations'
+          git commit -m 'ci(client): sync official APK and apply LLM translations'
           for attempt in 1 2 3; do
-            if git push origin HEAD:main; then exit 0; fi
+            if git push origin HEAD:main; then
+              echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
             if [ "$attempt" -eq 3 ]; then exit 1; fi
             git fetch origin main
             git rebase origin/main
             python scripts/validate_repo.py
           done
+
+      # GITHUB_TOKEN pushes do not trigger the separate push notifier. Dispatch
+      # directly, including on a no-change retry after a previous dispatch error.
+      - name: Dispatch the exact translated Client commit to Private Build
+        if: inputs.smoke_test != true && steps.sync.outputs.build_supported == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
+          CLIENT_REPOSITORY: ${{ github.repository }}
+          CLIENT_COMMIT: ${{ steps.publish.outputs.commit }}
+        run: python scripts/dispatch_private_build.py --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT" --require-ready
+
+      - name: Report unsupported native version
+        if: inputs.smoke_test != true && steps.sync.outputs.build_supported == 'false'
+        run: |
+          echo '::error::Latest APK text was extracted and translated, but Private Build has no matching native build target. Sources were saved; no older APK will be published as the new version.'
+          exit 1
+
+      - name: Upload translation diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: client-translation-report-${{ github.run_id }}
+          path: |
+            .llm-summary.json
+            .llm-failed.jsonl
+            manifests/apk-source-state.json
+          if-no-files-found: ignore
+          retention-days: 7

@@ -41,8 +41,19 @@ def main() -> int:
     client_version = str(provenance["client_version"])
     slots = bottom.get("slots", [])
     translated = sum(1 for slot in slots if str(slot.get("zh") or "").strip())
-    untranslated = len(slots) - translated
     total = len(slots)
+    bundles = {"bottom-bar.manifest.json": {"total": total, "translated": translated,
+                                             "pending": 0, "untranslated": total - translated}}
+    runtime_path = root / 'localization' / client_version / 'runtime-bi-zhcn.json'
+    if runtime_path.is_file():
+        runtime = json.loads(runtime_path.read_text(encoding='utf-8'))
+        rows = [row for row in runtime.get('rows', []) if row.get('translatable')]
+        accepted = sum(row.get('status') == 'accepted' and bool(str(row.get('zh') or '').strip()) for row in rows)
+        bundles['runtime-bi-zhcn.json'] = {'total': len(rows), 'translated': accepted,
+                                         'pending': 0, 'untranslated': len(rows) - accepted}
+        total += len(rows)
+        translated += accepted
+    untranslated = total - translated
     commit = git_commit(root)
     updated_at = builtin.get("generated_at") or datetime.now(timezone.utc).isoformat()
     category = {
@@ -51,14 +62,14 @@ def main() -> int:
         "name": "APK 底栏与系统界面",
         "description": "Client 仓库可直接编辑的内置界面文字资源",
         "icon": "📱",
-        "unit": "槽",
+        "unit": "条",
         "entry": "client",
         "total": total,
         "accepted": translated,
         "pending": 0,
         "untranslated": untranslated,
         "progress_percent": round(translated / total * 100, 2) if total else 0,
-        "bundles": {"bottom-bar.manifest.json": {"total": total, "translated": translated, "pending": 0, "untranslated": untranslated}},
+        "bundles": bundles,
     }
     output = {
         "schema": "mltd.portal.resource-manifest/v1",
@@ -98,6 +109,16 @@ def main() -> int:
     }
     target = (root / args.output).resolve() if not args.output.is_absolute() else args.output
     target.parent.mkdir(parents=True, exist_ok=True)
+    if target.is_file():
+        previous = json.loads(target.read_text(encoding='utf-8'))
+        def content_only(document):
+            value = json.loads(json.dumps(document))
+            value.get('source', {}).pop('commit', None)
+            value.get('release', {}).pop('client_resources_commit', None)
+            return value
+        if content_only(previous) == content_only(output):
+            print(json.dumps({'output': str(target), 'unchanged': True}))
+            return 0
     target.write_text(json.dumps(output, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps({"output": str(target), "client_version": client_version, "total": total, "translated": translated}, ensure_ascii=False))
     return 0

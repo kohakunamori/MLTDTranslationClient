@@ -8,6 +8,7 @@ on:
       - 'manifests/**'
       - 'schema/**'
       - 'scripts/**'
+      - 'tests/**'
       - '.github/workflows/validate-client.yml'
   workflow_dispatch:
 
@@ -35,6 +36,9 @@ jobs:
 
       - name: Validate manifests and schemas
         run: python scripts/validate_repo.py
+
+      - name: Test translation and dispatch contracts
+        run: python -m unittest discover -s tests -v
 
       - name: Build portal resource manifest
         run: python scripts/build_portal_resource_manifest.py
