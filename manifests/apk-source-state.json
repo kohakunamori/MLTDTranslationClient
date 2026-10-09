@@ -1,30 +1,30 @@
 {
   "schema_version": 1,
   "kind": "mltd-apk-source-state",
-  "client_version": "9.0.200",
+  "client_version": "9.0.300",
   "provider": "hotplay",
   "latest_scope": "latest returned by Hotplay; not independently verified against Google Play",
-  "build_supported": true,
-  "build_target": "jp-9.0.200-arm64",
-  "source_apk_sha256": "8e460dae8eee4c68ba1d6d822f3f699c942c40daa9e15bcee5cf68350a9692de",
-  "source_entry_sha256": "441fbbabd8bb46953fd229fdc4dafe3c023a8ce0871d59d6b695e950e85c9f45",
-  "source_split_sha256": "891680f2828649f174bb14f81229657f7b58185f83969df60acc5df643cb514a",
-  "catalogue": "localization/9.0.200/runtime-bi-zhcn.json",
+  "build_supported": false,
+  "build_target": null,
+  "source_apk_sha256": "baa6eedeb5a3444f016e396196f4c1dcd2289c6a7bebe61368c60e894f890f98",
+  "source_entry_sha256": "efff4c07236fbf59fc40bdc43442ab3d25287d5be229664cbce083622eb00230",
+  "source_split_sha256": "17bf532b69ce35a65153ac33d6d0a1ea13931de6e36b17d22e16d3536f6f8744",
+  "catalogue": "localization/9.0.300/runtime-bi-zhcn.json",
   "records": 632,
   "translatable_records": 585,
   "source_identity": {
     "provider": "hotplay",
-    "client_version": "9.0.200",
-    "version_code": 90200,
+    "client_version": "9.0.300",
+    "version_code": 90300,
     "abi": "arm64-v8a",
     "artifacts": {
       "base_apk": {
-        "provider_md5": "4fc8df10c141501732a810e6a2c3ed98",
-        "bytes": 108228333
+        "provider_md5": "8f779ea042b947b13f7ffc2c7f3a00d8",
+        "bytes": 109043437
       },
       "arm64_split": {
-        "provider_md5": "c0345a1634465e6d1b4c562ef01e8853",
-        "bytes": 65063123
+        "provider_md5": "1578322530ce5f3b82af631a8aee9e03",
+        "bytes": 65128659
       }
     }
   },
