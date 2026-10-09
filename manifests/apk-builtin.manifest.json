@@ -9,7 +9,7 @@
     "translation_sources": "repo_text_and_images; generated_unity3d_is_a_CI_output_and_APK_release_asset"
   },
   "provenance": {
-    "client_version": "9.0.200",
+    "client_version": "9.0.300",
     "axis": "client"
   },
   "counts": {
@@ -24,14 +24,14 @@
       "manifest": "manifests/bottom-bar.manifest.json",
       "slot_count": 7,
       "translation_source": {
-        "relative_path": "localization/9.0.200/apk-ui-strings-zhcn.json",
-        "sha256": "182cb5aa7ef06156ea3ebc425f8aeb8b0ef946453aa97c5c507e938f2fb41f5c",
+        "relative_path": "localization/9.0.300/apk-ui-strings-zhcn.json",
+        "sha256": "f624cc740bb60697bf6781402a67c89f84cc96c6c9502e1d3db05e4d93fda963",
         "bytes": 3462,
         "kind": "json-source"
       },
       "visual_sources": [
         {
-          "relative_path": "localization/9.0.200/visuals/bottom-bar-off-v5.png",
+          "relative_path": "localization/9.0.300/visuals/bottom-bar-off-v5.png",
           "sha256": "d3c1bbffc483437a72135f040406c074479fdd836a58c101e2646f1fc4306289",
           "bytes": 87107,
           "kind": "image-source",
@@ -42,7 +42,7 @@
           ]
         },
         {
-          "relative_path": "localization/9.0.200/visuals/bottom-bar-on-v3.png",
+          "relative_path": "localization/9.0.300/visuals/bottom-bar-on-v3.png",
           "sha256": "87fc1686f6ca4d9317169c88e854cf5991f564ccb24abe4dd2cec247240585e6",
           "bytes": 113516,
           "kind": "image-source",
@@ -63,14 +63,14 @@
       "unique_keys": 628,
       "source": {
         "relative_path": "data.unity3d",
-        "sha256": "441fbbabd8bb46953fd229fdc4dafe3c023a8ce0871d59d6b695e950e85c9f45",
-        "bytes": 69387196
+        "sha256": "efff4c07236fbf59fc40bdc43442ab3d25287d5be229664cbce083622eb00230",
+        "bytes": 70162422
       },
       "translation_source": {
-        "relative_path": "localization/9.0.200/runtime-bi-zhcn.json",
+        "relative_path": "localization/9.0.300/runtime-bi-zhcn.json",
         "kind": "json-source",
-        "sha256": "e6aa9221e2acde9118c9ee16d59c163ddc7c0287592a4537d10d2b5aa2445adb",
-        "bytes": 285164
+        "sha256": "c810663d0db70b805c75049440c5a6b64dfc33bb7b49497476b5462423bd88f3",
+        "bytes": 259424
       }
     },
     {

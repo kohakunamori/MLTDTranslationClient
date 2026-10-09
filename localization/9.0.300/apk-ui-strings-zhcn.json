@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "kind": "mltd-apk-ui-strings",
+  "locale": "zh-Hans",
+  "fallback": "ja",
+  "glossary": {
+    "path": "../../glossary/authoritative-terms.json",
+    "note": "Shared, text-localization-owned term store. Slots whose provenance is \"shared_glossary\" are re-checked against it on every build; a divergence is refused instead of silently changing baked pixels."
+  },
+  "policy": {
+    "missing_translation": "keep the original Japanese pixels for that slot, mark it as fallback, and report coverage",
+    "baked_pixels_are_not_text_records": "these strings live in a Texture2D atlas, so they cannot ride the BI text / FontRender surfaces"
+  },
+  "surfaces": {
+    "bottom-bar-footer": {
+      "kind": "baked-sprite-atlas",
+      "client_version": "9.0.300",
+      "apk_entry": "assets/bin/Data/data.unity3d",
+      "serialized_file": "sharedassets1.assets",
+      "path_id": 4,
+      "texture": "theater_system_footer_main",
+      "atlas_size": [
+        512,
+        512
+      ],
+      "sprite_pattern": "theater_system_footer_main_{index}_{state}",
+      "slot_count": 7,
+      "evidence": [
+        "work/agents/client/bottom-nav-text-fix-20260924/HANDOFF.md: Japanese originals read from the OnePlus 8T smoke capture and confirmed as baked atlas pixels by a UnityPy object audit",
+        "build/runs/client/9.0.200/oneplus8t-official-root-install-20260926/device-install-record.json: installed candidate renders these labels under the 剧场时光 application label",
+        "user ruling 2026-09-26: application label stays 剧场时光; the bottom bar keeps the existing Chinese wording"
+      ],
+      "slots": [
+        {
+          "index": 0,
+          "ja": "劇場",
+          "zh": "剧场",
+          "provenance": "project_decision"
+        },
+        {
+          "index": 1,
+          "ja": "アイドル",
+          "zh": "偶像",
+          "provenance": "shared_glossary"
+        },
+        {
+          "index": 2,
+          "ja": "コミュ",
+          "zh": "剧情",
+          "provenance": "project_decision"
+        },
+        {
+          "index": 3,
+          "ja": "ライブ",
+          "zh": "演唱会",
+          "provenance": "project_decision"
+        },
+        {
+          "index": 4,
+          "ja": "お仕事",
+          "zh": "工作",
+          "provenance": "project_decision"
+        },
+        {
+          "index": 5,
+          "ja": "ガシャ",
+          "zh": "转蛋",
+          "provenance": "project_decision"
+        },
+        {
+          "index": 6,
+          "ja": "ナビ",
+          "zh": "导航",
+          "provenance": "project_decision"
+        }
+      ],
+      "visual_assets": {
+        "canvas_size": [
+          946,
+          76
+        ],
+        "segment_x": [
+          0,
+          138,
+          272,
+          406,
+          540,
+          674,
+          808,
+          946
+        ],
+        "source_kind": "ai_generated_native_strip",
+        "off": {
+          "path": "visuals/bottom-bar-off-v5.png",
+          "sha256": "d3c1bbffc483437a72135f040406c074479fdd836a58c101e2646f1fc4306289",
+          "bytes": 87107,
+          "size": [
+            946,
+            76
+          ]
+        },
+        "on": {
+          "path": "visuals/bottom-bar-on-v3.png",
+          "sha256": "87fc1686f6ca4d9317169c88e854cf5991f564ccb24abe4dd2cec247240585e6",
+          "bytes": 113516,
+          "size": [
+            946,
+            76
+          ]
+        }
+      }
+    }
+  }
+}

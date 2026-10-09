@@ -10,7 +10,7 @@
       512,
       512
     ],
-    "client_version": "9.0.200",
+    "client_version": "9.0.300",
     "apk_entry": "assets/bin/Data/data.unity3d",
     "sprite_pattern": "theater_system_footer_main_{index}_{state}",
     "slot_count": 7
@@ -89,7 +89,7 @@
     ],
     "source_kind": "ai_generated_native_strip",
     "off": {
-      "path": "localization/9.0.200/visuals/bottom-bar-off-v5.png",
+      "path": "localization/9.0.300/visuals/bottom-bar-off-v5.png",
       "sha256": "d3c1bbffc483437a72135f040406c074479fdd836a58c101e2646f1fc4306289",
       "bytes": 87107,
       "size": [
@@ -98,7 +98,7 @@
       ]
     },
     "on": {
-      "path": "localization/9.0.200/visuals/bottom-bar-on-v3.png",
+      "path": "localization/9.0.300/visuals/bottom-bar-on-v3.png",
       "sha256": "87fc1686f6ca4d9317169c88e854cf5991f564ccb24abe4dd2cec247240585e6",
       "bytes": 113516,
       "size": [

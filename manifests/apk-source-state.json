@@ -4,8 +4,8 @@
   "client_version": "9.0.300",
   "provider": "hotplay",
   "latest_scope": "latest returned by Hotplay; not independently verified against Google Play",
-  "build_supported": false,
-  "build_target": null,
+  "build_supported": true,
+  "build_target": "jp-9.0.300-arm64",
   "source_apk_sha256": "baa6eedeb5a3444f016e396196f4c1dcd2289c6a7bebe61368c60e894f890f98",
   "source_entry_sha256": "efff4c07236fbf59fc40bdc43442ab3d25287d5be229664cbce083622eb00230",
   "source_split_sha256": "17bf532b69ce35a65153ac33d6d0a1ea13931de6e36b17d22e16d3536f6f8744",
@@ -28,5 +28,5 @@
       }
     }
   },
-  "extractor_fingerprint": "6d8472f74d068feec055c5d3f50ef71608e2c57f393fb47207c4ffa225d089f2"
+  "extractor_fingerprint": "457c1ce30d79000092aa1f6566099b2d5b2c519367a1b8d607d72f89c57f6bce"
 }
