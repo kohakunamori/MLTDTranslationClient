@@ -87,6 +87,27 @@ class TranslationPipelineTests(unittest.TestCase):
             (root / 'manifests/apk-source-state.json').write_text(json.dumps({'build_supported': False}), encoding='utf-8')
             self.assertIsNone(dispatch.payload(root, 'owner/client', commit))
 
+    def test_unknown_version_dispatches_bound_recovery_without_changing_old_manifest(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.fixture(root, [])
+            path = root / 'localization/9.0.300/runtime-bi-zhcn.json'
+            path.parent.mkdir()
+            doc = {'kind': 'mltd-apk-runtime-bi-source', 'client_version': '9.0.300',
+                   'source_apk_sha256': 'a' * 64, 'rows': [
+                       {'translatable': True, 'status': 'accepted', 'zh': '继续'}]}
+            path.write_text(json.dumps(doc))
+            (root / 'manifests/apk-source-state.json').write_text(json.dumps({
+                'build_supported': False, 'client_version': '9.0.300',
+                'source_identity': {'client_version': '9.0.300', 'version_code': 90300},
+                'source_apk_sha256': 'a' * 64, 'source_split_sha256': 'b' * 64}))
+            event = dispatch.recovery_payload(root, 'owner/client', 'c' * 40)
+            self.assertEqual(event['event_type'], 'client-native-recovery-requested')
+            self.assertEqual(event['client_payload']['client_version'], '9.0.300')
+            doc['rows'][0]['status'] = 'untranslated'
+            path.write_text(json.dumps(doc))
+            self.assertIsNone(dispatch.recovery_payload(root, 'owner/client', 'c' * 40))
+
 
 if __name__ == '__main__':
     unittest.main()

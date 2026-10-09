@@ -257,10 +257,18 @@ jobs:
           echo '::error::Translation provider failed. Extracted sources and completed valid translations were preserved; the next run continues the empty rows. No APK build was dispatched.'
           exit 1
 
+      - name: Request native recovery for a new unsupported official APK
+        if: inputs.smoke_test != true && (steps.sync.outputs.build_supported || steps.preflight.outputs.build_supported) == 'false' && steps.translate.outcome != 'failure' && (steps.publish.outputs.changed == 'true' || inputs.retry_build == true)
+        env:
+          GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
+          CLIENT_REPOSITORY: ${{ github.repository }}
+          CLIENT_COMMIT: ${{ steps.publish.outputs.commit }}
+        run: python scripts/dispatch_private_build.py --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT" --recover-unsupported --require-ready
+
       - name: Report unsupported native version
         if: inputs.smoke_test != true && (steps.sync.outputs.build_supported || steps.preflight.outputs.build_supported) == 'false'
         run: |
-          echo '::error::Latest APK text was extracted and translated, but Private Build has no matching native build target. Sources were saved; no older APK will be published as the new version.'
+          echo '::error::Latest APK translations were saved. Native recovery is routed to Private Build; unchanged stages are deduplicated there. Publication waits for a validated clean ELF and matching native target.'
           exit 1
 
       - name: Upload translation diagnostics
