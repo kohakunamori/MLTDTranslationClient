@@ -241,8 +241,8 @@ jobs:
           done
 
       # GITHUB_TOKEN pushes do not trigger the separate push notifier. Dispatch
-      # directly after changed sources. The private daily poll recovers missed
-      # notifications; retry_build also permits an explicit no-change retry.
+      # directly after changed sources. There is no scheduled APK-build fallback;
+      # retry_build or Notify private APK build permits an explicit no-change retry.
       - name: Dispatch the exact translated Client commit to Private Build
         if: inputs.smoke_test != true && (steps.sync.outputs.build_supported || steps.preflight.outputs.build_supported) == 'true' && steps.translate.outcome != 'failure' && (steps.publish.outputs.changed == 'true' || inputs.retry_build == true)
         env:
