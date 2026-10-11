@@ -9,6 +9,7 @@ localization/  manifests/  schema/
         ▼
 scripts/repo_utils.py       ← 路径、规范化字节、JSON、活动版本
 scripts/translation_pipeline.py ← 翻译记录、去重、占位符和回写规则
+scripts/repository_validation.py ← Manifest、图片和 Runtime BI 校验
         │
         ├── validate_repo.py
         ├── build_portal_resource_manifest.py
@@ -27,6 +28,8 @@ scripts/translation_pipeline.py ← 翻译记录、去重、占位符和回写�
   运行时目录定位。它不负责打印 CLI 信息或触发外部服务。
 - `translation_pipeline.py` 是翻译领域模块。它接受 `Path` 和普通数据，提供可复用的
   `TranslationPipeline.collect()` / `apply()`，不解析命令行参数，也不读取环境变量。
+- `repository_validation.py` 是校验领域模块，返回结构化汇总并抛出 `ValidationError`；
+  `validate_repo.py` 只负责把结果格式化给本地命令和 CI。
 - `llm_translate_untranslated.py` 是兼容入口，只负责把 CLI 参数转换成领域方法调用并
   输出结果。旧的直接文件调用仍可用，Actions 使用模块入口 `python -m scripts.…`。
 - 校验、门户清单和构建通知各自保留流程编排，但共享路径与数据规则；它们不能从 CLI

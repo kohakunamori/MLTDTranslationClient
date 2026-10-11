@@ -45,6 +45,10 @@ class RepositoryLayout:
         return self.root / "localization"
 
     @property
+    def schema(self) -> Path:
+        return self.root / "schema"
+
+    @property
     def builtin_manifest(self) -> Path:
         return self.root / BUILTIN_MANIFEST_RELATIVE
 
@@ -59,6 +63,10 @@ class RepositoryLayout:
     @property
     def portal_manifest(self) -> Path:
         return self.manifests / "portal-resource-manifest.json"
+
+    @property
+    def builtin_schema(self) -> Path:
+        return self.schema / "apk-builtin.schema.json"
 
     def client_directory(self, version: str) -> Path:
         return self.localization / version

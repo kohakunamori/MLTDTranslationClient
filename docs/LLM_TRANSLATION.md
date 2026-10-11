@@ -18,7 +18,8 @@ LLM 队列按原文 SHA-256 去重，回写时更新所有对应空项。占位�
 
 翻译规则位于 `scripts/translation_pipeline.py`，命令行入口
 `scripts/llm_translate_untranslated.py` 只负责参数解析和结果输出。仓库路径、规范化
-字节和活动版本规则位于 `scripts/repo_utils.py`；校验器、门户清单和构建通知共享这些
+字节和活动版本规则位于 `scripts/repo_utils.py`，Manifest 校验位于
+`scripts/repository_validation.py`；校验入口、门户清单和构建通知共享这些
 模块。Actions 统一通过 `python -m scripts.…` 调用入口，后续增加资源类型时可以复用
 领域模块而不复制工作流逻辑。
 
