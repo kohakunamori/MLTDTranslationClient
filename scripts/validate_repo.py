@@ -21,12 +21,10 @@ from pathlib import Path
 
 try:  # Works both as a package import in tests and as a CI file entrypoint.
     from scripts.repo_utils import RepositoryLayout
-    from scripts.repo_utils import canonical_bytes as canonical_repo_bytes
-    from scripts.repo_utils import sha256 as sha256_file
+    from scripts.repo_utils import canonical_bytes, sha256
 except ModuleNotFoundError:  # pragma: no cover - exercised by direct execution
     from repo_utils import RepositoryLayout
-    from repo_utils import canonical_bytes as canonical_repo_bytes
-    from repo_utils import sha256 as sha256_file
+    from repo_utils import canonical_bytes, sha256
 
 ROOT = Path(__file__).resolve().parents[1]
 KNOWN_SURFACES = {"bottom-bar-atlas", "runtime-bi", "cjk-font"}
@@ -41,14 +39,6 @@ def load(path: Path, label: str) -> dict:
     except json.JSONDecodeError as exc:
         print(f"ERROR: {path} invalid JSON: {exc}", file=sys.stderr)
         sys.exit(1)
-
-
-def canonical_bytes(path: Path) -> bytes:
-    return canonical_repo_bytes(path)
-
-
-def sha256(path: Path) -> str:
-    return sha256_file(path)
 
 
 def png_size(path: Path) -> tuple[int, int]:
