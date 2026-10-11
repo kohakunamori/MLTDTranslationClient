@@ -5,34 +5,18 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Iterator
 
 try:  # Support both direct CI execution and package imports in tests.
-    from scripts import translation_pipeline as _translation_pipeline
-except ModuleNotFoundError:  # pragma: no cover - direct file execution
+    from scripts.translation_pipeline import TranslationPipeline
+except (ImportError, ModuleNotFoundError):  # pragma: no cover - direct file execution
     import translation_pipeline as _translation_pipeline
-
-TranslationPipeline = _translation_pipeline.TranslationPipeline
-eligible = _translation_pipeline.eligible
-records = _translation_pipeline.records
-source_id = _translation_pipeline.source_id
-validate_translation = _translation_pipeline.validate_translation
+    TranslationPipeline = _translation_pipeline.TranslationPipeline
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def _pipeline() -> TranslationPipeline:
     return TranslationPipeline(ROOT)
-
-
-# Keep these compatibility functions for automation that imported the original
-# script module before the domain module existed.
-def refresh_source_hashes() -> None:
-    _pipeline().refresh_source_hashes()
-
-
-def source_files() -> Iterator[Path]:
-    yield from _pipeline().source_files()
 
 
 def collect(args: argparse.Namespace) -> int:

@@ -1,14 +1,11 @@
 from __future__ import annotations
 
-import argparse
 import hashlib
 import importlib.util
 import json
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
-
 from scripts import translation_pipeline as pipeline
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,7 +18,6 @@ def module(name):
     return result
 
 
-llm = module('llm_translate_untranslated')
 dispatch = module('dispatch_private_build')
 
 
@@ -54,13 +50,12 @@ class TranslationPipelineTests(unittest.TestCase):
                     for key in ('a', 'a', 'b')]
             source = self.fixture(root, rows)
             queue, draft = root / 'queue.jsonl', root / 'draft.jsonl'
-            with patch.object(llm, 'ROOT', root):
-                llm.collect(argparse.Namespace(output=queue))
-                self.assertEqual(len(queue.read_text(encoding='utf-8').splitlines()), 1)
-                entry = json.loads(queue.read_text(encoding='utf-8'))
-                entry['translation'] = '继续 {0}'
-                draft.write_text(json.dumps(entry, ensure_ascii=False), encoding='utf-8')
-                llm.apply(argparse.Namespace(draft=draft))
+            pipeline.TranslationPipeline(root).collect(queue)
+            self.assertEqual(len(queue.read_text(encoding='utf-8').splitlines()), 1)
+            entry = json.loads(queue.read_text(encoding='utf-8'))
+            entry['translation'] = '继续 {0}'
+            draft.write_text(json.dumps(entry, ensure_ascii=False), encoding='utf-8')
+            pipeline.TranslationPipeline(root).apply(draft)
             self.assertEqual([r['zh'] for r in json.loads(source.read_text(encoding='utf-8'))['rows']], ['继续 {0}'] * 3)
             metadata = json.loads((root / 'manifests/apk-builtin.manifest.json').read_text())['surfaces'][0]['translation_source']
             self.assertEqual(metadata['sha256'], hashlib.sha256(source.read_bytes()).hexdigest())
@@ -69,7 +64,7 @@ class TranslationPipelineTests(unittest.TestCase):
     def test_delimiters_and_placeholders_cannot_corrupt_bi(self):
         for translation in ('继续', '继续 {1}', '继续 {0}|a^b', '继续 {0}\0'):
             with self.subTest(translation=translation), self.assertRaises(ValueError):
-                llm.validate_translation('続ける {0}', translation)
+                pipeline.validate_translation('続ける {0}', translation)
 
     def test_collect_reuses_unambiguous_accepted_sources_without_provider_calls(self):
         for choices, expected in ((['继续 {0}'], 0), (['继续 {0}', '接着 {0}'], 1)):
@@ -78,9 +73,8 @@ class TranslationPipelineTests(unittest.TestCase):
                 rows = [{'ja': '続ける {0}', 'zh': zh, 'status': 'accepted'} for zh in choices]
                 rows.append({'ja': '続ける {0}', 'zh': '', 'status': 'untranslated'})
                 source = self.fixture(root, rows)
-                with patch.object(llm, 'ROOT', root):
-                    queue = root / 'queue.jsonl'
-                    llm.collect(argparse.Namespace(output=queue))
+                queue = root / 'queue.jsonl'
+                pipeline.TranslationPipeline(root).collect(queue)
                 self.assertEqual(len(queue.read_text(encoding='utf-8').splitlines()), expected)
                 last = json.loads(source.read_text(encoding='utf-8'))['rows'][-1]
                 self.assertEqual(last['zh'], choices[0] if not expected else '')
