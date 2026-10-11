@@ -121,7 +121,7 @@ jobs:
           }, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
           PY
           else
-            python scripts/llm_translate_untranslated.py collect --output .llm-queue.jsonl
+            python -m scripts.llm_translate_untranslated collect --output .llm-queue.jsonl
           fi
           echo "items=$(wc -l < .llm-queue.jsonl)" >> "$GITHUB_OUTPUT"
 
@@ -199,18 +199,18 @@ jobs:
           SMOKE_TEST: ${{ inputs.smoke_test }}
         run: |
           set -euo pipefail
-          if [ "$SMOKE_TEST" = true ]; then python scripts/validate_repo.py; exit 0; fi
+          if [ "$SMOKE_TEST" = true ]; then python -m scripts.validate_repo; exit 0; fi
           if [ ! -f .llm-draft.jsonl ]; then
             echo 'No draft output.'
-            python scripts/validate_repo.py
+            python -m scripts.validate_repo
             exit 0
           fi
-          python scripts/llm_translate_untranslated.py apply --draft .llm-draft.jsonl
-          python scripts/validate_repo.py
+          python -m scripts.llm_translate_untranslated apply --draft .llm-draft.jsonl
+          python -m scripts.validate_repo
 
       - name: Refresh Client portal summary
         if: inputs.smoke_test != true
-        run: python scripts/build_portal_resource_manifest.py
+        run: python -m scripts.build_portal_resource_manifest
 
       - name: Commit synchronized APK sources and translations to main
         id: publish
@@ -237,7 +237,7 @@ jobs:
             if [ "$attempt" -eq 3 ]; then exit 1; fi
             git fetch origin main
             git rebase origin/main
-            python scripts/validate_repo.py
+            python -m scripts.validate_repo
           done
 
       # GITHUB_TOKEN pushes do not trigger the separate push notifier. Dispatch
@@ -249,7 +249,7 @@ jobs:
           GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
           CLIENT_REPOSITORY: ${{ github.repository }}
           CLIENT_COMMIT: ${{ steps.publish.outputs.commit }}
-        run: python scripts/dispatch_private_build.py --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT" --require-ready
+        run: python -m scripts.dispatch_private_build --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT" --require-ready
 
       - name: Report provider failure after saving source progress
         if: steps.translate.outcome == 'failure'
@@ -263,7 +263,7 @@ jobs:
           GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
           CLIENT_REPOSITORY: ${{ github.repository }}
           CLIENT_COMMIT: ${{ steps.publish.outputs.commit }}
-        run: python scripts/dispatch_private_build.py --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT" --recover-unsupported --require-ready
+        run: python -m scripts.dispatch_private_build --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT" --recover-unsupported --require-ready
 
       - name: Report unsupported native version
         if: inputs.smoke_test != true && (steps.sync.outputs.build_supported || steps.preflight.outputs.build_supported) == 'false'

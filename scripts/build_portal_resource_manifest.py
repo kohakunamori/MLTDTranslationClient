@@ -1,24 +1,16 @@
 #!/usr/bin/env python3
 """Build the immutable Client summary consumed by the translation portal."""
 from __future__ import annotations
-import argparse, hashlib, json, subprocess
+import argparse
+import json
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
-
-def canonical_bytes(path: Path) -> bytes:
-    """Hash text sources as Git stores them, regardless of local checkout EOLs."""
-    data = path.read_bytes()
-    if path.suffix.lower() in {".json", ".md", ".py", ".txt"}:
-        return data.replace(b"\r\n", b"\n")
-    return data
-
-
-def sha256(path: Path) -> str:
-    # Hashing raw bytes would give a different digest in a working tree checked out
-    # with core.autocrlf=true than in CI, so normalize the same way validate_repo.py
-    # does. The portal reads these digests, so they must not depend on the checkout.
-    return hashlib.sha256(canonical_bytes(path)).hexdigest()
+try:  # Works both as ``python -m scripts...`` and as a CI file entrypoint.
+    from scripts.repo_utils import RepositoryLayout, read_json, sha256, write_json
+except ModuleNotFoundError:  # pragma: no cover - exercised by direct execution
+    from repo_utils import RepositoryLayout, read_json, sha256, write_json
 
 
 def git_commit(root: Path) -> str | None:
@@ -33,10 +25,11 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=Path("manifests/portal-resource-manifest.json"))
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
-    builtin_path = root / "manifests" / "apk-builtin.manifest.json"
-    bottom_path = root / "manifests" / "bottom-bar.manifest.json"
-    builtin = json.loads(builtin_path.read_text(encoding="utf-8"))
-    bottom = json.loads(bottom_path.read_text(encoding="utf-8"))
+    layout = RepositoryLayout(root)
+    builtin_path = layout.builtin_manifest
+    bottom_path = layout.bottom_bar_manifest
+    builtin = read_json(builtin_path)
+    bottom = read_json(bottom_path)
     provenance = builtin["provenance"]
     client_version = str(provenance["client_version"])
     slots = bottom.get("slots", [])
@@ -44,9 +37,9 @@ def main() -> int:
     total = len(slots)
     bundles = {"bottom-bar.manifest.json": {"total": total, "translated": translated,
                                              "pending": 0, "untranslated": total - translated}}
-    runtime_path = root / 'localization' / client_version / 'runtime-bi-zhcn.json'
+    runtime_path = layout.runtime_catalogue(client_version)
     if runtime_path.is_file():
-        runtime = json.loads(runtime_path.read_text(encoding='utf-8'))
+        runtime = read_json(runtime_path)
         rows = [row for row in runtime.get('rows', []) if row.get('translatable')]
         accepted = sum(row.get('status') == 'accepted' and bool(str(row.get('zh') or '').strip()) for row in rows)
         bundles['runtime-bi-zhcn.json'] = {'total': len(rows), 'translated': accepted,
@@ -110,7 +103,7 @@ def main() -> int:
     target = (root / args.output).resolve() if not args.output.is_absolute() else args.output
     target.parent.mkdir(parents=True, exist_ok=True)
     if target.is_file():
-        previous = json.loads(target.read_text(encoding='utf-8'))
+        previous = read_json(target)
         def content_only(document):
             value = json.loads(json.dumps(document))
             value.get('source', {}).pop('commit', None)
@@ -119,7 +112,7 @@ def main() -> int:
         if content_only(previous) == content_only(output):
             print(json.dumps({'output': str(target), 'unchanged': True}))
             return 0
-    target.write_text(json.dumps(output, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_json(target, output, sort_keys=True)
     print(json.dumps({"output": str(target), "client_version": client_version, "total": total, "translated": translated}, ensure_ascii=False))
     return 0
 

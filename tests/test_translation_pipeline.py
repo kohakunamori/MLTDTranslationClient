@@ -9,6 +9,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+from scripts import translation_pipeline as pipeline
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -24,6 +26,17 @@ dispatch = module('dispatch_private_build')
 
 
 class TranslationPipelineTests(unittest.TestCase):
+    def test_domain_pipeline_runs_without_cli_arguments(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.fixture(root, [{'ja': '続ける', 'zh': '', 'status': 'untranslated'}])
+            queue = root / 'queue.jsonl'
+
+            result = pipeline.TranslationPipeline(root).collect(queue)
+
+            self.assertEqual(result['items'], 1)
+            self.assertEqual(json.loads(queue.read_text(encoding='utf-8'))['source'], '続ける')
+
     def fixture(self, root, rows):
         source = root / 'localization/9.0.200/runtime-bi-zhcn.json'
         source.parent.mkdir(parents=True)

@@ -12,3 +12,5 @@ node_modules/
 .translation-engine/
 .llm-*
 .pytest_cache/
+# Official APK inputs are local build artifacts, never repository sources.
+release-*/

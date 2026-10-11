@@ -16,6 +16,12 @@ SHA-256、TextAsset 身份和有序记录。每条记录包含 `record_index`、
 LLM 队列按原文 SHA-256 去重，回写时更新所有对应空项。占位符、富文本、
 控制符必须保持，`|`、`^` 和 NUL 不得进入译文。回写后刷新 manifest 的 hash/字节数。
 
+翻译规则位于 `scripts/translation_pipeline.py`，命令行入口
+`scripts/llm_translate_untranslated.py` 只负责参数解析和结果输出。仓库路径、规范化
+字节和活动版本规则位于 `scripts/repo_utils.py`；校验器、门户清单和构建通知共享这些
+模块。Actions 统一通过 `python -m scripts.…` 调用入口，后续增加资源类型时可以复用
+领域模块而不复制工作流逻辑。
+
 翻译引擎及术语表来自 `MLTDTranslationAssets` 的 `main`。正常翻译结果是
 `accepted + translation_stage=llm_translated`，直接进入构建。Private Build
 只读取指定 Client commit，将记录与构建使用的官方 APK 逐项核对后生成 BI，
@@ -70,3 +76,9 @@ Private Build 保持自己的签名与输入包 secrets，并用其已有 Client
   完整构建仍在 Windows；相同提交与构建输入已有成功结果时跳过构建。
 - 无变化默认也跳过手动重复通知；需要恢复通知时勾选 `retry_build`。该选项仍不会绕过
   Private Build 的去重、失败退避或发布校验。
+- 手动推送（`notify-private-build.yml`）也按内容通知，而不是按提交通知：推送后先比较
+  “当前生效版本真正进 APK 的文件”（内置清单声明的翻译源与图像源，加上该版本目录）在这次
+  提交与上一次提交之间是否变化。只改了流程、脚本、文档、状态记账，或只改了另一个官方版本
+  的目录时，只做校验、不通知打包。判断不确定时一律按“需要打包”处理。
+  该比较与 Private Build 的 Client 输入锁（两个清单 + 清单声明的源文件）口径一致，
+  超集判断，不会漏掉真实输入。

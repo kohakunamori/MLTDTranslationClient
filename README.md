@@ -18,6 +18,12 @@ Assets，也不保存 `asset_version`、`base_version` 或任何把 Client 与 A
   引入不连续的底色。
 - `schema/` 与 `scripts/validate_repo.py`：提交门禁。
 
+脚本层按职责分成三层：`scripts/repo_utils.py` 提供规范化字节、JSON 读写、活动
+Client 版本和仓库路径布局；`scripts/translation_pipeline.py` 负责翻译目录的领域
+规则；`validate_repo.py`、`llm_translate_untranslated.py`、门户清单生成器和构建通知
+脚本只负责校验或命令行编排。这样哈希、路径、版本和翻译状态规则只维护一份，未来
+增加资源类型或自动化入口时可以复用领域模块，不必复制 CI 脚本。
+
 官方基线 APK、字体、密钥等私有输入不进入此仓库。CI 在私有构建仓库中读取
 本仓库某个明确 commit 的汉化源，然后生成最终 APK 内置 Unity3D 内容；APK
 通过私有构建流水线发布到本仓库的 GitHub Release。生成物与源输入的版本边界
@@ -69,6 +75,7 @@ Pull Request 环节：
 自动 OCR/重绘。APK、工具源码、字体和密钥仍不进入本仓库。
 
 配置和诊断见 [docs/LLM_TRANSLATION.md](docs/LLM_TRANSLATION.md)。
+模块边界和扩展约定见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
 
 ## 当前状态
 

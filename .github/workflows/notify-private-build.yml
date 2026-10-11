@@ -1,5 +1,17 @@
 name: Notify private APK build
 
+# On demand, by content: the private build is keyed on the Client commit, so a
+# push that cannot reach the APK's bytes would still buy a full Windows build of
+# content the release already carries.  The trigger below is only the cheap
+# path filter; the decision that matters is `scripts/apk_input_state.py`, which
+# compares what the built-in manifest delivers at this commit against the
+# commit it supersedes.  A maintainer's push that changes the active version's
+# translation sources (or the manifests that bind them) notifies the build; a
+# workflow tweak, a documentation edit, a bookkeeping state file, or a change
+# confined to another official version's directory only validates and stops.
+#
+# `workflow_dispatch` has no baseline and always notifies: a human asking for a
+# build is the definition of on demand.
 on:
   push:
     branches: [main]
@@ -7,26 +19,66 @@ on:
       - 'localization/**'
       - 'manifests/apk-builtin.manifest.json'
       - 'manifests/bottom-bar.manifest.json'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  # Queued, never cancelled. Cancelling a notification would drop the only
+  # immediate trigger for the content that push carried, and the newer push's
+  # own comparison starts from the newer commit.
+  group: notify-private-build-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   dispatch:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
+          # The decision compares this commit with the one it supersedes, so the
+          # baseline object has to be in the clone instead of one commit deep.
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - name: Validate the Client input before dispatch
-        run: python scripts/validate_repo.py
+        run: python -m scripts.validate_repo
+      - name: Decide whether this push changed what the APK embeds
+        id: decide
+        # An unreadable decision must not become a silent skip: the script exits
+        # 0 on every path and answers 'changed' when it cannot tell, and this
+        # keeps a missing script from blocking the notification either. Only an
+        # explicit `false` skips the dispatch.
+        continue-on-error: true
+        shell: bash
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          python -m scripts.apk_input_state \
+            --before "$BEFORE_SHA" --after "$AFTER_SHA" \
+            --github-output --json
+      - name: Report why nothing was dispatched
+        if: steps.decide.outputs.dispatch == 'false'
+        run: |
+          {
+            echo '### Notification skipped'
+            echo
+            echo "This push did not change the bytes the built-in manifest delivers"
+            echo "for the active client version, so the private build was not notified."
+            echo
+            echo "Reason: ${{ steps.decide.outputs.reason }}"
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Trigger the private build for this exact commit
+        if: steps.decide.outputs.dispatch != 'false'
         env:
           GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
           CLIENT_REPOSITORY: ${{ github.repository }}
           CLIENT_COMMIT: ${{ github.sha }}
         run: |
-          python scripts/dispatch_private_build.py --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT"
+          python -m scripts.dispatch_private_build --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT"

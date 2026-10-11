@@ -14,11 +14,19 @@ Checks:
 from __future__ import annotations
 
 import json
-import hashlib
 import sys
 import struct
 import re
 from pathlib import Path
+
+try:  # Works both as a package import in tests and as a CI file entrypoint.
+    from scripts.repo_utils import RepositoryLayout
+    from scripts.repo_utils import canonical_bytes as canonical_repo_bytes
+    from scripts.repo_utils import sha256 as sha256_file
+except ModuleNotFoundError:  # pragma: no cover - exercised by direct execution
+    from repo_utils import RepositoryLayout
+    from repo_utils import canonical_bytes as canonical_repo_bytes
+    from repo_utils import sha256 as sha256_file
 
 ROOT = Path(__file__).resolve().parents[1]
 KNOWN_SURFACES = {"bottom-bar-atlas", "runtime-bi", "cjk-font"}
@@ -36,15 +44,11 @@ def load(path: Path, label: str) -> dict:
 
 
 def canonical_bytes(path: Path) -> bytes:
-    """Hash text sources as Git stores them, regardless of local checkout EOLs."""
-    data = path.read_bytes()
-    if path.suffix.lower() in {".json", ".md", ".py", ".txt"}:
-        return data.replace(b"\r\n", b"\n")
-    return data
+    return canonical_repo_bytes(path)
 
 
 def sha256(path: Path) -> str:
-    return hashlib.sha256(canonical_bytes(path)).hexdigest()
+    return sha256_file(path)
 
 
 def png_size(path: Path) -> tuple[int, int]:
@@ -66,7 +70,8 @@ def reject_assets_axis(node: object, path: str = "<root>") -> None:
         for index, value in enumerate(node):
             reject_assets_axis(value, f"{path}[{index}]")
 def validate_bottom_bar(root: Path) -> dict[str, int]:
-    doc = load(root / "manifests" / "bottom-bar.manifest.json", "bottom-bar manifest")
+    layout = RepositoryLayout(root)
+    doc = load(layout.bottom_bar_manifest, "bottom-bar manifest")
     if doc.get("kind") != "mltd-bottom-bar-manifest":
         print(f"ERROR: unexpected bottom-bar kind {doc.get('kind')!r}", file=sys.stderr)
         sys.exit(1)
@@ -125,7 +130,8 @@ def validate_bottom_bar(root: Path) -> dict[str, int]:
 
 
 def validate_builtin(root: Path) -> dict[str, int]:
-    doc = load(root / "manifests" / "apk-builtin.manifest.json", "apk-builtin manifest")
+    layout = RepositoryLayout(root)
+    doc = load(layout.builtin_manifest, "apk-builtin manifest")
     if doc.get("kind") != "mltd-apk-builtin-manifest":
         print(f"ERROR: unexpected apk-builtin kind {doc.get('kind')!r}", file=sys.stderr)
         sys.exit(1)
@@ -201,8 +207,11 @@ def validate_schema(root: Path) -> None:
 
 
 def validate_runtime_sources(root: Path) -> None:
-    from llm_translate_untranslated import source_id, validate_translation
-    for path in sorted((root / 'localization').glob('*/runtime-bi-zhcn.json')):
+    try:
+        from scripts.translation_pipeline import source_id, validate_translation
+    except ModuleNotFoundError:  # pragma: no cover - direct file execution
+        from translation_pipeline import source_id, validate_translation
+    for path in RepositoryLayout(root).runtime_catalogues():
         doc = load(path, 'runtime BI catalogue')
         if (doc.get('kind') != 'mltd-apk-runtime-bi-source'
                 or doc.get('client_version') != path.parent.name
@@ -233,7 +242,7 @@ def main() -> int:
     print(f"Validating APK built-in repository at: {ROOT}")
     bottom_bar = validate_bottom_bar(ROOT)
     builtin = validate_builtin(ROOT)
-    reject_assets_axis(load(ROOT / "manifests" / "apk-builtin.manifest.json", "apk-builtin manifest"))
+    reject_assets_axis(load(RepositoryLayout(ROOT).builtin_manifest, "apk-builtin manifest"))
     validate_schema(ROOT)
     validate_runtime_sources(ROOT)
 
