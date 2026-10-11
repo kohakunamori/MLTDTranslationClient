@@ -10,6 +10,9 @@ localization/  manifests/  schema/
 scripts/repo_utils.py       ← 路径、规范化字节、JSON、活动版本
 scripts/translation_pipeline.py ← 翻译记录、去重、占位符和回写规则
 scripts/repository_validation.py ← Manifest、图片和 Runtime BI 校验
+scripts/artifact_inputs.py  ← Git 树输入集合与 APK 影响判断
+scripts/portal_manifest.py   ← 门户汇总生成
+scripts/private_build.py     ← 私有构建事件载荷
         │
         ├── validate_repo.py
         ├── build_portal_resource_manifest.py
@@ -30,6 +33,8 @@ scripts/repository_validation.py ← Manifest、图片和 Runtime BI 校验
   `TranslationPipeline.collect()` / `apply()`，不解析命令行参数，也不读取环境变量。
 - `repository_validation.py` 是校验领域模块，返回结构化汇总并抛出 `ValidationError`；
   `validate_repo.py` 只负责把结果格式化给本地命令和 CI。
+- `artifact_inputs.py`、`portal_manifest.py` 和 `private_build.py` 分别承载 APK 输入
+  比较、门户汇总和派发载荷；对应的脚本只解析参数、输出结果或调用外部命令。
 - `llm_translate_untranslated.py` 是兼容入口，只负责把 CLI 参数转换成领域方法调用并
   输出结果。旧的直接文件调用仍可用，Actions 使用模块入口 `python -m scripts.…`。
 - 校验、门户清单和构建通知各自保留流程编排，但共享路径与数据规则；它们不能从 CLI

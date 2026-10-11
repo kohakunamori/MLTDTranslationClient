@@ -20,8 +20,9 @@ Assets，也不保存 `asset_version`、`base_version` 或任何把 Client 与 A
 
 脚本层按职责分成共享基础层、领域规则层和入口编排层：`scripts/repo_utils.py` 提供
 规范化字节、JSON 读写、活动 Client 版本和仓库路径布局；`translation_pipeline.py`
-与 `repository_validation.py` 分别负责翻译和校验领域规则；`validate_repo.py`、
-`llm_translate_untranslated.py`、门户清单生成器和构建通知脚本只负责命令行或流程编排。
+与 `repository_validation.py` 分别负责翻译和校验领域规则，`artifact_inputs.py`、
+`portal_manifest.py`、`private_build.py` 分别负责 APK 输入比较、门户汇总和派发载荷；
+各 CLI 脚本只负责命令行或外部流程编排。
 这样哈希、路径、版本、翻译状态和校验规则只维护一份，未来增加资源类型或自动化入口
 时可以复用领域模块，不必复制 CI 脚本。
 
