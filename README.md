@@ -1,89 +1,17 @@
-# MLTDTranslationClient — APK 内置汉化源
+# MLTD 简体中文汉化
 
-本仓库只管理 **Client 轴** 的 APK 内置汉化输入。它不管理服务器下发的
-Assets，也不保存 `asset_version`、`base_version` 或任何把 Client 与 Assets
-拼接在一起的复合版本。
+这是《偶像大师 百万现场 剧场时光》（MLTD）的个人汉化项目，持续完善游戏界面、字体及图片中的中文内容。
 
-## 仓库边界
+## 下载与安装
 
-- `localization/<client_version>/`：该 APK 版本的可编辑汉化文字、普通图片和
-  资源元数据；提交的是源内容，不是 Unity3D 二进制。
-- `manifests/apk-builtin.manifest.json`：Client 版本、输入资源路径和 SHA-256。
-  `provenance.client_version` 是唯一版本轴。
-- `manifests/bottom-bar.manifest.json`：底栏翻译源、Unity 目标定位信息，以及
-  `localization/9.0.200/visuals/` 中按**原生 946×76** 条带保存的 OFF/ON 图像源
-  （`segment_x = [0,138,272,406,540,674,808,946]`，槽宽 138/134，7 槽共 946）。
-  原生尺寸让生成器每槽的 `crop → resize(rect)` 退化为恒等操作，像素零重采样。
-  这两份图像源优先于字体重绘，避免生成器改变底栏长宽比或在不同颜色状态下
-  引入不连续的底色。
-- `schema/` 与 `scripts/validate_repo.py`：提交门禁。
+请前往 [发布页面](https://github.com/kohakunamori/MLTDTranslationClient/releases) 下载汉化版。
 
-脚本层按职责分成共享基础层、领域规则层和入口编排层：`scripts/repo_utils.py` 提供
-规范化字节、JSON 读写、活动 Client 版本和仓库路径布局；`translation_pipeline.py`
-与 `repository_validation.py` 分别负责翻译和校验领域规则，`artifact_inputs.py`、
-`portal_manifest.py`、`private_build.py` 分别负责 APK 输入比较、门户汇总和派发载荷；
-各 CLI 脚本只负责命令行或外部流程编排。
-这样哈希、路径、版本、翻译状态和校验规则只维护一份，未来增加资源类型或自动化入口
-时可以复用领域模块，不必复制 CI 脚本。
+同一次发布中的 `base.apk` 和 `split_config.arm64_v8a.apk` 必须一起下载，使用支持分包安装的工具（例如 [SAI](https://github.com/Aefyr/SAI/releases)）选择两个文件一起安装。请使用兼容的 64 位 Android 设备，更新时也请使用同一次发布的两个文件。
 
-官方基线 APK、字体、密钥等私有输入不进入此仓库。CI 在私有构建仓库中读取
-本仓库某个明确 commit 的汉化源，然后生成最终 APK 内置 Unity3D 内容；APK
-通过私有构建流水线发布到本仓库的 GitHub Release。生成物与源输入的版本边界
-分别由 `client_version`、`source_commit`、`translation_commit` 和构建报告记录。
+汉化仍在持续完善，部分内容可能存在遗漏或显示问题。各版本的使用说明请以发布页面为准。
 
-## 版本与复用
+配套资源见 [MLTDTranslationAssets](https://github.com/kohakunamori/MLTDTranslationAssets)，汉化内容可在 [查阅站](https://mltd-portal.nyaneko.cn) 浏览。
 
-同一套汉化内容可以被多个 Client 版本复用，但必须在目标版本的 manifest 中
-重新声明并通过 CI 校验。Assets 仓库的复用规则（`exact`、
-`verified-compatible`、`suggested`、`blocked`）不在本仓库复制；APK 构建也
-不会读取 Assets manifest、NAS 或 R2。
+## 贡献
 
-## 变更流程
-
-本仓库**不接受外部贡献**，只有维护者直接提交，没有 fork、Portal 提交和
-Pull Request 环节：
-
-1. 维护者在本地修改 `localization/<client_version>/`、`manifests/` 或
-   `schema/`；
-2. push 到 `main` 触发 `.github/workflows/validate-client.yml`：校验 manifest、
-   资源路径和 hash，并允许 `scripts/build_portal_resource_manifest.py` 刷新
-   `manifests/portal-resource-manifest.json`；
-3. push 到 `main` 的 commit 就是私有 APK 构建的唯一 Client 输入。
-
-维护者直推 `main`，因此没有「合并前审核」这道关卡：`scripts/validate_repo.py`
-必须在本地跑过，`main` 上的每个 commit 都是可直接构建的输入。
-
-## LLM 翻译 CI
-
-`.github/workflows/llm-translate-client.yml` 每日运行，也支持手动触发。完整流程是：
-
-1. 从 Private Build 的 `main` 读取 APK 获取、签名验证和 GTX 解析工具，获取
-   Hotplay 返回的最新版本；校验官方发布者证书、base/split 身份和文件完整性。
-2. 从官方 APK 的 `data.unity3d` 导出 `BI_jp.gtx`，保存到
-   `localization/<client_version>/runtime-bi-zhcn.json`；记录顺序、重复键和原文
-   SHA-256 保持不变，法律署名及非文本记录保留原样。
-3. 复用原文完全相同的已有译文，使用 Assets 的 provider pool 和术语表翻译
-   剩余条目；结果写为 `accepted + translation_stage=llm_translated`。
-4. 刷新源文件 hash、校验并提交到本仓库 `main`，直接将该 commit SHA 通知
-   `kohakunamori/MLTDModifiedAPK`。无需等待 bot push 触发另一个工作流。
-5. Private Build 读取指定 commit，在构建时生成 BI 二进制、合成底栏及字体，
-   通过构建、签名和 release gate 后，将 APK Release 发布回本仓库。
-
-`manifests/apk-source-state.json` 记录最近获取的 APK 版本、hash 和 native 构建
-支持状态。未知 native 版本仍可提取和翻译文字，但不会用旧补丁构建；工作流
-保存翻译源后报告缺少构建适配。部分翻译不会触发构建，后续运行继续处理空项。
-最新版本的范围是 Hotplay 的当前目录，不能视为已核对 Google Play 的最新版本。
-当前自动提取范围是 runtime BI；底栏使用已入库的图像源，新增图片文字不会
-自动 OCR/重绘。APK、工具源码、字体和密钥仍不进入本仓库。
-
-配置和诊断见 [docs/LLM_TRANSLATION.md](docs/LLM_TRANSLATION.md)。
-模块边界和扩展约定见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
-
-## 当前状态
-
-当前 `9.0.200` 的底栏源已进入 `localization/9.0.200/`，经维护者人工验收后直接
-发布。仓库只保留机械校验（路径、hash、字节数、图像几何），不再记录审核状态：
-验收由人眼完成，不写进 manifest，也没有 `unreviewed_candidate` 之类的中间态。
-
-本仓库不包含可执行 APK；APK 发布由私有仓库负责，发布前必须同时通过其
-arm64 构建、签名、验证和 release gate。
+后续开放贡献仍在规划。
