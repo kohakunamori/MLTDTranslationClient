@@ -1,0 +1,83 @@
+name: 汉化问题上报
+description: 发现没汉化的地方、用词不对，或者显示异常，用这个表单上报
+title: "[上报] "
+labels: ["状态/待确认"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢帮忙！请尽量把下面几项填完整，尤其是**截图**和**位置**——
+        缺了这两样，我们很难找到你说的地方。
+
+        同一个界面里的多处问题写在一个 Issue 里就好，不用逐条提交。
+
+  - type: input
+    id: client_version
+    attributes:
+      label: 汉化版版本号
+      description: 在发布页面能看到，形如 v9.0.300
+      placeholder: v9.0.300
+    validations:
+      required: true
+
+  - type: dropdown
+    id: problem_kind
+    attributes:
+      label: 问题类型
+      options:
+        - 还是日文，没汉化
+        - 还是英文，没汉化
+        - 中文读起来不对
+        - 显示异常（方块、缺字、重叠、溢出、错位）
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 属于哪一类画面
+      description: 拿不准就选"不确定"，不用纠结
+      options:
+        - 不确定
+        - 文字（对话、剧情、卡面文字）
+        - 图片（按钮、横幅、活动图）
+        - 歌曲歌词
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: 出现位置
+      description: 在哪个界面、怎么点进去
+      placeholder: 主页 → 菜单 → 设置
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 截图
+      description: 把图片直接拖进这个框里。请让整个界面都看得清，并指出问题在哪一处
+      placeholder: 把截图拖到这里
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: 详细描述（可选）
+      description: 日文原文、你期望的中文、或者任何补充说明
+      placeholder: |
+        日文：プロフィール
+        建议：个人资料
+    validations:
+      required: false
+
+  - type: input
+    id: device
+    attributes:
+      label: 设备与系统（可选）
+      placeholder: OnePlus 8T / Android 14
+    validations:
+      required: false
