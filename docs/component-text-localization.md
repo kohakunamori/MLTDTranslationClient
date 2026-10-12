@@ -1,7 +1,7 @@
 # APK 内置界面文字补齐
 
 `localization/9.0.300/component-text-zhcn.json` 收录在 9.0.100、9.0.300 实际
-APK 中发现的组件文字。1,729 条精确源文已有简体中文译文，另有 23 条 Android
+APK 中发现的组件文字。1,730 条精确源文已有简体中文译文，另有 23 条 Android
 系统提示译文；78 条版权署名、开发调试和排版样例保留原文。原有 585 条 BI
 汉化和 7 项底栏资源继续使用。
 
@@ -9,7 +9,7 @@ APK 中发现的组件文字。1,729 条精确源文已有简体中文译文，�
 公演名称、连续工作、举办地点、举办时间，均已纳入译文。
 
 构建工具仅修改已验证的显示字段：Unity UI.Text.m_Text、Imas.DLText 继承的
-m_Text、PictgraphText.mText、InputField.m_Text 和 IGP 加载失败提示。TextKey、
+m_Text、原生 TextMesh.m_Text、PictgraphText.mText、InputField.m_Text 和 IGP 加载失败提示。TextKey、
 回调参数、对象名及其他字节保持原样。Android 提示保留格式化参数和资源索引。
 按源文摘要与精确文本复用译文，不要求源 APK 与资源目录版本相同。
 

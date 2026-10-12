@@ -2,7 +2,7 @@
   "schema_version": 1,
   "kind": "mltd-apk-component-text",
   "client_version": "9.0.300",
-  "scope": "Unity UI.Text.m_Text, Imas.DLText inherited m_Text and Imas.PictgraphText.mText; identifiers excluded; IGP.LoadingMonitorManager._igpGameBodyLoadFailureMessage; UnityEngine.UI.InputField.m_Text",
+  "scope": "Unity UI.Text.m_Text, Imas.DLText inherited m_Text and Imas.PictgraphText.mText; identifiers excluded; IGP.LoadingMonitorManager._igpGameBodyLoadFailureMessage; UnityEngine.UI.InputField.m_Text; UnityEngine.TextMesh.m_Text",
   "source_observations": [
     {
       "client_version": "9.0.100",
@@ -19875,11 +19875,22 @@
         "9.0.300"
       ],
       "translation_stage": "agent_reviewed"
+    },
+    {
+      "ja": "話す",
+      "zh": "交谈",
+      "source_sha256": "ef622501f5942f95c412e4cf480592aad77987f26cca23a74bfa371d05143827",
+      "status": "accepted",
+      "observed_versions": [
+        "9.0.100",
+        "9.0.300"
+      ],
+      "translation_stage": "agent_reviewed"
     }
   ],
   "counts": {
-    "sources": 1807,
-    "accepted": 1729,
+    "sources": 1808,
+    "accepted": 1730,
     "excluded": 78
   },
   "runtime_visibility_verified": false,

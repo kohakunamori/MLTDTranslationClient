@@ -85,12 +85,12 @@
       "name": "component-text",
       "kind": "source-exact-unity-ui-text",
       "target": "UI.Text.m_Text;DLText.m_Text;PictgraphText.mText",
-      "records": 1729,
+      "records": 1730,
       "translation_source": {
         "relative_path": "localization/9.0.300/component-text-zhcn.json",
         "kind": "json-source",
-        "sha256": "c4630f0c3fbd6d5f308a8529b210e90ec732df15cb09cfdce39d249125162f48",
-        "bytes": 659589
+        "sha256": "7bc58ebd4d4354afdc4c05d93d5d18492c037e4a29b439ffd389c04b7b2c0982",
+        "bytes": 659913
       },
       "android_records": 23
     }

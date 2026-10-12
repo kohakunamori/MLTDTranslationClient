@@ -1,7 +1,7 @@
 {
   "categories": [
     {
-      "accepted": 2344,
+      "accepted": 2345,
       "bundles": {
         "bottom-bar.manifest.json": {
           "pending": 0,
@@ -11,8 +11,8 @@
         },
         "component-text-zhcn.json": {
           "pending": 0,
-          "total": 1752,
-          "translated": 1752,
+          "total": 1753,
+          "translated": 1753,
           "untranslated": 0
         },
         "runtime-bi-zhcn.json": {
@@ -30,14 +30,14 @@
       "name": "APK 底栏与系统界面",
       "pending": 0,
       "progress_percent": 100.0,
-      "total": 2344,
+      "total": 2345,
       "unit": "条",
       "untranslated": 0
     }
   ],
   "domains": [
     {
-      "accepted": 2344,
+      "accepted": 2345,
       "categories": [
         "system_ui"
       ],
@@ -45,16 +45,16 @@
       "id": "system",
       "name": "系统界面",
       "progress_percent": 100.0,
-      "total": 2344
+      "total": 2345
     }
   ],
   "generated_at": "2026-10-13T00:00:00Z",
   "kind": "client",
   "release": {
     "abi": "arm64-v8a",
-    "client_resources_commit": "c25bae67eca6cd050aec8bc5d0f1a2c382a2fce0",
+    "client_resources_commit": "8a5fc2eacc0429fad251ae25b976259d1fc717b9",
     "client_version": "9.0.300",
-    "manifest_sha256": "79061ec0cdca37ffe979b07ebe289422ff4c020d3cb69f8d86227954a0194880",
+    "manifest_sha256": "f2b756cb619be07b669ce797cb807a5a2cdee91a0c885848a09c88d607b61cc2",
     "release_id": "client-9.0.300-arm64",
     "status": "published",
     "updated_at": "2026-10-13T00:00:00Z"
@@ -62,8 +62,8 @@
   "schema": "mltd.portal.resource-manifest/v1",
   "source": {
     "bottom_bar_manifest_sha256": "44cd1714d08d8e68a4a22c847e60cd92246a810913af1828b835598a4ff50c2c",
-    "builtin_manifest_sha256": "79061ec0cdca37ffe979b07ebe289422ff4c020d3cb69f8d86227954a0194880",
-    "commit": "c25bae67eca6cd050aec8bc5d0f1a2c382a2fce0",
+    "builtin_manifest_sha256": "f2b756cb619be07b669ce797cb807a5a2cdee91a0c885848a09c88d607b61cc2",
+    "commit": "8a5fc2eacc0429fad251ae25b976259d1fc717b9",
     "repository": "kohakunamori/MLTDTranslationClient",
     "summary": "github-client-repository",
     "surface_count": 4
@@ -74,8 +74,8 @@
     "pending": 0,
     "reused": 0,
     "suggested": 0,
-    "total": 2344,
-    "translated": 2344,
+    "total": 2345,
+    "translated": 2345,
     "untranslated": 0
   }
 }
