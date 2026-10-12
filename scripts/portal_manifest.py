@@ -63,6 +63,16 @@ class PortalManifestBuilder:
             }
             total += len(rows)
             translated += accepted
+        for surface in builtin['surfaces']:
+            if surface.get('name') != 'component-text':
+                continue
+            component = read_json(self.root / surface['translation_source']['relative_path'])
+            rows = [row for row in component['rows'] + component.get('android_rows', []) if row['status'] != 'passthrough']
+            accepted = sum(row['status'] == 'accepted' and bool(row['zh'].strip()) for row in rows)
+            bundles['component-text-zhcn.json'] = {'total': len(rows), 'translated': accepted,
+                                                'pending': 0, 'untranslated': len(rows) - accepted}
+            total += len(rows)
+            translated += accepted
         updated_at = builtin.get("generated_at") or datetime.now(timezone.utc).isoformat()
         commit = git_commit(self.root)
         category = {

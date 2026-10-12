@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "kind": "mltd-apk-builtin-manifest",
-  "generated_at": "2026-10-08T00:00:00Z",
+  "generated_at": "2026-10-13T00:00:00Z",
   "storage_architecture": {
     "binary_in_repo": false,
     "delivery": "apk_embedded_data_unity3d",
@@ -13,7 +13,7 @@
     "axis": "client"
   },
   "counts": {
-    "surfaces": 3
+    "surfaces": 4
   },
   "surfaces": [
     {
@@ -80,6 +80,19 @@
       "family": "TUDShinGoPr6-Regular",
       "sha256": "d7aed6d5196472fae27fa09aedb85887ec72d96d4999bf45ddcc5f4b40c2ec5d",
       "source_asset": "Noto Sans CJK SC"
+    },
+    {
+      "name": "component-text",
+      "kind": "source-exact-unity-ui-text",
+      "target": "UI.Text.m_Text;DLText.m_Text;PictgraphText.mText",
+      "records": 1729,
+      "translation_source": {
+        "relative_path": "localization/9.0.300/component-text-zhcn.json",
+        "kind": "json-source",
+        "sha256": "c4630f0c3fbd6d5f308a8529b210e90ec732df15cb09cfdce39d249125162f48",
+        "bytes": 659589
+      },
+      "android_records": 23
     }
   ]
 }

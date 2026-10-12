@@ -24,7 +24,7 @@ except ModuleNotFoundError:  # pragma: no cover - direct file execution
     from repo_utils import RepositoryLayout, canonical_bytes, sha256, valid_sha256
     from translation_pipeline import source_id, validate_translation
 
-KNOWN_SURFACES = {"bottom-bar-atlas", "runtime-bi", "cjk-font"}
+KNOWN_SURFACES = {"bottom-bar-atlas", "runtime-bi", "cjk-font", "component-text"}
 
 
 class ValidationError(ValueError):
@@ -75,7 +75,40 @@ class RepositoryValidator:
         reject_assets_axis(load_json(self.layout.builtin_manifest, "apk-builtin manifest"))
         self.validate_schema()
         self.validate_runtime_sources()
+        self.validate_component_sources()
         return {"bottom_bar": bottom_bar, "builtin": builtin}
+
+    def validate_component_sources(self) -> None:
+        for path in (self.root / 'localization').glob('*/component-text-zhcn.json'):
+            doc = load_json(path, 'component text catalogue')
+            if doc.get('kind') != 'mltd-apk-component-text' or doc.get('client_version') != path.parent.name:
+                raise ValidationError(f'Invalid component catalogue: {path}')
+            seen = set()
+            for row in doc.get('rows', []):
+                source, zh = row.get('ja'), row.get('zh')
+                if (not isinstance(source, str) or not isinstance(zh, str)
+                        or row.get('source_sha256') != source_id(source) or source in seen):
+                    raise ValidationError(f'Invalid component source: {path}')
+                seen.add(source)
+                if row.get('status') == 'accepted' and zh.strip() and '\0' not in zh:
+                    validate_translation(source, zh)
+                elif row.get('status') != 'passthrough' or zh != source:
+                    raise ValidationError(f'Invalid component translation: {path}')
+            for row in doc.get('android_rows', []):
+                source, zh = row.get('ja'), row.get('zh')
+                if (not isinstance(source, str) or not isinstance(zh, str) or not zh.strip()
+                        or row.get('source_sha256') != source_id(source) or row.get('status') != 'accepted'
+                        or '\0' in zh):
+                    raise ValidationError(f'Invalid Android text translation: {path}')
+                validate_translation(source, zh)
+                token = r'%(?:\d+\$)?[-+0 #]*\d*(?:\.\d+)?[a-zA-Z%]'
+                if sorted(re.findall(token, source)) != sorted(re.findall(token, zh)):
+                    raise ValidationError(f'Invalid Android format token: {path}')
+            counts = doc.get('counts', {})
+            if counts != {'sources': len(doc['rows']),
+                          'accepted': sum(row['status'] == 'accepted' for row in doc['rows']),
+                          'excluded': sum(row['status'] == 'passthrough' for row in doc['rows'])}:
+                raise ValidationError(f'Invalid component counts: {path}')
 
     def validate_bottom_bar(self) -> dict[str, int]:
         doc = load_json(self.layout.bottom_bar_manifest, "bottom-bar manifest")
