@@ -31,8 +31,17 @@ class RequestTests(unittest.TestCase):
                 path.write_text('# fixture', encoding='utf-8')
             script = root / 'pipelines/text/translate_mltd_api_pool.py'
             script.write_text(prepare_text_provider.LEGACY + '\n# unchanged provider\n', encoding='utf-8')
+            codec = root / 'pipelines/text/mltd_localize_gtx.py'
+            codec.write_text('\nimport UnityPy\nfrom Crypto.Cipher import AES\n'
+                'def get_text_asset(bundle: Path):\n    pass\n'
+                'def decrypt_payload(cipher: bytes) -> bytes:\n    pass\n'
+                'def encrypt_payload(plain: bytes) -> bytes:\n    pass\n', encoding='utf-8')
             prepare_text_provider.prepare(root)
             self.assertEqual(script.read_text(encoding='utf-8'), prepare_text_provider.PURE + '\n# unchanged provider\n')
+            import ast
+            nodes = ast.parse(codec.read_text(encoding='utf-8')).body
+            self.assertFalse(any(isinstance(node, (ast.Import, ast.ImportFrom)) for node in nodes))
+            self.assertTrue(all(isinstance(node.body[0], (ast.Import, ast.ImportFrom)) for node in nodes))
             prepare_text_provider.prepare(root)
             script.write_text('from new_interface import something', encoding='utf-8')
             with self.assertRaises(ValueError):

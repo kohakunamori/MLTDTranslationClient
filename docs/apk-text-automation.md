@@ -5,6 +5,10 @@ Client 是汉化资源的唯一权威仓库。版本无关的精确原文目录�
 LLM provider pool。原文 SHA-256、格式占位符、富文本标签必须通过校验；失败的行
 保持待翻译状态，已完成的合法译文仍保存。新增图片翻译禁用。
 
+Client 的临时引擎 checkout 使用现有的纯文字 JSONL/格式校验函数，旧 GTX 入口的
+Unity/AES 依赖改为仅在实际处理 bundle 时加载。启动检查无需 APK 解析依赖；
+Provider、术语和格式校验的实现不变，资源和译文仍只回写 Client。
+
 Private Build 的每日官方 APK 扫描及 `apk-text-discovered` 事件共用此目录。
 APK 获取、解包和资源扫描全部在 Private Build；Client 仅导入有界文字清单。
 只接受语义已确认且有补丁实现的文字，或者 BI 原文伴随资源。版权行不进入队列。

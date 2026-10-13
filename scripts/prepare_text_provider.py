@@ -9,6 +9,22 @@ PURE = ('from pipelines.core.jsonl import read_jsonl\n'
 
 
 def prepare(engine):
+    codec = engine / 'pipelines/text/mltd_localize_gtx.py'
+    if codec.exists():
+        source = codec.read_text(encoding='utf-8')
+        changes = [('\nimport UnityPy\n', '', 'def get_text_asset(bundle: Path):\n', '    import UnityPy\n'),
+                   ('\nfrom Crypto.Cipher import AES\n', '', 'def decrypt_payload(cipher: bytes) -> bytes:\n', '    from Crypto.Cipher import AES\n')]
+        for eager, _, header, local in changes:
+            if eager in source:
+                if source.count(eager) != 1 or source.count(header) != 1:
+                    raise ValueError('Shared codec dependency interface changed')
+                source = source.replace(eager, '\n').replace(header, header + local)
+                if 'Crypto.Cipher' in local:
+                    encrypt = 'def encrypt_payload(plain: bytes) -> bytes:\n'
+                    if source.count(encrypt) != 1:
+                        raise ValueError('Shared codec encryption interface changed')
+                    source = source.replace(encrypt, encrypt + local)
+        codec.write_text(source, encoding='utf-8', newline='\n')
     path = engine / 'pipelines/text/translate_mltd_api_pool.py'
     source = path.read_text(encoding='utf-8')
     for relative in ('pipelines/core/jsonl.py', 'pipelines/text/translation_tokens.py'):
