@@ -26,7 +26,7 @@ except ImportError:  # pragma: no cover - direct file execution
     from repo_utils import RepositoryLayout, canonical_bytes, read_json, sha256, sha256_bytes, write_json
 
 PROTECTED_TOKENS = re.compile(
-    r"\{[^{}]+\}|%[-+0 #]*\d*(?:\.\d+)?[a-zA-Z]|<[^<>\r\n]+>|\\[nrt]|\\[0-9]{2}\\"
+    r"\{[^{}]+\}|%(?:\d+\$)?[-+0 #]*\d*(?:\.\d+)?[a-zA-Z%]|<[^<>\r\n]+>|\\[nrt]|\\[0-9]{2}\\"
 )
 
 
@@ -71,6 +71,32 @@ class TranslationPipeline:
     def refresh_source_hashes(self) -> None:
         path = self.layout.builtin_manifest
         document = read_json(path)
+        shared_path = self.root / 'localization/shared/apk-text-zhcn.json'
+        if shared_path.exists():
+            from scripts.apk_text_requests import validate_catalogue
+            shared = read_json(shared_path)
+            validate_catalogue(shared)
+            for surface in document['surfaces']:
+                source = surface.get('translation_source')
+                if surface.get('name') != 'component-text' or not source:
+                    continue
+                target_path = self.root / source['relative_path']
+                component = read_json(target_path)
+                for field, name in (('rows', 'component'), ('android_rows', 'android')):
+                    indexed = {row['ja']: row for row in component.get(field, [])}
+                    for row in shared['rows']:
+                        if row['status'] != 'accepted' or not any(c['surface'] == name for c in row['contexts']):
+                            continue
+                        prior = indexed.get(row['ja'])
+                        if prior and prior['zh'] != row['zh']:
+                            raise ValueError('Shared Client text conflicts with the active catalogue')
+                        if not prior:
+                            indexed[row['ja']] = {key: row[key] for key in ('ja', 'zh', 'status', 'source_sha256')}
+                    component[field] = list(indexed.values())
+                component['counts'] = {'sources': len(component['rows']),
+                    'accepted': sum(row['status'] == 'accepted' for row in component['rows']),
+                    'excluded': sum(row['status'] == 'passthrough' for row in component['rows'])}
+                write_json(target_path, component)
         changed = False
         for surface in document["surfaces"]:
             source = surface.get("translation_source")
@@ -147,6 +173,7 @@ class TranslationPipeline:
 
     def apply(self, draft: Path) -> dict[str, int | str]:
         translations: dict[str, str] = {}
+        rejected = 0
         for line in draft.read_text(encoding="utf-8-sig").splitlines():
             if not line.strip():
                 continue
@@ -156,14 +183,20 @@ class TranslationPipeline:
             translation = str(row.get("translation", "")).strip()
             if not source or sid != source_id(source) or not translation:
                 continue
-            validate_translation(source, translation)
+            try:
+                validate_translation(source, translation)
+            except ValueError:
+                # Keep valid progress and leave this source untranslated for
+                # the next scheduled run; invalid formatting never reaches APKs.
+                rejected += 1
+                continue
             prior = translations.get(sid)
             if prior is not None and prior != translation:
                 raise SystemExit(f"conflicting LLM output for source {sid}")
             translations[sid] = translation
 
         if not translations:
-            return {"updated": 0, "drafts": 0}
+            return {"updated": 0, "drafts": 0, "rejected": rejected}
 
         timestamp = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
         updated = 0
@@ -187,4 +220,4 @@ class TranslationPipeline:
             if changed:
                 write_json(path, document)
         self.refresh_source_hashes()
-        return {"updated": updated, "drafts": len(translations), "stage": "llm_translated"}
+        return {"updated": updated, "drafts": len(translations), "rejected": rejected, "stage": "llm_translated"}

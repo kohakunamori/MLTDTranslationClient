@@ -76,6 +76,10 @@ class RepositoryValidator:
         self.validate_schema()
         self.validate_runtime_sources()
         self.validate_component_sources()
+        shared = self.root / 'localization/shared/apk-text-zhcn.json'
+        if shared.exists():
+            from scripts.apk_text_requests import validate_catalogue
+            validate_catalogue(load_json(shared, 'shared APK text catalogue'))
         return {"bottom_bar": bottom_bar, "builtin": builtin}
 
     def validate_component_sources(self) -> None:

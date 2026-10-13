@@ -38,6 +38,11 @@ def payload(root: Path, repository: str, commit: str) -> dict | None:
         raise ValueError("Latest APK and active Client manifest versions differ")
     if not runtime_translation_ready(root, version):
         return None
+    shared_path = root / 'localization/shared/apk-text-zhcn.json'
+    if shared_path.exists() and any(row['status'] != 'accepted' and any(
+            context['client_version'] == version for context in row['contexts'])
+            for row in read_json(shared_path)['rows']):
+        return None
     result = {
         "client_repository": repository,
         "client_branch": "main",
