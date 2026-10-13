@@ -142,7 +142,7 @@ class TranslationPipeline:
                     changed = True
                     repaired += 1
             if changed:
-                write_json(path, document)
+                write_json(path, document, sort_keys=path == self.root / 'localization/shared/apk-text-zhcn.json')
         if repaired:
             self.refresh_source_hashes()
         candidates: dict[str, set[str]] = {}
@@ -166,7 +166,7 @@ class TranslationPipeline:
                     changed = True
                     reused += 1
             if changed:
-                write_json(path, document)
+                write_json(path, document, sort_keys=path == self.root / 'localization/shared/apk-text-zhcn.json')
         if reused:
             self.refresh_source_hashes()
 
@@ -251,6 +251,6 @@ class TranslationPipeline:
                 changed = True
                 updated += 1
             if changed:
-                write_json(path, document)
+                write_json(path, document, sort_keys=path == self.root / 'localization/shared/apk-text-zhcn.json')
         self.refresh_source_hashes()
         return {"updated": updated, "drafts": len(translations), "rejected": rejected, "stage": "llm_translated"}
