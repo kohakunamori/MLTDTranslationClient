@@ -12,6 +12,15 @@ name: Notify private APK build
 #
 # `workflow_dispatch` has no baseline and always notifies: a human asking for a
 # build is the definition of on demand.
+#
+# Two different things keep a burst of pushes from buying a build each. The
+# content decision above removes the pushes that cannot reach the APK's bytes.
+# The merge window in `scripts/dispatch_settle.py` removes the ones that can but
+# are superseded before the build would finish: a push waits ten minutes, then
+# re-checks the branch head, and stands down only when a newer commit changed the
+# same bytes - because that commit has its own notification and it is the one
+# that must build them. Anything the settle cannot prove dispatches, so the
+# window can cost one build but never a release.
 on:
   push:
     branches: [main]
@@ -34,7 +43,9 @@ concurrency:
 jobs:
   dispatch:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # The merge window below waits here, on a public repository's free Linux runner, rather than on
+    # the private side: nothing paid is started just to hold a timer.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -63,19 +74,52 @@ jobs:
           python -m scripts.apk_input_state \
             --before "$BEFORE_SHA" --after "$AFTER_SHA" \
             --github-output --json
+      - name: Hold the notification for a merge window
+        id: settle
+        # Reached only when the decision above already said this push carries new APK bytes. A burst
+        # of such pushes then collapses: each candidate waits out the window, and the last one to
+        # arrive re-reads the branch head and stands down when a newer commit changed the same bytes,
+        # because that commit's own push notification is the one that must spend the build.
+        #
+        # `cancel-in-progress` deliberately stays false: cancelling is not a merge. A cancelled run
+        # would drop the only immediate trigger for the content that push carried, and the private
+        # build pins itself to the commit it was dispatched with rather than re-pinning to a newer
+        # one, so a dropped notification is a release that never happens. The settle is the mechanism
+        # that avoids the superseded build without dropping anything.
+        #
+        # A manual dispatch is exempt: a human asking for a build is the definition of on demand.
+        # `vars.APK_DISPATCH_SETTLE_SECONDS` tunes the window without editing this file (0 disables
+        # it); 600 matches the ten-to-fifteen minute window the delivery cadence was chosen for.
+        if: steps.decide.outputs.dispatch != 'false'
+        shell: bash
+        env:
+          TARGET_SHA: ${{ github.sha }}
+          SETTLE_SECONDS: ${{ github.event_name == 'workflow_dispatch' && '0' || vars.APK_DISPATCH_SETTLE_SECONDS || '600' }}
+        run: |
+          set -euo pipefail
+          python -m scripts.dispatch_settle --root "$GITHUB_WORKSPACE" --github-output --json
       - name: Report why nothing was dispatched
-        if: steps.decide.outputs.dispatch == 'false'
+        if: steps.decide.outputs.dispatch == 'false' || steps.settle.outputs.dispatch == 'false'
         run: |
           {
             echo '### Notification skipped'
             echo
-            echo "This push did not change the bytes the built-in manifest delivers"
-            echo "for the active client version, so the private build was not notified."
-            echo
-            echo "Reason: ${{ steps.decide.outputs.reason }}"
+            if [ '${{ steps.decide.outputs.dispatch }}' = 'false' ]; then
+              echo "This push did not change the bytes the built-in manifest delivers"
+              echo "for the active client version, so the private build was not notified."
+              echo
+              echo "Reason: ${{ steps.decide.outputs.reason }}"
+            else
+              echo "A newer commit arrived during the merge window and changed the same bytes,"
+              echo "so that commit's own notification is the one that builds them. This run"
+              echo "stood down instead of buying a Windows build that would already be obsolete."
+              echo
+              echo "Reason: ${{ steps.settle.outputs.reason }}"
+              echo "Newer commit: ${{ steps.settle.outputs.head_revision }}"
+            fi
           } >> "$GITHUB_STEP_SUMMARY"
       - name: Trigger the private build for this exact commit
-        if: steps.decide.outputs.dispatch != 'false'
+        if: steps.decide.outputs.dispatch != 'false' && steps.settle.outputs.dispatch != 'false'
         env:
           GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
           CLIENT_REPOSITORY: ${{ github.repository }}

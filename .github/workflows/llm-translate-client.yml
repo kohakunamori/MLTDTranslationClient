@@ -235,8 +235,27 @@ jobs:
           CLIENT_COMMIT: ${{ steps.publish.outputs.commit }}
         run: python -m scripts.apk_text_requests callback --commit "$CLIENT_COMMIT"
 
+      # The same merge window the push notifier uses, for the same reason and on the same free public
+      # runner. A translation run commits and then dispatches directly, so a maintainer's push that
+      # lands while this job is still working would otherwise buy a second build of the same content -
+      # or, worse, this run would build content the newer push already superseded. Waiting here and
+      # re-reading the branch head collapses the two entry points into one notification per content:
+      # if a newer commit changed the artifact inputs, that commit's own push notifier is the one that
+      # dispatches, and this run stands down. Anything the settle cannot prove dispatches.
+      - name: Hold the notification for a merge window
+        id: settle
+        if: inputs.smoke_test != true && github.event.action != 'apk-text-discovered' && steps.translate.outcome != 'failure' && (steps.publish.outputs.changed == 'true' || inputs.retry_build == true || github.event.action == 'apk-source-discovered')
+        shell: bash
+        env:
+          TARGET_SHA: ${{ steps.publish.outputs.commit }}
+          # An explicit retry is a human asking for a build, so it is never held back.
+          SETTLE_SECONDS: ${{ inputs.retry_build == true && '0' || vars.APK_DISPATCH_SETTLE_SECONDS || '600' }}
+        run: |
+          set -euo pipefail
+          python -m scripts.dispatch_settle --root "$GITHUB_WORKSPACE" --github-output --json
+
       - name: Dispatch the exact translated Client commit to Private Build
-        if: inputs.smoke_test != true && github.event.action != 'apk-text-discovered' && steps.source.outputs.build_supported == 'true' && steps.translate.outcome != 'failure' && (steps.publish.outputs.changed == 'true' || inputs.retry_build == true || github.event.action == 'apk-source-discovered')
+        if: inputs.smoke_test != true && github.event.action != 'apk-text-discovered' && steps.source.outputs.build_supported == 'true' && steps.translate.outcome != 'failure' && steps.settle.outputs.dispatch != 'false' && (steps.publish.outputs.changed == 'true' || inputs.retry_build == true || github.event.action == 'apk-source-discovered')
         env:
           GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
           CLIENT_REPOSITORY: ${{ github.repository }}
@@ -260,7 +279,7 @@ jobs:
           PY
 
       - name: Request native recovery for a new unsupported official APK
-        if: inputs.smoke_test != true && github.event.action != 'apk-text-discovered' && steps.source.outputs.build_supported == 'false' && steps.translate.outcome != 'failure' && (steps.publish.outputs.changed == 'true' || inputs.retry_build == true || github.event.action == 'apk-source-discovered')
+        if: inputs.smoke_test != true && github.event.action != 'apk-text-discovered' && steps.source.outputs.build_supported == 'false' && steps.translate.outcome != 'failure' && steps.settle.outputs.dispatch != 'false' && (steps.publish.outputs.changed == 'true' || inputs.retry_build == true || github.event.action == 'apk-source-discovered')
         env:
           GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
           CLIENT_REPOSITORY: ${{ github.repository }}
