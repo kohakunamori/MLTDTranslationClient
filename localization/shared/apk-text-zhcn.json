@@ -1,6 +1,831 @@
 {
   "images_enabled": false,
   "kind": "mltd-shared-apk-text",
-  "rows": [],
+  "rows": [
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:628:TextAsset",
+          "key": "ld_connection_error_message_-60604",
+          "source_companion": true,
+          "surface": "bi"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:631:TextAsset",
+          "key": "ld_connection_error_message_-60604",
+          "surface": "bi"
+        }
+      ],
+      "ja": "メダルの交換中にエラーが発生したため交換できませんでした\n更新のためタイトルに戻ります",
+      "source_sha256": "01784c004bf9d5daa638bb74e9e4b5bd0e01cace0b6e6ad11e3f682aa610a075",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:726553:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "<color=red>500枚</color>",
+      "source_sha256": "0b7b067c3da3421591ef50638fa19fcc98001c95e6c3dfd5b5fffefff861f85e",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:790902:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "<color=red>123万1234人</color>",
+      "source_sha256": "0c9e7e940af077f02c719dd6eab4c8c934c3c7bd16c1b48ce06b864dd89b096e",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:798921:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "選択可能なイベントビジュアルはありません",
+      "source_sha256": "0d517b77236f6e0c03688341d78d5712bcca2019f9368f8dd998b6256223c635",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:743703:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "お仕事報酬",
+      "source_sha256": "1f2caafee53e469ef7bc30f4ced34d2111d73e90a2c10236bcff5bbd06797645",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:865432:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        }
+      ],
+      "ja": "ランダム選択",
+      "source_sha256": "273087c268862341a5c8fe8cba577d93df36526ba6008327eb13a1e13f254083",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:628:TextAsset",
+          "key": "ld_connection_error_message_-43103",
+          "source_companion": true,
+          "surface": "bi"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:631:TextAsset",
+          "key": "ld_connection_error_message_-43103",
+          "surface": "bi"
+        }
+      ],
+      "ja": "所持上限を超えるため購入できませんでした\nミリオンジュエルの所持上限は9,999,999個です",
+      "source_sha256": "33bbec18ace7edce05d950a908af305f2e502f96c86b769cf82490ec9aa6d156",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:764695:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "99枚",
+      "source_sha256": "3a816d75dd1fe94cfe64ce2d92270793deeedfedcf995d31e4acbf7684b516df",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:826776:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "未所持です",
+      "source_sha256": "4a381ea85254548b10c282f390bd09879f8dc61bcda4defb1fc29ecbdaa142aa",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:845840:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        }
+      ],
+      "ja": "スナップショット",
+      "source_sha256": "4b0f3c3779a1917b14487d52998e01bb6f979163c3dbdd7c97df89eaacb5ac8c",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:740954:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "お気に入りカード",
+      "source_sha256": "57e7dc3b201275040ba170de170959ca75c23bdc16d05b9586451d0a9ca7f237",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:739482:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:772118:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:806001:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "スリーサイズ(B)",
+      "source_sha256": "588ca1c631caf067894f1cc5689f4d9f65192a170a18c02d1a155212a53efd70",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:733598:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:765403:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:806020:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "誕生月",
+      "source_sha256": "5e3bc5275c1d9a6b9a6776fb068b20829f39a1d128ab7b44b0c277a25825d847",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:873511:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "同じユニット編成とゲストアイドルで\nこの楽曲をもう一度プレイしますか？",
+      "source_sha256": "5ff1efec8fff578498c7e3e65748961aa18ee2a958f17173aff8e448f4b2a414",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:793650:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "カードタイプ",
+      "source_sha256": "6a79763f4571b1f2ddd2a4c66f4778a9977aff1a193b96af9212a8d9946ded39",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:764035:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:764595:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:805952:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "覚醒状態",
+      "source_sha256": "798add50d812e9e377ca40fcab7b24b8190c30c16cfab6eee65dad00a812d148",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:868401:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        }
+      ],
+      "ja": "<color=red>Wall スクリーン設定</color>",
+      "source_sha256": "7e32883ac8ce0e6b2a7ebd37b22cdc72c6703476befc44e79c726d007141a369",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:628:TextAsset",
+          "key": "ld_connection_error_message_-60605",
+          "source_companion": true,
+          "surface": "bi"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:631:TextAsset",
+          "key": "ld_connection_error_message_-60605",
+          "surface": "bi"
+        }
+      ],
+      "ja": "有償ミリオンジュエルのみを使用しての\n交換は行えません",
+      "source_sha256": "841751018afdf04b2400e4c081c141cfe41b72f2659c6ac8d989bec5647f7ffd",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:628:TextAsset",
+          "key": "ld_connection_error_message_-41306",
+          "source_companion": true,
+          "surface": "bi"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:631:TextAsset",
+          "key": "ld_connection_error_message_-41306",
+          "surface": "bi"
+        }
+      ],
+      "ja": "利用制限のため、現在この楽曲をプレイすることができません",
+      "source_sha256": "89c6f3446772c48fcffc4c584188b922659b76cfa0f93f57de45dfcf84029878",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:754646:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "<color=red>春日未来</color>",
+      "source_sha256": "8c27386552cd3134176fa79601d2787a0c4801feb91eefecaeee0390aff06797",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:874023:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        }
+      ],
+      "ja": "<color=red>キャンセル</color>",
+      "source_sha256": "8dc49e9f7406b4e21586e1bb7f6379f124b1b84432f1162aaa7705d43ccab7ba",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:796637:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "<color=red>9999万0000人</color>",
+      "source_sha256": "93fd966a94a64cf3d071d93cd87b12a7344f30565adfb1fd49d12b0f82963835",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:872809:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:892379:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        }
+      ],
+      "ja": "ボックスをリセットする",
+      "source_sha256": "947d33bf10cbd3569f142e6e14488129ab359e42a17bdd94bbad7187162ce7de",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "level1:8281:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "level1:9559:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        }
+      ],
+      "ja": "あと00:00",
+      "source_sha256": "9637b7e93c05da0d1ed0f5cf0d77d7a7764da53f1e06d8daf1d06db04d7a6c4d",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:816659:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:825139:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:826469:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:838795:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:846937:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:917398:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:940508:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        }
+      ],
+      "ja": "Pパワー使用",
+      "source_sha256": "9c42b1ef076417ddeab9dd0d58d3c90d557301bbca1459fc86c94520c31e6eae",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:767563:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "ライブチケット所持数",
+      "source_sha256": "aeafd3d07ac3d33f35b165a2e1abcc9e54bb753216cef29c821d1c9ab777f675",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:871378:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        }
+      ],
+      "ja": "<color=red>Floor スクリーン設定</color>",
+      "source_sha256": "b8ee90067e5e6a4fdcc347ff8b65a1c07697a44f4ee176fa51da9e6267621056",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:886584:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "ガシャから出現させるカードを各レアリティごとに選択してください\n全ての枠を埋めたらガシャを引くことができます",
+      "source_sha256": "b970bd82543015f5e6b2f6f10ffdf6581e29ec69e21f132645e2499b695ab4b5",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:808066:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        }
+      ],
+      "ja": "<color=red>適用</color>",
+      "source_sha256": "c360b03e3cbc366a01db657bfb485db424e433fe45f0edaccc3b78fe6b23ee5e",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:794569:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "ワイドタイプ",
+      "source_sha256": "ca2dc2edfd6c674866cd950bd2373b830aaf491f590e750fe78427fac88c3f5c",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:725567:MonoBehaviour",
+          "script_class": "UnityEngine.UI.Text",
+          "surface": "component"
+        }
+      ],
+      "ja": "報酬カード",
+      "source_sha256": "d1b03ecfcf598495617edf75d698b359e216d2a739df0f370d64a1ac3f1f5cbc",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:757610:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:800477:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:805965:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "スリーサイズ(H)",
+      "source_sha256": "d2f940e5b71973951717f43ef4f796e39d86c37daa017daa5e9c171a946f5229",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:737531:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "ベースデザイン",
+      "source_sha256": "dc8806645af132dfa1d9c00071ae2f63e00f9e92272692826bdf3b5bd917de15",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:747923:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:790878:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        },
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:805995:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "スリーサイズ(W)",
+      "source_sha256": "ea6d2dbb0fcf3e01207677c3aa19b41153b99f47eed04dbc6342210dc49fbd8e",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    },
+    {
+      "contexts": [
+        {
+          "apk_sha256": "d6eb42ed21fa98a91b58753201e9f436f454a35311734958eb378b8d0a8cd976",
+          "client_version": "8.0.750",
+          "field": "m_Text",
+          "field_semantics_verified": true,
+          "identity": "resources.assets:855719:MonoBehaviour",
+          "script_class": "Imas.DLText",
+          "surface": "component"
+        }
+      ],
+      "ja": "未トレーニング",
+      "source_sha256": "ee0fced977cb5f1e1a71cd45d231196089792a4c45b1eec79b3ee893fbb6eb0f",
+      "status": "untranslated",
+      "translatable": true,
+      "zh": ""
+    }
+  ],
   "schema_version": 1
 }
