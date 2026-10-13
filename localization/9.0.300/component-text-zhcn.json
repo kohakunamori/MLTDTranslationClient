@@ -19886,11 +19886,197 @@
         "9.0.300"
       ],
       "translation_stage": "agent_reviewed"
+    },
+    {
+      "ja": "<color=red>500枚</color>",
+      "zh": "<color=red>500张</color>",
+      "status": "accepted",
+      "source_sha256": "0b7b067c3da3421591ef50638fa19fcc98001c95e6c3dfd5b5fffefff861f85e"
+    },
+    {
+      "ja": "<color=red>123万1234人</color>",
+      "zh": "<color=red>123万1234人</color>",
+      "status": "accepted",
+      "source_sha256": "0c9e7e940af077f02c719dd6eab4c8c934c3c7bd16c1b48ce06b864dd89b096e"
+    },
+    {
+      "ja": "選択可能なイベントビジュアルはありません",
+      "zh": "没有可选择的活动视觉",
+      "status": "accepted",
+      "source_sha256": "0d517b77236f6e0c03688341d78d5712bcca2019f9368f8dd998b6256223c635"
+    },
+    {
+      "ja": "お仕事報酬",
+      "zh": "工作报酬",
+      "status": "accepted",
+      "source_sha256": "1f2caafee53e469ef7bc30f4ced34d2111d73e90a2c10236bcff5bbd06797645"
+    },
+    {
+      "ja": "ランダム選択",
+      "zh": "随机选择",
+      "status": "accepted",
+      "source_sha256": "273087c268862341a5c8fe8cba577d93df36526ba6008327eb13a1e13f254083"
+    },
+    {
+      "ja": "99枚",
+      "zh": "99张",
+      "status": "accepted",
+      "source_sha256": "3a816d75dd1fe94cfe64ce2d92270793deeedfedcf995d31e4acbf7684b516df"
+    },
+    {
+      "ja": "未所持です",
+      "zh": "未持有",
+      "status": "accepted",
+      "source_sha256": "4a381ea85254548b10c282f390bd09879f8dc61bcda4defb1fc29ecbdaa142aa"
+    },
+    {
+      "ja": "スナップショット",
+      "zh": "快照",
+      "status": "accepted",
+      "source_sha256": "4b0f3c3779a1917b14487d52998e01bb6f979163c3dbdd7c97df89eaacb5ac8c"
+    },
+    {
+      "ja": "お気に入りカード",
+      "zh": "收藏卡片",
+      "status": "accepted",
+      "source_sha256": "57e7dc3b201275040ba170de170959ca75c23bdc16d05b9586451d0a9ca7f237"
+    },
+    {
+      "ja": "スリーサイズ(B)",
+      "zh": "三围(B)",
+      "status": "accepted",
+      "source_sha256": "588ca1c631caf067894f1cc5689f4d9f65192a170a18c02d1a155212a53efd70"
+    },
+    {
+      "ja": "誕生月",
+      "zh": "出生月",
+      "status": "accepted",
+      "source_sha256": "5e3bc5275c1d9a6b9a6776fb068b20829f39a1d128ab7b44b0c277a25825d847"
+    },
+    {
+      "ja": "同じユニット編成とゲストアイドルで\nこの楽曲をもう一度プレイしますか？",
+      "zh": "要用相同的编队和嘉宾偶像\n再次演奏这首乐曲吗？",
+      "status": "accepted",
+      "source_sha256": "5ff1efec8fff578498c7e3e65748961aa18ee2a958f17173aff8e448f4b2a414"
+    },
+    {
+      "ja": "カードタイプ",
+      "zh": "卡片类型",
+      "status": "accepted",
+      "source_sha256": "6a79763f4571b1f2ddd2a4c66f4778a9977aff1a193b96af9212a8d9946ded39"
+    },
+    {
+      "ja": "覚醒状態",
+      "zh": "觉醒状态",
+      "status": "accepted",
+      "source_sha256": "798add50d812e9e377ca40fcab7b24b8190c30c16cfab6eee65dad00a812d148"
+    },
+    {
+      "ja": "<color=red>Wall スクリーン設定</color>",
+      "zh": "<color=red>Wall 屏幕设置</color>",
+      "status": "accepted",
+      "source_sha256": "7e32883ac8ce0e6b2a7ebd37b22cdc72c6703476befc44e79c726d007141a369"
+    },
+    {
+      "ja": "<color=red>春日未来</color>",
+      "zh": "<color=red>春日未来</color>",
+      "status": "accepted",
+      "source_sha256": "8c27386552cd3134176fa79601d2787a0c4801feb91eefecaeee0390aff06797"
+    },
+    {
+      "ja": "<color=red>キャンセル</color>",
+      "zh": "<color=red>取消</color>",
+      "status": "accepted",
+      "source_sha256": "8dc49e9f7406b4e21586e1bb7f6379f124b1b84432f1162aaa7705d43ccab7ba"
+    },
+    {
+      "ja": "<color=red>9999万0000人</color>",
+      "zh": "<color=red>9999万0000人</color>",
+      "status": "accepted",
+      "source_sha256": "93fd966a94a64cf3d071d93cd87b12a7344f30565adfb1fd49d12b0f82963835"
+    },
+    {
+      "ja": "ボックスをリセットする",
+      "zh": "重置盒子",
+      "status": "accepted",
+      "source_sha256": "947d33bf10cbd3569f142e6e14488129ab359e42a17bdd94bbad7187162ce7de"
+    },
+    {
+      "ja": "あと00:00",
+      "zh": "剩余00:00",
+      "status": "accepted",
+      "source_sha256": "9637b7e93c05da0d1ed0f5cf0d77d7a7764da53f1e06d8daf1d06db04d7a6c4d"
+    },
+    {
+      "ja": "Pパワー使用",
+      "zh": "P力量使用",
+      "status": "accepted",
+      "source_sha256": "9c42b1ef076417ddeab9dd0d58d3c90d557301bbca1459fc86c94520c31e6eae"
+    },
+    {
+      "ja": "ライブチケット所持数",
+      "zh": "演唱会门票持有数",
+      "status": "accepted",
+      "source_sha256": "aeafd3d07ac3d33f35b165a2e1abcc9e54bb753216cef29c821d1c9ab777f675"
+    },
+    {
+      "ja": "<color=red>Floor スクリーン設定</color>",
+      "zh": "<color=red>Floor 屏幕设置</color>",
+      "status": "accepted",
+      "source_sha256": "b8ee90067e5e6a4fdcc347ff8b65a1c07697a44f4ee176fa51da9e6267621056"
+    },
+    {
+      "ja": "ガシャから出現させるカードを各レアリティごとに選択してください\n全ての枠を埋めたらガシャを引くことができます",
+      "zh": "请按各稀有度选择扭蛋中出现的卡片\n填满所有格子后即可抽卡",
+      "status": "accepted",
+      "source_sha256": "b970bd82543015f5e6b2f6f10ffdf6581e29ec69e21f132645e2499b695ab4b5"
+    },
+    {
+      "ja": "<color=red>適用</color>",
+      "zh": "<color=red>应用</color>",
+      "status": "accepted",
+      "source_sha256": "c360b03e3cbc366a01db657bfb485db424e433fe45f0edaccc3b78fe6b23ee5e"
+    },
+    {
+      "ja": "ワイドタイプ",
+      "zh": "宽幅类型",
+      "status": "accepted",
+      "source_sha256": "ca2dc2edfd6c674866cd950bd2373b830aaf491f590e750fe78427fac88c3f5c"
+    },
+    {
+      "ja": "報酬カード",
+      "zh": "奖励卡片",
+      "status": "accepted",
+      "source_sha256": "d1b03ecfcf598495617edf75d698b359e216d2a739df0f370d64a1ac3f1f5cbc"
+    },
+    {
+      "ja": "スリーサイズ(H)",
+      "zh": "三围(H)",
+      "status": "accepted",
+      "source_sha256": "d2f940e5b71973951717f43ef4f796e39d86c37daa017daa5e9c171a946f5229"
+    },
+    {
+      "ja": "ベースデザイン",
+      "zh": "基础设计",
+      "status": "accepted",
+      "source_sha256": "dc8806645af132dfa1d9c00071ae2f63e00f9e92272692826bdf3b5bd917de15"
+    },
+    {
+      "ja": "スリーサイズ(W)",
+      "zh": "三围(W)",
+      "status": "accepted",
+      "source_sha256": "ea6d2dbb0fcf3e01207677c3aa19b41153b99f47eed04dbc6342210dc49fbd8e"
+    },
+    {
+      "ja": "未トレーニング",
+      "zh": "未训练",
+      "status": "accepted",
+      "source_sha256": "ee0fced977cb5f1e1a71cd45d231196089792a4c45b1eec79b3ee893fbb6eb0f"
     }
   ],
   "counts": {
-    "sources": 1808,
-    "accepted": 1730,
+    "sources": 1839,
+    "accepted": 1761,
     "excluded": 78
   },
   "runtime_visibility_verified": false,
