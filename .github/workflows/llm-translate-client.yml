@@ -117,10 +117,27 @@ jobs:
         if: steps.collect.outputs.items != '0'
         run: python -m pip install --disable-pip-version-check -r requirements-provider.txt
 
-      - name: Prepare the shared provider with its pure text helpers
+      - name: Verify the shared text provider imports without the bundle codec
         if: steps.collect.outputs.items != '0'
+        # requirements-provider.txt (httpx, msgpack) is the entire environment in
+        # this job: the engine's bundle codec and its encryption helpers are not
+        # installed here. Importing the engine's text entry is the consumer's own
+        # proof that the engine runs as published, and it fails on the offending
+        # import line rather than halfway through a translation run. The engine
+        # keeps the same invariant as a test of its own
+        # (pipelines/text/test_provider_text_closure.py).
         run: |
-          python -m scripts.prepare_text_provider --engine .translation-engine
+          set -euo pipefail
+          python - <<'PY'
+          import importlib, sys
+          for name in ('pipelines.text.translate_mltd_api_pool',
+                       'pipelines.text.translate_gtx_queue',
+                       'pipelines.text.mltd_translation_quality'):
+              importlib.import_module(name)
+          if 'pipelines.text.mltd_localize_gtx' in sys.modules:
+              raise SystemExit('the text provider still imports the bundle codec')
+          print('provider text closure is clean')
+          PY
           python .translation-engine/pipelines/text/translate_mltd_api_pool.py --help > /dev/null
 
       - name: Materialize provider configuration from secrets
