@@ -22,6 +22,14 @@ def gh(*args, body=None):
     return subprocess.check_output(['gh', *args], input=json.dumps(body).encode() if body is not None else None)
 
 
+def trusted_private_commit(commit):
+    if not re.fullmatch('[0-9a-f]{40}', commit):
+        raise ValueError('Invalid private discovery commit')
+    compared = json.loads(gh('api', f'repos/{PRIVATE}/compare/{commit}...main'))
+    if compared['status'] not in ('identical', 'ahead'):
+        raise ValueError('Private discovery commit is not on main')
+
+
 def validate_catalogue(doc):
     if (doc.get('kind') != 'mltd-shared-apk-text' or doc.get('schema_version') != 1
             or doc.get('images_enabled') is not False or not isinstance(doc.get('rows'), list) or len(doc['rows']) > 5000):
@@ -130,12 +138,11 @@ def download(root, event):
         raise ValueError('APK text asset hash mismatch')
     doc = json.loads(blob)
     producer = doc['producer']
-    run = json.loads(gh('api', f'repos/{PRIVATE}/actions/runs/{producer["run_id"]}'))
-    if (producer['repository'] != PRIVATE or run['head_sha'] != producer['commit']
-            or run['head_branch'] != 'main' or run['head_repository']['full_name'] != PRIVATE
-            or run['path'] != '.github/workflows/future-version.yml'
+    if (producer['repository'] != PRIVATE
+            or meta.get('uploader', {}).get('login') != 'github-actions[bot]'
             or meta['name'] != f'ci-{producer["run_id"]}.client-text-request.json'):
         raise ValueError('APK text request producer is not trusted private CI')
+    trusted_private_commit(producer['commit'])
     return import_request(root, doc, aid, digest)
 
 
@@ -146,10 +153,9 @@ def validate_source_event(event):
             or not re.fullmatch('[0-9a-f]{40}', payload.get('commit', ''))
             or not re.fullmatch('[1-9][0-9]*', str(payload.get('producer_run', '')))):
         raise ValueError('Invalid source discovery origin')
-    run = json.loads(gh('api', f'repos/{PRIVATE}/actions/runs/{payload["producer_run"]}'))
-    if (run['path'] != '.github/workflows/discover-client-resources.yml' or run['head_branch'] != 'main'
-            or run['head_sha'] != payload['producer_commit'] or run['head_repository']['full_name'] != PRIVATE):
+    if event.get('sender', {}).get('type') != 'Bot':
         raise ValueError('Source discovery is not trusted private CI')
+    trusted_private_commit(payload['producer_commit'])
     head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
     compared = json.loads(gh('api', f'repos/kohakunamori/MLTDTranslationClient/compare/{payload["commit"]}...{head}'))
     if compared['status'] not in ('identical', 'ahead'):
