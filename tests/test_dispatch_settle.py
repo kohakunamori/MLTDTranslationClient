@@ -181,6 +181,23 @@ class DispatchSettleTests(unittest.TestCase):
         self.assertEqual(report['reason'], 'superseded_by_newer_inputs')
         self.assertEqual(report['head_revision'], newer)
 
+    def test_a_full_clone_fetches_the_newer_head_before_deciding(self):
+        """The notifier checks out with `fetch-depth: 0`, so the newer tip is simply absent."""
+        fixture = self.fixture()
+        target = git(fixture.work, 'rev-parse', 'HEAD')
+        peer = fixture.root / 'peer'
+        subprocess.run(['git', 'clone', '-q', f'file://{fixture.remote}', str(peer)], check=True)
+        fixture.write('localization/9.0.300/runtime-bi-zhcn.json',
+                      json.dumps({'rows': [{'zh': '导航'}]}))
+        newer = fixture.publish(fixture.commit('translation update'))
+        self.assertFalse(settle_module.have_revision(peer, newer))
+
+        report = settle_module.settle(peer, target, settle_seconds=0)
+
+        self.assertFalse(report['dispatch'])
+        self.assertEqual(report['reason'], 'superseded_by_newer_inputs')
+        self.assertEqual(report['head_revision'], newer)
+
     def test_github_output_always_states_the_dispatch_decision(self):
         fixture = self.fixture()
         target = git(fixture.work, 'rev-parse', 'HEAD')
