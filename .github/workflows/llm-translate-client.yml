@@ -117,6 +117,12 @@ jobs:
         if: steps.collect.outputs.items != '0'
         run: python -m pip install --disable-pip-version-check -r requirements-provider.txt
 
+      - name: Prepare the shared provider with its pure text helpers
+        if: steps.collect.outputs.items != '0'
+        run: |
+          python -m scripts.prepare_text_provider --engine .translation-engine
+          python .translation-engine/pipelines/text/translate_mltd_api_pool.py --help > /dev/null
+
       - name: Materialize provider configuration from secrets
         if: steps.collect.outputs.items != '0'
         shell: bash

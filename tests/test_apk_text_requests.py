@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 from scripts import apk_text_requests as requests
 from scripts.translation_pipeline import source_id, TranslationPipeline, validate_translation
+from scripts import prepare_text_provider
 
 
 def request():
@@ -21,6 +22,21 @@ def request():
 
 
 class RequestTests(unittest.TestCase):
+    def test_provider_uses_the_same_pure_helpers_without_bundle_dependencies(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for relative in ('pipelines/core/jsonl.py', 'pipelines/text/translation_tokens.py'):
+                path = root / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text('# fixture', encoding='utf-8')
+            script = root / 'pipelines/text/translate_mltd_api_pool.py'
+            script.write_text(prepare_text_provider.LEGACY + '\n# unchanged provider\n', encoding='utf-8')
+            prepare_text_provider.prepare(root)
+            self.assertEqual(script.read_text(encoding='utf-8'), prepare_text_provider.PURE + '\n# unchanged provider\n')
+            prepare_text_provider.prepare(root)
+            script.write_text('from new_interface import something', encoding='utf-8')
+            with self.assertRaises(ValueError):
+                prepare_text_provider.prepare(root)
     def test_Client_workflow_owns_translation_and_never_acquires_or_scans_APKs(self):
         text = (Path(__file__).resolve().parents[1] / '.github/workflows/llm-translate-client.yml').read_text(encoding='utf-8')
         for forbidden in ('client.apk_resource_sync', 'client.apk_sync_preflight', 'UnityPy', '.apk-tools', 'requirements-client-ci'):
