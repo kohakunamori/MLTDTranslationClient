@@ -26,8 +26,23 @@ except ImportError:  # pragma: no cover - direct file execution
     from repo_utils import RepositoryLayout, canonical_bytes, read_json, sha256, sha256_bytes, write_json
 
 PROTECTED_TOKENS = re.compile(
-    r"\{[^{}]+\}|%(?:\d+\$)?[-+0 #]*\d*(?:\.\d+)?[a-zA-Z%]|<[^<>\r\n]+>|\\[nrt]|\\[0-9]{2}\\"
+    r"\{[^{}]+\}|%(?:\d+\$)?[-+0 #]*\d*(?:\.\d+)?[a-zA-Z%]|<[^<>\r\n]+>|\\[nrt]|\\[0-9]{2}\\|\d{1,3}(?:,\d{3})+(?:\.\d+)?"
 )
+GROUPED_NUMBER = re.compile(r'(?<!\d)\d{1,3}(?:,\d{3})+(?:\.\d+)?(?!\d)')
+TRANSLATED_GROUPED_NUMBER = re.compile(r'(?<!\d)\d{1,3}(?:[,，、]\d{3})+(?:\.\d+)?(?!\d)')
+
+
+def repair_numeric_separators(source: str, translation: str) -> str:
+    """Restore source separators only when the exact digits and decimal agree."""
+    choices: dict[str, set[str]] = {}
+    def identity(value):
+        return re.sub('[,，、]', '', value)
+    for match in GROUPED_NUMBER.finditer(source):
+        choices.setdefault(identity(match[0]), set()).add(match[0])
+    def restore(match):
+        values = choices.get(identity(match[0]), set())
+        return next(iter(values)) if len(values) == 1 else match[0]
+    return TRANSLATED_GROUPED_NUMBER.sub(restore, translation)
 
 
 def validate_translation(source: str, translation: str) -> None:
@@ -113,6 +128,23 @@ class TranslationPipeline:
     def collect(self, output: Path) -> dict[str, int | str]:
         # Resolve identical Japanese sources locally before spending provider tokens.
         documents = [(path, read_json(path)) for path in self.source_files()]
+        repaired = 0
+        for path, document in documents:
+            changed = False
+            for _, row in records(document):
+                if row.get('status') not in (None, 'accepted') or not row['zh']:
+                    continue
+                corrected = repair_numeric_separators(row['ja'], row['zh'])
+                if corrected != row['zh']:
+                    validate_translation(row['ja'], corrected)
+                    row['zh'] = corrected
+                    row['format_repair'] = 'exact-source-numeric-separators'
+                    changed = True
+                    repaired += 1
+            if changed:
+                write_json(path, document)
+        if repaired:
+            self.refresh_source_hashes()
         candidates: dict[str, set[str]] = {}
         for _, document in documents:
             for _, row in records(document):
@@ -169,7 +201,7 @@ class TranslationPipeline:
                         + "\n"
                     )
                     count += 1
-        return {"queue": str(output), "items": count, "reused": reused}
+        return {"queue": str(output), "items": count, "reused": reused, "format_repaired": repaired}
 
     def apply(self, draft: Path) -> dict[str, int | str]:
         translations: dict[str, str] = {}
@@ -183,6 +215,7 @@ class TranslationPipeline:
             translation = str(row.get("translation", "")).strip()
             if not source or sid != source_id(source) or not translation:
                 continue
+            translation = repair_numeric_separators(source, translation)
             try:
                 validate_translation(source, translation)
             except ValueError:

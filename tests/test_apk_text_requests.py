@@ -7,7 +7,7 @@ import unittest
 from unittest.mock import patch
 
 from scripts import apk_text_requests as requests
-from scripts.translation_pipeline import source_id, TranslationPipeline, validate_translation
+from scripts.translation_pipeline import source_id, TranslationPipeline, validate_translation, repair_numeric_separators
 from scripts import prepare_text_provider
 
 
@@ -93,6 +93,10 @@ class RequestTests(unittest.TestCase):
         validate_translation('<b>続ける %1$s {0}</b>', '<b>继续 %1$s {0}</b>')
         with self.assertRaises(ValueError):
             validate_translation('続ける %1$s', '继续 %2$s')
+        self.assertEqual(repair_numeric_separators('上限9,999,999個', '上限9、999、999个'), '上限9,999,999个')
+        self.assertEqual(repair_numeric_separators('上限9,999,999個', '上限9、999、998个'), '上限9、999、998个')
+        with self.assertRaises(ValueError):
+            validate_translation('上限9,999,999個', '上限9、999、998个')
 
     def test_shared_component_translation_reaches_active_build_input(self):
         with tempfile.TemporaryDirectory() as directory:

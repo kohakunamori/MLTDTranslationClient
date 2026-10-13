@@ -154,9 +154,10 @@
       "source_sha256": "33bbec18ace7edce05d950a908af305f2e502f96c86b769cf82490ec9aa6d156",
       "status": "accepted",
       "translatable": true,
-      "zh": "因超过持有上限而无法购买\n百万宝石的持有上限为9、999、999个",
+      "zh": "因超过持有上限而无法购买\n百万宝石的持有上限为9,999,999个",
       "translation_stage": "llm_translated",
-      "updated_at": "2026-10-13T14:27:51+00:00"
+      "updated_at": "2026-10-13T14:27:51+00:00",
+      "format_repair": "exact-source-numeric-separators"
     },
     {
       "contexts": [
