@@ -12,6 +12,12 @@
 
 配套资源见 [MLTDTranslationAssets](https://github.com/kohakunamori/MLTDTranslationAssets)，汉化内容可在 [查阅站](https://mltd-portal.nyaneko.cn) 浏览。
 
+## 默认画质（9.0.300）
+
+公共汉化客户端保持 **原版 1080p/60 FPS 配置**：自动构建不包含任何 `quality-fps` 原生补丁，游戏画质、帧率及 MSAA 参数由官方客户端原始设置控制。这不是对全场景强制锁定 1080p 或 60 FPS。
+
+另行提供的本地服（`.local`）候选版本由 [MLTDModifiedAPK](https://github.com/kohakunamori/MLTDModifiedAPK) 构建，默认使用 `4k-120`（2160 高度、LIVE/MV 120 FPS 请求）；该候选包含共享 High 渲染高度修改，**不属于本仓库公开汉化版**，其真实稳定帧率仍需设备验收。
+
 ## 贡献
 
 如果发现游戏里还有没汉化的地方，或者某处中文读起来不对，请在
