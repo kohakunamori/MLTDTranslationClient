@@ -2295427,19 +2295427,6 @@
     },
     {
       "identity": "resources.assets:643:TextAsset",
-      "key": "title_02",
-      "record_index": 501,
-      "source_companion": true,
-      "source": "c窪岡俊之 THE IDOLM@STER?& cBandai Namco Entertainment Inc.\nDeveloped by Bandai Namco Studios Inc.",
-      "source_sha256": "ce0c2b2816cd146bb5f47fb85e98e7a6394f27cd397906d33d6e9506737688bf",
-      "status": "untranslated-candidate",
-      "translation_available": false,
-      "patch_supported": false,
-      "new_source": false,
-      "field_semantics_verified": true
-    },
-    {
-      "identity": "resources.assets:643:TextAsset",
       "key": "title_05",
       "record_index": 504,
       "source_companion": true,
@@ -2422027,19 +2422014,6 @@
   "baseline_inventory_available": true,
   "untranslated": [
     {
-      "identity": "resources.assets:643:TextAsset",
-      "key": "title_02",
-      "record_index": 501,
-      "source_companion": true,
-      "source": "c窪岡俊之 THE IDOLM@STER?& cBandai Namco Entertainment Inc.\nDeveloped by Bandai Namco Studios Inc.",
-      "source_sha256": "ce0c2b2816cd146bb5f47fb85e98e7a6394f27cd397906d33d6e9506737688bf",
-      "status": "untranslated-candidate",
-      "translation_available": false,
-      "patch_supported": false,
-      "new_source": false,
-      "field_semantics_verified": true
-    },
-    {
       "identity": "resources.assets:754991:MonoBehaviour",
       "byte_offset": 48,
       "byte_length": 39,
@@ -2423441,9 +2423415,9 @@
   ],
   "counts": {
     "objects": 252413,
-    "text_occurrences": 11124,
-    "untranslated_occurrences": 117,
-    "untranslated_unique_sources": 18,
+    "text_occurrences": 11123,
+    "untranslated_occurrences": 116,
+    "untranslated_unique_sources": 17,
     "image_review_candidates": 0
   },
   "policy": "Discovery does not translate images or assert raw-field semantics or runtime visibility.",
