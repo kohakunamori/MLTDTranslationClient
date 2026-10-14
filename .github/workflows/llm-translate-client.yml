@@ -113,6 +113,12 @@ jobs:
           ref: main
           path: .translation-engine
           fetch-depth: 1
+          filter: blob:none
+          # The provider consumes code, configuration and glossary only.
+          sparse-checkout: |
+            configs
+            glossary
+            pipelines
 
       - name: Install provider dependencies only for a nonempty queue
         if: steps.collect.outputs.items != '0'
