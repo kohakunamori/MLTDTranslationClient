@@ -1,3 +1,4 @@
+# RackNerd dispatches these labeled jobs one at a time under CPU/memory limits.
 name: Validate Client Built-in Repository
 
 on:
@@ -24,7 +25,7 @@ concurrency:
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, racknerd-light]
     timeout-minutes: 5
     steps:
       - name: Checkout repository
