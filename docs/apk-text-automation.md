@@ -9,6 +9,11 @@ Client 的临时引擎 checkout 使用现有的纯文字 JSONL/格式校验函�
 Unity/AES 依赖改为仅在实际处理 bundle 时加载。启动检查无需 APK 解析依赖；
 Provider、术语和格式校验的实现不变，资源和译文仍只回写 Client。
 
+引擎检出按发布源码直接消费，不在运行前改写其中任何 Python 文件。
+`llm-translate-client.yml` 的导入检查验证 provider、queue 与 quality 的纯文本
+闭包，并拒绝意外导入 bundle codec。它与翻译步骤一样，只在待翻译队列非空
+时运行；队列为空时显示 skipped，不能作为真实翻译路径已经验收的证据。
+
 Private Build 的每日官方 APK 扫描及 `apk-text-discovered` 事件共用此目录。
 APK 获取、解包和资源扫描全部在 Private Build；Client 仅导入有界文字清单。
 只接受语义已确认且有补丁实现的文字，或者 BI 原文伴随资源。版权行不进入队列。
