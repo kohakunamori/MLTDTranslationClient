@@ -1,0 +1,10 @@
+{
+  "images_enabled": false,
+  "kind": "mltd-client-source-text",
+  "rows": [],
+  "schema_version": 1,
+  "source": {
+    "client_version": "9.0.350",
+    "source_apk_sha256": "0db20e3ba06fba5864c77a959e90ae293f386a7c5f157f1fdd16f94fcc3c846e"
+  }
+}
