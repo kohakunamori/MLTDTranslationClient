@@ -1,4 +1,6 @@
-# RackNerd dispatches these labeled jobs one at a time under CPU/memory limits.
+# The draft job runs hosted: it needs only the repository, Python and the public
+# HTTPS gateway, and MLTDTranslationClient is public, so standard hosted minutes
+# are free and unlimited.
 name: Auto-translate Client resources
 
 on:
@@ -36,7 +38,7 @@ env:
 
 jobs:
   draft:
-    runs-on: [self-hosted, Linux, X64, racknerd-light]
+    runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
       - name: Checkout Client sources
