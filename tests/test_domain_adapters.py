@@ -5,7 +5,8 @@ import unittest
 from pathlib import Path
 
 from scripts.portal_manifest import PortalManifestBuilder
-from scripts.private_build import payload
+from scripts.private_build import payload, recovery_payload
+from scripts.repo_utils import RepositoryLayout, read_json
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,13 +26,25 @@ class DomainAdapterTests(unittest.TestCase):
         expected["release"].pop("client_resources_commit", None)
         self.assertEqual(generated, expected)
 
-    def test_private_build_payload_is_ready_for_current_commit(self):
+    def test_private_build_payload_matches_the_current_source_state(self):
         commit = subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True,
         ).strip()
-        event = payload(ROOT, "kohakunamori/MLTDTranslationClient", commit)
-        self.assertEqual(event["event_type"], "client-resources-updated")
-        self.assertEqual(event["client_payload"]["client_version"], "9.0.300")
+        repository = "kohakunamori/MLTDTranslationClient"
+        state_path = RepositoryLayout(ROOT).source_state_manifest
+        state = read_json(state_path) if state_path.exists() else None
+
+        if state and state.get("build_supported") is False:
+            self.assertIsNone(payload(ROOT, repository, commit))
+            event = recovery_payload(ROOT, repository, commit)
+            self.assertIsNotNone(event)
+            self.assertEqual(event["event_type"], "client-native-recovery-requested")
+            self.assertEqual(event["client_payload"]["client_version"], state["client_version"])
+        else:
+            event = payload(ROOT, repository, commit)
+            self.assertIsNotNone(event)
+            self.assertEqual(event["event_type"], "client-resources-updated")
+            self.assertEqual(event["client_payload"]["client_version"], "9.0.300")
         self.assertEqual(event["client_payload"]["client_commit"], commit)
 
 

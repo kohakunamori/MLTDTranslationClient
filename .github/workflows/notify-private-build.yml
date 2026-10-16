@@ -1,4 +1,4 @@
-# RackNerd dispatches these labeled jobs one at a time under CPU/memory limits.
+# Dispatch decisions run on a standard GitHub-hosted Linux runner.
 name: Notify private APK build
 
 # On demand, by content: the private build is keyed on the Client commit, so a
@@ -43,9 +43,8 @@ concurrency:
 
 jobs:
   dispatch:
-    runs-on: [self-hosted, Linux, X64, racknerd-light]
-    # The merge window below waits on the bounded RackNerd runner, while
-    # the private Windows build waits until the notification is ready.
+    runs-on: ubuntu-latest
+    # The merge window below waits before notifying the private Windows build.
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
