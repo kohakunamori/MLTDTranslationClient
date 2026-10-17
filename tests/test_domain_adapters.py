@@ -44,7 +44,7 @@ class DomainAdapterTests(unittest.TestCase):
             event = payload(ROOT, repository, commit)
             self.assertIsNotNone(event)
             self.assertEqual(event["event_type"], "client-resources-updated")
-            self.assertEqual(event["client_payload"]["client_version"], "9.0.300")
+            self.assertEqual(event["client_payload"]["client_version"], state["client_version"] if state else read_json(RepositoryLayout(ROOT).builtin_manifest)["provenance"]["client_version"])
         self.assertEqual(event["client_payload"]["client_commit"], commit)
 
 
