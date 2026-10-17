@@ -9,7 +9,7 @@
     "translation_sources": "repo_text_and_images; generated_unity3d_is_a_CI_output_and_APK_release_asset"
   },
   "provenance": {
-    "client_version": "9.0.300",
+    "client_version": "9.0.350",
     "axis": "client"
   },
   "counts": {
@@ -24,14 +24,14 @@
       "manifest": "manifests/bottom-bar.manifest.json",
       "slot_count": 7,
       "translation_source": {
-        "relative_path": "localization/9.0.300/apk-ui-strings-zhcn.json",
-        "sha256": "f624cc740bb60697bf6781402a67c89f84cc96c6c9502e1d3db05e4d93fda963",
+        "relative_path": "localization/9.0.350/apk-ui-strings-zhcn.json",
+        "sha256": "ade850212d88feb7e12530d77dd31d4e09db82f123022c1ced9fb6adc109f0ce",
         "bytes": 3462,
         "kind": "json-source"
       },
       "visual_sources": [
         {
-          "relative_path": "localization/9.0.300/visuals/bottom-bar-off-v5.png",
+          "relative_path": "localization/9.0.350/visuals/bottom-bar-off-v5.png",
           "sha256": "d3c1bbffc483437a72135f040406c074479fdd836a58c101e2646f1fc4306289",
           "bytes": 87107,
           "kind": "image-source",
@@ -42,7 +42,7 @@
           ]
         },
         {
-          "relative_path": "localization/9.0.300/visuals/bottom-bar-on-v3.png",
+          "relative_path": "localization/9.0.350/visuals/bottom-bar-on-v3.png",
           "sha256": "87fc1686f6ca4d9317169c88e854cf5991f564ccb24abe4dd2cec247240585e6",
           "bytes": 113516,
           "kind": "image-source",
@@ -63,13 +63,13 @@
       "unique_keys": 628,
       "source": {
         "relative_path": "data.unity3d",
-        "sha256": "efff4c07236fbf59fc40bdc43442ab3d25287d5be229664cbce083622eb00230",
-        "bytes": 70162422
+        "sha256": "02b2a012e3b2b065dd9d834c46deebdb3bddc98858514023a5aa2342c2dbc903",
+        "bytes": 70153987
       },
       "translation_source": {
-        "relative_path": "localization/9.0.300/runtime-bi-zhcn.json",
+        "relative_path": "localization/9.0.350/runtime-bi-zhcn.json",
         "kind": "json-source",
-        "sha256": "c810663d0db70b805c75049440c5a6b64dfc33bb7b49497476b5462423bd88f3",
+        "sha256": "8de8c450f2e76102b6540a84a953d62cfe13287296c3a9e21ff99dce7e93b67e",
         "bytes": 259424
       }
     },
@@ -87,10 +87,10 @@
       "target": "UI.Text.m_Text;DLText.m_Text;PictgraphText.mText",
       "records": 1730,
       "translation_source": {
-        "relative_path": "localization/9.0.300/component-text-zhcn.json",
+        "relative_path": "localization/9.0.350/component-text-zhcn.json",
         "kind": "json-source",
-        "sha256": "db6332a70edf38aefbf7a33de16427941140c2ab4318bd0bc0f67138098f59d6",
-        "bytes": 666576
+        "sha256": "aa9bf3e16ed501b8b68bb2f6d30f33c93ae3fece6f658c0ba202208fded409e3",
+        "bytes": 666616
       },
       "android_records": 23
     }
