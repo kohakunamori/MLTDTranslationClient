@@ -14,19 +14,23 @@ Provider、术语和格式校验的实现不变，资源和译文仍只回写 Cl
 闭包，并拒绝意外导入 bundle codec。它与翻译步骤一样，只在待翻译队列非空
 时运行；队列为空时显示 skipped，不能作为真实翻译路径已经验收的证据。
 
-Private Build 的每日官方 APK 扫描及 `apk-text-discovered` 事件共用此目录。
-APK 获取、解包和资源扫描全部在 Private Build；Client 仅导入有界文字清单。
+Private Build 的每日官方 APK 扫描把
+`localization/<版本>/discovery/automatic-text-request.json` 写入 Client 检出并提交到
+Client `main`，随后派发 `apk-source-discovered`。APK 获取、解包和资源扫描全部在
+Private Build；Client 仅导入有界文字清单。
 只接受语义已确认且有补丁实现的文字，或者 BI 原文伴随资源。版权行不进入队列。
 对象名称、回调、未确认字段、图片以及无法解码的资源继续交给 Agent。
 
-Private 请求固定资产 ID、SHA-256、原始 APK、checkpoint 和 CI 来源。
-Client 验证请求来源后导入目录，不会把较旧 APK 设置成当前 Client 版本。
+Private 在 `automatic-text-request.json` 中固定原始 APK（`source_apk_sha256`）与
+Client 版本。Client 用 `python -m scripts.apk_text_requests import-local-scan`
+校验并导入共享目录，不会把较旧 APK 设置成当前 Client 版本。
 译文同步到当前 component/Android 目录；未来版本 CI 还会按精确 Client 提交
 取得共享目录，为目标 APK 重新生成 BI/component/Android 补丁输入。
 
-请求保存在 `manifests/apk-text-requests.json`。满足请求的全部文字通过校验后，
-Client 用 `client-candidate-text-updated` 回调原 checkpoint 和精确提交。
-每日运行也会恢复未完成请求；Private 按 checkpoint、工具及 Client 提交去重。
+请求不再作为仓库状态保存。Private 每次扫描直接覆盖同目录的清单文件；Client
+翻译并提交到 `main` 后，由 `.github/workflows/notify-private-build.yml` 比较该
+提交实际送入 APK 的资源，按精确提交派发 `client-resources-updated`；不支持的原生
+版本改派 `client-native-recovery-requested`。Private 按内容与提交去重。
 
 Private 构建、签名及隔离 ARM64 Android 冷启动通过后，CN 包发布到 Client，
 Local 包发布到 Private Build 的版本候选 Release。候选标签为

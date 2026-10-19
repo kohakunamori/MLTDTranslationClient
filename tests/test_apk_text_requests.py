@@ -1,10 +1,9 @@
 from __future__ import annotations
-import copy
+import hashlib
 import json
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
 
 from scripts import apk_text_requests as requests
 from scripts.translation_pipeline import source_id, TranslationPipeline, validate_translation, repair_numeric_separators
@@ -12,8 +11,7 @@ from scripts.translation_pipeline import source_id, TranslationPipeline, validat
 
 def request():
     source = '続ける %1$s'
-    return {'kind': 'mltd-client-text-request', 'schema_version': 1, 'images_enabled': False,
-            'checkpoint_key': 'a' * 64, 'adaptation_id': 'b' * 64,
+    return {'kind': 'mltd-client-source-text', 'schema_version': 1, 'images_enabled': False,
             'source': {'client_version': '8.0.750', 'source_apk_sha256': 'c' * 64},
             'rows': [{'source': source, 'source_sha256': source_id(source), 'contexts': [{
                 'client_version': '8.0.750', 'apk_sha256': 'c' * 64, 'identity': 'data:1:MonoBehaviour',
@@ -28,7 +26,14 @@ class RequestTests(unittest.TestCase):
             self.assertNotIn(forbidden, text)
         self.assertIn('translate_mltd_api_pool.py', text)
         self.assertIn('MLTD_LLM_API_KEY', text)
-        self.assertIn('scripts.apk_text_requests callback', text)
+        # The staged file and the commit-bound notification are the only transport:
+        # the retired Release-asset import and request callback must not come back.
+        self.assertIn('scripts.apk_text_requests import-local-scan', text)
+        self.assertIn('scripts.apk_text_requests validate-source-event', text)
+        self.assertNotIn('apk_text_requests callback', text)
+        self.assertNotRegex(text, r'apk_text_requests import(?!-local-scan)')
+        self.assertNotIn('apk-text-discovered', text)
+        self.assertNotIn('client-candidate-text-updated', text)
     def test_Client_verifies_the_engine_text_closure_instead_of_rewriting_it(self):
         """The engine runs as published: the job must import it, not edit it."""
         text = (Path(__file__).resolve().parents[1] / '.github/workflows/llm-translate-client.yml').read_text(encoding='utf-8')
@@ -39,7 +44,7 @@ class RequestTests(unittest.TestCase):
         self.assertIn('pipelines.text.mltd_localize_gtx', text)
         # Verification must come before the translation run, not after it.
         self.assertLess(text.index('mltd_localize_gtx'), text.index('--batch-mode single'))
-    def test_pending_import_reuses_existing_translation_and_callbacks_exact_commit(self):
+    def test_pending_import_reuses_existing_translation(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             prior = root / 'localization/9.0.300/source.json'
@@ -48,18 +53,39 @@ class RequestTests(unittest.TestCase):
             manifest = root / 'manifests/apk-builtin.manifest.json'
             manifest.parent.mkdir()
             manifest.write_text(json.dumps({'surfaces': []}), encoding='utf-8')
-            requests.import_request(root, request(), 123, 'd' * 64)
-            self.assertEqual(requests.callbacks(root, 'e' * 40, 'kohakunamori/MLTDTranslationClient'), 0)
+            self.assertEqual(requests.import_request(root, request()), 1)
             result = TranslationPipeline(root).collect(root / 'queue.jsonl')
             self.assertEqual(result['reused'], 1)
             self.assertEqual(result['items'], 0)
-            with patch.object(requests, 'gh', return_value=b'') as gh:
-                self.assertEqual(requests.callbacks(root, 'e' * 40, 'kohakunamori/MLTDTranslationClient'), 1)
-                body = gh.call_args.kwargs['body']
-                self.assertEqual(body['client_payload']['commit'], 'e' * 40)
-                self.assertEqual(body['client_payload']['checkpoint_key'], 'a' * 64)
-            requests.import_request(root, request(), 123, 'd' * 64)
+            self.assertEqual(requests.import_request(root, request()), 1)
             self.assertEqual(len(requests.read_json(root / requests.CATALOGUE)['rows']), 1)
+
+    def test_import_local_scan_reads_the_staged_discovery_queue(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state = root / 'manifests/apk-source-state.json'
+            state.parent.mkdir(parents=True)
+            state.write_text(json.dumps({'client_version': '8.0.750', 'source_apk_sha256': 'c' * 64}), encoding='utf-8')
+            staged = root / 'localization/8.0.750/discovery/automatic-text-request.json'
+            staged.parent.mkdir(parents=True)
+            staged.write_text(json.dumps(request()), encoding='utf-8')
+            self.assertEqual(requests.import_local_scan(root), 1)
+            self.assertEqual(len(requests.read_json(root / requests.CATALOGUE)['rows']), 1)
+            self.assertEqual(requests.import_local_scan(root), 1)
+
+    def test_the_retired_request_pin_manifest_is_gone(self):
+        repository = Path(__file__).resolve().parents[1]
+        self.assertFalse((repository / 'manifests/apk-text-requests.json').exists())
+
+    def test_the_retired_pinned_request_document_is_refused(self):
+        # `mltd-client-text-request` carried the Release-asset pin and the
+        # checkpoint the old callback resumed. Nothing produces it any more, so
+        # accepting it would only keep a dead transport alive.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with self.assertRaises(ValueError):
+                requests.import_request(root, dict(request(), kind='mltd-client-text-request'))
+            self.assertFalse((root / requests.CATALOGUE).exists())
 
     def test_unverified_fields_images_wrong_hash_or_apk_are_rejected_before_write(self):
         for mutation in ('semantics', 'surface', 'hash', 'apk', 'images'):
@@ -72,7 +98,7 @@ class RequestTests(unittest.TestCase):
                 if mutation == 'images': doc['images_enabled'] = True
                 root = Path(directory)
                 with self.assertRaises(ValueError):
-                    requests.import_request(root, doc, 123, 'd' * 64)
+                    requests.import_request(root, doc)
                 self.assertFalse((root / requests.CATALOGUE).exists())
 
     def test_positional_format_and_markup_survive_translation(self):
@@ -94,20 +120,21 @@ class RequestTests(unittest.TestCase):
             manifest.parent.mkdir()
             manifest.write_text(json.dumps({'surfaces': [{'name': 'component-text', 'translation_source': {
                 'relative_path': path.relative_to(root).as_posix(), 'sha256': 'old', 'bytes': 0}}]}), encoding='utf-8')
-            requests.import_request(root, request(), 123, 'd' * 64)
+            requests.import_request(root, request())
             draft = root / 'draft.jsonl'
             draft.write_text(json.dumps({'source': '続ける %1$s', 'source_sha256': source_id('続ける %1$s'),
                                         'translation': '继续 %1$s'}), encoding='utf-8')
             TranslationPipeline(root).apply(draft)
             self.assertEqual(requests.read_json(path)['rows'][0]['zh'], '继续 %1$s')
             binding = requests.read_json(manifest)['surfaces'][0]['translation_source']
-            self.assertEqual(binding['sha256'], requests.hashlib.sha256(path.read_bytes()).hexdigest())
+            self.assertEqual(binding['sha256'], hashlib.sha256(path.read_bytes()).hexdigest())
 
     def test_bad_draft_keeps_pending_source_while_saving_valid_progress(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            requests.import_request(root, request(), 123, 'd' * 64)
+            requests.import_request(root, request())
             manifest = root / 'manifests/apk-builtin.manifest.json'
+            manifest.parent.mkdir()
             manifest.write_text('{"surfaces":[]}', encoding='utf-8')
             draft = root / 'draft.jsonl'
             draft.write_text(json.dumps({'source': '続ける %1$s', 'source_sha256': source_id('続ける %1$s'),
