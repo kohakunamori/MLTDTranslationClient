@@ -289,16 +289,12 @@ id / 状态 / 影响范围 / 发现版本 / 修复版本 / 界面位置
     在 `localization/9.0.200/runtime-bi-zhcn.json` 与
     `localization/9.0.300/runtime-bi-zhcn.json` 的 632 行里，按
     `loading` / `ローディング` / `読込` 检索均无匹配。
-14. 只审计不落地的三份脚本（均在 `MLTDModifiedAPK/research-tools/scripts/`）：
-    `audit_apk_baked_ui_candidates.py`、`audit_apk_auxiliary_text.py`、
-    `audit_apk_platform_native_text.py`；它们的交接产物由
-    `prepare_apk_localization_handoff.py` 生成，该文件第 28 行把边界固定为
-    `writeback_allowed: False`，第 172 行写上
+14. 只审计不落地的三份脚本分别排查内置界面文字、Unity 之外的文本文件和系统层面的
+    日文串；它们的交接产物把边界固定为 `writeback_allowed: False`、
     `japanese_screening_status: "not_started"`、`reviewed_images: 0`。
 15. 构建系统实际只会改三类 Unity 对象（内置文本 `BI_jp.gtx`、字体、底栏图集），
     其余对象强制逐字节不变，且代码里直接写着
-    `scope: 'runtime BI only; other APK UI/textures excluded'`
-    （`MLTDModifiedAPK/client/apk_builtin_localization.py:193`）。
+    `scope: 'runtime BI only; other APK UI/textures excluded'`。
     应用名会改，但没有登记进 Client 仓库的三个面里。
 16. 字体缺字情况：9.0.200 有覆盖率证据（3129/3129），但 9.0.300 找不到同类证据，
     **是否缺字未证实**，不要当成已知缺口对外说。

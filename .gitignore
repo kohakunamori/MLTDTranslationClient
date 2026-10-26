@@ -13,7 +13,7 @@ node_modules/
 .llm-*
 .pytest_cache/
 # Machine-only evidence (device screenshots, decoded bundles). Kept out of the
-# repository the same way the sibling MLTDLocalServer and MLTDModifiedAPK keep it.
+# repository, never committed as sources.
 /local-data/
 # Official APK inputs are local build artifacts, never repository sources.
 release-*/

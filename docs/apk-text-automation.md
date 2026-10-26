@@ -32,7 +32,5 @@ Client 版本。Client 用 `python -m scripts.apk_text_requests import-local-sca
 提交实际送入 APK 的资源，按精确提交派发 `client-resources-updated`；不支持的原生
 版本改派 `client-native-recovery-requested`。Private 按内容与提交去重。
 
-Private 构建、签名及隔离 ARM64 Android 冷启动通过后，CN 包发布到 Client，
-Local 包发布到 Private Build 的版本候选 Release。候选标签为
-`v<版本>-candidate-<适配摘要>`，始终为非 latest 的预发布版。
+Private 构建、签名及隔离 ARM64 Android 冷启动通过后，CN 包发布到 Client。
 实机、登录和 LIVE/MV 验收仍是正式版晋级条件。
