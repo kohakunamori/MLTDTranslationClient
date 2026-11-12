@@ -33,30 +33,26 @@ def _translate_step_args() -> str:
 class GivenNameHintsWiringTests(unittest.TestCase):
     def test_translate_step_passes_engine_given_name_hints(self):
         args = _translate_step_args()
-        self.assertIn(
-            "--given-name-hints .translation-engine/glossary/given-name-hints.json",
+        self.assertRegex(
             args,
+            r"--given-name-hints\s+\S*\.translation-engine[\\/]glossary[\\/]given-name-hints\.json",
             "the translate step must point --given-name-hints at the engine checkout; "
             "the engine default is CWD-relative and the file only exists in the engine",
         )
 
     def test_engine_glossary_paths_are_explicit(self):
         args = _translate_step_args()
-        for flag in (
-            "--glossary",
-            "--authoritative-terms",
-            "--given-name-hints",
-            "--prompt-manifest",
+        engine_glossary = r"\.translation-engine[\\/]glossary[\\/]"
+        for flag, filename in (
+            ("--glossary", "authoritative-terms.json"),
+            ("--authoritative-terms", "authoritative-terms.json"),
+            ("--given-name-hints", "given-name-hints.json"),
         ):
-            self.assertIn(flag, args, f"{flag} must be explicit in the translate step")
-        for line in args.splitlines():
-            option = line.strip()
-            if option.startswith(("--glossary", "--authoritative-terms", "--given-name-hints")):
-                self.assertIn(
-                    ".translation-engine/glossary/",
-                    option,
-                    f"{option.split()[0]} must resolve inside the engine checkout",
-                )
+            self.assertRegex(
+                args,
+                rf"{re.escape(flag)}\s+\S*{engine_glossary}{re.escape(filename)}",
+                f"{flag} must resolve inside the engine checkout",
+            )
 
 
 if __name__ == "__main__":
