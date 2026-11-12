@@ -187,6 +187,7 @@ jobs:
             --batch-mode single
             --glossary .translation-engine/glossary/authoritative-terms.json
             --authoritative-terms .translation-engine/glossary/authoritative-terms.json
+            --given-name-hints .translation-engine/glossary/given-name-hints.json
             --character-evidence .llm-character-evidence.json
             --prompt-source compiled
             --system-prompt .llm-system-prompt.md
