@@ -54,6 +54,20 @@ class GivenNameHintsWiringTests(unittest.TestCase):
                 f"{flag} must resolve inside the engine checkout",
             )
 
+    def test_prompt_manifest_path_is_explicit(self):
+        # The engine default for --prompt-manifest is
+        # Path("localization/prompts/mltd-zhcn-system.manifest.json"), also
+        # CWD-relative.  This repository has no localization/prompts/ tree, so
+        # dropping the flag from the step breaks the run exactly like the hints
+        # default did; the path must stay inside the engine checkout.
+        args = _translate_step_args()
+        self.assertRegex(
+            args,
+            r"--prompt-manifest\s+\S*\.translation-engine[\\/]",
+            "--prompt-manifest must be passed an engine-internal path; the engine "
+            "default is CWD-relative and does not exist in the Client repository",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
