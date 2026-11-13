@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import subprocess
 from pathlib import Path
 
@@ -13,6 +14,8 @@ except ModuleNotFoundError:  # pragma: no cover - direct file execution
 
 NULL_REVISION = "0" * 40
 MANIFESTS = (BUILTIN_MANIFEST_RELATIVE, BOTTOM_BAR_MANIFEST_RELATIVE)
+SOURCE_STATE = "manifests/apk-source-state.json"
+SHARED_TEXT = "localization/shared/apk-text-zhcn.json"
 
 
 class InputError(Exception):
@@ -56,10 +59,26 @@ def inputs_at(root: Path, revision: str) -> dict[str, str]:
     """Return the artifact input set at one revision as ``{path: blob}``."""
     version = read_client_version(root, revision)
     prefix = f"localization/{version}/"
+    tree = ls_tree(root, revision)
+    prefixes = [prefix]
+    source_binding = None
+    if SOURCE_STATE in tree:
+        state = json.loads(show(root, revision, SOURCE_STATE))
+        discovered = state.get("client_version", "")
+        if not isinstance(discovered, str) or not re.fullmatch(r"\d+\.\d+\.\d+", discovered):
+            raise InputError(f"Invalid discovered Client version at {revision}")
+        prefixes.append(f"localization/{discovered}/")
+        identity = {key: state.get(key) for key in (
+            "client_version", "build_supported", "build_target",
+            "source_apk_sha256", "source_split_sha256",
+        )}
+        source_binding = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()
     entries = {
-        path: blob for path, blob in ls_tree(root, revision).items()
-        if path in MANIFESTS or path.startswith(prefix)
+        path: blob for path, blob in tree.items()
+        if path in MANIFESTS or path == SHARED_TEXT or any(path.startswith(value) for value in prefixes)
     }
+    if source_binding is not None:
+        entries[SOURCE_STATE] = source_binding
     missing = [path for path in MANIFESTS if path not in entries]
     if missing:
         raise InputError(f"{', '.join(missing)} missing from the tree at {revision}")

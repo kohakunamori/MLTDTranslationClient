@@ -16,11 +16,9 @@
       ],
       "ja": "すでにカードが選択された状態になっているため\r\n実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "00165e7114d5a8280a42b5c605e69c276be23e7ee58d3e00cf521f8885bec163",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -82,11 +80,9 @@
       ],
       "ja": "連続お仕事を実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "0398afeaca055b984cb7a351169c0bd51fdf81a2fd3abb5abed6c7f86bae28b9",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -147,11 +143,9 @@
       ],
       "ja": "新しいバージョンのアプリが配信されています。\r\nストアでアップデートしてください。",
       "source_sha256": "0531f166f7a8b5a8fc91d79d96de7412b33b1e8b752a142227f73bcd713a9b8d",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -227,11 +221,9 @@
       ],
       "ja": "このラウンジは、申請中のユーザーが一定数に達しているため\r\n申請できませんでした",
       "source_sha256": "0b3751b42fdd8453680b28057c42f04c24765f99cff9858c48befd41a1658303",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -365,11 +357,9 @@
       ],
       "ja": "通信に失敗しました\r\n\r\nリトライしますか？",
       "source_sha256": "0f7821b81928c65173fc12dbc08e6534a922563ba20f8267584bf5764c51105c",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -612,11 +602,9 @@
       ],
       "ja": "通信に失敗しました\r\n\r\nタイトルに戻ります",
       "source_sha256": "1e15ca7fa87fa4cb597809e7ba7443544402287c67a593b7214662d0c2a43b17",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -821,11 +809,9 @@
       ],
       "ja": "お仕事に復帰できませんでした\r\n劇場へ移動します",
       "source_sha256": "28d0b96af028a4fb8c8e6054daf615d179da95d069e3767a5b5c165f9c7fae1a",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -861,11 +847,9 @@
       ],
       "ja": "利用規約、プライバシーポリシーが更新されました。\r\n同意してから本サービスをご利用ください。\r\nまた、未成年の方は、法定代理人（ご両親等）の同意が必要です。\r\n※ないようがわからないときは\r\nおうちのひとにがめんをみせてください。",
       "source_sha256": "2e4036f3baa8f0f8c3de884054f87f8980506263f6a24d5a97f5f7d5372dd39b",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -881,11 +865,9 @@
       ],
       "ja": "データダウンロードに失敗しました\r\nお使いの端末の空き容量が不足している可能性があります\r\n空き容量の確認をお願い申し上げます",
       "source_sha256": "2e5686912168cfa383730d5b219ef7c10f2129cc0fe5146b52545a7c283f72e1",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -941,11 +923,9 @@
       ],
       "ja": "報酬を受け取ることができませんでした\r\nタイトルに戻ります",
       "source_sha256": "30bfba76fb0b83d6049dc5c6f90c40ff184208d43ac48da6263e9bfdff4bf487",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -961,11 +941,9 @@
       ],
       "ja": "SPクライマックスステージを実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "32fe37bd3cb6bf7fcbe454a12008ed82afa155681c1f0db3bbdcf5ec2a14e49c",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -981,11 +959,9 @@
       ],
       "ja": "新しい衣装データがあります\r\nタイトルへ戻ります",
       "source_sha256": "3353902bd1ee3d464cdd0b3ba43172a3847c9ee5423067437336e834717f254d",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -1030,11 +1006,9 @@
       ],
       "ja": "回数上限に達してるため\r\n実行できませんでした",
       "source_sha256": "36d231da1773fef22cb8e3f3ecb26d07d2c1d11d7bc5efd73399a63397472b2e",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -1050,11 +1024,9 @@
       ],
       "ja": "このゲームをプレイするには利用規約に同意していただく必要があります\r\n利用規約をご確認の上、「同意する」をタッチしてください",
       "source_sha256": "37a0e8f3529dbf4280b95cf559e21d133dd480492d3b6f9f33be2b37e35c3f29",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -1070,11 +1042,9 @@
       ],
       "ja": "イベント開催期間外のためライブが開演できませんでした\r\nタイトルに戻ります",
       "source_sha256": "39704f647b2b9b5a6edf3add7ca98d1d40374019c7cd5d469d1ad2bb2355ece5",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -1791,11 +1761,9 @@
       ],
       "ja": "イベント開催期間外のため実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "58f31fb2ae6b155a42763aedc534aa2bc4c9094d86374957697895e2d5ff8bf5",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -2706,11 +2674,9 @@
       ],
       "ja": "お仕事を再開せず、劇場へ移動します\r\nここでお仕事を再開しなかった場合、あとからお仕事を再開することはできません\r\n(消費した元気やライブチケットも回復されません)\r\n\r\n本当によろしいですか？",
       "source_sha256": "9242aaecb6aef53ae7f3dedd3cf34cdd315e1023a7aef1db29840056b64223fd",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -3679,11 +3645,9 @@
       ],
       "ja": "交換上限数を超えているため\r\n実行できませんでした",
       "source_sha256": "b5eab25380dd6125ca642fc773f467aded5155386709be23f15e33985ff7850f",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -3919,11 +3883,9 @@
       ],
       "ja": "利用規約が更新されました\r\nゲームをプレイするには利用規約に同意していただく必要があります\r\n利用規約をご確認の上、「同意する」をタッチしてください",
       "source_sha256": "c07424831ec6b09ffb63eb4fd620836eca8814b33698783f811a44dd204696e7",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -3939,11 +3901,9 @@
       ],
       "ja": "プロモーション活動をリタイアするための\r\n条件を満たしていません\r\nタイトルに戻ります",
       "source_sha256": "c26104af79e47cd2c20363ca31a84021498b4ba87d422aa2c5a25ab1713a5057",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -4309,11 +4269,9 @@
       ],
       "ja": "エントリーに必要なイベント順位条件を満たしていません\r\nお知らせよりエントリー条件をご確認ください",
       "source_sha256": "d3ae652689d72cfa6c77b780ae62ba4bf9279ea56f5aab784e1e7042636ba81b",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -4329,11 +4287,9 @@
       ],
       "ja": "データが本日のものでないため\r\nライブに復帰できませんでした\r\n劇場へ移動します",
       "source_sha256": "d4979fc8fcddb3f1a59676a01c29f40554c1c5f0ee92d6fb714206192a219ffc",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -4349,11 +4305,9 @@
       ],
       "ja": "ライブに復帰できませんでした\r\n劇場へ移動します",
       "source_sha256": "d6a04bdcf7d19c22204ce1af1d45d6fb183d05f4e549b7c6ffa065b2b1bc3d4e",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -4369,11 +4323,9 @@
       ],
       "ja": "ただいまメンテナンスを行っています\r\n詳細についてはお知らせをご確認ください",
       "source_sha256": "d706bfe8bcef764d7c474f97c3f27031ff3295e4eed5aa2aed4c2f047fe3587a",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -4389,11 +4341,9 @@
       ],
       "ja": "データ引き継ぎが行われました\r\nゲームをプレイするには利用規約に同意していただく必要があります\r\n利用規約をご確認の上、「同意する」をタッチしてください",
       "source_sha256": "d767f64cdc49d7a02266a4d4caa02fb8bacaaba972ae1f6f8c8d9418892bbdc5",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [
@@ -4549,11 +4499,9 @@
       ],
       "ja": "本機能は現在メンテナンス中です\r\nタイトルに戻ります",
       "source_sha256": "e231c230a7fbef883e9d6b0aed4b92daf46b25daa1bb7e6b9cea08ff24d14483",
-      "status": "accepted",
+      "status": "untranslated",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
+      "zh": ""
     },
     {
       "contexts": [

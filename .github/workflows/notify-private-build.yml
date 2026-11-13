@@ -5,11 +5,9 @@ name: Notify private APK build
 # push that cannot reach the APK's bytes would still buy a full Windows build of
 # content the release already carries.  The trigger below is only the cheap
 # path filter; the decision that matters is `scripts/apk_input_state.py`, which
-# compares what the built-in manifest delivers at this commit against the
-# commit it supersedes.  A maintainer's push that changes the active version's
-# translation sources (or the manifests that bind them) notifies the build; a
-# workflow tweak, a documentation edit, a bookkeeping state file, or a change
-# confined to another official version's directory only validates and stops.
+# compares active and discovered version resources, shared text and source
+# identity against the preceding commit. Unsupported versions request native
+# recovery. Documentation, statistics and unrelated historical versions stop.
 #
 # `workflow_dispatch` has no baseline and always notifies: a human asking for a
 # build is the definition of on demand.
@@ -29,6 +27,7 @@ on:
       - 'localization/**'
       - 'manifests/apk-builtin.manifest.json'
       - 'manifests/bottom-bar.manifest.json'
+      - 'manifests/apk-source-state.json'
   workflow_dispatch:
 
 permissions:
@@ -105,8 +104,8 @@ jobs:
             echo '### Notification skipped'
             echo
             if [ '${{ steps.decide.outputs.dispatch }}' = 'false' ]; then
-              echo "This push did not change the bytes the built-in manifest delivers"
-              echo "for the active client version, so the private build was not notified."
+              echo "This push did not change active or discovered resources, shared text"
+              echo "or source identity, so the private pipeline was not notified."
               echo
               echo "Reason: ${{ steps.decide.outputs.reason }}"
             else
@@ -125,4 +124,4 @@ jobs:
           CLIENT_REPOSITORY: ${{ github.repository }}
           CLIENT_COMMIT: ${{ github.sha }}
         run: |
-          python -m scripts.dispatch_private_build --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT"
+          python -m scripts.dispatch_private_build --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT" --auto-route

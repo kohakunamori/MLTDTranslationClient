@@ -33,6 +33,8 @@ class Repository:
             self.write(f'localization/{version}/runtime-bi-zhcn.json', json.dumps({'client_version': version}))
             self.write(f'localization/{version}/visuals/bottom-bar-off-v5.png', 'original-pixels')
         self.write('manifests/portal-resource-manifest.json', json.dumps({'totals': {}}))
+        self.write('manifests/apk-source-state.json', json.dumps({
+            'client_version': '9.0.300', 'build_supported': True}))
         self.commit('base')
 
     @staticmethod
@@ -66,7 +68,8 @@ class ArtifactInputDecisionTests(unittest.TestCase):
         repository = self.fixture()
         base = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=repository.root, check=True,
                               text=True, stdout=subprocess.PIPE).stdout.strip()
-        repository.write('manifests/apk-source-state.json', json.dumps({'build_supported': True}))
+        repository.write('manifests/apk-source-state.json', json.dumps({
+            'client_version': '9.0.300', 'build_supported': True, 'records': 123}))
         repository.write('manifests/portal-resource-manifest.json', json.dumps({'totals': {'total': 1}}))
         repository.write('docs/LLM_TRANSLATION.md', 'notes')
         head = repository.commit('bookkeeping only')
@@ -90,6 +93,35 @@ class ArtifactInputDecisionTests(unittest.TestCase):
 
         self.assertFalse(report['changed'], report)
         self.assertEqual(report['after_client_version'], '9.0.300')
+
+    def test_discovered_version_and_shared_text_remain_inputs_before_native_registration(self):
+        repository = self.fixture()
+        repository.write('manifests/apk-source-state.json', json.dumps({
+            'client_version': '9.0.400', 'build_supported': False,
+            'source_apk_sha256': 'a' * 64, 'source_split_sha256': 'b' * 64}))
+        repository.write('localization/9.0.400/runtime-bi-zhcn.json', '{"rows": []}')
+        base = repository.commit('discover unsupported source')
+        for relative in ('localization/9.0.400/runtime-bi-zhcn.json',
+                         'localization/shared/apk-text-zhcn.json'):
+            repository.write(relative, '{"rows": [{"zh": "translated"}]}')
+            head = repository.commit('translate discovered source')
+            report = state.decide(repository.root, base, head)
+            self.assertTrue(report['changed'], report)
+            self.assertIn(relative, report['changed_paths'])
+            base = head
+
+    def test_source_identity_and_native_registration_trigger_notifications(self):
+        repository = self.fixture()
+        base = subprocess.check_output(
+            ['git', 'rev-parse', 'HEAD'], cwd=repository.root, text=True).strip()
+        for updates in ({'client_version': '9.0.400', 'build_supported': False},
+                        {'client_version': '9.0.400', 'build_supported': True},
+                        {'client_version': '9.0.400', 'build_supported': True,
+                         'source_apk_sha256': 'c' * 64}):
+            repository.write('manifests/apk-source-state.json', json.dumps(updates))
+            head = repository.commit('source identity update')
+            self.assertTrue(state.decide(repository.root, base, head)['changed'])
+            base = head
 
     def test_a_change_to_the_active_translation_source_asks_for_a_build(self):
         repository = self.fixture()

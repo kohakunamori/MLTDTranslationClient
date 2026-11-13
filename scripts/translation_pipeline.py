@@ -30,6 +30,22 @@ PROTECTED_TOKENS = re.compile(
 )
 GROUPED_NUMBER = re.compile(r'(?<!\d)\d{1,3}(?:,\d{3})+(?:\.\d+)?(?!\d)')
 TRANSLATED_GROUPED_NUMBER = re.compile(r'(?<!\d)\d{1,3}(?:[,，、]\d{3})+(?:\.\d+)?(?!\d)')
+PROVIDER_ERROR_RE = re.compile(
+    r"this service has been disabled"
+    r"|violation of terms of service"
+    r"|submit an appeal to continue"
+    r"|account has been (?:disabled|suspended|banned|terminated)"
+    r"|account is (?:disabled|suspended)"
+    r"|exceeded your current quota"
+    r"|insufficient[_ ]quota"
+    r"|\b(?:too many requests|rate limit exceeded|service unavailable|bad gateway)\b"
+    r"|\b(?:upstream error|model is currently overloaded)\b"
+    r"|i'?m sorry,?\s+(?:but\s+)?i can(?:not|'t)\s+(?:assist|help|translate|comply|fulfill)"
+    r"|\bas an ai(?:\s+(?:language\s+)?model)?\b",
+    re.IGNORECASE,
+)
+JAPANESE_OR_HAN_RE = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff]")
+ASCII_WORD_RE = re.compile(r"[A-Za-z]{2,}")
 
 
 def repair_numeric_separators(source: str, translation: str) -> str:
@@ -50,6 +66,20 @@ def validate_translation(source: str, translation: str) -> None:
         raise ValueError("LLM output contains a reserved BI delimiter")
     if Counter(PROTECTED_TOKENS.findall(source)) != Counter(PROTECTED_TOKENS.findall(translation)):
         raise ValueError("LLM output changed protected formatting tokens")
+    match = PROVIDER_ERROR_RE.search(translation)
+    if match and match.group(0).lower() not in source.lower():
+        raise ValueError("LLM output contains an upstream provider error message")
+    if "⚠" in translation and "⚠" not in source:
+        raise ValueError("LLM output contains an unexpected warning banner")
+    stripped_source = PROTECTED_TOKENS.sub(" ", source)
+    stripped_translation = PROTECTED_TOKENS.sub(" ", translation)
+    if (
+        JAPANESE_OR_HAN_RE.search(stripped_source)
+        and not JAPANESE_OR_HAN_RE.search(stripped_translation)
+        and len(ASCII_WORD_RE.findall(stripped_source)) <= 1
+        and len(ASCII_WORD_RE.findall(stripped_translation)) >= 5
+    ):
+        raise ValueError("LLM output looks like untranslated English prose or an error banner")
 
 
 def source_id(value: str) -> str:

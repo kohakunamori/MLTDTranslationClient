@@ -244,6 +244,25 @@ jobs:
             python -m scripts.validate_repo
           done
 
+      # Report translation or draft rejection right after committing valid partial
+      # progress so rejected runs fail fast without waiting through the merge window
+      # or dispatching downstream builds.
+      - name: Report provider failure after saving source progress
+        if: steps.translate.outcome == 'failure'
+        run: |
+          echo '::error::Translation provider failed. Extracted sources and completed valid translations were preserved; the next run continues the empty rows. No APK build was dispatched.'
+          exit 1
+
+      - name: Report rejected formatting after preserving valid progress
+        if: inputs.smoke_test != true
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          path = pathlib.Path('.llm-apply-report.json')
+          if path.exists() and json.loads(path.read_text()).get('rejected', 0):
+              raise SystemExit('Formatting-invalid drafts were refused; pending text is retained for the next run.')
+          PY
+
       # GITHUB_TOKEN pushes do not trigger the separate push notifier. Dispatch
       # directly after changed sources. There is no scheduled APK-build fallback;
       # retry_build or Notify private APK build permits an explicit no-change retry.
@@ -275,22 +294,6 @@ jobs:
           CLIENT_COMMIT: ${{ steps.publish.outputs.commit }}
         run: python -m scripts.dispatch_private_build --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT" --require-ready
 
-      - name: Report provider failure after saving source progress
-        if: steps.translate.outcome == 'failure'
-        run: |
-          echo '::error::Translation provider failed. Extracted sources and completed valid translations were preserved; the next run continues the empty rows. No APK build was dispatched.'
-          exit 1
-
-      - name: Report rejected formatting after preserving valid progress
-        if: inputs.smoke_test != true
-        run: |
-          python - <<'PY'
-          import json, pathlib
-          path = pathlib.Path('.llm-apply-report.json')
-          if path.exists() and json.loads(path.read_text()).get('rejected', 0):
-              raise SystemExit('Formatting-invalid drafts were refused; pending text is retained for the next run.')
-          PY
-
       - name: Request native recovery for a new unsupported official APK
         if: inputs.smoke_test != true && steps.source.outputs.build_supported == 'false' && steps.translate.outcome != 'failure' && steps.settle.outputs.dispatch != 'false' && (steps.publish.outputs.changed == 'true' || inputs.retry_build == true || github.event.action == 'apk-source-discovered')
         env:
@@ -302,8 +305,7 @@ jobs:
       - name: Report unsupported native version
         if: inputs.smoke_test != true && steps.source.outputs.build_supported == 'false'
         run: |
-          echo '::error::Latest APK translations were saved. Native recovery is routed to Private Build; unchanged stages are deduplicated there. Publication waits for a validated clean ELF and matching native target.'
-          exit 1
+          echo 'Latest APK translations were saved. Native recovery is routed to Private Build; publication waits for its validated candidate.' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload translation diagnostics
         if: ${{ failure() || vars.MLTD_KEEP_SUCCESS_DIAGNOSTICS == 'true' }}

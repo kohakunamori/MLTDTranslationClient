@@ -22,10 +22,15 @@ def main() -> int:
     parser.add_argument("--commit", required=True)
     parser.add_argument("--require-ready", action="store_true")
     parser.add_argument("--recover-unsupported", action="store_true")
+    parser.add_argument("--auto-route", action="store_true")
     args = parser.parse_args()
+    recover = args.recover_unsupported
+    state_path = ROOT / "manifests/apk-source-state.json"
+    if args.auto_route and state_path.exists():
+        recover = json.loads(state_path.read_text(encoding="utf-8")).get("build_supported") is False
     event = (
         recovery_payload(ROOT, args.repository, args.commit)
-        if args.recover_unsupported
+        if recover
         else payload(ROOT, args.repository, args.commit)
     )
     if event is None:

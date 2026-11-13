@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 from scripts import translation_pipeline as pipeline
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -66,6 +67,60 @@ class TranslationPipelineTests(unittest.TestCase):
             with self.subTest(translation=translation), self.assertRaises(ValueError):
                 pipeline.validate_translation('続ける {0}', translation)
 
+    def test_provider_error_banners_are_rejected_and_not_applied(self):
+        tos_banner = (
+            '⚠ This service has been disabled in this account for violation of '
+            'Terms of Service. Please submit an appeal to continue using this product.'
+        )
+        with self.assertRaises(ValueError):
+            pipeline.validate_translation('通信に失敗しました', tos_banner)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.fixture(root, [{'ja': '通信に失敗しました', 'zh': '', 'translatable': True, 'status': 'untranslated'}])
+            queue, draft = root / 'queue.jsonl', root / 'draft.jsonl'
+            pipeline.TranslationPipeline(root).collect(queue)
+            entry = json.loads(queue.read_text(encoding='utf-8'))
+            entry['translation'] = tos_banner
+            draft.write_text(json.dumps(entry, ensure_ascii=False), encoding='utf-8')
+            report = pipeline.TranslationPipeline(root).apply(draft)
+            self.assertEqual(report['updated'], 0)
+            self.assertEqual(report['rejected'], 1)
+            row = json.loads(source.read_text(encoding='utf-8'))['rows'][0]
+            self.assertEqual(row['status'], 'untranslated')
+            self.assertEqual(row['zh'], '')
+
+    def test_unrecognized_english_prose_and_warning_banners_are_rejected_without_breaking_short_terms(self):
+        for translation in (
+            '⚠ Gateway maintenance',
+            'Please verify your credentials before making another translation request.',
+            'Your request cannot finish right now because credentials expired.',
+        ):
+            with self.subTest(rejected=translation), self.assertRaises(ValueError):
+                pipeline.validate_translation('通信に失敗しました {0}', translation + ' {0}' if '{0}' not in translation else translation)
+        for source_text, accepted in (
+            ('シアターデイズ', 'Theater Days'),
+            ('ネオユニバースブライト', 'Neo Universe Bright'),
+            ('コスト', 'Cost'),
+            ('Theater Days', 'Theater Days'),
+            ('LIVEの準備', 'LIVE准备'),
+        ):
+            with self.subTest(source=source_text, accepted=accepted):
+                pipeline.validate_translation(source_text, accepted)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.fixture(root, [{'ja': '通信に失敗しました', 'zh': '', 'translatable': True, 'status': 'untranslated'}])
+            queue, draft = root / 'queue.jsonl', root / 'draft.jsonl'
+            pipeline.TranslationPipeline(root).collect(queue)
+            entry = json.loads(queue.read_text(encoding='utf-8'))
+            entry['translation'] = 'Please verify your credentials before making another translation request.'
+            draft.write_text(json.dumps(entry, ensure_ascii=False), encoding='utf-8')
+            report = pipeline.TranslationPipeline(root).apply(draft)
+            self.assertEqual(report['updated'], 0)
+            self.assertEqual(report['rejected'], 1)
+            row = json.loads(source.read_text(encoding='utf-8'))['rows'][0]
+            self.assertEqual(row['status'], 'untranslated')
+            self.assertEqual(row['zh'], '')
+
     def test_collect_reuses_unambiguous_accepted_sources_without_provider_calls(self):
         for choices, expected in ((['继续 {0}'], 0), (['继续 {0}', '接着 {0}'], 1)):
             with self.subTest(choices=choices), tempfile.TemporaryDirectory() as directory:
@@ -111,9 +166,28 @@ class TranslationPipelineTests(unittest.TestCase):
             event = dispatch.recovery_payload(root, 'owner/client', 'c' * 40)
             self.assertEqual(event['event_type'], 'client-native-recovery-requested')
             self.assertEqual(event['client_payload']['client_version'], '9.0.300')
+            with (patch.object(dispatch, 'ROOT', root),
+                  patch('sys.argv', ['dispatch_private_build', '--repository', 'owner/client',
+                                     '--commit', 'c' * 40, '--auto-route']),
+                  patch.object(dispatch.subprocess, 'run') as request):
+                self.assertEqual(dispatch.main(), 0)
+                self.assertEqual(json.loads(request.call_args.kwargs['input']), event)
             doc['rows'][0]['status'] = 'untranslated'
             path.write_text(json.dumps(doc))
             self.assertIsNone(dispatch.recovery_payload(root, 'owner/client', 'c' * 40))
+
+    def test_workflow_reports_provider_and_rejected_failures_before_settling_or_dispatching(self):
+        workflow = (ROOT / '.github/workflows/llm-translate-client.yml').read_text(encoding='utf-8')
+        ordered = [
+            '- name: Commit Client text translations to main',
+            '- name: Report provider failure after saving source progress',
+            '- name: Report rejected formatting after preserving valid progress',
+            '- name: Hold the notification for a merge window',
+            '- name: Dispatch the exact translated Client commit to Private Build',
+            '- name: Request native recovery for a new unsupported official APK',
+        ]
+        positions = [workflow.index(step) for step in ordered]
+        self.assertEqual(positions, sorted(positions))
 
 
 if __name__ == '__main__':
