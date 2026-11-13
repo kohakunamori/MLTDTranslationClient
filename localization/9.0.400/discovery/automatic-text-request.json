@@ -799,21 +799,6 @@
         {
           "apk_sha256": "cb3378802abe953337e08205bfa442d37aa69631742e8a3642b3553036efa249",
           "client_version": "9.0.400",
-          "field": "m_Text",
-          "field_semantics_verified": true,
-          "identity": "resources.assets:962941:MonoBehaviour",
-          "script_class": "UnityEngine.UI.Text",
-          "surface": "component"
-        }
-      ],
-      "source": "モード切替",
-      "source_sha256": "44b0547c24116627dd0d34f9ce88ec4dc8b89caa488f5d5e9513feb759e85d97"
-    },
-    {
-      "contexts": [
-        {
-          "apk_sha256": "cb3378802abe953337e08205bfa442d37aa69631742e8a3642b3553036efa249",
-          "client_version": "9.0.400",
           "field_semantics_verified": true,
           "identity": "resources.assets:648:TextAsset",
           "key": "ld_connection_error_message_-42509",
@@ -2365,21 +2350,6 @@
       ],
       "source": "交換上限数を超えているため\r\n実行できませんでした",
       "source_sha256": "b5eab25380dd6125ca642fc773f467aded5155386709be23f15e33985ff7850f"
-    },
-    {
-      "contexts": [
-        {
-          "apk_sha256": "cb3378802abe953337e08205bfa442d37aa69631742e8a3642b3553036efa249",
-          "client_version": "9.0.400",
-          "field": "m_Text",
-          "field_semantics_verified": true,
-          "identity": "resources.assets:907620:MonoBehaviour",
-          "script_class": "UnityEngine.UI.Text",
-          "surface": "component"
-        }
-      ],
-      "source": "衣装一括切替",
-      "source_sha256": "b7114bda1d729990b3f32eab524e903dfab7f9db52cbcefd7d6dc3a7f45b84fc"
     },
     {
       "contexts": [
