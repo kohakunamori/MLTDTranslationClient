@@ -16,9 +16,11 @@
       ],
       "ja": "すでにカードが選択された状態になっているため\r\n実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "00165e7114d5a8280a42b5c605e69c276be23e7ee58d3e00cf521f8885bec163",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -80,9 +82,11 @@
       ],
       "ja": "連続お仕事を実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "0398afeaca055b984cb7a351169c0bd51fdf81a2fd3abb5abed6c7f86bae28b9",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -143,9 +147,11 @@
       ],
       "ja": "新しいバージョンのアプリが配信されています。\r\nストアでアップデートしてください。",
       "source_sha256": "0531f166f7a8b5a8fc91d79d96de7412b33b1e8b752a142227f73bcd713a9b8d",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -161,9 +167,11 @@
       ],
       "ja": "カメラの権限がないため、２次元コードリーダーを起動できませんでした\r\nカメラへの権限を変更しますか？",
       "source_sha256": "06d34eb526fc37475a21ad99c82597092eac531038c104abd21f48885633d021",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于没有相机权限，无法启动２维码读取器\n要更改相机权限吗？"
     },
     {
       "contexts": [
@@ -179,9 +187,11 @@
       ],
       "ja": "ただいまメンテナンスを行っています\r\n詳細はお知らせをご確認ください",
       "source_sha256": "0865fa399e48048d3c88f32931910e6482486da29887a2647b5d74b0c8d83f76",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "目前正在进行维护\n详情请查看公告"
     },
     {
       "contexts": [
@@ -197,9 +207,11 @@
       ],
       "ja": "メンテナンス中のため\r\n楽曲を購入することはできません",
       "source_sha256": "0aa8b55665fd2b1f44cdff21cb9af5a4d22382ca1fa9eb1794aeaea089b0e8e7",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "维护中，无法购买乐曲"
     },
     {
       "contexts": [
@@ -215,9 +227,11 @@
       ],
       "ja": "このラウンジは、申請中のユーザーが一定数に達しているため\r\n申請できませんでした",
       "source_sha256": "0b3751b42fdd8453680b28057c42f04c24765f99cff9858c48befd41a1658303",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -273,9 +287,11 @@
       ],
       "ja": "データの取得に失敗しました\r\nErrorCode [PRL{0}]",
       "source_sha256": "0ca1e43ddf79c72d376fa786a258556e3717d1905d524518d90e41171f414010",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "数据获取失败\n错误代码 [PRL{0}]"
     },
     {
       "contexts": [
@@ -291,9 +307,11 @@
       ],
       "ja": "{0}\r\n\r\nリトライしますか？\r\n\r\nエラーが続く場合はタイトル画面の「メニュー＞キャッシュクリア」をお試しください",
       "source_sha256": "0d0aee58ce48aff3ed8ea83cfb7299be5f1f8648b35195236619ea28ea3e2d14",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "{0}\n\n要重试吗？\n\n如果错误仍然持续，请尝试在标题画面选择“菜单＞清除缓存”"
     },
     {
       "contexts": [
@@ -347,9 +365,11 @@
       ],
       "ja": "通信に失敗しました\r\n\r\nリトライしますか？",
       "source_sha256": "0f7821b81928c65173fc12dbc08e6534a922563ba20f8267584bf5764c51105c",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -365,9 +385,11 @@
       ],
       "ja": "既に期間が終了しているため\r\n実行できませんでした",
       "source_sha256": "12cbab2ef69b42d60f93ddf46bbea8490b2394cf31903b613c037baca4c1dd1b",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于期间已结束\n未能执行"
     },
     {
       "contexts": [
@@ -392,9 +414,11 @@
       ],
       "ja": "日付が変わりました\r\nタイトル画面に戻ります",
       "source_sha256": "189ff01c419e2368a6ae5c8efd4ba3e6ee7810e026ed3ab5d6a116a1a4ce3797",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "日期已变更\n将返回标题画面"
     },
     {
       "contexts": [
@@ -410,9 +434,11 @@
       ],
       "ja": "利用規約が更新されました。\r\n同意してから本サービスをご利用ください。\r\nまた、未成年の方は、法定代理人（ご両親等）の同意が必要です。\r\n※ないようがわからないときは\r\nおうちのひとにがめんをみせてください。",
       "source_sha256": "1a2a05e175e786e00e636c11675ee96251221d80d63aa6739dbe918364294c4d",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "使用条款已更新。\n请同意后再使用本服务。\n此外，未成年人需要法定代理人（父母等）的同意。\n※如果看不懂内容，\n请把画面给家里人看。"
     },
     {
       "contexts": [
@@ -428,9 +454,11 @@
       ],
       "ja": "交換可能上限数を超えているため\r\n実行できませんでした",
       "source_sha256": "1b4cb2ef650f2505f49f0f4b82863f29b0b0af4cc941fc67ce80815d4716e0a9",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于超出可兑换数量上限\n无法执行"
     },
     {
       "contexts": [
@@ -446,9 +474,11 @@
       ],
       "ja": "通信に失敗しました\r\nタイトルに戻ります",
       "source_sha256": "1b656d18107945ff1c132e9e39c15e493f412ee395d3d85477a0cd529ca2f3a0",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "通信失败\n返回标题"
     },
     {
       "contexts": [
@@ -464,9 +494,11 @@
       ],
       "ja": "データ引き継ぎが完了しました\r\n\r\nライブ設定が初期化されています\r\n再度設定を行ってください",
       "source_sha256": "1b7d68321c79ff70d1a79495c77715ac0085d900ab6527c192387f25c767f178",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "数据继承已完成\n\n演出设置已初始化\n请重新进行设置"
     },
     {
       "contexts": [
@@ -482,9 +514,11 @@
       ],
       "ja": "タイトルから起動した場合、ログインボーナスなどは獲得できません\r\nログインボーナスなどを受け取る場合、タイトルから劇場へ入場ください",
       "source_sha256": "1bdc6810aa669a6b6902bc4e94285c77e942c1415d6c6a029c36dff16fa96950",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "从标题画面启动时，无法获得登录奖励等内容。\n要领取登录奖励等，请从标题画面进入剧场。"
     },
     {
       "contexts": [
@@ -500,9 +534,11 @@
       ],
       "ja": "ゲームデータの引き継ぎ設定は完了しています\r\n\r\nメールアドレス変更やパスワード紛失などの場合は\r\nバンダイナムコIDのWEBサイト内より設定が可能です",
       "source_sha256": "1c41e9a5d33f6fb1e8e94eda3f1b96eb3a92feaf770c4494fcf56d84e6d1c864",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "游戏数据的继承设置已完成\n\n如需更改邮箱地址或忘记密码等，可在万代南梦宫ID的网站内进行设置"
     },
     {
       "contexts": [
@@ -536,9 +572,11 @@
       ],
       "ja": "有償ミリオンジュエルのみを使用しての\r\n購入は行えません",
       "source_sha256": "1cfc9cd9983a80f84024249281ebdf4348134e5fb2c87244dd4d3da154b14ce3",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "无法仅使用有偿百万宝石进行\n购买"
     },
     {
       "contexts": [
@@ -554,9 +592,11 @@
       ],
       "ja": "プレミアムパスを購入していないため\r\n購入できませんでした\r\nプレミアムパス購入後にご利用ください",
       "source_sha256": "1d490f713824300f825b33429a8fbd32a90bca964705f563fc4d6523dec77b74",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于未购买高级通行证  \n无法购买  \n请在购买高级通行证后使用"
     },
     {
       "contexts": [
@@ -572,9 +612,11 @@
       ],
       "ja": "通信に失敗しました\r\n\r\nタイトルに戻ります",
       "source_sha256": "1e15ca7fa87fa4cb597809e7ba7443544402287c67a593b7214662d0c2a43b17",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -610,9 +652,11 @@
       ],
       "ja": "グラビアスタジオを起動しますか？\r\n\r\n※グラビアスタジオは「劇場＞施設移動」選択後\r\n画面右上の「グラビアスタジオ」メニューからも起動できます",
       "source_sha256": "22435cc898b93b56c651851021e7280bb59ce4c726d90f96fb8396b10ae80ad5",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "要启动写真摄影棚吗？\n\n※选择“剧场＞设施移动”后\n也可以从画面右上角的“写真摄影棚”菜单启动"
     },
     {
       "contexts": [
@@ -628,9 +672,11 @@
       ],
       "ja": "ご入力いただいたバンダイナムコIDと\r\nすでに連携されています",
       "source_sha256": "2306f32cc1204790f0f521897337092938cfb6b2d3e23e5493a8007a65f2e2d3",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "已与您输入的万代南梦宫ID关联。"
     },
     {
       "contexts": [
@@ -646,9 +692,11 @@
       ],
       "ja": "誕生日期間が終了しているため\r\n感謝のマカロンを獲得できませんでした",
       "source_sha256": "232fec5d8794f0938f35a30673d816a12847af8ab86aa2ee3bc735bbd35f6ea1",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于生日活动期间已结束，无法获得感谢马卡龙。"
     },
     {
       "contexts": [
@@ -664,9 +712,11 @@
       ],
       "ja": "キャンペーン期間を過ぎているため\r\n交換できませんでした",
       "source_sha256": "25c3681e99e20aec8ddbeeb269b4a840cc471f15a5015bb962797021e855ddbb",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于已超过活动期间\n无法兑换"
     },
     {
       "contexts": [
@@ -691,9 +741,11 @@
       ],
       "ja": "交換期間を過ぎているため\r\n実行できませんでした",
       "source_sha256": "2656bbf038d60106de58331d2e96befb29ab8601802203f8183357a44551929e",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于已超过兑换期限\n无法执行"
     },
     {
       "contexts": [
@@ -709,9 +761,11 @@
       ],
       "ja": "アイテムの購入中にエラーが発生したため購入できませんでした\r\n更新のためタイトルに戻ります",
       "source_sha256": "26925553ab928a45768501178b437282f3d8c743de6730c91813f035aa3be04c",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "购买道具时发生错误，未能完成购买\n将返回标题画面进行更新"
     },
     {
       "contexts": [
@@ -747,9 +801,11 @@
       ],
       "ja": "通信に失敗しました\r\n{0}\r\n\r\nタイトルに戻ります",
       "source_sha256": "278c870598ee36cb3867e88f86ac86da542a89fa2f0ae3c77a10d9cc5abc645f",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "通信失败\n{0}\n\n返回标题界面"
     },
     {
       "contexts": [
@@ -765,9 +821,11 @@
       ],
       "ja": "お仕事に復帰できませんでした\r\n劇場へ移動します",
       "source_sha256": "28d0b96af028a4fb8c8e6054daf615d179da95d069e3767a5b5c165f9c7fae1a",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -783,9 +841,11 @@
       ],
       "ja": "通信エラーの為、タイトルに戻ります\r\n※先ほど実行した結果は正しく保存されています",
       "source_sha256": "2dc2a26f64c5a3576b0aa7f4e4bb9e90fc21504dedb7a907097421bd100411f9",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于通信错误，将返回标题画面\n※刚才执行的结果已正确保存"
     },
     {
       "contexts": [
@@ -801,9 +861,11 @@
       ],
       "ja": "利用規約、プライバシーポリシーが更新されました。\r\n同意してから本サービスをご利用ください。\r\nまた、未成年の方は、法定代理人（ご両親等）の同意が必要です。\r\n※ないようがわからないときは\r\nおうちのひとにがめんをみせてください。",
       "source_sha256": "2e4036f3baa8f0f8c3de884054f87f8980506263f6a24d5a97f5f7d5372dd39b",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -819,9 +881,11 @@
       ],
       "ja": "データダウンロードに失敗しました\r\nお使いの端末の空き容量が不足している可能性があります\r\n空き容量の確認をお願い申し上げます",
       "source_sha256": "2e5686912168cfa383730d5b219ef7c10f2129cc0fe5146b52545a7c283f72e1",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -837,9 +901,11 @@
       ],
       "ja": "入力内容に誤りがあります\r\n生年月日を年月日の順に続けて入力してください\r\n\r\n例）1979年11月30日生まれの場合\r\n19791130\r\n\r\nと入力してください",
       "source_sha256": "2f2aa9cd5db73454d1189f765954e698b9fe607815370c1b87c87c80c77c7eee",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "输入内容有误\n请按年月日的顺序连续输入出生日期\n\n例如，出生日期为1979年11月30日时\n\n请输入\n19791130"
     },
     {
       "contexts": [
@@ -855,9 +921,11 @@
       ],
       "ja": "解放条件を満たしていません\r\nタイトルに戻ります",
       "source_sha256": "302325398f6e5982b0ed094aa275076275411cf8efe1ea647752faf1fceb1416",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "未满足解锁条件\n返回标题界面"
     },
     {
       "contexts": [
@@ -873,9 +941,11 @@
       ],
       "ja": "報酬を受け取ることができませんでした\r\nタイトルに戻ります",
       "source_sha256": "30bfba76fb0b83d6049dc5c6f90c40ff184208d43ac48da6263e9bfdff4bf487",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -891,9 +961,11 @@
       ],
       "ja": "SPクライマックスステージを実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "32fe37bd3cb6bf7fcbe454a12008ed82afa155681c1f0db3bbdcf5ec2a14e49c",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -909,9 +981,11 @@
       ],
       "ja": "新しい衣装データがあります\r\nタイトルへ戻ります",
       "source_sha256": "3353902bd1ee3d464cdd0b3ba43172a3847c9ee5423067437336e834717f254d",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -956,9 +1030,11 @@
       ],
       "ja": "回数上限に達してるため\r\n実行できませんでした",
       "source_sha256": "36d231da1773fef22cb8e3f3ecb26d07d2c1d11d7bc5efd73399a63397472b2e",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -974,9 +1050,11 @@
       ],
       "ja": "このゲームをプレイするには利用規約に同意していただく必要があります\r\n利用規約をご確認の上、「同意する」をタッチしてください",
       "source_sha256": "37a0e8f3529dbf4280b95cf559e21d133dd480492d3b6f9f33be2b37e35c3f29",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -992,9 +1070,11 @@
       ],
       "ja": "イベント開催期間外のためライブが開演できませんでした\r\nタイトルに戻ります",
       "source_sha256": "39704f647b2b9b5a6edf3add7ca98d1d40374019c7cd5d469d1ad2bb2355ece5",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -1030,9 +1110,11 @@
       ],
       "ja": "すでにメガネスタイルを解放しているため\r\n実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "3ebc920b80e37245c271f3a91ea6cab6dc87c6e94c8981d975111e9f5f1c5ee3",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于已解锁眼镜造型\n未能执行\n返回标题画面"
     },
     {
       "contexts": [
@@ -1048,9 +1130,11 @@
       ],
       "ja": "エントリーに必要な条件を満たしていません\r\nお知らせよりエントリー条件をご確認ください",
       "source_sha256": "3ed6c546e7e52944509792bc7a949daf3e03377021ef226aa8a9679ca561e71a",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "未满足报名所需的条件\n请在公告中确认报名条件"
     },
     {
       "contexts": [
@@ -1066,9 +1150,11 @@
       ],
       "ja": "このアカウントではプレイできません\r\nお心当たりのない方は大変お手数ですが\r\n弊社サポートセンターまでお問い合わせください",
       "source_sha256": "3fd5353dc26fa3eb416e74e59b56af18b69ad2a8cfd055d795eef602b9ef379b",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "无法使用此账号进行游戏\n若您对此毫无头绪，十分抱歉给您添麻烦，\n请联系本公司客服中心"
     },
     {
       "contexts": [
@@ -1084,9 +1170,11 @@
       ],
       "ja": "ディスカウント期間に入ったため実行できませんでした\r\nタイトル画面に戻ります",
       "source_sha256": "3ff875cc7ec68a2f8560c76edda19fa8dcec70a246fe6e3f2614b383be249834",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于已进入折扣期间，未能执行\n将返回标题画面"
     },
     {
       "contexts": [
@@ -1102,9 +1190,11 @@
       ],
       "ja": "すでにティアラを解放しているため\r\n実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "401447d0cc4983fee1f199fcc8a79c97c6d5b2132fbe6db418528489eab1e9f3",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于已解锁头冠\n无法执行\n返回标题界面"
     },
     {
       "contexts": [
@@ -1120,9 +1210,11 @@
       ],
       "ja": "ラウンジが定員に達しているため\r\n実行することができませんでした",
       "source_sha256": "40547a4d494984dd80982b5dc48379dafbc4b8f072eb0eccd816d1b1e3468abb",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于社交厅已达到人数上限\n无法执行"
     },
     {
       "contexts": [
@@ -1138,9 +1230,11 @@
       ],
       "ja": "モード切替",
       "source_sha256": "44b0547c24116627dd0d34f9ce88ec4dc8b89caa488f5d5e9513feb759e85d97",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "模式切换"
     },
     {
       "contexts": [
@@ -1156,9 +1250,11 @@
       ],
       "ja": "ギフトが足りないため実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "45dabe7051654b3dd666ff74def29fc58429ff3dff8896ad38f961c593379e03",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "礼物不足，无法执行\n返回标题"
     },
     {
       "contexts": [
@@ -1183,9 +1279,11 @@
       ],
       "ja": "キャンペーン期間が過ぎているため\r\nクレジットが投入できませんでした\r\nアプリタイトル画面に戻ります",
       "source_sha256": "45e9962e338077b5373940e9a85a5146c764b6006809be0a90028a234beb3df5",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于活动期间已结束\n无法投入点数\n将返回应用标题画面"
     },
     {
       "contexts": [
@@ -1201,9 +1299,11 @@
       ],
       "ja": "無効なコードです\r\nキャンペーン用の2次元コードをご利用ください",
       "source_sha256": "470a63d681d4866d07b72eb7391cdb564259c44ddb78aa6e085985285b1bcb6e",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "无效的代码\n请使用活动专用的2次元码"
     },
     {
       "contexts": [
@@ -1259,9 +1359,11 @@
       ],
       "ja": "通信エラーの為、タイトルに戻ります\r\n※先ほどのオファー結果は正常に処理されました",
       "source_sha256": "4bc79b8ba6440a54ff468eb80c50c47b50cdab31c464eb10fe5a4fb6be0d252b",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于通信错误，将返回标题画面\n※刚才的邀约结果已正常处理"
     },
     {
       "contexts": [
@@ -1277,9 +1379,11 @@
       ],
       "ja": "交換上限数を超えているため交換できませんでした\r\nタイトルに戻ります",
       "source_sha256": "4bd2b7b45c10f8671d2bfa69ca00c553b352e7824550cb894292de1e1217c4ae",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "超过可兑换上限，无法兑换\n返回标题"
     },
     {
       "contexts": [
@@ -1295,9 +1399,11 @@
       ],
       "ja": "予期せぬエラーが発生しました\r\nErrorCode [{0}]",
       "source_sha256": "4c9a44e7c8a2b7a94196e9853e8d2ddce64893b9a40a3687142593e7d72cc8f8",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "发生了意外错误\n错误代码 [{0}]"
     },
     {
       "contexts": [
@@ -1313,9 +1419,11 @@
       ],
       "ja": "キャッシュデータとは、お客様のお使いの端末に蓄積されるゲームに必要なデータのことです\r\nキャッシュデータを削除すると動作が軽くなることがあります\r\nプレイ中のゲームデータは削除されません\r\n\r\nキャッシュクリア後は、再度データをダウンロードします\r\n通信状況により、ダウンロードに時間がかかる場合があります\r\nキャッシュデータをクリアしてもよろしいですか？\r\n※キャッシュデータクリア中は操作不能になります\r\n　そのまま、お待ちください",
       "source_sha256": "4d95ae6afe9f743d7de15d1ca071a921a278e06f8831793a602b10ab56f30f09",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "缓存数据是指积累在您所使用的设备中、游戏运行所需的数据\n删除缓存数据后，游戏运行可能会变得更加流畅\n不会删除游戏中的数据\n\n清除缓存后，将再次下载数据\n根据通信状况，下载可能需要一段时间\n要清除缓存数据吗？\n※清除缓存数据期间将无法进行操作\n　请保持原样等待"
     },
     {
       "contexts": [
@@ -1331,9 +1439,11 @@
       ],
       "ja": "今月の購入金額が購入限度額に達しているため\r\n来月までミリオンジュエルを購入することができません",
       "source_sha256": "4e83db4d365f6cb2465f9776cb0ebfdb08fffe713276ae196a02bfd87e16d48a",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "本月购买金额已达到购买限额\n直至下个月，无法购买百万宝石"
     },
     {
       "contexts": [
@@ -1349,9 +1459,11 @@
       ],
       "ja": "本機能は現在調整中です\r\nミニゲームのTOPに戻ります",
       "source_sha256": "4eab44ab59b52736661fdcef2ba0a6e8a760681c61bbbcdcb76158a42380853e",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "本功能目前正在调整中\n将返回小游戏首页"
     },
     {
       "contexts": [
@@ -1367,9 +1479,11 @@
       ],
       "ja": "認証エラーが発生しました\r\nこの端末からのアクセスができません\r\nすでに他の端末に引き継がれている可能性があります",
       "source_sha256": "4f9a70ae04b39cd45904b9eeb4668386bcb340f0b2bcc37a7fa59ffdc8d9a6be",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "发生认证错误\n无法从此设备访问\n可能已经转移到其他设备"
     },
     {
       "contexts": [
@@ -1385,9 +1499,11 @@
       ],
       "ja": "未変換のドリームスターを検知しました\r\nお手数ですが一度プラチナガシャを開き変換をしてください",
       "source_sha256": "501dceb19a62406ea5af7fb5a1ab97824ec87a2bfb37ae04766607370478d42c",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "检测到尚未转换的Dream Star\n麻烦您打开一次白金扭蛋并进行转换"
     },
     {
       "contexts": [
@@ -1403,9 +1519,11 @@
       ],
       "ja": "すでに他のメンバーがマスターに立候補したため\r\nマスターになれませんでした",
       "source_sha256": "504d72d2d351c127f0e9df0acd8026227203f660676a4970cdeba608a99cf55c",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "已有其他成员申请担任团长\n没能成为团长"
     },
     {
       "contexts": [
@@ -1421,9 +1539,11 @@
       ],
       "ja": "通信エラーの為、タイトルに戻ります\r\n※先ほどのお仕事結果は正しく保存されています",
       "source_sha256": "5093f74dfe14a6ff99196d1aa309c32dae1552cb5387f7fe3b81275ff3a89273",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于通信错误，将返回标题画面。\n※先前的工作结果已正确保存"
     },
     {
       "contexts": [
@@ -1475,9 +1595,11 @@
       ],
       "ja": "現在メンテナンス中です\r\n詳細はお知らせをご確認ください",
       "source_sha256": "5108314c1bf284301d37ecab33e2dd0929f97d38c5135286e9d0bfc9c53e3acc",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "现在正在维护中。\n详情请查看公告。"
     },
     {
       "contexts": [
@@ -1493,9 +1615,11 @@
       ],
       "ja": "タイトルの読み込みに失敗したため\r\nデフォルトの設定に自動変更しました",
       "source_sha256": "549eb0637854bdf45cf23f82646518670c5a507aa4393ab4dba2c6b2cf7aee6d",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于标题读取失败\n已自动更改为默认设置"
     },
     {
       "contexts": [
@@ -1511,9 +1635,11 @@
       ],
       "ja": "プライバシーポリシーが更新されました。\r\n同意してから本サービスをご利用ください。\r\nまた、未成年の方は、法定代理人（ご両親等）の同意が必要です。\r\n※ないようがわからないときは\r\nおうちのひとにがめんをみせてください。",
       "source_sha256": "5510facc494ee3ca52cc56402238e83a0d22662ce6d16f67ed542538a737eaeb",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "隐私政策已更新。\n请同意后再使用本服务。\n另外，未成年人需要法定代理人（父母等）的同意。\n※如果看不懂内容\n请让家人看看屏幕。"
     },
     {
       "contexts": [
@@ -1529,9 +1655,11 @@
       ],
       "ja": "データ引き継ぎ登録に失敗しました\r\n\r\nなお、以前のゲームデータを引き継ぐにはアプリケーションを再インストールする必要があります",
       "source_sha256": "557b73f3564809d3facdfe09df6c9ee35fa2e6a39f4223d6b578f6bbd99123ce",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "数据继承登记失败。\n\n此外，如需继承之前的游戏数据，需要重新安装应用程序。"
     },
     {
       "contexts": [
@@ -1556,9 +1684,11 @@
       ],
       "ja": "開催期間外です\r\nタイトルに戻ります",
       "source_sha256": "55d08bbb1a340898d1b131120370efca785ba80ca955f1830f5c34890140dc41",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "不在举办期间内\n返回标题"
     },
     {
       "contexts": [
@@ -1574,9 +1704,11 @@
       ],
       "ja": "バックキーがタッチされました\r\nゲームを終了しますか？",
       "source_sha256": "56a956767bf36354dab352ec97dfdc917404f56dee7d82031478663caa089429",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "已触摸返回键\n是否退出游戏？"
     },
     {
       "contexts": [
@@ -1659,9 +1791,11 @@
       ],
       "ja": "イベント開催期間外のため実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "58f31fb2ae6b155a42763aedc534aa2bc4c9094d86374957697895e2d5ff8bf5",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -1677,9 +1811,11 @@
       ],
       "ja": "ダウンロードに失敗しました\r\n劇場へ移動します\r\nアイテムはプレゼントへ送られています",
       "source_sha256": "59098917481cd747d0cfe56d8426b97b8877f5943874aae345698521a54e7fd0",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "下载失败\n将移动至剧场\n道具已发送至礼物箱"
     },
     {
       "contexts": [
@@ -1695,9 +1831,11 @@
       ],
       "ja": "他プロデューサーからの入室申請がある状態では\r\n「入室自由」に変更することはできません\r\n\r\n「入室自由」に変更する場合は\r\n事前に全ての申請を承認、または、拒否する必要があります",
       "source_sha256": "5912fc3abc80f5997ba050778329ea4555de79d5c27d4767f85a3bc1c1cc9a37",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "有其他制作人的入室申请时\n无法更改为“自由入室”\n\n如需更改为“自由入室”\n必须事先批准或拒绝全部申请"
     },
     {
       "contexts": [
@@ -1713,9 +1851,11 @@
       ],
       "ja": "ライブ中にアプリが終了しました\r\n途中からライブを再開しますか？\r\n(元気やライブチケットは消費されません）",
       "source_sha256": "5a15043af5668d24aeb448f9b2bb8b28fc7218156d048e26869ff1d91e8c66e9",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "演出过程中应用已关闭\n要从中断处继续演出吗？\n（不会消耗体力或演出门票）"
     },
     {
       "contexts": [
@@ -1740,9 +1880,11 @@
       ],
       "ja": "交換期間外です\r\nタイトルに戻ります",
       "source_sha256": "5c4398bd0d73be8d275414579c2b3c104225cdea2626c5faed96d75cf3444cc3",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "当前不在兑换期间内\n返回标题画面"
     },
     {
       "contexts": [
@@ -1796,9 +1938,11 @@
       ],
       "ja": "すでにプロモーション活動内容が設定されています\r\nタイトルに戻ります",
       "source_sha256": "5fd142d34463091345837c03a1c05f9735435956c5b565cf2998d33acd80cc22",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "已设置推广活动内容\n返回标题"
     },
     {
       "contexts": [
@@ -1834,9 +1978,11 @@
       ],
       "ja": "アイテムを使用できませんでした\r\nタイトル画面に戻ります",
       "source_sha256": "637010937b888f9e43ecce5e565f2548d782c721d9c17b5479c609f2f4ca5529",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "无法使用道具\n将返回标题画面"
     },
     {
       "contexts": [
@@ -1852,9 +1998,11 @@
       ],
       "ja": "対象のプレゼントはすでに受け取り済みです\r\nタイトルに戻ります",
       "source_sha256": "65187715b2497f4fcac063de229e32dec60e6804d0c39093b24398d0ed8ca88f",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "目标礼物已经领取\n返回标题界面"
     },
     {
       "contexts": [
@@ -1870,9 +2018,11 @@
       ],
       "ja": "失効しているチケットがあるので\r\n実行できませんでした",
       "source_sha256": "66595e1c89f29b97a46592375ad6cf01bb83823858d2cb3c935da8bf52654844",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于有已失效的门票\n无法执行"
     },
     {
       "contexts": [
@@ -1897,9 +2047,11 @@
       ],
       "ja": "既に開催期間が終了しているガシャのため\r\n実行できませんでした\r\nタイトルへ戻ります",
       "source_sha256": "67446fa64b3b4805f74a46ad65d9c1134df5ac2b41c9c71042bfe6a59b430229",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于该抽卡的活动期间已结束\n无法执行\n返回标题"
     },
     {
       "contexts": [
@@ -1935,9 +2087,11 @@
       ],
       "ja": "ラウンジが解散されています\r\nタイトルに戻ります",
       "source_sha256": "6cf25e1fa55dba3e965cf5437f4df2dc1db3152c2f7ef35f6a3a840ad456bbc2",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "社交厅已解散\n将返回标题画面"
     },
     {
       "contexts": [
@@ -1953,9 +2107,11 @@
       ],
       "ja": "すでに申請を取り消されているため\r\n承認することができませんでした",
       "source_sha256": "6d96b05d15e5185b182b9333cd9402fd3261f2c8760e86ec76769b999ad07a17",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于申请已被取消，\n无法批准。"
     },
     {
       "contexts": [
@@ -1971,9 +2127,11 @@
       ],
       "ja": "連続お仕事の期間が終了しているため\r\n実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "6de2e96e313d2c182ec657c12216db2908466bb305232b7ed322590922eed23e",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于连续工作期已结束\n无法执行\n返回标题"
     },
     {
       "contexts": [
@@ -1989,9 +2147,11 @@
       ],
       "ja": "ご入力いただいたバンダイナムコIDは\r\n既に他の端末と連携されています",
       "source_sha256": "6eb576d82f3cf72283abd924deb15353f9bf4c769d13ebaced28d1cff023bb79",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "您输入的万代南梦宫ID\n已与其他设备关联"
     },
     {
       "contexts": [
@@ -2016,9 +2176,11 @@
       ],
       "ja": "新しいデータがあります\r\nタイトルへ戻ります",
       "source_sha256": "6f0107a1931583884e8c1e3e467c51862375c5e8cedd787ca1c9e2220703948f",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "有新数据\n返回标题"
     },
     {
       "contexts": [
@@ -2034,9 +2196,11 @@
       ],
       "ja": "マスター権限を譲渡されたため\r\nラウンジから退室することができませんでした",
       "source_sha256": "700c6909ce84a17cdd75fea3c88c119aa86108c13645c652768671a2de42674a",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于主控权限已移交\n无法从社交厅退出"
     },
     {
       "contexts": [
@@ -2052,9 +2216,11 @@
       ],
       "ja": "ライブを再開せず、劇場へ移動します\r\nここでライブを再開しなかった場合、あとからライブを再開することはできません\r\n(消費した元気やライブチケットも回復されません)\r\n\r\n本当によろしいですか？",
       "source_sha256": "70b888147b13ae2b1bf8da9a68ec81245126028bc50b9afed5bbb11b339802db",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "不继续现场，移动到剧场。\n如果在这里不重新开始现场，之后将无法重新开始现场。\n(消耗的体力和现场门票也不会恢复)\n\n真的可以吗？"
     },
     {
       "contexts": [
@@ -2070,9 +2236,11 @@
       ],
       "ja": "交換上限数が変更されたため実行できませんでした\r\nタイトル画面に戻ります",
       "source_sha256": "712b89ade53e2d9a23fb7c96b90874d227035c43472d028078437d6d5b3441f6",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "因兑换上限数已变更，无法执行。\n返回标题画面。"
     },
     {
       "contexts": [
@@ -2126,9 +2294,11 @@
       ],
       "ja": "イベント楽曲をプレイするために\r\n必要なアイテム数ではありません。",
       "source_sha256": "79cec5227e5a7b70f4b498a381d3e40a294dbc0a671d397efcb7ff2627beb988",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "并非游玩活动歌曲\n所需的道具数量。"
     },
     {
       "contexts": [
@@ -2144,9 +2314,11 @@
       ],
       "ja": "通信エラーの為、タイトルに戻ります\r\n※対象のカードはすでに覚醒済みです",
       "source_sha256": "7c9a02c8c4533ac8ea9b3234353a2ae9226c69233506cc64bedd0e4b9ad5b3c5",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "因通信错误，将返回标题画面。\n※该卡牌已处于觉醒状态。"
     },
     {
       "contexts": [
@@ -2182,9 +2354,11 @@
       ],
       "ja": "新しいゲームデータのダウンロードを行います\r\n\r\n※通信状態の良い場所でダウンロードしてください\r\n　Wi-Fiでのダウンロードをお勧めします",
       "source_sha256": "7f8067e1b6c76bce7dbbcadb9ec2e2f08ce2b88b4d24faa6d1920e516ac9f39f",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "将下载新的游戏数据\n\n※请在通信状态良好的地方下载\n　建议使用 Wi-Fi 下载"
     },
     {
       "contexts": [
@@ -2200,9 +2374,11 @@
       ],
       "ja": "認証エラーが発生しました\r\nタイトルから再度、お試しください",
       "source_sha256": "81f60e29993ef7ae953774b46e4cf1784df969b1e64b52b5c800462ba8594b27",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "发生了认证错误。\n请从标题画面重新尝试。"
     },
     {
       "contexts": [
@@ -2246,9 +2422,11 @@
       ],
       "ja": "データを引き継いでゲームを開始する場合は「データを引き継ぐ」を選択してください\r\n「新しくゲームを始める」を選択した後に以前のゲームデータを引き継ぐにはアプリケーションを再インストールする必要があります",
       "source_sha256": "84b8ac21ca3b703509e15dea5505dda82921757d892752c8eae6246049d96599",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "如要继承数据开始游戏，请选择“继承数据”。\n选择“开始新游戏”后若要继承之前的游戏数据，需要重新安装应用程序。"
     },
     {
       "contexts": [
@@ -2264,9 +2442,11 @@
       ],
       "ja": "現在本楽曲は楽曲メンテナンス中のためプレイできません\r\n申し訳ありませんが、他の楽曲をお選びください",
       "source_sha256": "863f76433ce819a16e71ee2d02bf3eb41eedb493578697b72a09a2df40ccdb4d",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "本乐曲正在维护中，暂无法游玩。\n抱歉，请选择其他乐曲。"
     },
     {
       "contexts": [
@@ -2282,9 +2462,11 @@
       ],
       "ja": "利用規約、プライバシーポリシー、グローバルコンセントが\r\n更新されました。\r\n同意してから本サービスをご利用ください。\r\nまた、未成年の方は、法定代理人（ご両親等）の同意が必要です。\r\n※ないようがわからないときは\r\nおうちのひとにがめんをみせてください。",
       "source_sha256": "8778ccec0456e56738cbcf3e47d87224a451767f083f5b275a335a7bfb04eabf",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "使用条款、隐私政策和全球同意书已更新。\n请同意后使用本服务。\n另外，未成年者需要法定代理人（父母等）的同意。\n※如果看不懂内容，请把画面给家里人看。"
     },
     {
       "contexts": [
@@ -2309,9 +2491,11 @@
       ],
       "ja": "通信に失敗しました\r\n通信環境の良いところで再度お試しください",
       "source_sha256": "88eb422879c3d00fd29d66a74bfb48037246e66f8fcee48b8e50d711fd3ae27f",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "通信失败\n请在通信环境良好的地方再次尝试"
     },
     {
       "contexts": [
@@ -2355,9 +2539,11 @@
       ],
       "ja": "通信に失敗しました\r\n通信環境の良いところで再度お試しください\r\n\r\nErrorCode [PRL]",
       "source_sha256": "89eefab1428113c7f553299ea8d0505e5ef7884aa05593f43c71e04c3ca9b9f1",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "通信失败\n请在通信环境良好的地方再次尝试\n\n错误代码 [PRL]"
     },
     {
       "contexts": [
@@ -2393,9 +2579,11 @@
       ],
       "ja": "このアカウントは利用停止されております\r\nお心当たりのない方は大変お手数ですが\r\n弊社サポートセンターまでお問い合わせください\r\n\r\nタイトル画面内メニュー＞お問い合わせ",
       "source_sha256": "8cc8e7d881159c863c90c20c174cb879b91b22760be77f461df64cbd0eae2c82",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "该账号已被停止使用\n如果您对此没有印象，给您添麻烦了，请联系本公司客服中心\n\n标题画面内菜单＞联系我们"
     },
     {
       "contexts": [
@@ -2411,9 +2599,11 @@
       ],
       "ja": "編成を行うことができませんでした\r\nタイトルに戻ります",
       "source_sha256": "8cfe09705673ba3f1d6b7e2e08580a9ef1c4eae1e66f58e353f013ff24905498",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "无法进行编组\n返回标题"
     },
     {
       "contexts": [
@@ -2449,9 +2639,11 @@
       ],
       "ja": "失効しているガシャメダルがあるので\r\n実行できませんでした",
       "source_sha256": "8f595bf30ceb0332f6aa814d9ea6c6bcde2e6bea4de05fb0e20538b54f964ce6",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "因有失效的扭蛋奖牌，\n无法执行。"
     },
     {
       "contexts": [
@@ -2494,9 +2686,11 @@
       ],
       "ja": "最新のデータがあります\r\nタイトル画面に戻ります",
       "source_sha256": "903a7ab6f010af9ff8a393b883cba9862bcfb477df32141560f0ed5f658f2ac6",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "有最新数据\n正在返回标题画面"
     },
     {
       "contexts": [
@@ -2512,9 +2706,11 @@
       ],
       "ja": "お仕事を再開せず、劇場へ移動します\r\nここでお仕事を再開しなかった場合、あとからお仕事を再開することはできません\r\n(消費した元気やライブチケットも回復されません)\r\n\r\n本当によろしいですか？",
       "source_sha256": "9242aaecb6aef53ae7f3dedd3cf34cdd315e1023a7aef1db29840056b64223fd",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -2530,9 +2726,11 @@
       ],
       "ja": "スパークドリンクを使うと\r\n元気を回復できます",
       "source_sha256": "92d3e61987367a6694755e2795f1d1af7da9c7502303c2bcab79387203e4d88d",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "使用活力饮料后\n可以恢复活力"
     },
     {
       "contexts": [
@@ -2568,9 +2766,11 @@
       ],
       "ja": "プレゼントが見つかりませんでした\r\n受け取り期限が過ぎているなどの原因が考えられます",
       "source_sha256": "9418003da3b6a88ebe85f49ae5cb0074fb932ca6de3f50f6821966a04a2bd81b",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "未找到礼物\n可能是领取期限已过等原因导致的"
     },
     {
       "contexts": [
@@ -2644,9 +2844,11 @@
       ],
       "ja": "データの読み込みに失敗しました\r\nタイトル画面から再度ライブを開始してください",
       "source_sha256": "985cbac79a3741d567387ac9f2812afaf3480639d6e2478938c21f39fb1a1740",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "数据读取失败\n请从标题画面重新开始演出"
     },
     {
       "contexts": [
@@ -2662,9 +2864,11 @@
       ],
       "ja": "このアカウントではエントリーが行えません\r\nお心当たりのない方は大変お手数ですが\r\n弊社サポートセンターまでお問い合わせください",
       "source_sha256": "98fd69b08e3ef66e0e21c4fddbb2c45b76ba8e5b96c2d2dfa273efa4fed4c5f0",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "此账号无法进行报名。\n如您不清楚原因，给您带来不便，非常抱歉。\n请联系本公司客服中心。"
     },
     {
       "contexts": [
@@ -2680,9 +2884,11 @@
       ],
       "ja": "正しい順番でプロモーション活動が行われていないため\r\nリタイアしました\r\nタイトルに戻ります",
       "source_sha256": "9922b4414af2b5db0732d82e586de22b5c5e40734e08baac3478e8a12f611d1d",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于未按正确顺序进行宣传活动\n已退出\n返回标题"
     },
     {
       "contexts": [
@@ -2707,9 +2913,11 @@
       ],
       "ja": "ラウンジが見つかりませんでした\r\nタイトルに戻ります",
       "source_sha256": "9b98095fd2b8734bc1dd1ccc4bb8c6c4d7c7dd5fc0b55b97295337eae2c4c345",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "未找到社交厅\n返回标题"
     },
     {
       "contexts": [
@@ -2734,9 +2942,11 @@
       ],
       "ja": "メンテナンス中のため\r\nガシャを行うことができません",
       "source_sha256": "9bba4e88b2f012681985f50f9a20bc8be5d5138e47726ba5cc2ed1b8f6482602",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "维护中，无法进行扭蛋抽取"
     },
     {
       "contexts": [
@@ -2826,9 +3036,11 @@
       ],
       "ja": "ご入力いただいたバンダイナムコIDには\r\n本アプリのデータが連携されておりません\r\n\r\n本アプリと連携しているバンダイナムコIDを\r\nご入力ください",
       "source_sha256": "9e30d53b468da315038152ea1a75c0dbfa49df736844a121a11219357774c4d1",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "您输入的万代南梦宫ID\n未关联本应用的数据\n\n与本应用关联的万代南梦宫ID\n请输入该ID"
     },
     {
       "contexts": [
@@ -2844,9 +3056,11 @@
       ],
       "ja": "ライブを再開せず、劇場へ移動します\r\nここでライブを再開しなかった場合、あとからライブを再開することはできません\r\n(消費した元気やライブチケット、マニーなども回復されません)\r\n\r\n本当によろしいですか？",
       "source_sha256": "9e4143a9a597eb02cb7f41b63d4352085e58089d294770905a90ae8b534f4255",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "不继续演出，前往剧场\n如果在这里不继续演出，之后将无法再次继续演出\n（已消耗的体力、演出券、金币等也不会恢复）\n\n真的确定吗？"
     },
     {
       "contexts": [
@@ -2862,9 +3076,11 @@
       ],
       "ja": "劇場へ\r\n移動する",
       "source_sha256": "9fbb6ff83ac1c76f1ef5318363e43330b4c14d5655ea3e5ca62c1fc8a280fd67",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "前往剧场\n移动"
     },
     {
       "contexts": [
@@ -2961,9 +3177,11 @@
       ],
       "ja": "期間外のため実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "a370d0291b4fcfdcbb59ca0c1cd0cea30bfbe2738e3baf2cde8d9837379ad1b7",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "因不在活动期间内，无法执行。\n返回标题画面"
     },
     {
       "contexts": [
@@ -2979,9 +3197,11 @@
       ],
       "ja": "ディスカウント期間が終了しているため実行できませんでした\r\nタイトル画面に戻ります",
       "source_sha256": "a40b435dc882588730110671010b1f9db0baa5930135a67981ee76b4f4bb4ed5",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于折扣期间已结束，无法执行\n将返回标题画面"
     },
     {
       "contexts": [
@@ -2997,9 +3217,11 @@
       ],
       "ja": "イベント開催期間外です\r\nタイトルに戻ります",
       "source_sha256": "a445fe0302356d76ede7a0bb22d62cb63b0351e21de7612e6b080552e4661be5",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "活动举办期间外\n返回标题画面"
     },
     {
       "contexts": [
@@ -3015,9 +3237,11 @@
       ],
       "ja": "セッションが切断されました\r\n再度ログインしてください",
       "source_sha256": "a476b7706460d5b74ba17747d580021b09553e2d0f0bc5d24c1ed48a8773f00d",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "会话已断开\n请重新登录"
     },
     {
       "contexts": [
@@ -3033,9 +3257,11 @@
       ],
       "ja": "利用規約、グローバルコンセントが更新されました。\r\n同意してから本サービスをご利用ください。\r\nまた、未成年の方は、法定代理人（ご両親等）の同意が必要です。\r\n※ないようがわからないときは\r\nおうちのひとにがめんをみせてください。",
       "source_sha256": "a5ae8a530a1a3f8b8d6d5ce1c0934c2aa0627724deaf92e9b0a7373846c7cfe7",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "使用条款、全局同意已更新。\n请在同意后使用本服务。\n另外，未成年人需要法定代理人（父母等）的同意。\n※如果不明白内容时\n请让家人看看屏幕。"
     },
     {
       "contexts": [
@@ -3204,9 +3430,11 @@
       ],
       "ja": "本機能は現在調整中です\r\nタイトルに戻ります",
       "source_sha256": "a745270661402499df5b21b934df25991388aa7ed32bb7f2fe7847657febb2e4",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "本功能目前正在调整中\n返回标题"
     },
     {
       "contexts": [
@@ -3222,9 +3450,11 @@
       ],
       "ja": "コミュのボイスデータはゲームの再起動時等\r\nタイトル画面に移動すると消去されます",
       "source_sha256": "a79fa2cd7dda211317a81d4f78fcf9c2a74e067da22662ce23b8424b084af18d",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "通信的语音数据在游戏重启等时\n移动到标题画面时会被删除"
     },
     {
       "contexts": [
@@ -3249,9 +3479,11 @@
       ],
       "ja": "1日の回数上限に達しているため\r\n実行できませんでした",
       "source_sha256": "a8cd23609e22cf146c1bb4d9ecb79609654dfcc6e422f12a7ec8235583dea976",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "1天的次数上限已达\n无法执行"
     },
     {
       "contexts": [
@@ -3267,9 +3499,11 @@
       ],
       "ja": "「Appにトラッキングしないように要求」を選択されても\r\n本アプリのプレイに影響はございません",
       "source_sha256": "aaf93e24df2f3cad738bfa7875db4aff1fcef09924131fe20b20670e8e2d7392",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "即使选择“要求App不追踪”，\n本应用的游玩也不会受到影响。"
     },
     {
       "contexts": [
@@ -3285,9 +3519,11 @@
       ],
       "ja": "このユーザーはラウンジ招待上限に達しているため\r\n招待できませんでした",
       "source_sha256": "ab8bbfb63c8adcc35edc5d2995ff8e4e47dfd06c3a3dff28016ac83e27cb7738",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "该用户已达到社交厅邀请上限，\n无法邀请。"
     },
     {
       "contexts": [
@@ -3303,9 +3539,11 @@
       ],
       "ja": "エントリーを行うには引き継ぎ設定が必要です\r\nナビ内「引き継ぎ」より引き継ぎ設定を行ってください",
       "source_sha256": "ac9eb897f38a626eb11bdd985d53f42df1402d93e9007239e0da6ae5699c5b37",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "报名需要进行数据转移设定。\n请在导航内的「数据转移」中进行数据转移设定。"
     },
     {
       "contexts": [
@@ -3341,9 +3579,11 @@
       ],
       "ja": "すでにこのコミュは解放されています\r\nタイトルに戻ります",
       "source_sha256": "af24033753df9045d4ae997bacadce04d0b3ed31a50517ee7be29ae657c2a768",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "此通信已解锁\n返回标题"
     },
     {
       "contexts": [
@@ -3359,9 +3599,11 @@
       ],
       "ja": "新しくゲームを\r\n始める",
       "source_sha256": "b312edae21451be44255d05216d0b974eefc4e7cb14ecbc3f72872dd42134991",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "开始新游戏"
     },
     {
       "contexts": [
@@ -3377,9 +3619,11 @@
       ],
       "ja": "期間外のため購入できませんでした\r\nタイトルに戻ります",
       "source_sha256": "b3494155b2bea0c09f19fe525b732f917cc32e8fddcb7bcc3aa4e339b54fed5b",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "因不在购买期间，无法购买。\n返回标题画面。"
     },
     {
       "contexts": [
@@ -3395,9 +3639,11 @@
       ],
       "ja": "アイドルptを獲得するアイドルが選択されていません\r\nイベント専用ページからアイドルを選択してください",
       "source_sha256": "b51e5e3633c83fc0f7af4eef84e607c0ae067929923bbbecd2b0511c3464f667",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "未选择获得偶像pt的偶像\n请从活动专用页面选择偶像"
     },
     {
       "contexts": [
@@ -3413,9 +3659,11 @@
       ],
       "ja": "期限が切れているため使用できませんでした\r\nタイトル画面に戻ります",
       "source_sha256": "b5c721c91e0913c7583d095c1576f22ca7df4f6a3f285c598b6ed7cc194d16fe",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "因期限已过，无法使用\n返回标题画面"
     },
     {
       "contexts": [
@@ -3431,9 +3679,11 @@
       ],
       "ja": "交換上限数を超えているため\r\n実行できませんでした",
       "source_sha256": "b5eab25380dd6125ca642fc773f467aded5155386709be23f15e33985ff7850f",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -3449,9 +3699,11 @@
       ],
       "ja": "衣装一括切替",
       "source_sha256": "b7114bda1d729990b3f32eab524e903dfab7f9db52cbcefd7d6dc3a7f45b84fc",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "服装一键切换"
     },
     {
       "contexts": [
@@ -3467,9 +3719,11 @@
       ],
       "ja": "日付が変わりました\r\n前日分のフラワースタンドは贈れませんでした\r\nタイトル画面に戻ります",
       "source_sha256": "b7c1a6ebdbc352b8a291aedf8fded576a83faba39b7b4ab30ac40f542511552c",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "日期已更改\n未能赠送前日的花篮\n正在返回标题画面"
     },
     {
       "contexts": [
@@ -3485,9 +3739,11 @@
       ],
       "ja": "ライブ中にアプリが終了しました\r\n途中からライブを再開しますか？\r\n(元気やライブチケット、マニーなどは消費されません）",
       "source_sha256": "b86fff26fcd86058bd3b4c54c75d8490671b61726b8db576b1d8cdd1e89541ac",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "演出中应用程序已关闭\n是否从中断处继续演出？\n（体力、演出门票、马尼等不会被消耗）"
     },
     {
       "contexts": [
@@ -3523,9 +3779,11 @@
       ],
       "ja": "ボイスを再生する場合、\r\n必要なボイスデータをダウンロードします",
       "source_sha256": "b8f115c85c0e2a34d4430b299e421f9a0f7c1d564a15e381bc3c40d6268d2ef7",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "播放语音时，\n将下载所需的语音数据。"
     },
     {
       "contexts": [
@@ -3541,9 +3799,11 @@
       ],
       "ja": "活動中止を行うことができませんでした\r\nタイトルに戻ります",
       "source_sha256": "b96ddc5c9df1deda507b757766a0f70e672747988af5ae74dea178ab15a48b3a",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "无法取消活动\n返回标题"
     },
     {
       "contexts": [
@@ -3579,9 +3839,11 @@
       ],
       "ja": "端末の設定で「Appからのトラッキング要求を許可」を\r\nオフにしている場合、トラッキング許可のダイアログは表示されません",
       "source_sha256": "ba5b6a69cb940befd8ad2fc7733281d31dd958f5fc9f498c3d91232e4157e2d1",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "如果在设备设置中将“允许 App 请求追踪”\n关闭，则不会显示追踪许可对话框。"
     },
     {
       "contexts": [
@@ -3597,9 +3859,11 @@
       ],
       "ja": "予期せぬエラーが発生しました\r\nErrorCode [{0}]\r\n\r\nアプリを一度終了して、起動しなおしていただくか\r\nしばらく時間をおいてから再度お試しください",
       "source_sha256": "bd5765b67394302351646d1616ace3a6f080137a0f551e0313032c61ac245c3e",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "发生了意外错误\n错误代码 [{0}]\n\n请退出应用后重新启动，或者\n稍等一段时间后再试"
     },
     {
       "contexts": [
@@ -3615,9 +3879,11 @@
       ],
       "ja": "初期化に失敗しました。 \r\n通信状態の良いところで再度お試しください。 \r\nお使いの端末の空き容量が不足している可能性があります。 \r\n空き容量の確認をお願い申し上げます。",
       "source_sha256": "bdbaae455f222b8280825cc520d90622b172ce5c0497729e1c1dca4c529cf7fb",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "初始化失败。\n请在通信状况良好的地方再次尝试。\n您使用的设备可用存储空间可能不足。\n请检查可用存储空间。"
     },
     {
       "contexts": [
@@ -3633,9 +3899,11 @@
       ],
       "ja": "エントリーが完了していません\r\n劇場バナーよりエントリーしてください",
       "source_sha256": "bf08a6d0994cf7566506d4815120c2a971bd5865c3f2d8c4ef58d79cf77ac313",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "报名尚未完成\n请从剧场横幅进行报名"
     },
     {
       "contexts": [
@@ -3651,9 +3919,11 @@
       ],
       "ja": "利用規約が更新されました\r\nゲームをプレイするには利用規約に同意していただく必要があります\r\n利用規約をご確認の上、「同意する」をタッチしてください",
       "source_sha256": "c07424831ec6b09ffb63eb4fd620836eca8814b33698783f811a44dd204696e7",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -3669,9 +3939,11 @@
       ],
       "ja": "プロモーション活動をリタイアするための\r\n条件を満たしていません\r\nタイトルに戻ります",
       "source_sha256": "c26104af79e47cd2c20363ca31a84021498b4ba87d422aa2c5a25ab1713a5057",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -3707,9 +3979,11 @@
       ],
       "ja": "お仕事中にアプリが終了しました\r\n始めからお仕事を再開しますか？\r\n(元気は消費されません）",
       "source_sha256": "c36bdba67b26ce97270db94bf243b0b00627f04529927eb5ee3439d8487889b7",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "工作过程中应用已结束\n要从头开始工作吗？\n(不会消耗体力）"
     },
     {
       "contexts": [
@@ -3725,9 +3999,11 @@
       ],
       "ja": "データダウンロードに失敗しました\r\n通信環境が良いところで再度お試しください",
       "source_sha256": "c3930f97d712b69520c5cc049ca39a9f56ce4b34fc014a125eaab7e652d5b90c",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "数据下载失败\n请在网络环境良好的地方重试"
     },
     {
       "contexts": [
@@ -3743,9 +4019,11 @@
       ],
       "ja": "エントリーに必要なプロデューサーレベルに達していません\r\nお知らせよりエントリー条件をご確認ください",
       "source_sha256": "c3fa17eb5e3c5b531e4bed0fada13060ee4636afa0efa257b7ab72d8e2be0213",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "尚未达到报名所需的制作人等级\n请通过公告确认报名条件"
     },
     {
       "contexts": [
@@ -3761,9 +4039,11 @@
       ],
       "ja": "データをクリア中です\r\nしばらくお待ちください",
       "source_sha256": "c484ea84f86b9b9936f44acdafdeac6ea6b73420261aa685e34a3b44520c7dbe",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "正在清除数据\n请稍候"
     },
     {
       "contexts": [
@@ -3779,9 +4059,11 @@
       ],
       "ja": "メンテナンス中のため\r\n衣装を購入することはできません",
       "source_sha256": "c4dcc1d07b2d578290fd6b667608097b0688e8263997c6cbfd78142edb9f8854",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于正在维护中\n无法购买服装"
     },
     {
       "contexts": [
@@ -3797,9 +4079,11 @@
       ],
       "ja": "存在しないIDです\r\nタイトルに戻ります",
       "source_sha256": "c50193a195f826389bdd52489f489f95402c1a8ba18499c717b1eee4c671eacb",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "这是不存在的ID\n将返回标题"
     },
     {
       "contexts": [
@@ -3815,9 +4099,11 @@
       ],
       "ja": "正しい順番でプロモーション活動が行われていないため\r\n実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "c705fd470ae82ff3a1dd57004880fbda4faed73b4db52ed033c37778d3064b52",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于未按正确顺序进行宣传活动\n无法执行\n返回标题画面"
     },
     {
       "contexts": [
@@ -3833,9 +4119,11 @@
       ],
       "ja": "データダウンロードに失敗しました\r\nお使いの端末の空き容量が不足している可能性があります\r\n空き容量の確認をお願い申し上げます\r\n\r\n{0}",
       "source_sha256": "c7ecee941d1246721e433908f9092f6bed7892fc68a66793c0694f4ef6bc8f38",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "数据下载失败\n您使用的设备可能存储空间不足\n请确认可用存储空间\n\n{0}"
     },
     {
       "contexts": [
@@ -3851,9 +4139,11 @@
       ],
       "ja": "たくさんあるアプリの中から本アプリを選んでいただき\r\nありがとうございます。\r\n「次へ」を押すとトラッキング許可のダイアログが表示されます。\r\n許可をすることでゲーム外であなたが興味を示しそうな\r\nバンダイナムコグループの広告が表示されるようになります。",
       "source_sha256": "c8b0edcede5ed43985c94ad33f80fe99506a6bb08066c0acdb32f6b5a9534d99",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "感谢您从众多应用中选择\n本应用。\n点击“下一步”后，将显示跟踪许可对话框。\n允许后，游戏外将会显示您可能感兴趣的\n万代南梦宫集团广告。"
     },
     {
       "contexts": [
@@ -4019,9 +4309,11 @@
       ],
       "ja": "エントリーに必要なイベント順位条件を満たしていません\r\nお知らせよりエントリー条件をご確認ください",
       "source_sha256": "d3ae652689d72cfa6c77b780ae62ba4bf9279ea56f5aab784e1e7042636ba81b",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -4037,9 +4329,11 @@
       ],
       "ja": "データが本日のものでないため\r\nライブに復帰できませんでした\r\n劇場へ移動します",
       "source_sha256": "d4979fc8fcddb3f1a59676a01c29f40554c1c5f0ee92d6fb714206192a219ffc",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -4055,9 +4349,11 @@
       ],
       "ja": "ライブに復帰できませんでした\r\n劇場へ移動します",
       "source_sha256": "d6a04bdcf7d19c22204ce1af1d45d6fb183d05f4e549b7c6ffa065b2b1bc3d4e",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -4073,9 +4369,11 @@
       ],
       "ja": "ただいまメンテナンスを行っています\r\n詳細についてはお知らせをご確認ください",
       "source_sha256": "d706bfe8bcef764d7c474f97c3f27031ff3295e4eed5aa2aed4c2f047fe3587a",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -4091,9 +4389,11 @@
       ],
       "ja": "データ引き継ぎが行われました\r\nゲームをプレイするには利用規約に同意していただく必要があります\r\n利用規約をご確認の上、「同意する」をタッチしてください",
       "source_sha256": "d767f64cdc49d7a02266a4d4caa02fb8bacaaba972ae1f6f8c8d9418892bbdc5",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -4109,9 +4409,11 @@
       ],
       "ja": "連続可能回数の上限に達しているため実行できませんでした\r\nタイトルに戻ります",
       "source_sha256": "d7a34eed4a2b6a0855aa7b1c1301a69245c7738ca5e260b2ff0f9344411f58c4",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "已达到连续执行次数上限，无法执行\n返回标题"
     },
     {
       "contexts": [
@@ -4127,9 +4429,11 @@
       ],
       "ja": "夜になるとどこからともなく\r\n声が聞こえてくるらしい",
       "source_sha256": "d88b05343eb2486ab451fd3ded5c7762898e27422369c08f937d1703afdeb511",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "听说到了晚上，不知从哪里\n就会传来声音"
     },
     {
       "contexts": [
@@ -4145,9 +4449,11 @@
       ],
       "ja": "購入条件を満たしていないため\r\n衣装を購入することはできません",
       "source_sha256": "d8d32a8cfc8eb45335ee8ce895043663b17bedacf2da9603ff19fa419ae339e8",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于未满足购买条件，无法购买服装"
     },
     {
       "contexts": [
@@ -4163,9 +4469,11 @@
       ],
       "ja": "認証エラー　【{0}】\r\n認証エラーが発生しました\r\nこの端末からはアクセスができません\r\nすでに他の端末に引き継がれている可能性があります",
       "source_sha256": "dc4a090c74ca15621ec7897b738bc5935fd0a6c6599812ac9a3e46d14a7019f4",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "认证错误　【{0}】\n发生认证错误\n无法从此设备访问\n可能已经转移至其他设备"
     },
     {
       "contexts": [
@@ -4201,9 +4509,11 @@
       ],
       "ja": "投票対象が未選択のためライブを行えません\r\nタイトルに戻ります",
       "source_sha256": "dd1aad222f3c368413525043a66c88fd295d2d9ca4eb12c2016d74be6722eac5",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于尚未选择投票对象，无法进行演出\n将返回标题画面"
     },
     {
       "contexts": [
@@ -4219,9 +4529,11 @@
       ],
       "ja": "ラウンジ在籍日数が足りないため\r\n立候補することができませんでした",
       "source_sha256": "dd40ba8b33ef73ff323214da829ccba651eeb3141e376eb8de32986129a7b438",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于在社交厅的在籍天数不足\n无法参选"
     },
     {
       "contexts": [
@@ -4237,9 +4549,11 @@
       ],
       "ja": "本機能は現在メンテナンス中です\r\nタイトルに戻ります",
       "source_sha256": "e231c230a7fbef883e9d6b0aed4b92daf46b25daa1bb7e6b9cea08ff24d14483",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "⚠ This service has been disabled in this account for violation of Terms of Service. Please submit an appeal to continue using this product."
     },
     {
       "contexts": [
@@ -4255,9 +4569,11 @@
       ],
       "ja": "グローバルコンセントが更新されました。\r\n同意してから本サービスをご利用ください。\r\nまた、未成年の方は、法定代理人（ご両親等）の同意が必要です。\r\n※ないようがわからないときは\r\nおうちのひとにがめんをみせてください。",
       "source_sha256": "e36979c660a1027ef481170c311c40fe26344e6f0d052e4565b838af2710db99",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "全局同意事项已更新。\n请同意后使用本服务。\n此外，未成年人还需获得法定代理人（父母等）的同意。\n※看不懂内容时\n请把画面给家里人看。"
     },
     {
       "contexts": [
@@ -4273,9 +4589,11 @@
       ],
       "ja": "アクセスが集中しています\r\n時間をおいて再度お試しください",
       "source_sha256": "e6c65b5fba5f1252cf0179d57928111f86650cbc678708c9067a042821a125c2",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "访问过于集中\n请稍后再试"
     },
     {
       "contexts": [
@@ -4291,9 +4609,11 @@
       ],
       "ja": "通信中にエラーが発生しました\r\n通信環境の良い場所でアプリを再起動してください\r\nErrorCode [{0}]",
       "source_sha256": "e85704724a61b11c9e4ad48536ec93b75dd167c0cbd8e7329f9d191f8ec4da50",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "通信过程中发生错误\n请在通信环境良好的地方重新启动应用\n错误代码 [{0}]"
     },
     {
       "contexts": [
@@ -4309,9 +4629,11 @@
       ],
       "ja": "プライバシーポリシー、グローバルコンセントが更新されました。\r\n同意してから本サービスをご利用ください。\r\nまた、未成年の方は、法定代理人（ご両親等）の同意が必要です。\r\n※ないようがわからないときは\r\nおうちのひとにがめんをみせてください。",
       "source_sha256": "ea311532591db34cf3748acca962c596f60bd7435137705aa052826c77784441",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "隐私政策和全球同意书已更新。\n请同意后再使用本服务。\n此外，未成年人需要法定代理人（父母等）的同意。\n※如果看不懂内容\n请把画面给家里人看。"
     },
     {
       "contexts": [
@@ -4383,9 +4705,11 @@
       ],
       "ja": "エラーが発生しました\r\nタイトルに戻ります",
       "source_sha256": "ec2e9049aebc9555b6e941da0c176b55843d4724a9faa6f0b1c595eadf5a6485",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "发生了错误\n正在返回标题画面"
     },
     {
       "contexts": [
@@ -4401,9 +4725,11 @@
       ],
       "ja": "CREDIT(S)の有効期限が切れたため\r\nプロデュースを開始できませんでした",
       "source_sha256": "ec5bb7d5515eda576df65ed46c55a7cd02162aafef0815fdd24a4b09f065bae6",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "因 CREDIT(S) 有效期已过，\n无法开始制作。"
     },
     {
       "contexts": [
@@ -4419,9 +4745,11 @@
       ],
       "ja": "利用規約、プライバシーポリシー、グローバルコンセントに\r\n同意してから本サービスをご利用ください。\r\nまた、未成年の方は、法定代理人（ご両親等）の同意が必要です。\r\n※ないようがわからないときは\r\nおうちのひとにがめんをみせてください。",
       "source_sha256": "ecf9ffc00c5bb2ff9c2fba869d941ab98f9b2424d35948b431e7252fb76556c7",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "请同意使用条款、隐私政策和全球同意书后再使用本服务。\n此外，未成年用户需要获得法定代理人（父母等）的同意。\n※如果看不懂内容，\n请把画面给家里人看。"
     },
     {
       "contexts": [
@@ -4437,9 +4765,11 @@
       ],
       "ja": "イベント期間中のため解散できません\r\n※ラウンジに所属しているメンバーが「マスターのみ」の状態であれば、ラウンジの解散は可能となります",
       "source_sha256": "ed2c9cf737aa2af7a6a387b14908ba902949fa29ce2d067814ce680b04b0f728",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于处于活动期间，无法解散\n※若社交厅所属成员仅剩“厅主”，则可以解散社交厅"
     },
     {
       "contexts": [
@@ -4455,9 +4785,11 @@
       ],
       "ja": "本機能は現在調整中です\r\n詳しくはお知らせ内「不具合情報」タブの\r\n「13人専用楽曲でトレーニングミッションボタンをタッチすると\r\n最後に選択したユニットのカード情報に置き換わる不具合」\r\nをご確認ください\r\nタイトルへ戻ります",
       "source_sha256": "ed3bbe0c0d0ce990be2fab5ab736795f1e13e77a108403bea3bdde5df9a657de",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "本功能目前正在调整中\n详情请确认公告内“不具合信息”标签中的\n“在13人专用乐曲中点击训练任务按钮后\n替换为最后选择的组合的卡片信息的故障”\n返回标题"
     },
     {
       "contexts": [
@@ -4493,9 +4825,11 @@
       ],
       "ja": "最新のデータが存在します\r\nタイトル画面に戻ります",
       "source_sha256": "f0f72b48cecc6db74761f2e5b9d306403bfe18fe8109371b61121d0618feac79",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "存在最新数据\n将返回标题画面"
     },
     {
       "contexts": [
@@ -4511,9 +4845,11 @@
       ],
       "ja": "{0}\r\n\r\nリトライしますか？",
       "source_sha256": "f24c3d3dde1a5f1c2d4fd4d55800ed14dce85d7a1380b30e2be6c65f488ce52d",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "{0}\n\n要重试吗？"
     },
     {
       "contexts": [
@@ -4529,9 +4865,11 @@
       ],
       "ja": "カメラにアクセスできません\r\nカメラへのアクセスを許可していただくことでご利用いただけます",
       "source_sha256": "f573ce50b3de40a75b51476e913eed67ba3dc1d850c21644cb12ef76e92657dd",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "无法访问相机\n允许访问相机后即可使用"
     },
     {
       "contexts": [
@@ -4547,9 +4885,11 @@
       ],
       "ja": "データ引き継ぎが行われました。\r\n利用規約、プライバシーポリシー、グローバルコンセントに\r\n同意してから本サービスをご利用ください。\r\nまた、未成年の方は、法定代理人（ご両親等）の同意が必要です。\r\n※ないようがわからないときは\r\nおうちのひとにがめんをみせてください。",
       "source_sha256": "f77d282660db2e69762e42ef248347c4c2e6aa56fe3f0b7e39b2ae5bd6fa60a5",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "数据继承已完成。\n请同意使用条款、隐私政策和全球同意书后，再使用本服务。\n此外，未成年用户需要获得法定代理人（父母等）的同意。\n※如果看不懂内容，\n请把画面给家里人看。"
     },
     {
       "contexts": [
@@ -4565,9 +4905,11 @@
       ],
       "ja": "別のラウンジに所属中または申請中のため\r\n実行することができませんでした",
       "source_sha256": "f90220e0353cee681fd3c1254400e221e3b9cd2cc0ae346483ad917660df8170",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "由于目前已加入其他社交厅或正在申请加入，无法执行。"
     },
     {
       "contexts": [
@@ -4583,9 +4925,11 @@
       ],
       "ja": "ライブ中にアプリが終了しました\r\n途中からライブを再開しますか？\r\n※元気やライブチケット、マニーなどは消費されません\r\n※動作が不安定な場合は、2Dでのプレイをお薦めします",
       "source_sha256": "fb1d708755fe82a45a3003290559f7d6f6406fd746d4c2099b3094ed479367f0",
-      "status": "untranslated",
+      "status": "accepted",
       "translatable": true,
-      "zh": ""
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-13T10:26:15+00:00",
+      "zh": "直播过程中应用已退出\n要从中途继续直播吗？\n※不会消耗体力、演唱会门票或金币等\n※如果运行不稳定，建议以2D进行游戏"
     }
   ],
   "schema_version": 1
