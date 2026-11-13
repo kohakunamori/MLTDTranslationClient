@@ -52,18 +52,18 @@
   "kind": "client",
   "release": {
     "abi": "arm64-v8a",
-    "client_resources_commit": "7aa313c38224e947e953a071ce91fa284d1b39de",
-    "client_version": "9.0.350",
-    "manifest_sha256": "4a2a77b256e0d392b12381443036f0adfd4cbe7e25677f1df4aa7a25d119c2f1",
-    "release_id": "client-9.0.350-arm64",
+    "client_resources_commit": "f8fc4ca8fa1528341c650c2480b35d023db508d7",
+    "client_version": "9.0.400",
+    "manifest_sha256": "52f70fda9cd79642dbe7308db999bae5af14dde66e0ad66e730cbd97c0dd9f2f",
+    "release_id": "client-9.0.400-arm64",
     "status": "published",
     "updated_at": "2026-10-13T00:00:00Z"
   },
   "schema": "mltd.portal.resource-manifest/v1",
   "source": {
-    "bottom_bar_manifest_sha256": "faf213524b1a1fd851ad50219572e891acf88f9df72888b8c7007a30fd23c4e2",
-    "builtin_manifest_sha256": "4a2a77b256e0d392b12381443036f0adfd4cbe7e25677f1df4aa7a25d119c2f1",
-    "commit": "7aa313c38224e947e953a071ce91fa284d1b39de",
+    "bottom_bar_manifest_sha256": "bbf33a45fd4daaf587af8369517fb1a801093d9f7d356ce67e06b4292c50a531",
+    "builtin_manifest_sha256": "52f70fda9cd79642dbe7308db999bae5af14dde66e0ad66e730cbd97c0dd9f2f",
+    "commit": "f8fc4ca8fa1528341c650c2480b35d023db508d7",
     "repository": "kohakunamori/MLTDTranslationClient",
     "summary": "github-client-repository",
     "surface_count": 4
