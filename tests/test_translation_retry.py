@@ -49,7 +49,13 @@ class TranslationRetryTests(unittest.TestCase):
                     self.assertTrue(request.call_args.args[0][-1].endswith(
                         '/actions/runs/123/rerun-failed-jobs'))
 
-    def test_scheduled_translation_retry_recovers_a_missed_completion(self):
+    def test_manual_dispatch_translation_retry_recovers_a_missed_completion(self):
+        workflow = (ROOT / '.github/workflows/retry-client-translation.yml').read_text(encoding='utf-8')
+        self.assertIn('workflow_dispatch:', workflow)
+        self.assertIn('workflow_run:', workflow)
+        self.assertNotIn('schedule:', workflow)
+        self.assertNotIn('cron:', workflow)
+
         run = {'id': 123, 'run_attempt': 2, 'repository': {'full_name': REPOSITORY},
                'head_repository': {'full_name': REPOSITORY}, 'head_branch': 'main',
                'path': '.github/workflows/llm-translate-client.yml',
@@ -59,7 +65,7 @@ class TranslationRetryTests(unittest.TestCase):
             with self.subTest(status=status):
                 current = {**run, 'status': status}
                 with (patch.dict('os.environ', GITHUB_EVENT_PATH=str(event_path),
-                                 GITHUB_REPOSITORY=REPOSITORY, GITHUB_EVENT_NAME='schedule'),
+                                 GITHUB_REPOSITORY=REPOSITORY, GITHUB_EVENT_NAME='workflow_dispatch'),
                       patch('subprocess.check_output', side_effect=[
                           json.dumps({'workflow_runs': [current]}), json.dumps(current)]),
                       patch('subprocess.run') as request):
