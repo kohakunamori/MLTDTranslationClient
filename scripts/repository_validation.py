@@ -98,12 +98,14 @@ class RepositoryValidator:
                     validate_translation(source, zh)
                 elif row.get('status') != 'passthrough' or zh != source:
                     raise ValidationError(f'Invalid component translation: {path}')
+            seen_android = set()
             for row in doc.get('android_rows', []):
                 source, zh = row.get('ja'), row.get('zh')
                 if (not isinstance(source, str) or not isinstance(zh, str) or not zh.strip()
                         or row.get('source_sha256') != source_id(source) or row.get('status') != 'accepted'
-                        or '\0' in zh):
+                        or source in seen_android or '\0' in zh):
                     raise ValidationError(f'Invalid Android text translation: {path}')
+                seen_android.add(source)
                 validate_translation(source, zh)
                 token = r'%(?:\d+\$)?[-+0 #]*\d*(?:\.\d+)?[a-zA-Z%]'
                 if sorted(re.findall(token, source)) != sorted(re.findall(token, zh)):

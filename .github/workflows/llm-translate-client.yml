@@ -166,7 +166,27 @@ jobs:
 
       - name: Prepare project prompt inputs
         if: steps.collect.outputs.items != '0'
-        run: printf '%s\n' '{"schema_version":1,"speakers":{}}' > .llm-character-evidence.json
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          speakers = {"p": {"name_jp": "プロデューサー"}}
+          idols_path = Path(".translation-engine/glossary/idols.json")
+          if idols_path.is_file():
+              doc = json.loads(idols_path.read_text(encoding="utf-8-sig"))
+              for idol in doc.get("idols", []):
+                  code = str(idol.get("speaker_code", "")).strip().lower()
+                  if code:
+                      speakers[code] = {
+                          "name_jp": str(idol.get("name_jp", "")),
+                          "name_zh": str(idol.get("name_zh", "")),
+                      }
+          Path(".llm-character-evidence.json").write_text(
+              json.dumps({"schema_version": 1, "speakers": speakers}, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
 
       - name: Translate with the shared provider pool
         id: translate
