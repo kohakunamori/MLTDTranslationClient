@@ -69,8 +69,8 @@
       "translation_source": {
         "relative_path": "localization/9.0.400/runtime-bi-zhcn.json",
         "kind": "json-source",
-        "sha256": "ab5a6e37d8916385b05a9a6d85602947decb4e93609b8308a6d97c9570390970",
-        "bytes": 259424
+        "sha256": "283d1f7f07123eaf656bd427bb188335713bd2388dc166cb87007c3b4e012c99",
+        "bytes": 259497
       }
     },
     {
@@ -89,8 +89,8 @@
       "translation_source": {
         "relative_path": "localization/9.0.400/component-text-zhcn.json",
         "kind": "json-source",
-        "sha256": "ed0e59e060c23497cf0197a4a773a9609ea5e8009d9cf830ff918de6784abc28",
-        "bytes": 667005
+        "sha256": "235b3d9f3aca53bfdc8207c1ddb28836a7232740e514b0a04862c0d0ddd37214",
+        "bytes": 669129
       },
       "android_records": 23
     }
