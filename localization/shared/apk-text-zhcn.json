@@ -564,9 +564,9 @@
       "source_sha256": "1cbbe8409cb2385a6dae5160e798611921a42ee96b6ff0dd9bc8fd7d7eb75fa4",
       "status": "accepted",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T14:36:55+00:00",
-      "zh": "由于 Dream Star 已达到卡片交换次数上限  \n无法使用扭蛋  \n请交换卡片"
+      "translation_stage": "agent_reviewed",
+      "updated_at": "2026-11-13T20:04:26+00:00",
+      "zh": "由于梦想星已达到卡片交换次数上限\n无法使用扭蛋\n请兑换卡片"
     },
     {
       "contexts": [
@@ -1511,9 +1511,9 @@
       "source_sha256": "501dceb19a62406ea5af7fb5a1ab97824ec87a2bfb37ae04766607370478d42c",
       "status": "accepted",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "检测到尚未转换的Dream Star\n麻烦您打开一次白金扭蛋并进行转换"
+      "translation_stage": "agent_reviewed",
+      "updated_at": "2026-11-13T20:04:26+00:00",
+      "zh": "检测到尚未转换的梦想星\n请打开一次白金扭蛋并进行转换"
     },
     {
       "contexts": [
@@ -2059,9 +2059,9 @@
       "source_sha256": "67446fa64b3b4805f74a46ad65d9c1134df5ac2b41c9c71042bfe6a59b430229",
       "status": "accepted",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "由于该抽卡的活动期间已结束\n无法执行\n返回标题"
+      "translation_stage": "agent_reviewed",
+      "updated_at": "2026-11-13T20:04:26+00:00",
+      "zh": "由于该扭蛋的活动期间已结束\n无法执行\n返回标题"
     },
     {
       "contexts": [
@@ -2229,8 +2229,8 @@
       "status": "accepted",
       "translatable": true,
       "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "不继续现场，移动到剧场。\n如果在这里不重新开始现场，之后将无法重新开始现场。\n(消耗的体力和现场门票也不会恢复)\n\n真的可以吗？"
+      "updated_at": "2026-11-14T05:58:00Z",
+      "zh": "不恢复演出，直接前往剧场。\n如果此时不恢复演出，之后将无法再次恢复。\n（消耗的体力和演唱会门票也不会返还）\n\n确定要这样做吗？"
     },
     {
       "contexts": [
@@ -3552,8 +3552,8 @@
       "status": "accepted",
       "translatable": true,
       "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "报名需要进行数据转移设定。\n请在导航内的「数据转移」中进行数据转移设定。"
+      "updated_at": "2026-11-14T05:58:00Z",
+      "zh": "报名需要进行数据继承设置。\n请在导航内的“数据继承”中进行数据继承设置。"
     },
     {
       "contexts": [
@@ -3831,9 +3831,9 @@
       "source_sha256": "b970bd82543015f5e6b2f6f10ffdf6581e29ec69e21f132645e2499b695ab4b5",
       "status": "accepted",
       "translatable": true,
-      "translation_stage": "llm_translated",
-      "updated_at": "2026-10-13T14:27:51+00:00",
-      "zh": "请按各稀有度选择扭蛋中出现的卡片\n填满所有格子后即可抽卡"
+      "translation_stage": "agent_reviewed",
+      "updated_at": "2026-11-13T20:04:26+00:00",
+      "zh": "请按各稀有度选择扭蛋中出现的卡片\n填满所有格子后即可进行扭蛋"
     },
     {
       "contexts": [
@@ -4370,8 +4370,8 @@
       "status": "accepted",
       "translatable": true,
       "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T14:36:55+00:00",
-      "zh": "无法回到现场演出\n移动到剧场"
+      "updated_at": "2026-11-14T05:58:00Z",
+      "zh": "无法返回演出\n将前往剧场"
     },
     {
       "contexts": [
@@ -4806,8 +4806,8 @@
       "status": "accepted",
       "translatable": true,
       "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "本功能目前正在调整中\n详情请确认公告内“不具合信息”标签中的\n“在13人专用乐曲中点击训练任务按钮后\n替换为最后选择的组合的卡片信息的故障”\n返回标题"
+      "updated_at": "2026-11-14T05:58:00Z",
+      "zh": "本功能目前正在调整中\n详情请在公告内的“异常信息”标签页中确认\n“在13人专用乐曲中点击训练任务按钮时，\n会替换为最后选择的组合卡牌信息的异常”\n即将返回标题界面"
     },
     {
       "contexts": [
@@ -4946,8 +4946,8 @@
       "status": "accepted",
       "translatable": true,
       "translation_stage": "llm_translated",
-      "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "直播过程中应用已退出\n要从中途继续直播吗？\n※不会消耗体力、演唱会门票或金币等\n※如果运行不稳定，建议以2D进行游戏"
+      "updated_at": "2026-11-14T05:58:00Z",
+      "zh": "演唱会进行过程中应用已退出\n要从中途继续演唱会吗？\n※不会消耗体力、演唱会门票或金币等\n※如果运行不稳定，建议以2D模式游玩"
     }
   ],
   "schema_version": 1

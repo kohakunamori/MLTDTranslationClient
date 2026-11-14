@@ -787,13 +787,14 @@
     {
       "ja": "765プロライブ劇場オフィシャルブログ",
       "source_sha256": "7d29dc05257212b4f635ea345d225ef266e8c877e93b6b89b9dbea59b53e0714",
-      "zh": "765艺能演唱会剧场官方部落格",
+      "zh": "765艺能演唱会剧场官方博客",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "7日前のキャッシュデータを残して削除",
@@ -1117,13 +1118,13 @@
     {
       "ja": "<color=#FD014E>所持枚数が上限のためガシャメダルptは獲得できません</color>",
       "source_sha256": "3ef7b5b4a30af2af345ed3a07459ee3966a7c6dff74ac70b661d2dfabd5c3ab4",
-      "zh": "<color=#FD014E>由于持有枚数已达上限，无法获得转蛋代币pt</color>",
+      "zh": "<color=#FD014E>由于持有枚数已达上限，无法获得扭蛋代币pt</color>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "<color=#FF004F>一部の報酬は直接付与されます</color>",
@@ -1337,13 +1338,14 @@
     {
       "ja": "<color=red>アルバム</color>",
       "source_sha256": "e5a011f342b5f49e94d0a3f007a1fca40ae3adfe7c935d21ce94426fc3396b10",
-      "zh": "<color=red>相簿</color>",
+      "zh": "<color=red>相册</color>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "<color=red>エンブレム</color>",
@@ -1436,13 +1438,14 @@
     {
       "ja": "<color=red>ラウンジ情報</color>",
       "source_sha256": "44f68c73a83b9498f1086a67da36c13fcc958a9c92b64ea9d88d408a386c49b8",
-      "zh": "<color=red>社交厅资讯</color>",
+      "zh": "<color=red>社交厅信息</color>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "<color=red>一覧</color>",
@@ -1656,13 +1659,14 @@
     {
       "ja": "<size=22>タイトルイラストの設定</size>",
       "source_sha256": "1e51d262ae50e4ee0624012a092a1a3151edef1b04b55c0fff0bf45169458341",
-      "zh": "<size=22>标题画面图像的设定</size>",
+      "zh": "<size=22>标题画面图像的设置</size>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "<size=24>アイドル詳細</size>",
@@ -1931,24 +1935,26 @@
     {
       "ja": "Birthday Liveのチュートリアル、ポップアップ表示を設定できます",
       "source_sha256": "a5fece92739ded85c0d726d603c068073696ba466671e73667877f771dffa6ce",
-      "zh": "可以设定是否显示Birthday Live的教学以及弹跳视窗",
+      "zh": "可以设置是否显示Birthday Live的教学与弹窗",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "Birthday Liveの設定",
       "source_sha256": "6630bc87bbb6b018ee65b1da3f5e31a5d60dc2638222ddf79a0b184d61ea8eda",
-      "zh": "Birthday Live的设定",
+      "zh": "Birthday Live的设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "CLEAR回数\nSランク未達成",
@@ -2679,13 +2685,14 @@
     {
       "ja": "※チャット通知設定はラウンジマスターのみ\n変更することができます",
       "source_sha256": "db653d221c2f248ecc1321e48d199db3390bde1585e336ebf33a6fd99fb29f12",
-      "zh": "※唯有社交厅厅长可以变更\n聊天通知设定",
+      "zh": "※仅社交厅厅长可以更改\n聊天通知设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "※本機能をONしていた場合でも、通常のライブ、お仕事、ショップで\n　獲得したプロデュースパワーは所持数に積まれます",
@@ -2811,13 +2818,14 @@
     {
       "ja": "【チャット通知設定】",
       "source_sha256": "c0d655d1117e26489aa088d1217f9d341b824372844d58c0a75f13618993f19f",
-      "zh": "【聊天通知设定】",
+      "zh": "【聊天通知设置】",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "【プレイスタイル】",
@@ -2910,13 +2918,14 @@
     {
       "ja": "【承認設定】",
       "source_sha256": "2e7308df3b8fbcda2136103281c30a5effa41fbe8406bfd9c3ddb4d01fad96d0",
-      "zh": "【许可设定】",
+      "zh": "【许可设置】",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "【有償】",
@@ -3559,13 +3568,14 @@
     {
       "ja": "お仕事設定",
       "source_sha256": "ee9d3ab55a53b7a937f22f98edb2be9d06c69ad33761dd7ffcaff2292570511c",
-      "zh": "工作设定",
+      "zh": "工作设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "お問い合わせ",
@@ -3603,13 +3613,14 @@
     {
       "ja": "お気に入りカードのアイドルのカラーが設定されます",
       "source_sha256": "2e67c7ed64c9162b3df9038054b128807ded0b0ec263f43c7a415be7edef8a15",
-      "zh": "将会设定为最爱卡片偶像的颜色",
+      "zh": "将设置为最爱卡片偶像的代表色",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "お気に入りカードを選択",
@@ -3691,24 +3702,24 @@
     {
       "ja": "このメッセージは一度閉じると再度ご確認することはできませんのでご注意ください",
       "source_sha256": "e7f2f43a5cb2e8be4e3682522d6f2115189a2a805822785b94389d773525f596",
-      "zh": "请注意，一旦关闭此讯息将无法再次确认",
+      "zh": "请注意，一旦关闭此消息将无法再次确认",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "このメッセージを閉じますか？",
       "source_sha256": "28ce417d9c0ade73e3758d4062dde6cd4da19a34196a647bb0adb037c48fd68b",
-      "zh": "确定要关闭此讯息吗？",
+      "zh": "确定要关闭此消息吗？",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "このユーザーの投稿を非表示にしますか？\n非表示にできるのは100件までです",
@@ -3779,13 +3790,14 @@
     {
       "ja": "ご利用の端末自体の通知設定をOFFにしている場合\n全ての通知は行われません",
       "source_sha256": "2d559d4f3d3bc4c969a7eb58fc08bdacea91f99d2983ccf4f038beaf9b22d530",
-      "zh": "使用装置本身通知设定为OFF的状态下，\n将不会有任何通知",
+      "zh": "若您所使用的设备本身的通知设置为关闭状态，\n将不会发送任何通知",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "すてきなライト",
@@ -3823,13 +3835,14 @@
     {
       "ja": "すべてのキャッシュデータを削除",
       "source_sha256": "cd58557de83505c5df7599ba02de70cde9af210ba1f7b61855792bbe7dcb2104",
-      "zh": "清除所有快取资料",
+      "zh": "清除所有缓存数据",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "その他",
@@ -3856,24 +3869,25 @@
     {
       "ja": "その他撮影設定",
       "source_sha256": "879c2cb55a081b381d3c4b3fc1f1ceac9132a49af2014e5640529c24c28aeb15",
-      "zh": "其他拍摄设定",
+      "zh": "其他拍摄设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ただいまメンテナンス中のためガシャを行うことはできません",
       "source_sha256": "2a6a4bc53e7aa9484ae47d1e0a9b6870e037fe90c4cf8a25e0e43f5f76c063f9",
-      "zh": "由于目前正在维护中，无法抽取转蛋",
+      "zh": "由于目前正在维护中，无法进行扭蛋",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "ただいまリフレッシュ中です",
@@ -3944,13 +3958,13 @@
     {
       "ja": "と入力してください。",
       "source_sha256": "52ee2b589f51d4eeabe13640150a006a48bf91ab170c28a1d65ad76ff3b40abd",
-      "zh": "19791130",
+      "zh": "请输入。",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "ないようがわからないかたはおうちのひとに\nがめんをみせてください。",
@@ -4219,13 +4233,13 @@
     {
       "ja": "アイテムの獲得・消費の履歴はありません",
       "source_sha256": "8739c938362f13ca165bfa436442c1d812bef063937ca1f9779366913b2cc51a",
-      "zh": "没有获得＆消耗道具的履历",
+      "zh": "没有获得与消耗道具的记录",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "アイテムはプレゼントに送られています",
@@ -4417,13 +4431,14 @@
     {
       "ja": "アイドルを選択した場合は衣装設定内の「コミュの私服設定」で設定している衣装で登場します",
       "source_sha256": "74d27ecab88a3d53c03ea47da9dfef34a2f1cd894826f098164a9c17eb9a8b54",
-      "zh": "选择偶像后，将以服装设置中“交流的便服设置”所设定的服装登场。",
+      "zh": "选择偶像后，将以服装设置中“交流的便服设置”里所设置的服装登场。",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "アイドル個別設定",
@@ -4472,13 +4487,14 @@
     {
       "ja": "アイドル情報",
       "source_sha256": "4f61abf810d6b302eb5d7645fee6f036ab6a8abb51cecde17a19a689aaacf822",
-      "zh": "偶像资讯",
+      "zh": "偶像信息",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "アイドル覚醒時に覚醒演出を表示する",
@@ -4516,13 +4532,14 @@
     {
       "ja": "アイドル選択ボタンを常に表示",
       "source_sha256": "e3cdede6c0e21191273301cde2bad2178cdaf83a43188fd8b3f2979e841b1bee",
-      "zh": "常驻显示选择偶像按键",
+      "zh": "常驻显示选择偶像按钮",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "アイドル順",
@@ -4691,24 +4708,26 @@
     {
       "ja": "アルバム",
       "source_sha256": "84224c1aa68471fe8f562db3f2ed132ac7638bc26042c5d21d48720efa942a79",
-      "zh": "相簿",
+      "zh": "相册",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "アルバムボタンを常に表示",
       "source_sha256": "64c06645413f233448198b483eb913b6afbbdfaa55c472de663233200d3ed9a5",
-      "zh": "常驻显示相簿按键",
+      "zh": "常驻显示相册按钮",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "イベント",
@@ -4757,13 +4776,14 @@
     {
       "ja": "イベント\n楽曲情報",
       "source_sha256": "170312b735933503e6c83e8a5946dc05289b722e35c028c91c5e874868714bb4",
-      "zh": "活动\n歌曲资讯",
+      "zh": "活动\n歌曲信息",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "イベントpt",
@@ -4966,24 +4986,26 @@
     {
       "ja": "イベント終了の事前お知らせポップアップ表示の設定ができます",
       "source_sha256": "deb253694c8528cd2b12d74edc3275ac5e68d7d8d50423d5457ceec9ff9db576",
-      "zh": "可以设定是否要在活动即将结束前显示弹跳视窗",
+      "zh": "可以设置是否在活动即将结束前显示弹窗",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "イベント終了の事前お知らせ設定",
       "source_sha256": "27f9d683a936a3407207f25de983efbc1cc502d53b72c8b8a6d8484d29284019",
-      "zh": "活动结束的事前通知设定",
+      "zh": "活动结束的事前通知设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "イベント終了日が近づくとボタンの色が変化します",
@@ -5087,13 +5109,13 @@
     {
       "ja": "エミリー スチュアート\r",
       "source_sha256": "f2973d2e733938846b32d861291c0351f7d782aa8cf0d4758dba2d6f828da3d6",
-      "zh": "艾蜜莉‧司徒亚特",
+      "zh": "艾米莉·斯图亚特",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "エントランス",
@@ -5142,13 +5164,13 @@
     {
       "ja": "オファーが完了した時にプッシュ通知をします",
       "source_sha256": "e5e63ef0e79842002bccd8fc47f398f2237542b5106f454d564f711f1e788ec1",
-      "zh": "工作邀约完成时，发送推播通知",
+      "zh": "工作邀约完成时，发送推送通知",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "オファーテキスト一行全角２８文字オファーテキスト一行全角\nオファーテキスト一行全角２８文字オファーテキスト一行全角\nオファーテキスト一行全角２８文字オファーテキスト一行全角",
@@ -5417,13 +5439,14 @@
     {
       "ja": "カメラリセットボタンを常に表示",
       "source_sha256": "85a874e894ebc639a4c3be8a38e6318f3b27605c30455818ef5f09c4e6f5f388",
-      "zh": "常驻显示相机重置按键",
+      "zh": "常驻显示相机重置按钮",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "カラー",
@@ -5593,13 +5616,13 @@
     {
       "ja": "カード選択を完了するまで\nガシャを引くことはできません",
       "source_sha256": "8e57df64df909bcd76ed436a8fa0b0ea40f90634195dc26fd649c4ac0a85ba63",
-      "zh": "完成卡片选择前\n无法进行抽卡",
+      "zh": "完成卡片选择前\n无法进行扭蛋",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "ガシャ",
@@ -5615,13 +5638,13 @@
     {
       "ja": "ガシャの受け取り履歴はありません",
       "source_sha256": "a43228ed65320fdcf95591da6e2eb5c370c7f8e813ba972b87b96e11b3e80ad5",
-      "zh": "没有转蛋领取履历",
+      "zh": "没有扭蛋领取记录",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "ガシャを実施して本当によろしいですか？",
@@ -5648,46 +5671,46 @@
     {
       "ja": "ガシャメダル",
       "source_sha256": "766d5cd37a209e2a1a9fbf7058d2a27cce78b28609774f7d1549f3e4990b9709",
-      "zh": "转蛋代币",
+      "zh": "扭蛋代币",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "ガシャメダル\nガシャチケット",
       "source_sha256": "4f92cf8a8da2e8502fd96b5bb69d2f92b267ea6a39ce36e492a286d154a9ac6b",
-      "zh": "转蛋代币\n转蛋券",
+      "zh": "扭蛋代币\n扭蛋券",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "ガシャメダルpt",
       "source_sha256": "3ed1b006e21cb45a68f13309aa88d897bcdfb1f7e5bd49a36e54509943bca6c1",
-      "zh": "转蛋代币pt",
+      "zh": "扭蛋代币pt",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "ガシャメダルの履歴がありません",
       "source_sha256": "ffa5004319652c8f9e1a6921926bb741c747838495847fcf0e991d6f3ec55dc9",
-      "zh": "没有转蛋代币履历",
+      "zh": "没有扭蛋代币记录",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "ガシャメダルは 10 枚まで所持できます",
@@ -5714,13 +5737,13 @@
     {
       "ja": "ガシャ詳細",
       "source_sha256": "45c1be1bc97b2b361c30cea4b855716f24020b5868e30c691e34f53cc1c9347a",
-      "zh": "转蛋详情",
+      "zh": "扭蛋详情",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "キャスト",
@@ -5735,24 +5758,26 @@
     {
       "ja": "キャッシュデータとは、お客様のお使いの端末に蓄積されたゲームに必要なデータになります。キャッシュデータを削除すると動作が軽くなることがあります。\nまた、端末の空き容量を増やすことができます。\n\nキャッシュクリア後は再度データをダウンロードします。ご利用の通信環境によっては、ダウンロードに時間がかかる場合がありますのでご注意ください。\n\nなお、キャッシュデータクリア後はタイトルへ戻ります。",
       "source_sha256": "e0030b137d458218e6026721ca39f7bf6f4b8ad513d3c552c8caf17b4a3e56e3",
-      "zh": "快取资料指的是您使用的装置上所累积的游戏必备资料。清除快取资料有可能会让游戏变得顺畅。\n同时，也能释出装置的储存空间。\n\n清除快取资料完成后，将会再次下载资料。根据您使用的网路环境，下载或许需要花费一些时间，还请注意。\n\n此外，成功清除快取资料后，将会返回标题画面。",
+      "zh": "缓存数据是指您使用的设备上所累积的游戏所需数据。清除缓存数据可能会让游戏运行更加流畅。\n同时，也能释放设备的存储空间。\n\n清除缓存数据后，将再次下载数据。根据您使用的网络环境，下载可能需要一定时间，敬请注意。\n\n此外，清除缓存数据后会返回标题画面。",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "キャッシュデータの削除期間",
       "source_sha256": "f6cb99be74459a51ce5d39809be7501c28a9909c5641b8af4b2871549fc51dd1",
-      "zh": "快取资料的清除期间",
+      "zh": "缓存数据的清除期间",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "キャッシュデータは、期間を指定して削除することができます",
@@ -5768,13 +5793,14 @@
     {
       "ja": "キャッシュデータクリア",
       "source_sha256": "db06512ae730a6c2e29528c61a350ef082fb3cdd9519ad67f4bf73563c4f0a9b",
-      "zh": "清除快取资料",
+      "zh": "清除缓存数据",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "キャラクター名",
@@ -5977,35 +6003,38 @@
     {
       "ja": "ゲストアイドル設定",
       "source_sha256": "3ad12a936e3e4047ced0887157681fcc6b20396fa3e22328388cabea99d4e50a",
-      "zh": "来宾偶像设定",
+      "zh": "嘉宾偶像设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ゲスト効果",
       "source_sha256": "07e2882f6b6c3728901d5154636ff30d83058e2d3e237a4c74ee95b58457f088",
-      "zh": "来宾效果",
+      "zh": "嘉宾效果",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ゲスト名",
       "source_sha256": "5779196a66f3e0b546c6270abb80fc531ee7b73b75f9df8db51c8f0cd11fa6c3",
-      "zh": "来宾名称",
+      "zh": "嘉宾名称",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ゲーム\nコーナー",
@@ -6087,13 +6116,14 @@
     {
       "ja": "コミュの「シネマモード」再生時の字幕表示を設定できます",
       "source_sha256": "efc56e6e2ed4e24373243be1b4f6e230cb78abee3914bf433af160af972f853f",
-      "zh": "可以设定剧情「电影模式」播放时，是否要显示字幕",
+      "zh": "可以设置剧情「电影模式」播放时，是否显示字幕",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "コミュのステージ衣装設定",
@@ -6120,24 +6150,26 @@
     {
       "ja": "コミュの私服設定",
       "source_sha256": "d79299015082f5d2d03cc5af900666cbb813026b6e54fbf759f5a35b740533ab",
-      "zh": "剧情的便服设定",
+      "zh": "剧情的便服设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "コミュの私服設定を詩花/玲音にも適用する",
       "source_sha256": "672345415ddc6685deff40ecfdbf3c008ae961e28a362cebb5cdbf2a0314fe89",
-      "zh": "将剧情中的便服设定也应用到诗花/玲音身上",
+      "zh": "将剧情的便服设置也应用到诗花/玲音身上",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "コミュボイス",
@@ -6164,35 +6196,38 @@
     {
       "ja": "コミュ再生時に登場するアイドルのステージ衣装の種類を設定できます",
       "source_sha256": "aa2e02921a9d44b5d1b715bb5e29a9aaf3f39f7a20a04ba17879fc779b875565",
-      "zh": "可以设定剧情播放时，登场偶像的舞台服装种类",
+      "zh": "可以设置剧情播放时登场偶像的舞台服装种类",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "コミュ再生時に登場する私服の種類を設定できます",
       "source_sha256": "c6c9b1c87ac28cd783b88337d72be39e0fcd3adc2daa3e1123f38b2e96eed97e",
-      "zh": "可以设定剧情播放时，登场的便服种类。",
+      "zh": "可以设置剧情播放时登场的便服种类。",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "コミュ再生時の「ボイスデータダウンロード」確認の表示を設定できます",
       "source_sha256": "7f312a0f7ccd11dbc8035b00c51045182d6a7eceb2a4917ef71e5bcf99395af7",
-      "zh": "可以设定剧情播放时，是否要显示「下载语音资料」的确认画面",
+      "zh": "可以设置剧情播放时，是否显示“下载语音数据”的确认界面",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "コミュ再生時の表示領域の縦横比を変更できます",
@@ -6274,7 +6309,7 @@
     {
       "ja": "ゴージャスアピールは39人ライブのプレイ時に、\n編成中のアイドル全員がアナザー2衣装を設定している場合のみ\n選択可能となります",
       "source_sha256": "2ab2165b6617c9cfcf08aeb45d53973dcb80e9cd07efc7fcce9fa0dce32367ad",
-      "zh": "在39人演出中，只有编组内所有偶像\n均设置为Another 2服装时，\n才能选择Gorgeous Appeal",
+      "zh": "在39人演出中，只有编组内所有偶像\n均设置为异色2服装时，\n才能选择Gorgeous Appeal",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -6307,24 +6342,26 @@
     {
       "ja": "サウンド",
       "source_sha256": "1fec10d7b07a66bfb985d8bd8d0d63176398fc095149ff3118bfc0b2af8aad35",
-      "zh": "音乐",
+      "zh": "音频",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "サウンドデータクリア",
       "source_sha256": "7774d8e8ca93d1bb0f32af5536d1650238cf5d5065efa58f9afb495bfcf74902",
-      "zh": "清除音乐资料",
+      "zh": "清除音频数据",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "サポート",
@@ -6395,13 +6432,14 @@
     {
       "ja": "システム設定",
       "source_sha256": "6a5cad6b67a430f8e39bbad1bdff68911fdbdf7d0c60c5066eae6238a9a4e6ae",
-      "zh": "系统设定",
+      "zh": "系统设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "シネマモード字幕",
@@ -6549,46 +6587,50 @@
     {
       "ja": "スキルLv上昇確率",
       "source_sha256": "757390ba275085503f64067b99978f8e70a1ab3a0c17efc3afb9adc6baa0d872",
-      "zh": "技能Lv上升机率",
+      "zh": "技能Lv提升概率",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "スキルLv上昇確率がアップするチケットを除く",
       "source_sha256": "100252a123afefe349543a7ff8663267e16526cafeaefda733ba97018f772208",
-      "zh": "排除提升技能Lv上升机率的票券",
+      "zh": "排除提升技能Lv提升概率的票券",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "スキルLv上昇確率が低い",
       "source_sha256": "a9c2dc0dbbca6694e019225d7075be58c135cc62f53c013a65d9fd01c5237f7d",
-      "zh": "技能Lv上升机率较低",
+      "zh": "技能Lv提升概率较低",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "スキルLv上昇確率が高い",
       "source_sha256": "54998a57a5b32c0e975dda9a5d2d8f24dee212fc2753ca07ed9f652775f9cbb1",
-      "zh": "技能Lv上升机率较高",
+      "zh": "技能Lv提升概率较高",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "スキル発動",
@@ -6659,7 +6701,7 @@
     {
       "ja": "スタイルドロップ\n交換所",
       "source_sha256": "6a454dbad46dd848a4108e0d1fe184793f3007e9e743ed93b1aee895e0ee9d38",
-      "zh": "风格掉落\n兑换所",
+      "zh": "风格水滴\n兑换所",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -7086,13 +7128,14 @@
     {
       "ja": "セット編集ボタンを常に表示",
       "source_sha256": "2052794beebf9054ac506884795dc1bf9fb3ce8a351b80ee63fd5de2dacbf222",
-      "zh": "常驻显示编辑场景按键",
+      "zh": "常驻显示编辑场景按钮",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "セリフテキスト１７文字×３段！！！\n１８ｐｔ\nあいうえおかきくけこさしすせそたち",
@@ -7151,13 +7194,14 @@
     {
       "ja": "ソロ（縦画面）",
       "source_sha256": "fb7cca6d1c3b650ea0e0843241392650499eda3c1fec460ae6544af03f5e4c05",
-      "zh": "个人（直向画面）",
+      "zh": "个人（竖屏画面）",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ソート",
@@ -7228,24 +7272,26 @@
     {
       "ja": "タイトルイラストの設定を行っている場合でも\nイベントやキャンペーンのイラストが優先して表示されます",
       "source_sha256": "8081424be694065f1c8d4528cc3bea1da4a2f25589ad71b3067e2347af868ac4",
-      "zh": "即使已设定标题画面图像，\n系统仍会优先显示活动和宣传活动的图像",
+      "zh": "即使已设置标题画面图像，\n系统仍会优先显示活动和宣传活动的图像",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "タイトルイラストを設定できます",
       "source_sha256": "e34e8317c997de7bb4ce1a5e11137abc2c3d8ab4f92c0d87bafd542087a468b2",
-      "zh": "可以设定标题画面图像",
+      "zh": "可以设置标题画面图像",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "タイトルコールの設定",
@@ -7536,13 +7582,14 @@
     {
       "ja": "チャット通知設定",
       "source_sha256": "c523957eaa8993239030f92f26d6575056db2d5fb257bf088015d079da5ae191",
-      "zh": "聊天通知设定",
+      "zh": "聊天通知设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "チャレンジする",
@@ -7635,13 +7682,14 @@
     {
       "ja": "テーマ：ブログ",
       "source_sha256": "9193ff893476f5240e2da2500fc0752a517718a925f9aab557e8b88095176313",
-      "zh": "主题：部落格",
+      "zh": "主题：博客",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ディスカウント券あり",
@@ -7690,13 +7738,13 @@
     {
       "ja": "デイリーミッションが未達成の場合にプッシュ通知をします",
       "source_sha256": "44c9af51a457a8d82dee19863b634f6f5cc1ccab541f54f4f8d1dd96a22177ae",
-      "zh": "每日任务未完成时，发送推播通知",
+      "zh": "每日任务未完成时，发送推送通知",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "デザイン",
@@ -7712,13 +7760,14 @@
     {
       "ja": "デフォルト順",
       "source_sha256": "be252724e05f9253f420a510e02c617cd207b06c2836690aa26d262a1098f4fc",
-      "zh": "预设排序",
+      "zh": "默认排序",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "デュオライブ",
@@ -7734,35 +7783,38 @@
     {
       "ja": "データ\nダウンロード",
       "source_sha256": "35cd8f2aaf51dacf6487a46eb81ad4f1c450bdfd7d34b397cca4387a5ebe6891",
-      "zh": "资料下载",
+      "zh": "数据\n下载",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "データが存在しません",
       "source_sha256": "eb47d4a6e4947ef0f2b496619fb11627357a3188705da2e06d8e9ed2ca71b4ee",
-      "zh": "资料不存在",
+      "zh": "数据不存在",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "データクリア",
       "source_sha256": "d99af6595dad68b5c08c4066b6f4656b586dc69f408680d55b90f5edfed247c9",
-      "zh": "清除资料",
+      "zh": "清除数据",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "データダウンロード中",
@@ -7822,13 +7874,14 @@
     {
       "ja": "トレーニングpt獲得時にポップアップを表示する",
       "source_sha256": "531f83396cb6d1c9966c2b35214080f83d164cb8dec563c1fc28469b99a3b3f7",
-      "zh": "获得训练pt时显示弹跳视窗",
+      "zh": "获得训练pt时显示弹窗",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "トータルテンション",
@@ -7877,13 +7930,13 @@
     {
       "ja": "ドリームスター・フェススター交換可能なお知らせポップアップ表示の設定ができます",
       "source_sha256": "735bb08d4a827faeffc46ad3fc12efa107e52e5d5840ae3242d26aeecd391840",
-      "zh": "可以设置是否显示“ドリームスター・フェススター可兑换”的通知弹窗",
+      "zh": "可以设置是否显示“梦幻星星·庆典星星可兑换”的通知弹窗",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "ドリームフラワー\n交換",
@@ -8295,13 +8348,14 @@
     {
       "ja": "フォトアルバム",
       "source_sha256": "bd3436da357802c4d4bb260a0e86b6d303a75a73495f4afa08ff5305d66fb4c0",
-      "zh": "相簿",
+      "zh": "相册",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "フォトカテゴリでは、名刺交換機能が使用できません",
@@ -8339,13 +8393,14 @@
     {
       "ja": "フラワースタンド\n情報",
       "source_sha256": "156cbd23216cd095024e22f33dca00f1da131bc0a912946db8f4a3618d0f9a5a",
-      "zh": "花篮\n资讯",
+      "zh": "花篮\n信息",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "フリック音",
@@ -8427,24 +8482,26 @@
     {
       "ja": "ブログ",
       "source_sha256": "63e05644ec17de1175ca505c77d1a9f9339d163633cdbc01fefe4f337f8db3dc",
-      "zh": "部落格",
+      "zh": "博客",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ブログが公開されていません",
       "source_sha256": "f8529c4aef4a310fed9c70944af465415c455af61fbb2eb5021449b9f818b9b5",
-      "zh": "部落格未公开",
+      "zh": "博客未公开",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ブロンズ",
@@ -8482,13 +8539,13 @@
     {
       "ja": "プッシュ通知",
       "source_sha256": "990f2a8bd77466523fe0c0ebac1ea14456cf57da0bfc61547c2cca4a8d6fcde9",
-      "zh": "推播通知",
+      "zh": "推送通知",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "プライバシー\nオプション",
@@ -8713,13 +8770,13 @@
     {
       "ja": "プレゼントの受け取り履歴はありません",
       "source_sha256": "ca5df102177b8d70d414b0c1b4a7283b83ed762e8bfca0a2fe1a80ec4bdca8cd",
-      "zh": "没有礼物领取履历",
+      "zh": "没有礼物领取记录",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "プレゼントはプレゼントボックスに送られます。",
@@ -9032,13 +9089,14 @@
     {
       "ja": "ホルダ",
       "source_sha256": "be5e2961be205f21f39bab07c3f9b45965478b008093a7a0ee48a1a733aa8def",
-      "zh": "资料夹",
+      "zh": "名片夹",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ホワイト",
@@ -9219,13 +9277,14 @@
     {
       "ja": "ポップアップ",
       "source_sha256": "120700d72aa527499d14a1f9d16bdfbeacf3ab804cf716185efd3acea15db9ec",
-      "zh": "弹跳视窗",
+      "zh": "弹窗",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "マイペース",
@@ -9736,24 +9795,26 @@
     {
       "ja": "メール",
       "source_sha256": "e547903f387947397b41e08c864e666e407d7db8f1be1e44f0c9680e3cc31933",
-      "zh": "mail",
+      "zh": "邮件",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "メールがありません",
       "source_sha256": "b7d903393ea45599f1e7ce3fb43f6371d950645beda756d8fa7977a4e95775e1",
-      "zh": "没有mail",
+      "zh": "没有邮件",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "メールタイトル",
@@ -9923,13 +9984,13 @@
     {
       "ja": "ユニットの\nコピー",
       "source_sha256": "677368f3408719e0191005cc509e1efc2e997ee77fdfa5fdf1baa4f4fcb9ef51",
-      "zh": "复制",
+      "zh": "复制\n组合",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "ユニットのMVを再生することができます",
@@ -10011,24 +10072,26 @@
     {
       "ja": "ユーザーイベント\n情報",
       "source_sha256": "8d4d6faff6ef0345bf8e483cae45b502c152afa299ce4cdae90689599509dfed",
-      "zh": "使用者活动\n资讯",
+      "zh": "用户活动\n信息",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ユーザー基本情報",
       "source_sha256": "8e18a98c567ecfd8f9454fd691bc814c55b8d62a3685e990e17040243641cef5",
-      "zh": "使用者基本资讯",
+      "zh": "用户基本信息",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ライト",
@@ -10099,13 +10162,14 @@
     {
       "ja": "ライブのユニット確認画面にある「ライブ設定」から楽曲毎に音符の速度を調整できます",
       "source_sha256": "9b97c411e897c79e4a303bfdef40dff27a9bdede653618b0d0c57b815e11c622",
-      "zh": "可由演唱会的确认团体画面里的「演唱会设定」来个别调整每首歌曲的音符速度",
+      "zh": "可通过演唱会确认组合界面中的“演唱会设置”，针对每首歌曲调整音符速度",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ライブへ",
@@ -10154,13 +10218,14 @@
     {
       "ja": "ライブシーンの音量設定は「ライブ設定」にて行います",
       "source_sha256": "1e2a9f31fff7dada574f4e1a05b32a43befdcd6f8692be8fcd27079218b96c78",
-      "zh": "演唱会场景的音量设定，请在「演唱会设定」进行调整",
+      "zh": "演唱会场景的音量设置请在“演唱会设置”中进行调整",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ライブスキップ / オートライブ",
@@ -10242,24 +10307,26 @@
     {
       "ja": "ライブ設定",
       "source_sha256": "6d9afba647b885ea26c232abae414e19786764c9266844ff180cc4837c67e850",
-      "zh": "演唱会设定",
+      "zh": "演唱会设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ライブ開演ボタンを押した時点で元気またはチケットが消費されます\nまた、選曲された楽曲が未ダウンロードの場合、ダウンロードも同時に行われます",
       "source_sha256": "fefbaa91568c194397228f8db4b222c1eaf91f936c804f58a72be69cb004c941",
-      "zh": "按下举办演唱会按键后，将消耗活力或票券\n此外，若所选歌曲尚未下载时，将同时进行下载",
+      "zh": "按下演唱会开演按钮时，将消耗体力或门票\n此外，若所选歌曲尚未下载，将同时进行下载",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ラインナップ",
@@ -10319,13 +10386,14 @@
     {
       "ja": "ラウンジマスター用通知設定",
       "source_sha256": "d65b279527ce93a4115884b8ba421f6557a8839ccff595acf5f0ac21a49befb4",
-      "zh": "社交厅厅长用通知设定",
+      "zh": "社交厅厅长用通知设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ラウンジランク",
@@ -10352,13 +10420,14 @@
     {
       "ja": "ラウンジ情報",
       "source_sha256": "bf0eefa7b0a43393fd74fa50c7b49943efc56e0cbbe527ad94ff09a937c4979a",
-      "zh": "社交厅资讯",
+      "zh": "社交厅信息",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "ラウンジ検索",
@@ -10539,13 +10608,14 @@
     {
       "ja": "リフレッシュを中断してイベントを再開したい場合は\n下のボタンからリフレッシュ中断を行ってください",
       "source_sha256": "53190b4383c3eb08bc53ea6529474b36ea115ddc0c78df155df912ad4e5cedef",
-      "zh": "若要中断消除疲劳并重启活动，\n请由下方按键中断消除疲劳",
+      "zh": "若要中断消除疲劳并重启活动，\n请点击下方按钮中断消除疲劳",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "リフレッシュ中",
@@ -10561,13 +10631,14 @@
     {
       "ja": "リフレッシュ時間を変更したい場合は\n下のボタンからリフレッシュ時間の変更を行ってください",
       "source_sha256": "9fff70dd8f939ba9af003872ab963ef6bfcad2ab9a6adf47d534e3315fb5cb92",
-      "zh": "若要变更消除疲劳时间，\n请由下方按键变更消除疲劳时间",
+      "zh": "若要更改消除疲劳时间，\n请点击下方按钮更改消除疲劳时间",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "リフレッシュ時間を変更しました\r\n\r\n【次のリフレッシュ】\r\n<color=#757bab>99/99 99:99～99/99 99:99</color>",
@@ -10660,13 +10731,14 @@
     {
       "ja": "レッスンウェアの設定",
       "source_sha256": "1858c3bdf91b5f9bce08849b647e18a6bc6340d2e72811bb474161121423d651",
-      "zh": "训练课程服的设定",
+      "zh": "训练课程服的设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "レッスンウェア登場時の髪型もアイドルにおまかせする",
@@ -11033,13 +11105,14 @@
     {
       "ja": "事務員",
       "source_sha256": "9501323466d0a39d8401b39c1f28d739dcc86a2a3d1eb180ed18a72ba5d34a8e",
-      "zh": "Attendant",
+      "zh": "事务员",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "事務員の衣装設定",
@@ -11055,13 +11128,14 @@
     {
       "ja": "事務員を選択した場合は衣装設定内の「事務員の衣装設定」で設定した衣装を着用して登場します",
       "source_sha256": "e4d6253a7a4541d2acbc6bd3657a780cd706b43e6f392a7884d370b60bea2379",
-      "zh": "选择事务员后，将穿着在服装设置中的“事务员服装设置”里设定的服装登场。",
+      "zh": "选择事务员后，将穿着在服装设置中的“事务员服装设置”里设置的服装登场。",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "二階堂 千鶴\n7thセリフ",
@@ -11527,13 +11601,14 @@
     {
       "ja": "使用アイテム設定",
       "source_sha256": "92153d28a09cc615ab7e998a787adaf56c4d365ae730b48b085a6c378d842ebc",
-      "zh": "使用道具设定",
+      "zh": "使用道具设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "使用出来る回復アイテムがありません",
@@ -11626,13 +11701,14 @@
     {
       "ja": "個別チャット通知設定",
       "source_sha256": "5de38c6f6b231eac41875794785bb1a06a8a3d8d3e27da957acaf59f8ce7e5a6",
-      "zh": "个别聊天通知设定",
+      "zh": "个别聊天通知设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "個性的でいいと思う20文字",
@@ -11823,13 +11899,13 @@
     {
       "ja": "元気が全回復した時にプッシュ通知をします",
       "source_sha256": "1a56b52d9e66af23ef4d601ea43d69a3aa24e76eed2030c811669ecb1dd92d5f",
-      "zh": "活力完全回复时，发送推播通知",
+      "zh": "活力完全恢复时，发送推送通知",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "元気が全回復しました！",
@@ -12470,13 +12546,14 @@
     {
       "ja": "利用規約\n権利表記",
       "source_sha256": "6704b0cbfa89302b205b06168521ccb693e3d15d5a1c5dc941e31b5ef51a79f7",
-      "zh": "服务条款\n著作权政策",
+      "zh": "使用条款\n版权声明",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "制限なし",
@@ -12580,13 +12657,14 @@
     {
       "ja": "劇場とコミュ再生時に登場するアイドルのレッスンウェアを設定できます",
       "source_sha256": "6cb2e3a6ce784153f1cd0ce183bb0fe8be55033240ad20f6be1599f708826120",
-      "zh": "可以设定在剧场中和剧情播放时，登场偶像的训练课程服",
+      "zh": "可以设置在剧场中和剧情播放时登场偶像的训练课程服",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "劇場とライブ、コミュ再生時に登場するアイドルの私服を設定できます",
@@ -12811,24 +12889,24 @@
     {
       "ja": "取得済みカードを除く",
       "source_sha256": "de4958e62ebe94c15519476fb2e1b3a5e82131298344b092bb17c66043336ee3",
-      "zh": "排除已取得之卡片",
+      "zh": "排除已取得的卡片",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "受け取ってから1週間以内のプレゼントを500件まで表示します",
       "source_sha256": "1dbfe865b0d51bbec61029a675e48cf084db490d173a61ee336e08d472c3d2df",
-      "zh": "可确认一周内领取的礼物，最多可显示500件",
+      "zh": "可确认一周内领取的礼物，最多可显示500条",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "受け取り",
@@ -13119,13 +13197,14 @@
     {
       "ja": "同僚リスト",
       "source_sha256": "c8634513d4d97c2c81229bd64c2f1affc40cf695aecc5e8a4e4528abc7f1576f",
-      "zh": "同僚清单",
+      "zh": "同僚列表",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "同僚人数上限",
@@ -13878,13 +13957,14 @@
     {
       "ja": "常に設定している髪型で試着する",
       "source_sha256": "78b5a84e1c4bdef824b7efaf31b6dc139ce9bf2e59902cfe9876614bff4f384c",
-      "zh": "试穿时始终使用当前设定的发型",
+      "zh": "试穿时始终使用当前设置的发型",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "年齢",
@@ -13911,13 +13991,13 @@
     {
       "ja": "年齢別購入限度額",
       "source_sha256": "b91acc4f3b9e5cc93c50a51d2adc88615c03fdd8975a4a3b2bb2cf4bca10e432",
-      "zh": "法的",
+      "zh": "按年龄划分的购买额度限制",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "広い",
@@ -13955,13 +14035,13 @@
     {
       "ja": "引いてから1週間以内のプラチナガシャの結果を500件まで表示します",
       "source_sha256": "ed652de0e34e12f3042d207043b8fbcb9d61a03fd1de2063bae9ba85c5a7c928",
-      "zh": "可确认一周内的白金转蛋结果，最多可显示500件",
+      "zh": "可确认一周内的白金扭蛋结果，最多可显示500条",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "引き換える",
@@ -14054,13 +14134,14 @@
     {
       "ja": "当日限定スパークドリンクは設定に関わらず優先して選択されます",
       "source_sha256": "6efb826da3cb5ae00bd228bd38e050fa3690fa141bba3608539a9f2a8ca3e13b",
-      "zh": "不论设定为何，会优先选择当天限定充电饮料",
+      "zh": "无论设置如何，会优先选择当日限定充电饮料",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "必要DXポイント数(仮)",
@@ -14263,13 +14344,14 @@
     {
       "ja": "情報表示位置",
       "source_sha256": "4f44355799c2f844fc58d316991a2cd07c924855aca4576c39529d9f9256fed8",
-      "zh": "资讯显示位置",
+      "zh": "信息显示位置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "成績",
@@ -14318,13 +14400,13 @@
     {
       "ja": "所持しているガシャメダルがありません",
       "source_sha256": "f62f1c7da4adc417fec591ac3607655f6ffebd12b49aba010cab5f6ef7c195f1",
-      "zh": "没有持有转蛋代币",
+      "zh": "没有持有扭蛋代币",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "所持している衣装グループに一括で切り替えます\n一部の衣装はショップで購入できます",
@@ -14373,13 +14455,13 @@
     {
       "ja": "所持ガシャメダル",
       "source_sha256": "b4192f0789751a1d6590d6fae7335dc9308bc22121c01d58006ec50089f314e7",
-      "zh": "持有转蛋代币",
+      "zh": "持有扭蛋代币",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "所持コイン",
@@ -14571,13 +14653,13 @@
     {
       "ja": "所持枚数が上限のため、ガシャメダルptは獲得できません",
       "source_sha256": "cd7a367c429f2aba3e76bdd1023e8ece1fe5ef2294e65a68969484e0fb04a3d7",
-      "zh": "由于持有枚数已达上限，无法获得转蛋代币pt",
+      "zh": "由于持有枚数已达上限，无法获得扭蛋代币pt",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "所持状況",
@@ -14637,24 +14719,26 @@
     {
       "ja": "承認待ち\nリスト",
       "source_sha256": "1d26711c0e6685d6d8af7ccdd8fe2f20b9becfd214b4c1dc17f0ff0ac2804d36",
-      "zh": "等待许可\n清单",
+      "zh": "等待许可\n列表",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "承認設定",
       "source_sha256": "e5a522dd8e6e5f6314e1899c0c83513a51cca66696b6572b9a476b4b3ca065fe",
-      "zh": "许可设定",
+      "zh": "许可设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "投票する方をタッチしてください",
@@ -14703,13 +14787,14 @@
     {
       "ja": "招待リスト",
       "source_sha256": "021ac1f2c00ff1cc950abad5e280cde21302c1e135ca0059bc11bb8480ad358c",
-      "zh": "邀请清单",
+      "zh": "邀请列表",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "拡大",
@@ -14780,13 +14865,14 @@
     {
       "ja": "提供割合",
       "source_sha256": "657fb910d4b4bf105909775146c0ffd8022f25644b80dacab841383597cb92fc",
-      "zh": "提供机率",
+      "zh": "提供概率",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "撮影された写真がありません",
@@ -14802,24 +14888,26 @@
     {
       "ja": "撮影した写真は、ご使用された端末にのみ保存されます\n\nアプリの再インストールや、端末の機種変更の際のデータ引継ぎ時には保存されませんのでご注意ください",
       "source_sha256": "76e5a535c0e8dfe743849e4d8d25c90089d6e9cd15960af889aba78673c5aaa2",
-      "zh": "已拍摄的照片仅会储存于您目前使用的装置\n\n请注意，在重新安装应用程式或变更装置时，不会于继承资料时一并储存照片",
+      "zh": "拍摄的照片仅会保存在您当前使用的设备中\n\n请注意，在重新安装应用或更换设备引继数据时，不会一并保存照片",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "撮影に関するその他オプションを設定します",
       "source_sha256": "657d0cad3c612933f8732619ca60b9f7b3fc2537467ad036bc23f6f75067c254",
-      "zh": "设定拍摄相关的其他选项",
+      "zh": "设置拍摄相关的其他选项",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "撮影終了",
@@ -14835,13 +14923,14 @@
     {
       "ja": "撮影設定",
       "source_sha256": "26f0f67b5501a7d39f3a4400b8c2e888cb4833f1ee13639a2f0f157fc559f7ef",
-      "zh": "拍摄设定",
+      "zh": "拍摄设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "新しいイベント開始演出",
@@ -14857,13 +14946,13 @@
     {
       "ja": "新しいガシャ開始演出",
       "source_sha256": "3403270833843033e3b7491a6bcb02812eecfae81f2bf7663fc795538d5d779c",
-      "zh": "新的抽卡开始演出",
+      "zh": "新的扭蛋开始演出",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "新しい差し入れを行うと古い差し入れは破棄されます",
@@ -15099,24 +15188,24 @@
     {
       "ja": "最終ログイン",
       "source_sha256": "76b065715fd5663b427a7ab9a8c94881a9d3737b94fb8f69286754b0a34743a9",
-      "zh": "最后登入",
+      "zh": "最后登录",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "最終日にリフレッシュはありません",
       "source_sha256": "d01f37896ed4e62441cc69e938af2be27769b701a522d208c0ff5140ae2d81e1",
-      "zh": "最后一天可设定消除疲劳的时间\n到10:00为止\n如将消除疲劳时间设定在11:00之后，\n将自动变更为10:00～15:59",
+      "zh": "最后一天没有消除疲劳时间",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "最終結果\r\n演出",
@@ -15264,13 +15353,13 @@
     {
       "ja": "期限が切れそうなガシャメダルがある場合にプッシュ通知をします",
       "source_sha256": "84f5551392f13d804cec36f2c7c3972df5c214381fc154135a0a0e9f1a72e778",
-      "zh": "有即将过期的转蛋代币时，发送推播通知",
+      "zh": "有即将过期的扭蛋代币时，发送推送通知",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "期限が切れたプレゼントは自動的に消滅します",
@@ -15825,13 +15914,14 @@
     {
       "ja": "楽曲データが存在しません",
       "source_sha256": "cb5ee8f9537a50eba27bdb039e86aceb90edc29cfe6b61add02f75127c26943b",
-      "zh": "歌曲资料不存在",
+      "zh": "歌曲数据不存在",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "楽曲リリース順",
@@ -15869,13 +15959,14 @@
     {
       "ja": "楽曲情報",
       "source_sha256": "3b2528911c0644e48d18bda62ec05c10fa361d6778a7386b2282996e0621d5db",
-      "zh": "歌曲资讯",
+      "zh": "歌曲信息",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "楽曲情報の表示切替",
@@ -15946,13 +16037,14 @@
     {
       "ja": "権利表記位置",
       "source_sha256": "6c9046bb4d4773e49a9cdc90641c2a65193f81e8a071cbf6e95edbb17797df23",
-      "zh": "著作权政策标示位置",
+      "zh": "版权声明位置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "横向き（SSRカードのみ）",
@@ -15968,13 +16060,14 @@
     {
       "ja": "横画面での表示位置を設定します",
       "source_sha256": "9d208192bad233fff18a0eb7300bf54ce9c5c8ac83acd6090df0cbab292e3643",
-      "zh": "设定横向画面的显示位置",
+      "zh": "设置横向画面的显示位置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "次の\n報酬",
@@ -15990,13 +16083,14 @@
     {
       "ja": "次のお仕事まで",
       "source_sha256": "97d8b46d31e731aa97f7d24d11f07ed2eee4e6f0efed770c737b5083f82f013f",
-      "zh": "距离下一个工作AV片",
+      "zh": "距离下次工作",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "次のガシャチケットまで ～",
@@ -16221,13 +16315,13 @@
     {
       "ja": "活動履歴",
       "source_sha256": "cdad56264befbc0836e49ed299fdd6de0ff9640e26927b7685d4d3e53174e346",
-      "zh": "活动履历",
+      "zh": "活动记录",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "活動記録",
@@ -16913,13 +17007,14 @@
     {
       "ja": "申請中リスト",
       "source_sha256": "d6cfa6661f824d6fd365233511ec89bba5f52205665d0a1e034f29b02dbb0ea2",
-      "zh": "申请中清单",
+      "zh": "申请中列表",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "申請日時",
@@ -17100,13 +17195,14 @@
     {
       "ja": "私服の種類は衣装設定内の「私服の設定」で設定した衣装に準じます\n設定した種類をアイドルが所持していない場合は「私服」で登場します",
       "source_sha256": "e604422b0bb1856318fbc724acb84b090cef8a9298dff020ece184d1674494f0",
-      "zh": "偶像未持有所设定的种类时，\n将以「便服」登场",
+      "zh": "便服种类将依据服装设置中的“私服设置”里所设置的服装\n偶像未持有所设置的种类时，将以“便服”登场",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "私服の設定",
@@ -17452,13 +17548,14 @@
     {
       "ja": "縦画面での表示位置を設定します",
       "source_sha256": "7fa0dfd079542e4fe710662d138708fb3b61833d8ee9ad1b998fd2d590f4803b",
-      "zh": "设定直向画面的显示位置",
+      "zh": "设置竖向画面的显示位置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "美希 No.004",
@@ -17903,13 +18000,14 @@
     {
       "ja": "衣装設定内の「事務員の衣装設定」で設定した衣装を着用して登場します",
       "source_sha256": "6d0855448ba1b44c8c9ddf0230273d3afa7c3029824c8b06ce570c891d2b0540",
-      "zh": "将穿着在服装设定内的「职员服装设定」中所设定的服装登场",
+      "zh": "将穿着在服装设置内的“事务员服装设置”中所设置的服装登场",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "衣装購入",
@@ -17936,13 +18034,14 @@
     {
       "ja": "衣装選択ボタンを常に表示",
       "source_sha256": "9bfff8ed68db09dad2c874438204eb9d8bbf7c809fe2d1b1a1c3ed25ced99d77",
-      "zh": "常驻显示选择服装按键",
+      "zh": "常驻显示选择服装按钮",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "衣装（腰より下に垂れている衣装の一部）",
@@ -18035,13 +18134,14 @@
     {
       "ja": "表示設定",
       "source_sha256": "52cbc155c4ad44fb6b2f3fa3449e60b6b1ae389bc146aab0a10709f5c1d6736d",
-      "zh": "显示设定",
+      "zh": "显示设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "表示順",
@@ -18057,13 +18157,14 @@
     {
       "ja": "複数設定",
       "source_sha256": "2a1ed140f75951302d03b92f61fcd8dcf4a2af3cfa6d9e1f2e887f780311fd7d",
-      "zh": "设定多个",
+      "zh": "设置多个",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "複数選択",
@@ -18431,79 +18532,86 @@
     {
       "ja": "設定した条件で元気が回復上限に達するまで選択します",
       "source_sha256": "8f1983fbf4e7caa3fb151f81552e535cf3ad54450c4991628682bf3b8a81a8b5",
-      "zh": "会依设定条件选择达到活力回复上限的量",
+      "zh": "会按设置的条件选择直至达到活力恢复上限的数量",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "設定した種類をアイドルが所持していない場合は「レッスンウェア」で登場します",
       "source_sha256": "6a892a536f79f3f9b1acb1a06b844e4e0cf9d2ca982e167d8bb9568914faea54",
-      "zh": "偶像未持有所设定的种类时，\n将以「训练课程服」登场",
+      "zh": "偶像未持有所设置的种类时，\n将以“训练课程服”登场",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "設定した衣装をアイドルが所持していない場合は\n「シャイニートリニティ」で登場します",
       "source_sha256": "df6bf8c6fdab387f80f23ee11a74d07193d3dff9132a5ed394e6efa8dbcf46a5",
-      "zh": "偶像未持有设定服装时，\n将穿着辉煌一体登场",
+      "zh": "偶像未持有已设置的服装时，\n将穿着辉煌一体登场",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "設定しない",
       "source_sha256": "2addc113d84f49a89e1962ca719a03d96f813ef7b9bea6388f815cf025302b23",
-      "zh": "不设定",
+      "zh": "不设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "設定する",
       "source_sha256": "1f2ee6268da5771b4ba3268abb702b444acd465acbd461866562d08ae4e071dd",
-      "zh": "设定",
+      "zh": "设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "設定なし",
       "source_sha256": "292babda6be7dd4e3eeac7b8acef77b84306c29905cbcf600391e02d39e34616",
-      "zh": "无设定",
+      "zh": "无设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "設定を反映",
       "source_sha256": "2f8b452c2a523c6349ffb6791d187112f08c03228e8dbe2abb6ea9ef4c11f218",
-      "zh": "适用设定",
+      "zh": "应用设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "設定中のピンキーリング確認",
@@ -18530,13 +18638,14 @@
     {
       "ja": "設定変更",
       "source_sha256": "208c451066f47671707fbc01be17581ae9a7cdffe258e7c7fbe5da28327fa1f1",
-      "zh": "变更设定",
+      "zh": "更改设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "設置箇所 A",
@@ -18574,13 +18683,14 @@
     {
       "ja": "試着ボタンの設定",
       "source_sha256": "665c428d80bd2facc15fa96237b8c580e477b778da67969751feb710e043f8f3",
-      "zh": "试穿按键设置",
+      "zh": "试穿按钮设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "試聴",
@@ -18673,13 +18783,14 @@
     {
       "ja": "誕生日を設定してください",
       "source_sha256": "634d1ba0568ee418e537b6d6c41f1b336cc70263e97a915f4476fc1147d07708",
-      "zh": "请设定生日",
+      "zh": "请设置生日",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "誕生日ミッション",
@@ -18794,13 +18905,13 @@
     {
       "ja": "資金決済法に基づく表示",
       "source_sha256": "214dbecff9e42cecb3b3669f3745aee2bc06f04e16c8a7bcc69c2bd3ec26a536",
-      "zh": "法的",
+      "zh": "基于《资金结算法》的标示",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "購入",
@@ -19483,13 +19594,13 @@
     {
       "ja": "限定入りSSR確定ガシャチケット",
       "source_sha256": "f4e99ae77da67c287796acc0327dfe530cf9420be8d34a84e26d1d078d9da1c5",
-      "zh": "含限定卡片保证SSR转蛋券",
+      "zh": "含限定SSR必得扭蛋券",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "除外可能カード数",
@@ -19505,13 +19616,14 @@
     {
       "ja": "除外設定",
       "source_sha256": "99ae577ef107dcf6c4599e6d8a8c4fef2106a73a43e25ddb15d9ffb7d212084a",
-      "zh": "排除设定",
+      "zh": "排除设置",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
         "9.0.300"
       ],
-      "translation_stage": "reused_exact_or_format_preserving"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "ja": "陰の効果\n設定",
@@ -20027,9 +20139,10 @@
     },
     {
       "ja": "ガシャから出現させるカードを各レアリティごとに選択してください\n全ての枠を埋めたらガシャを引くことができます",
-      "zh": "请按各稀有度选择扭蛋中出现的卡片\n填满所有格子后即可抽卡",
+      "zh": "请按各稀有度选择扭蛋中出现的卡片\n填满所有格子后即可进行扭蛋",
       "status": "accepted",
-      "source_sha256": "b970bd82543015f5e6b2f6f10ffdf6581e29ec69e21f132645e2499b695ab4b5"
+      "source_sha256": "b970bd82543015f5e6b2f6f10ffdf6581e29ec69e21f132645e2499b695ab4b5",
+      "translation_stage": "agent_reviewed"
     },
     {
       "ja": "<color=red>適用</color>",

@@ -176,10 +176,10 @@
       "key": "ld_connection_error_message_-40013",
       "ja": "通信エラーの為、タイトルに戻ります\n※先ほどのガシャ結果は正しく保存されています\n※プラチナガシャなどは[プレゼント]内のガシャ履歴からご確認いただけます",
       "source_sha256": "4e78b994a07ea33cce35e5935fb63ae8b45db91a69905ae505db53dec03ee805",
-      "zh": "由于通信错误，将返回标题画面\n※方才的扭蛋结果已正常保存\n※白金扭蛋等可在[礼物]内的扭蛋履历中进行确认",
+      "zh": "由于通信错误，将返回标题画面\n※刚才的扭蛋结果已正常保存\n※白金扭蛋等可在[礼物]内的扭蛋记录中进行确认",
       "translatable": true,
       "status": "accepted",
-      "translation_stage": "reused_exact_source"
+      "translation_stage": "agent_reviewed"
     },
     {
       "record_index": 17,
@@ -2336,10 +2336,11 @@
       "key": "ld_connection_error_message_-46035",
       "ja": "すでに設定されている時間です",
       "source_sha256": "c98791f9ba7929cb15b69814467782d83ebeb649df07e9a8a917624e8d8f60ee",
-      "zh": "该时间已被设定",
+      "zh": "该时间已被设置",
       "translatable": true,
       "status": "accepted",
-      "translation_stage": "reused_exact_source"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "record_index": 233,
@@ -2546,10 +2547,11 @@
       "key": "ld_connection_error_message_-49103",
       "ja": "すでにプロモーション活動内容が設定されています\nタイトルに戻ります",
       "source_sha256": "f7232ff9275d548cd07b001f486c018a34bc727620dbf4af59dc66e1640da349",
-      "zh": "已设定宣传活动内容\n即将返回标题界面",
+      "zh": "已设置宣传活动内容\n即将返回标题界面",
       "translatable": true,
       "status": "accepted",
-      "translation_stage": "reused_exact_source"
+      "translation_stage": "llm_translated",
+      "updated_at": "2026-11-14T05:58:00Z"
     },
     {
       "record_index": 254,
