@@ -64,7 +64,18 @@ TW_UNCONDITIONAL = (
     "艾蜜莉", "转蛋", "轉蛋", "推播", "此讯息", "此訊息",
     "部落格", "弹跳视窗", "彈跳視窗", "资料夹", "資料夾",
     "应用程式", "應用程式", "快取资料", "快取資料",
+    "日圆", "精采", "身分", "优格", "集点卡",
+    "网路", "软体", "硬体", "萤幕", "滑鼠",
+    "简讯", "伺服器", "记忆体", "解析度", "档案夹", "资料库",
+    "萤光", "图示", "视窗", "选单", "列印", "影印机",
+    "游标", "自订要素", "机率", "连线失败", "连线错误", "排行榜机能",
+    "搥", "拚命", "打拚", "拚尽", "要拚", "拚了",
+    "於剧", "关於", "不同於",
+    "姊姊", "大姊", "好姊妹", "三姊妹", "兩姊妹", "两姊妹",
+    "迎春花蕾所見之夢", "追逐夢想", "{0}天日間",
 )
+ALWAYS_FORBIDDEN_TW_TERMS = ("感謝祭", "感謝", "全員")
+TW_BORROW_RE = re.compile(r"藉(?:着|著|此|助|口|机|以|这|工作|写真)")
 FALLBACK_TRADITIONAL_OUTPUT_CHARS = set(
     "妳製觀藝體這為會來說對沒裡還時學應與發萬張聲點門間從將讓見過麼麗實該閉腦現給難當國們歡聽獎續緊認謝種樣個開關頭書話寫讀轉選氣亞達場樂"
 )
@@ -72,7 +83,7 @@ SIMPLIFIED_ZHU_COMPOUND_RE = re.compile(
     r"著名(?!流)|著作(?!笔记)|名著|原著|显著|执著|著称|著者|编著|合著|巨著|专著|"
     r"译著|遗著|新著|旧著|拙著|土著|昭著|着作|(?<![讨争议辩谈理结无言论])论著"
 )
-ZH_SENTENCE_FINAL_DE_SHUO_RE = re.compile(r"的说(?=(?:[！!。…～〜♪☆？?，,]|\\\d+\\|\s*$))")
+ZH_SENTENCE_FINAL_DE_SHUO_RE = re.compile(r"的说(?=(?:[！!。…～〜♪☆？?，,—]|\\\d+\\|\s*$))")
 BROKEN_RANK_RE = re.compile(r"第(?:最高分|活动|社交厅|粉丝数?)排行榜")
 SOLO_CORRECTION_RE = re.compile(r"ソロコレ(?:クション)?")
 TADOKORO_AZUSA_RE = re.compile(r"田所\s*あずさ")
@@ -85,9 +96,34 @@ KATAKANA_COMPOUND_TAILS = (
 )
 KATAKANA_IGNORE_TOKENS = frozenset({"ー", "ノ", "ノシ", "ッ"})
 QUOTED_TEXT_RE = re.compile(r"「[^」\n]*」|『[^』\n]*』|《[^》\n]*》|“[^”\n]*”")
+SHINJITAI_CREDIT_STRIP_RE = re.compile(
+    r"[（(](?:CV|ＣＶ|声优)[^）)\n]*[）)]"
+    r"|^[\s\u3000]*(?:作词|作曲|编曲|演唱)(?:[·・、/／](?:作词|作曲|编曲|演唱))*[：:].*$"
+    r"|^\d+\s*[.．].*$",
+    re.MULTILINE,
+)
+SHINJITAI_PROSE_STRIP_RE = re.compile(
+    r"#[^\s\n]+"
+    r"|世駆志威|亞蛇流帝|我威琉弩|カラオケの鉄人|絵羽模様|伝ゎっ|暁の砲弾|暁クロエ"
+)
+SHINJITAI_TO_SIMPLIFIED = {
+    "紬": "䌷", "恵": "惠", "歩": "步", "浜": "滨", "桜": "樱",
+    "駆": "驱", "姫": "姬", "気": "气", "瀬": "濑", "竜": "龙",
+    "覇": "霸", "響": "响", "辺": "边", "緑": "绿", "穂": "穗",
+    "黒": "黑", "亜": "亚", "鉄": "铁", "絵": "绘",
+    "徳": "德", "環": "环", "髙": "高", "於": "于", "姉": "姐", "姊": "姐",
+}
+TRADITIONAL_IDOL_NAME_TOKENS = (
+    ("紗代子", "纱代子"), ("莉緒", "莉绪"), ("麗花", "丽花"), ("貴音", "贵音"),
+    ("詩花", "诗花"), ("奈緒", "奈绪"), ("琴葉", "琴叶"), ("千鶴", "千鹤"),
+    ("徳川", "德川"), ("馬場", "马场"), ("大神環", "大神环"),
+    ("髙橋", "高桥"), ("髙桥", "高桥"),
+)
 UNTRANSLATED_JAPANESE_FRAGMENT_RE = re.compile(
     r"わたくし|ぜんぜん[ぁ-ゖ一-龯]|知ってるけど|分かってない|"
-    r"故意に[一-龯]|憧れ[一-龯]|かしみや|ぴょーん|必ゅ|さ玛|っ斯"
+    r"故意に[一-龯]|憧れ[一-龯]|本当に[一-龯ぁ-ゖ]|"
+    r"[一-龯ァ-ヺぁ-ゖ]{2,}(?:ましょうか|しませんか)|"
+    r"かしみや|ぴょーん|必ゅ|さ玛|っ斯"
 )
 ZH_BAD_MEANING_CUE_RE = re.compile(
     r"(?:坏(?:的)?(?:意思|意义|处|方面|事)|不好的(?:意思|意义|方面)|不好(?:意义|方面)|(?:不是说|并非|不算|并不是)不好|"
@@ -149,52 +185,70 @@ def _kana_hybrid_or_fragment_error(source: str, translation: str) -> str | None:
 
 
 def _non_authoritative_idol_error(source: str, translation: str) -> str | None:
-    """Return an error reason when translation corrupts an authoritative MLTD idol/album name."""
-    if "白石紬" in translation:
+    """Return an error reason when translation corrupts an authoritative MLTD idol/album/studio name."""
+    compact = translation.replace("\n", "")
+    for trad_name, canonical_name in TRADITIONAL_IDOL_NAME_TOKENS:
+        if trad_name in compact and translation != source:
+            return f"LLM output uses Traditional/Japanese kanji idol name {trad_name} instead of {canonical_name}"
+    if "白石紬" in compact:
         return "LLM output uses non-authoritative idol name 白石紬 instead of 白石䌷"
-    if "白石䋾" in translation:
+    if "白石䋾" in compact:
         return "LLM output uses non-authoritative idol name 白石䋾 instead of 白石䌷"
     for bad_emily in (
         "司徒亚特", "艾米莉‧斯图亚特", "艾米莉・斯图亚特",
         "艾米莉 斯图亚特", "艾米莉\u3000斯图亚特",
     ):
-        if bad_emily in translation and bad_emily not in source:
+        if bad_emily in compact and bad_emily not in source:
             return f"LLM output uses non-authoritative idol token {bad_emily} instead of 艾米莉·斯图亚特"
+    if "エミリー" in source:
+        for bad_em in ("エミリー", "艾米丽", "爱米莉", "爱米丽", "爱蜜莉", "艾蜜莉", "爱丽米莉"):
+            if bad_em in compact and bad_em not in source:
+                return f"LLM output uses non-authoritative Emily idol name {bad_em} instead of 艾米莉"
     for token in (
         "筿",
         "ソROCOレ", "ROCOレ", "索ROCO", "单ROCO", "ROCO集",
         "やよ伊", "まつ莉", "この美", "这个み",
     ):
-        if token in translation and token not in source:
+        if token in compact and token not in source:
             return f"LLM output uses non-authoritative idol/product token {token}"
-    if "ソロコレ" in source and "ROCO" in translation:
+    if "ソロコレ" in source and "ROCO" in compact:
         stripped = SOLO_CORRECTION_RE.sub("", source)
         if "ロコ" not in stripped and "ROCO" not in stripped:
             return "LLM output misrenders ソロコレ as ROCO instead of 个人精选"
     for bad_tsumugi in ("白石纺", "白石紡", "纺希", "䌷希", "阿纺", "小纺", "纺纺", "纺小姐", "䋾"):
-        if bad_tsumugi in translation and bad_tsumugi not in source:
+        if bad_tsumugi in compact and bad_tsumugi not in source:
             return f"LLM output uses non-authoritative idol name {bad_tsumugi} instead of 白石䌷"
     if ("紬" in source or "つむぎ" in source) and not any(k in source for k in ("紡", "つむぐ", "織", "糸")):
-        if "纺织" in translation or "紡織" in translation or ("纺" in translation and "纺" not in source):
+        if "纺织" in compact or "紡織" in compact or ("纺" in compact and "纺" not in source):
             return "LLM output uses 纺/纺织 for 紬 instead of 䌷"
-    if any(k in source for k in ("亜利沙", "ありさ", "アリサ")):
-        if "亜利沙" in translation or ("有栖" in translation and "有栖" not in source) or any(
-            bad in translation and bad not in source for bad in ("阿莉莎", "亚丽莎", "亚利纱")
+    if any(k in source for k in ("亜利沙", "ありさ", "アリサ", "ありりーん")):
+        if (
+            "亜利沙" in compact
+            or ("有栖" in compact and "有栖" not in source)
+            or ("有纱" in compact and "紗" not in source)
+            or any(
+                bad in compact and bad not in source
+                for bad in (
+                    "阿莉莎", "亚丽莎", "亚利纱", "亚里沙", "阿利沙",
+                    "有利沙", "有里纱", "有理沙", "有里莎", "有利纱",
+                    "亚莉莎", "爱丽莎", "有莉莎", "啊莉莎", "有希莎",
+                )
+            )
         ):
             return "LLM output uses non-authoritative Arisa idol name instead of 松田亚利沙"
     if "あずさ" in TADOKORO_AZUSA_RE.sub("", source):
         azusa_spaced_ok = any(k in source for k in ("三浦\u3000あずさ", "三浦 あずさ")) and "三浦 梓" in translation
         if (
-            any(bad in translation and bad not in source for bad in ("あず沙", "あず莎"))
+            any(bad in compact and bad not in source for bad in ("あず沙", "あず莎"))
             or (
                 any(k in source for k in ("三浦あずさ", "三浦\u3000あずさ", "三浦 あずさ"))
-                and "三浦" in translation
-                and "三浦梓" not in translation
+                and "三浦" in compact
+                and "三浦梓" not in compact
                 and not azusa_spaced_ok
             )
-            or ("秋月" in translation and not any(k in source for k in ("秋月", "律子", "りつこ", "リツコ")))
-            or ("静香" in translation and not any(k in source for k in ("静香", "最上", "しずか", "シズカ")))
-            or ("瑞希" in translation and not any(k in source for k in ("瑞希", "真壁", "みずき", "ミズキ")))
+            or ("秋月" in compact and not any(k in source for k in ("秋月", "律子", "りつこ", "リツコ")))
+            or ("静香" in compact and not any(k in source for k in ("静香", "最上", "しずか", "シズカ")))
+            or ("瑞希" in compact and not any(k in source for k in ("瑞希", "真壁", "みずき", "ミズキ")))
         ):
             return "LLM output uses non-authoritative Azusa idol name instead of 三浦梓"
     if "まつり" in translation.replace("まつり湯", "").replace("まつり汤", ""):
@@ -202,33 +256,129 @@ def _non_authoritative_idol_error(source: str, translation: str) -> str | None:
     if "まつり" in source.replace("まつり湯", ""):
         matsuri_spaced_ok = any(k in source for k in ("徳川\u3000まつり", "徳川 まつり")) and "德川 茉莉" in translation
         if (
-            any(bad in translation and bad not in source for bad in ("小毬", "玛茜", "小松莉", "松莉"))
-            or (re.search(r"小祭(?![典坛祀])", translation) is not None and "小祭" not in source)
+            any(
+                bad in compact and bad not in source
+                for bad in (
+                    "小毬", "玛茜", "小松莉", "松莉",
+                    "马茨莉", "玛茨莉", "玛祖丽", "玛特莉", "玛茨琳",
+                    "祭典公主", "祭公主", "祭姬", "小松姬", "小松代", "小松丽",
+                    "祭莉", "祭里", "真莉莉", "小真理", "真祭", "茉莉莉",
+                )
+            )
+            or (re.search(r"小祭(?![典坛祀])", compact) is not None and "小祭" not in source)
             or (
                 any(k in source for k in ("徳川まつり", "徳川\u3000まつり", "徳川 まつり", "徳川茉莉"))
-                and "德川" in translation
-                and "德川茉莉" not in translation
+                and "德川" in compact
+                and "德川茉莉" not in compact
                 and not matsuri_spaced_ok
             )
         ):
             return "LLM output uses non-authoritative Matsuri idol name instead of 德川茉莉"
-    if "このみ" in source:
+    if "このみ" in source or "コノミ" in source:
         konomi_spaced_ok = any(k in source for k in ("馬場\u3000このみ", "馬場 このみ")) and "马场 木实" in translation
         if (
             any(
-                bad in translation and bad not in source
-                for bad in ("木乃美", "这乃", "马场木乃", "这个位美", "这位小美", "这位木实")
+                bad in compact and bad not in source
+                for bad in (
+                    "木乃美", "这乃", "この美", "这个み", "马场木乃", "这个位美", "这位小美", "这位木实",
+                    "马场好美", "马场此美", "歌奈美", "歌乃美", "可奈美", "可可美", "木野实",
+                    "木之美", "此乃美", "此木乃", "可妮米", "柯诺美", "科诺美", "小野美",
+                    "小此木", "这奈美", "这由美", "这个实", "木实实",
+                )
             )
-            or re.search(r"(?:这位|马场|阿)这美|(?<![这那])这美(?:小姐|前辈|桑|酱)", translation) is not None
-            or ("木下" in translation and not any(k in source for k in ("木下", "ひなた", "ヒナタ")))
+            or ("好姐姐" in compact and not any(x in source for x in ("いいお姉", "素敵なお姉", "優しいお姉")))
+            or re.search(
+                r"(?:这位|马场|阿)这美|(?<![这那])这美(?:小姐|前辈|桑|酱)|这个美(?![好丽艳妙景貌食德观感])",
+                compact,
+            )
+            is not None
+            or ("木下" in compact and not any(k in source for k in ("木下", "ひなた", "ヒナタ")))
+            or (
+                re.search(r"馬場[\s\u3000]*このみ|(?<![こそあど])このみ(?:さん|ちゃん|先生|お?姉|様|さま|っち|ん(?!な))", source) is not None
+                and "木实" not in compact
+            )
             or (
                 any(k in source for k in ("馬場このみ", "馬場\u3000このみ", "馬場 このみ"))
-                and "马场" in translation
-                and "马场木实" not in translation
+                and "马场" in compact
+                and "马场木实" not in compact
                 and not konomi_spaced_ok
             )
         ):
             return "LLM output uses non-authoritative Konomi idol name instead of 马场木实"
+    if any(k in source for k in ("のり子", "のりさん", "のりっぺ", "のーりーこ")):
+        noriko_bads = [
+            "福田纪子", "福田典子", "福田则子", "德莉亚音", "德利子", "德莉子",
+            "乃莉子", "诺丽子", "诺里子", "乃里子", "诺莉姐", "诺里姐", "诺里",
+            "诺莉", "海苔子", "法理子", "阿诺子", "法子子", "のり子",
+        ]
+        if "ノリコ" not in source:
+            noriko_bads.extend(["诺莉可", "诺莉子"])
+        if not any(x in source for x in ("紀子", "典子", "則子")):
+            noriko_bads.extend(["纪子", "典子", "则子"])
+        for bad_nor in noriko_bads:
+            if bad_nor in compact and bad_nor not in source:
+                return f"LLM output uses non-authoritative Noriko idol name {bad_nor} instead of 福田法子"
+    if "エレナ" in source:
+        for bad_el in (
+            "艾蕾娜", "艾莲娜", "埃莱娜", "爱莲娜", "艾丽娜", "艾雷娜",
+            "绘莲娜", "艾莉娜", "艾伦娜", "埃琳娜", "埃列娜", "爱丽娜",
+            "小埃莱娜", "エレナ",
+        ):
+            if bad_el in compact and bad_el not in source:
+                return f"LLM output uses non-authoritative Elena idol name {bad_el} instead of 岛原艾琳娜"
+        if "伊利亚" in compact and "イリヤ" not in source:
+            return "LLM output uses non-authoritative Elena idol name 伊利亚 instead of 艾琳娜"
+    if "ジュリア" in source and "ジュリアン" not in source:
+        for bad_ju in ("ジュリア", "朱莉娅", "朱莉亚"):
+            if bad_ju in compact and bad_ju not in source:
+                return f"LLM output uses non-authoritative Julia idol name {bad_ju} instead of 茱莉亚"
+    if "昴" in source:
+        if any(bad in compact and bad not in source for bad in ("永吉昂", "小昂", "阿昂")) or (
+            "昂" in compact
+            and not any(w in compact for w in ("昂首", "昂扬", "高昂", "激昂", "低昂"))
+            and re.search(r"(?<![高激低轩气])昂(?![首扬然藏贵])", compact) is not None
+        ):
+            return "LLM output uses non-authoritative Subaru idol kanji 昂 instead of 永吉昴"
+    if (
+        "杏奈" in source
+        or ("アンナ" in source and not any(x in source for x in ("ドクター", "バニーポリス", "博士")) and "Dr." not in translation)
+    ) and "安娜" in compact and "安娜" not in source:
+        return "LLM output uses non-authoritative Anna idol name 安娜 instead of 望月杏奈"
+    if "ひなた" in source.replace("ひなたぼっこ", "").replace("ひなたまつり", ""):
+        for bad_hi in ("木下阳向", "木下雏田", "小雏田", "ひなた"):
+            if bad_hi in compact and bad_hi not in source:
+                return f"LLM output uses non-authoritative Hinata idol name {bad_hi} instead of 木下日向"
+    if "歌織" in source and any(b in compact for b in ("樱守可织", "樱守香织")):
+        return "LLM output uses non-authoritative Kaori idol name instead of 樱守歌织"
+    if "志保" in source and any(b in compact for b in ("北泽诗穗", "北泽诗织")):
+        return "LLM output uses non-authoritative Shiho idol name instead of 北泽志保"
+    if "アオノリ" in source:
+        for bad_ao in ("阿奥诺里", "奥诺里", "阿欧诺里", "阿乌诺利", "アオノリ"):
+            if bad_ao in compact and bad_ao not in source:
+                return f"LLM output uses non-authoritative Aonori name {bad_ao} instead of 青海苔"
+    if "ミラソニ" in source:
+        for bad_ms in ("ミラソニ", "蜜拉索尼", "MiraSoni"):
+            if bad_ms in compact and bad_ms not in source:
+                return f"LLM output uses non-authoritative MiraSoni name {bad_ms} instead of 米拉索尼"
+    for bad_cv in ("高桥ミナミ", "髙桥ミナミ", "髙橋ミナミ"):
+        if bad_cv in compact:
+            return f"LLM output uses non-authoritative CV name {bad_cv} instead of 高桥未奈美"
+    if "765プロ" in source and "765プロデューサー" not in source:
+        for bad_pro in (
+            "765制作人", "765专业", "765职业", "765制作公司", "765制造所", "765制作所",
+            "765事务部", "765位制作人", "765名专业", "765位专业", "第765位",
+            "765名职业", "765位职业", "765プ", "765PROCO", "765制作人ROCO", "765艺剧场",
+        ):
+            if bad_pro in compact and bad_pro not in source:
+                return f"LLM output uses non-authoritative studio name {bad_pro} for 765プロ instead of 765事务所"
+    if "961プロ" in source and "961プロデューサー" not in source:
+        for bad_pro in ("961制作人", "961专业", "961职业", "961位制作人", "961名专业", "961制作公司"):
+            if bad_pro in compact and bad_pro not in source:
+                return f"LLM output uses non-authoritative studio name {bad_pro} for 961プロ instead of 961事务所"
+    if source.rstrip().endswith("\nなお") and translation.rstrip().split("\n")[-1].strip() in {
+        "另外", "另外，", "啊，等等", "然后", "还有", "顺带一提",
+    }:
+        return "LLM output mistranslates Nao sign-off なお as conjunction instead of 奈绪"
     if "スタイルドロップ" in source:
         for bad_drop in (
             "大师造型水滴", "大师风格掉落", "大师风格微滴",
@@ -304,6 +454,69 @@ def repair_numeric_separators(source: str, translation: str) -> str:
     return TRANSLATED_GROUPED_NUMBER.sub(restore, translation)
 
 
+REQUIRED_DOMAIN_TERMS = (
+    ("閃光☆HANABI団", "闪光☆HANABI团"),
+    ("期間限定オートライブPASS", "限时自动演出通行证"),
+    ("Angelステップ", "Angel舞步"),
+    ("Fairyステップ", "Fairy舞步"),
+    ("Princessステップ", "Princess舞步"),
+    ("Angelハーモニー", "Angel和声"),
+    ("Angelテクニック", "Angel技巧"),
+)
+
+FORBIDDEN_UI_TERMS = (
+    ("期間限定オートライブPASS", ("限时自动演出PASS", "自动直播", "自动实况"), "限时自动演出通行证"),
+    ("ミリコレ", ("百万音乐", "百万收集"), "百万收藏"),
+    ("楽天イーグルス", ("乐天老鹰", "乐天鹰"), "乐天金鹰"),
+    ("スパークドリンク", ("能量饮料", "火花饮料", "活力饮料", "气泡饮料"), "充电饮料"),
+    ("ライブチケット", ("演唱会门票", "演出门票", "入场券", "Live演出门票", "演出道具", "演唱会入场券"), "演唱会券"),
+    ("ユニット編成", ("队伍编组", "队伍编制", "编队"), "组合编成"),
+    ("ラウンジ", ("休息室", "酒廊"), "社交厅"),
+    ("２次元コード", ("２维码", "2维码", "2次元码", "QR码"), "二维码"),
+    ("2次元コード", ("２维码", "2维码", "2次元码", "QR码"), "二维码"),
+    ("自分のコードを表示", ("显示自己的代码",), "显示自己的二维码"),
+    ("次回以降表示しない", ("以后不再显示",), "下次起不再显示"),
+    ("弊社サポートセンター", ("我司客服", "客服支持中心"), "本公司客服中心"),
+    ("引き継ぎ", ("引继", "数据转移"), "数据继承"),
+)
+
+
+def _client_terminology_error(source: str, translation: str) -> str | None:
+    """Enforce consistent Client UI and canonical unit/skill terminology."""
+    compact = re.sub(r"\s+", "", translation)
+    for src_term, canonical in REQUIRED_DOMAIN_TERMS:
+        if src_term in source and canonical not in compact:
+            return f"LLM output uses non-authoritative {src_term} translation instead of {canonical}"
+    if (
+        "期間限定オートライブPASS" in source
+        and "オートライブPASS" not in source.replace("期間限定オートライブPASS", "")
+        and "自动演出PASS" in translation
+    ):
+        return "LLM output uses inconsistent UI term 自动演出PASS for 期間限定オートライブPASS (use 限时自动演出通行证)"
+    for src_term, bad_terms, canonical in FORBIDDEN_UI_TERMS:
+        if src_term in source:
+            for bad in bad_terms:
+                if bad in translation and bad not in source:
+                    return f"LLM output uses inconsistent UI term {bad} for {src_term} (use {canonical})"
+    if "マスターレッスン" in source and any(b in compact for b in ("大师特训", "大师课程")):
+        return "LLM output uses inconsistent UI term for マスターレッスン (use 明星课程)"
+    if "ラウンジ" in source and "マスター" in source:
+        for bad in ("室长", "团长", "主控", "厅主"):
+            if bad in translation:
+                return f"LLM output uses inconsistent UI term {bad} for lounge マスター (use 厅长)"
+    if "ユニット" in source and "団体" not in source and "团体" in translation:
+        return "LLM output uses inconsistent UI term 团体 for ユニット (use 组合)"
+    if "元気" in source and "体力" not in source and "体力" in translation:
+        return "LLM output uses inconsistent UI term 体力 for 元気 (use 活力)"
+    if source.strip() == "引き継ぎ" and translation.strip() != "数据继承":
+        return "LLM output uses inconsistent UI term for 引き継ぎ (use 数据继承)"
+    if source.strip() == "お問い合わせ" and translation.strip() != "联系我们":
+        return "LLM output uses inconsistent UI term for お問い合わせ (use 联系我们)"
+    if "ゲスト" in source and "助演" in translation:
+        return "LLM output uses inconsistent UI term 助演 for ゲスト (use 嘉宾)"
+    return None
+
+
 def validate_translation(source: str, translation: str) -> None:
     if any(char in translation for char in ("|", "^", "\0")):
         raise ValueError("LLM output contains a reserved BI delimiter")
@@ -346,6 +559,14 @@ def validate_translation(source: str, translation: str) -> None:
         raise ValueError("LLM output contains translator meta text")
     if any(term in translation and term not in source for term in TW_UNCONDITIONAL):
         raise ValueError("LLM output contains non-mainland zh-TW lexicon")
+    if TW_BORROW_RE.search(translation) and not TW_BORROW_RE.search(source):
+        raise ValueError("LLM output contains non-mainland zh-TW lexicon (藉*)")
+    if "、】【" in translation and "、】【" not in source:
+        raise ValueError("LLM output contains malformed trailing brackets 、】【")
+    if re.search(r"<color=[^>]*></color>", translation) and not re.search(r"<color=[^>]*></color>", source):
+        raise ValueError("LLM output contains empty <color=...></color> tag")
+    if re.sub(r"\\\d+\\|\\[nrt]|\\_", "", translation).count("\\") > re.sub(r"\\\d+\\|\\[nrt]|\\_", "", source).count("\\"):
+        raise ValueError("LLM output contains stray backslash outside \\NN\\ emoticon code")
     idol_error = _non_authoritative_idol_error(source, translation)
     if idol_error:
         raise ValueError(idol_error)
@@ -363,6 +584,26 @@ def validate_translation(source: str, translation: str) -> None:
     semantic_error = _semantic_mistranslation_error(source, translation)
     if semantic_error:
         raise ValueError(semantic_error)
+    term_error = _client_terminology_error(source, translation)
+    if term_error:
+        raise ValueError(term_error)
+    if translation != source:
+        no_credits = SHINJITAI_CREDIT_STRIP_RE.sub("", PROTECTED_TOKENS.sub("", translation))
+        prose_clean = SHINJITAI_PROSE_STRIP_RE.sub("", QUOTED_TEXT_RE.sub("", no_credits))
+        for tw_term in ALWAYS_FORBIDDEN_TW_TERMS:
+            if tw_term in prose_clean or any(
+                tw_term in quoted and quoted not in source
+                for quoted in QUOTED_TEXT_RE.findall(no_credits)
+            ):
+                raise ValueError(f"LLM output contains non-mainland zh-TW lexicon ({tw_term})")
+        if "紬" in prose_clean or any(
+            "紬" in quoted and quoted not in source
+            for quoted in QUOTED_TEXT_RE.findall(no_credits)
+        ):
+            raise ValueError("LLM output contains unconverted Japanese kanji 紬 (use 䌷)")
+        for jp_kanji, simplified in SHINJITAI_TO_SIMPLIFIED.items():
+            if jp_kanji != "紬" and jp_kanji in prose_clean:
+                raise ValueError(f"LLM output contains unconverted Japanese kanji {jp_kanji} (use {simplified})")
 
 
 def source_id(value: str) -> str:
@@ -384,6 +625,25 @@ def records(value: Any, path: str = "") -> Iterator[tuple[str, dict[str, Any]]]:
 
 def eligible(row: dict[str, Any]) -> bool:
     return not row.get("zh", "") and row.get("status") in (None, "untranslated")
+
+
+NON_EDITABLE_CATALOGUE_KINDS = frozenset({
+    "mltd-apk-ui-strings",
+    "mltd-apk-resource-inventory",
+    "mltd-client-source-text",
+})
+
+
+def _is_editable_catalogue(document: Any) -> bool:
+    """Ignore baked-atlas descriptors and discovery staging payloads."""
+    if not isinstance(document, dict):
+        return False
+    if document.get("kind") in NON_EDITABLE_CATALOGUE_KINDS:
+        return False
+    policy = document.get("policy")
+    if isinstance(policy, dict) and policy.get("baked_pixels_are_not_text_records") is True:
+        return False
+    return True
 
 
 class TranslationPipeline:
@@ -447,7 +707,11 @@ class TranslationPipeline:
 
     def collect(self, output: Path) -> dict[str, int | str]:
         # Resolve identical Japanese sources locally before spending provider tokens.
-        documents = [(path, read_json(path)) for path in self.source_files()]
+        documents = [
+            (path, document)
+            for path in self.source_files()
+            if _is_editable_catalogue(document := read_json(path))
+        ]
         repaired = 0
         for path, document in documents:
             changed = False
@@ -503,6 +767,8 @@ class TranslationPipeline:
         with output.open("w", encoding="utf-8", newline="\n") as stream:
             for path in self.source_files():
                 document = read_json(path)
+                if not _is_editable_catalogue(document):
+                    continue
                 for key_path, row in records(document):
                     source = row["ja"]
                     if not eligible(row) or not source:
@@ -570,6 +836,8 @@ class TranslationPipeline:
         updated = 0
         for path in self.source_files():
             document = read_json(path)
+            if not _is_editable_catalogue(document):
+                continue
             changed = False
             for _, row in records(document):
                 source = str(row.get("ja", ""))

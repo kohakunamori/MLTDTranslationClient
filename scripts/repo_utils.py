@@ -20,6 +20,11 @@ REPOSITORY_RE = re.compile(r"[\w.-]+/[\w.-]+")
 VERSION_RE = re.compile(r"\d+(?:\.\d+)+")
 BUILTIN_MANIFEST_RELATIVE = "manifests/apk-builtin.manifest.json"
 BOTTOM_BAR_MANIFEST_RELATIVE = "manifests/bottom-bar.manifest.json"
+NON_TRANSLATABLE_CATALOGUE_NAMES = frozenset({
+    "apk-ui-strings-zhcn.json",
+    "automatic-text-request.json",
+    "resource-inventory.json",
+})
 
 
 @dataclass(frozen=True, slots=True)
@@ -75,8 +80,14 @@ class RepositoryLayout:
         return self.client_directory(version) / "runtime-bi-zhcn.json"
 
     def translation_sources(self, version: str | None = None) -> list[Path]:
+        """Return editable Client text catalogues, excluding discovery staging and baked atlases."""
         directory = self.client_directory(version) if version else self.localization
-        return sorted(directory.rglob("*.json"))
+        return sorted(
+            path
+            for path in directory.rglob("*.json")
+            if path.name not in NON_TRANSLATABLE_CATALOGUE_NAMES
+            and "discovery" not in path.relative_to(self.localization).parts
+        )
 
     def runtime_catalogues(self) -> list[Path]:
         return sorted(self.localization.glob("*/runtime-bi-zhcn.json"))

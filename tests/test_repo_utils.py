@@ -51,6 +51,28 @@ class RepositoryUtilityTests(unittest.TestCase):
                 '{\n  "a": "剧场",\n  "z": 1\n}\n'.encode(),
             )
 
+    def test_translation_sources_excludes_baked_atlas_and_discovery_files(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            expected = [
+                root / "localization/9.0.300/source.json",
+                root / "localization/9.0.400/component-text-zhcn.json",
+                root / "localization/9.0.400/runtime-bi-zhcn.json",
+                root / "localization/shared/apk-text-zhcn.json",
+            ]
+            ignored = [
+                root / "localization/9.0.400/apk-ui-strings-zhcn.json",
+                root / "localization/9.0.400/discovery/automatic-text-request.json",
+                root / "localization/9.0.400/discovery/resource-inventory.json",
+                root / "localization/discovery/apk-text-zhcn.json",
+            ]
+            for path in expected + ignored:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("{}", encoding="utf-8")
+
+            layout = repo_utils.RepositoryLayout(root)
+            self.assertEqual(layout.translation_sources(), sorted(expected))
+
 
 if __name__ == "__main__":
     unittest.main()

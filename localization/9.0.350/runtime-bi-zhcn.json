@@ -266,7 +266,7 @@
       "key": "ld_connection_error_message_-41002",
       "ja": "このアカウントは利用停止されております\nお心当たりのない方は大変お手数ですが\n弊社サポートセンターまでお問い合わせください\n\nタイトル画面内メニュー＞お問い合わせ",
       "source_sha256": "2f8b0b3ccca609d6ee12edbd65e237b129d75d7b1f8c2d98cbef757df171e8eb",
-      "zh": "该账号已被暂停使用。\n若您对此有疑问，给您带来不便深表歉意，\n请联系我司客服中心。\n\n标题画面内的菜单＞联系我们",
+      "zh": "该账号已被暂停使用。\n若您对此有疑问，给您带来不便深表歉意，\n请联系本公司客服中心。\n\n标题画面内的菜单＞联系我们",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -296,7 +296,7 @@
       "key": "ld_connection_error_message_-41102",
       "ja": "マスター権限を譲渡されたため\nラウンジから退室することができませんでした",
       "source_sha256": "ea4fa00a7a356aeaa8a0a89f4ff058523e0d86c4878bbaf3db76be315310c3cb",
-      "zh": "由于已被转让室长权限，\n未能退出休息室",
+      "zh": "由于已被转让厅长权限，\n未能退出社交厅",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -306,7 +306,7 @@
       "key": "ld_connection_error_message_-41103",
       "ja": "別のラウンジに所属中または申請中のため\n実行することができませんでした",
       "source_sha256": "3376e2f0d777edf86b50908fd7d59e94414315612c1c4b0747e77cc447e52db5",
-      "zh": "由于已属于或正在申请其他休息室，\n未能执行此操作",
+      "zh": "由于已属于或正在申请其他社交厅，\n未能执行此操作",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -326,7 +326,7 @@
       "key": "ld_connection_error_message_-41105",
       "ja": "このラウンジに招待されていません",
       "source_sha256": "f4fac9ef33c659c47caeedb01c0b4544dbb73786de77c19d9cf28822329a5fc8",
-      "zh": "未受到该休息室的邀请",
+      "zh": "未受到该社交厅的邀请",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -336,7 +336,7 @@
       "key": "ld_connection_error_message_-41106",
       "ja": "ラウンジが定員に達しているため\n実行することができませんでした",
       "source_sha256": "d944a7fcede368330d860706e1af883509895ee4700da37f2dfb2148c037d1b7",
-      "zh": "休息室已达人数上限，\n未能执行该操作",
+      "zh": "社交厅已达人数上限，\n未能执行该操作",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -346,7 +346,7 @@
       "key": "ld_connection_error_message_-41107",
       "ja": "ラウンジ在籍日数が足りないため\n立候補することができませんでした",
       "source_sha256": "45d3daa4a2d596a419a09fabcbd9a0b0c9b20da6264cd2c5eec77c013bbcf710",
-      "zh": "加入休息室的天数不足，\n无法参与竞选",
+      "zh": "加入社交厅的天数不足，\n无法参与竞选",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -366,7 +366,7 @@
       "key": "ld_connection_error_message_-41109",
       "ja": "自分がラウンジに所属していません",
       "source_sha256": "acf27c29d2e361ad0623a3dfec2a26851fa84b9dfab393a3a6c1cd3b742289b6",
-      "zh": "自身未加入任何休息室",
+      "zh": "自身未加入任何社交厅",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -376,7 +376,7 @@
       "key": "ld_connection_error_message_-41110",
       "ja": "このユーザーはラウンジ招待上限に達しているため\n招待できませんでした",
       "source_sha256": "7ce3ec800c7cf9689c28f365c64c0ba5cc3b1a1796e51043b93798ff156dd748",
-      "zh": "该用户的休息室邀请已达上限，\n未能成功邀请",
+      "zh": "该用户的社交厅邀请已达上限，\n未能成功邀请",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -396,7 +396,7 @@
       "key": "ld_connection_error_message_-41112",
       "ja": "ラウンジが見つかりませんでした\nタイトルに戻ります",
       "source_sha256": "25707b5d8e727c04d2526fd8c0b49c5312bb1d2e453fad56bb6395ddc6e3c589",
-      "zh": "未找到休息室\n即将返回标题界面",
+      "zh": "未找到社交厅\n即将返回标题界面",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -406,7 +406,7 @@
       "key": "ld_connection_error_message_-41113",
       "ja": "このラウンジは、申請中のユーザーが一定数に達しているため\n申請できませんでした",
       "source_sha256": "7829acdb2f31cce902c8989fa5ef9a3a99b2a6efc696c7b350301913df5aea4c",
-      "zh": "该休息室的申请中用户已达到上限，\n无法提交申请",
+      "zh": "该社交厅的申请中用户已达到上限，\n无法提交申请",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -416,7 +416,7 @@
       "key": "ld_connection_error_message_-41114",
       "ja": "ラウンジが見つかりませんでした\nタイトルに戻ります",
       "source_sha256": "25707b5d8e727c04d2526fd8c0b49c5312bb1d2e453fad56bb6395ddc6e3c589",
-      "zh": "未找到休息室\n即将返回标题界面",
+      "zh": "未找到社交厅\n即将返回标题界面",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -426,7 +426,7 @@
       "key": "ld_connection_error_message_-41115",
       "ja": "ラウンジが解散されています\nタイトルに戻ります",
       "source_sha256": "f15177878aa99c447edee98dd02ee0515f5e7d012d4ad62748e1eb42617210f4",
-      "zh": "休息室已被解散\n即将返回标题画面",
+      "zh": "社交厅已被解散\n即将返回标题画面",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -436,7 +436,7 @@
       "key": "ld_connection_error_message_-41116",
       "ja": "すでに他のメンバーがマスターに立候補したため\nマスターになれませんでした",
       "source_sha256": "2179dc274c5dbca4d2e2d741e1a9ebbaff40745deb6c35976e41679af99eb1d2",
-      "zh": "由于已有其他成员参选团长，\n未能成为团长",
+      "zh": "由于已有其他成员参选厅长，\n未能成为厅长",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -476,7 +476,7 @@
       "key": "ld_connection_error_message_-41302",
       "ja": "ライブチケットが不足しています",
       "source_sha256": "4477fd994924072f59d7d3582c56c833635667cc81d8ca99e8924d137b31efd1",
-      "zh": "演唱会门票不足",
+      "zh": "演唱会券不足",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -1336,7 +1336,7 @@
       "key": "ld_connection_error_message_-42516",
       "ja": "有効な期間限定オートライブPASSがありません",
       "source_sha256": "23819c75380314bbe3f49865b06e04bfbe535440c038c74a6120ad951ae3eec0",
-      "zh": "没有有效的限时自动演出PASS",
+      "zh": "没有有效的限时自动演出通行证",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -1686,7 +1686,7 @@
       "key": "ld_connection_error_message_-43904",
       "ja": "元気が全快状態のため、これ以上は回復できません",
       "source_sha256": "0f13de35052989a7d9671235a27ab3146997ef6ec66bdbcb670d594ff295cae8",
-      "zh": "体力已完全恢复，无法继续恢复",
+      "zh": "活力已完全恢复，无法继续恢复",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -2136,7 +2136,7 @@
       "key": "ld_connection_error_message_-46005",
       "ja": "ライブチケットは使用出来ません",
       "source_sha256": "ccb74027e4ecc3064025c9d1a184c180b09466df31c9a020037a3a03a844192b",
-      "zh": "无法使用Live演出门票",
+      "zh": "无法使用演唱会券",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -2166,7 +2166,7 @@
       "key": "ld_connection_error_message_-46008",
       "ja": "イベント期間中のため解散できません\n※ラウンジに所属しているメンバーが「マスターのみ」の状態であれば、ラウンジの解散は可能となります",
       "source_sha256": "561484ef2ba43eda3ce9f0efacebe7207e07a22da5bd11bf0ac1f84a5f56c4e2",
-      "zh": "活动期间无法解散\n※如果休息室所属成员处于“仅限室长”的状态，则可以解散休息室",
+      "zh": "活动期间无法解散\n※如果社交厅所属成员处于“仅限厅长”的状态，则可以解散社交厅",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -2828,7 +2828,7 @@
       "key": "ld_connection_error_message_-49991",
       "ja": "エントリーを行うには引き継ぎ設定が必要です\nナビ内「引き継ぎ」より引き継ぎ設定を行ってください",
       "source_sha256": "07d8e9291ec162350c8a715626ddb405f00599776a10fd09e1f68e1115fc27e6",
-      "zh": "报名需要进行引继设置\n请从导航栏中的“引继”进行引继设置",
+      "zh": "报名需要进行数据继承设置\n请从导航栏中的“数据继承”进行数据继承设置",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -2878,7 +2878,7 @@
       "key": "ld_connection_error_message_-49996",
       "ja": "このアカウントではエントリーが行えません\nお心当たりのない方は大変お手数ですが\n弊社サポートセンターまでお問い合わせください",
       "source_sha256": "78588cd117c99c0622b063bf4b0b3e1ca054c5e93631994c6bf7c7e59324f198",
-      "zh": "此账号无法报名。\n若对此有疑问，给您带来不便我们深感抱歉，\n请联系本公司客服支持中心。",
+      "zh": "此账号无法报名。\n若对此有疑问，给您带来不便我们深感抱歉，\n请联系本公司客服中心。",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -3148,7 +3148,7 @@
       "key": "ld_connection_error_message_-69004",
       "ja": "このアカウントではプレイできません\nお心当たりのない方は大変お手数ですが\n弊社サポートセンターまでお問い合わせください",
       "source_sha256": "005adbcd3c659e4836b75c4bfed49de5a017332b81a8d0c55a9139e89f457133",
-      "zh": "无法使用该账号游玩\n如果您对此并无头绪，十分抱歉给您带来麻烦，\n请联系我司客服中心",
+      "zh": "无法使用该账号游玩\n如果您对此并无头绪，十分抱歉给您带来麻烦，\n请联系本公司客服中心",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -3988,7 +3988,7 @@
       "key": "common_footer_10",
       "ja": "ユニット編成",
       "source_sha256": "c51b93413a6c9a3857aa8a079bb421ea8e3d06db5204ed4a72b1a78a7b30e81d",
-      "zh": "队伍编组",
+      "zh": "组合编成",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -4018,7 +4018,7 @@
       "key": "common_footer_13",
       "ja": "マスターレッスン",
       "source_sha256": "4325671557af15835d7d9376e83d84e227d5cfd4f10832a3d075a248ec573317",
-      "zh": "大师特训",
+      "zh": "明星课程",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -4118,7 +4118,7 @@
       "key": "common_footer_25",
       "ja": "ゲスト",
       "source_sha256": "f5b3d17bf2bbd4e9c0b45b586bf1a33f6527b0ce408deb9be2063b4645770474",
-      "zh": "助演",
+      "zh": "嘉宾",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -4178,7 +4178,7 @@
       "key": "common_topics_default_tip_title",
       "ja": "スパークドリンク",
       "source_sha256": "55cc2dc340ffb8a40dd2c9cb5de27f2859238d8d95ca0e897c2a1aa8b4e44476",
-      "zh": "能量饮料",
+      "zh": "充电饮料",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -4188,7 +4188,7 @@
       "key": "common_topics_default_tip_msg",
       "ja": "スパークドリンクを使うと\n元気を回復できます",
       "source_sha256": "b38fe6fb45d39be6e5d7fd8883444a4d6d5e41faaf0e33d0e586260052c7de87",
-      "zh": "使用火花饮料\n可以恢复体力",
+      "zh": "使用充电饮料\n可以恢复活力",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -4916,7 +4916,7 @@
       "key": "common_camera_permission_msg_0",
       "ja": "２次元コードを読み取るには、カメラによるコードの認識が必要です",
       "source_sha256": "54bd65ba39e04e1eec3f7a4ce5b40358a44958889656bd12c8cefe9915f87aa9",
-      "zh": "读取２维码需要使用摄像头识别代码",
+      "zh": "读取二维码需要使用摄像头识别代码",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -4936,7 +4936,7 @@
       "key": "common_camera_permission_msg_1",
       "ja": "カメラの権限がないため、２次元コードリーダーを起動できませんでした\nカメラへの権限を変更しますか？",
       "source_sha256": "b0f4b4db5810c83e85fd344956ce97b1ced437e56b0ea72e811974a4c7211a39",
-      "zh": "由于没有相机权限，未能启动２维码扫描器。\n是否更改相机权限？",
+      "zh": "由于没有相机权限，未能启动二维码扫描器。\n是否更改相机权限？",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -4956,7 +4956,7 @@
       "key": "title_01",
       "ja": "引き継ぎ",
       "source_sha256": "4bc4ea3b0d1713630eee2e339e4ef69a6efdde0fa14bb6c3901e516a2b0ab22a",
-      "zh": "继承数据",
+      "zh": "数据继承",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -5023,7 +5023,7 @@
       "key": "title_menu_popup_12",
       "ja": "お問い合わせ",
       "source_sha256": "a6c63435d0bec6c253d8b7415d69c988346040a14e4eea4525e36ac6956d6cd9",
-      "zh": "联系客服",
+      "zh": "联系我们",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -5322,7 +5322,7 @@
       "key": "title_live_restart_01",
       "ja": "ライブ中にアプリが終了しました\n途中からライブを再開しますか？\n(元気やライブチケットは消費されません）",
       "source_sha256": "5b625cdb32709235a3d6c9caaeab898001c2752a2a016962d8c0eb97bc5cd434",
-      "zh": "演唱会进行时应用程序关闭了。\n要从中途继续演唱会吗？\n（不会消耗体力或演唱会入场券）",
+      "zh": "演唱会进行时应用程序关闭了。\n要从中途继续演唱会吗？\n（不会消耗活力或演唱会券）",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -5332,7 +5332,7 @@
       "key": "title_live_restart_01_b",
       "ja": "ライブ中にアプリが終了しました\n途中からライブを再開しますか？\n(元気やライブチケット、マニーなどは消費されません）",
       "source_sha256": "3bce3f6f29bcfddc5368a9186c60e012432bec9cb8aa025eeb429f32c6a8acc2",
-      "zh": "演出途中应用已退出\n要从中途重新开始演出吗？\n（不会消耗活力、演出演唱会门票、金币等）",
+      "zh": "演出途中应用已退出\n要从中途重新开始演出吗？\n（不会消耗活力、演唱会券、金币等）",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -5342,7 +5342,7 @@
       "key": "title_live_restart_01_c",
       "ja": "ライブ中にアプリが終了しました\n途中からライブを再開しますか？\n※元気やライブチケット、マニーなどは消費されません\n※動作が不安定な場合は、2Dでのプレイをお薦めします",
       "source_sha256": "f7927aa27c3fab5e02865a27611bc6007cc78119540a6581022dc4b99e31254e",
-      "zh": "演唱会中途应用程序已退出\n要从中途继续演唱会吗？\n※不会消耗活力、演出道具及金钱等\n※运行不稳定时，建议使用2D模式进行游玩",
+      "zh": "演唱会中途应用程序已退出\n要从中途继续演唱会吗？\n※不会消耗活力、演唱会券及金币等\n※运行不稳定时，建议使用2D模式进行游玩",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -5352,7 +5352,7 @@
       "key": "title_live_restart_02",
       "ja": "ライブを再開せず、劇場へ移動します\nここでライブを再開しなかった場合、あとからライブを再開することはできません\n(消費した元気やライブチケットも回復されません)\n\n本当によろしいですか？",
       "source_sha256": "abb1015eeb00bea0c8b4e128fe7e2bc0a7e43dd2aced9bbde96f41fd48c36e3b",
-      "zh": "不重新开始演出，直接返回剧场。\n如果此时不重新开始演出，之后将无法继续进行演出。\n（已消耗的活力与演出门票也不会恢复）\n\n确定要这样做吗？",
+      "zh": "不重新开始演出，直接返回剧场。\n如果此时不重新开始演出，之后将无法继续进行演出。\n（已消耗的活力与演唱会券也不会恢复）\n\n确定要这样做吗？",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -5362,7 +5362,7 @@
       "key": "title_live_restart_02_b",
       "ja": "ライブを再開せず、劇場へ移動します\nここでライブを再開しなかった場合、あとからライブを再開することはできません\n(消費した元気やライブチケット、マニーなども回復されません)\n\n本当によろしいですか？",
       "source_sha256": "154197f7ae4a23c5d76f694606b6eb4eac03b639c5b33e112110403374a850a1",
-      "zh": "不恢复演出，直接前往剧场。\n如果此时不恢复演出，之后将无法再次恢复。\n（消耗的体力、演出道具券以及金币等也不会返还）\n\n确定要这样做吗？",
+      "zh": "不恢复演出，直接前往剧场。\n如果此时不恢复演出，之后将无法再次恢复。\n（消耗的活力、演唱会券以及金币等也不会返还）\n\n确定要这样做吗？",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -5412,7 +5412,7 @@
       "key": "title_job_restart_01",
       "ja": "お仕事中にアプリが終了しました\n始めからお仕事を再開しますか？\n(元気は消費されません）",
       "source_sha256": "be1810e24afbd79c27fc45764bc1bfe7e51599254078c3c77291991d81a4f2fd",
-      "zh": "工作途中应用程序已关闭\n要从头重新开始工作吗？\n(不会消耗体力）",
+      "zh": "工作途中应用程序已关闭\n要从头重新开始工作吗？\n(不会消耗活力）",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -5422,7 +5422,7 @@
       "key": "title_job_restart_02",
       "ja": "お仕事を再開せず、劇場へ移動します\nここでお仕事を再開しなかった場合、あとからお仕事を再開することはできません\n(消費した元気やライブチケットも回復されません)\n\n本当によろしいですか？",
       "source_sha256": "6a656588f63eba93c18b74ed5cb8007c188f360e55ee26f477067a7a7de0a5d9",
-      "zh": "不重新开始工作，直接前往剧场。\n若此时不重新开始工作，之后将无法重新开始工作。\n（已消耗的活力与演出门票也不会恢复）\n\n确定要这样做吗？",
+      "zh": "不重新开始工作，直接前往剧场。\n若此时不重新开始工作，之后将无法重新开始工作。\n（已消耗的活力与演唱会券也不会恢复）\n\n确定要这样做吗？",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -6112,7 +6112,7 @@
       "key": "title_termsofservice_pu_msg02",
       "ja": "データ引き継ぎが行われました。\n利用規約、プライバシーポリシー、グローバルコンセントに\n同意してから本サービスをご利用ください。\nまた、未成年の方は、法定代理人（ご両親等）の同意が必要です。\n※ないようがわからないときは\nおうちのひとにがめんをみせてください。",
       "source_sha256": "7bae10465146505e52345e106689591750c10dce53fcb207b9efeb9e938334d5",
-      "zh": "已完成数据转移。\n请在同意使用条款、隐私政策及全球同意书后，\n再使用本服务。\n另外，未成年人需获得法定代理人（父母等）的同意。\n※如果看不懂内容，\n请把画面给家里的大人看。",
+      "zh": "已完成数据继承。\n请在同意使用条款、隐私政策及全球同意书后，\n再使用本服务。\n另外，未成年人需获得法定代理人（父母等）的同意。\n※如果看不懂内容，\n请把画面给家里的大人看。",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -6192,7 +6192,7 @@
       "key": "title_expo_mos_code_reader",
       "ja": "2次元コードリーダー",
       "source_sha256": "79ba310b9a413461eba9b526e9789ace52d7aa52c7416d94b34a2661a0b08b87",
-      "zh": "2维码扫描器",
+      "zh": "二维码扫描器",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -6202,7 +6202,7 @@
       "key": "title_expo_mos_mycode",
       "ja": "自分のコードを表示",
       "source_sha256": "c5c83c36873502d88e27e9e0cb3427e2085365ec25115ecc787968fbb7138619",
-      "zh": "显示自己的代码",
+      "zh": "显示自己的二维码",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -6222,7 +6222,7 @@
       "key": "title_expo_mos_mycode_title",
       "ja": "自分の2次元コード",
       "source_sha256": "6fbbcabe9f32fd01a33daf05177e6929eb4283649bfb85cfb29a54d25fd756e4",
-      "zh": "自己的2维码",
+      "zh": "自己的二维码",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -6261,7 +6261,7 @@
       "key": "title_expo_mos_code_error_message",
       "ja": "無効なコードです\nキャンペーン用の2次元コードをご利用ください",
       "source_sha256": "34f2ad08bfa5d5e29466bc6be3d2768daf85cbe61df445e1e0f84a7acd412d05",
-      "zh": "无效的代码\n请使用活动用的2维码",
+      "zh": "无效的代码\n请使用活动用的二维码",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"
@@ -6281,7 +6281,7 @@
       "key": "navi_takeover_title",
       "ja": "引き継ぎ",
       "source_sha256": "4bc4ea3b0d1713630eee2e339e4ef69a6efdde0fa14bb6c3901e516a2b0ab22a",
-      "zh": "继承数据",
+      "zh": "数据继承",
       "translatable": true,
       "status": "accepted",
       "translation_stage": "reused_exact_source"

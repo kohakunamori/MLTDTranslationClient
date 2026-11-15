@@ -424,7 +424,7 @@
     {
       "ja": "20000 円まで",
       "source_sha256": "7192db52275c0024ad880416aeef1be3917cb7be97cae279601620d54ae6dfbb",
-      "zh": "20000日圆为止",
+      "zh": "20000日元为止",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -556,7 +556,7 @@
     {
       "ja": "2次元コードリーダー",
       "source_sha256": "79ba310b9a413461eba9b526e9789ace52d7aa52c7416d94b34a2661a0b08b87",
-      "zh": "2维码扫描器",
+      "zh": "二维码扫描器",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -743,7 +743,7 @@
     {
       "ja": "5000 円まで",
       "source_sha256": "566bbb707724fdb8bde5df9e73c3d1aa724fe90239cd6e7abbd268b9a3319a05",
-      "zh": "5000日圆为止",
+      "zh": "5000日元为止",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -5561,7 +5561,7 @@
     {
       "ja": "カードアイコンタッチで手動で編成できます",
       "source_sha256": "16c5c1de638044683381f64fb10a6dfa1d63eb1405eaad366beeea277078dde4",
-      "zh": "点击卡片图示可手动编制卡组",
+      "zh": "点击卡片图标可手动编制卡组",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -8051,7 +8051,7 @@
     {
       "ja": "ハイスコアユニット",
       "source_sha256": "91d2def78e4970eb0c427fc66c251af45a54277a4e600afd61e1760e14755b5e",
-      "zh": "最高分团体",
+      "zh": "最高分组合",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -8062,7 +8062,7 @@
     {
       "ja": "ハイスコアユニットはありません",
       "source_sha256": "3c9b4ba6ee34665cf378627440fbf8e7668096d2603a39d7c58138061b2303ad",
-      "zh": "没有最高分团体",
+      "zh": "没有最高分组合",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -8660,7 +8660,7 @@
     {
       "ja": "プラチナスターピースと以下のアイテムを交換します\nよろしいですか",
       "source_sha256": "e8ec9a6a672e9fd5a86f64d2a1bad3b38266391639bc5787f1871e027c769eef",
-      "zh": "要用白金星碎片兑换以下道具吗？\n是否确认",
+      "zh": "要用白金星光碎片兑换以下道具吗？\n是否确认",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -9300,7 +9300,7 @@
     {
       "ja": "マスター\nレッスン",
       "source_sha256": "0d022805309c46111e52c54a5166d8f5a6c59bf807393f8fcd625cb775ff3e8b",
-      "zh": "大师\n课程",
+      "zh": "明星\n课程",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -9410,7 +9410,7 @@
     {
       "ja": "マスターレッスン",
       "source_sha256": "4325671557af15835d7d9376e83d84e227d5cfd4f10832a3d075a248ec573317",
-      "zh": "大师\n课程",
+      "zh": "明星\n课程",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -9874,7 +9874,7 @@
     {
       "ja": "ユニット",
       "source_sha256": "e4a686acf9cade364443084b17e21f54450835ae4fea39915463f37989a7415b",
-      "zh": "团体",
+      "zh": "组合",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -9885,7 +9885,7 @@
     {
       "ja": "ユニット\n<size=20>1</size>",
       "source_sha256": "ca9f60d44acc5c87aa32e3e5e6d9d862ff2e920591d68a0d09733814ad85d2a8",
-      "zh": "团体\n<size=20>1</size>",
+      "zh": "组合\n<size=20>1</size>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -9896,7 +9896,7 @@
     {
       "ja": "ユニット\n<size=20>2</size>",
       "source_sha256": "1dc56c41ecaa36e8951445affd516ce7fa54e6407e5ae2541018ab7e347826b2",
-      "zh": "团体\n<size=20>2</size>",
+      "zh": "组合\n<size=20>2</size>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -9907,7 +9907,7 @@
     {
       "ja": "ユニット\n<size=20>3</size>",
       "source_sha256": "4e1dc225fa54b10116c85ec21c0b654b2045448914a94187748815f699dc132a",
-      "zh": "团体\n<size=20>3</size>",
+      "zh": "组合\n<size=20>3</size>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -9918,7 +9918,7 @@
     {
       "ja": "ユニット\n<size=20>4</size>",
       "source_sha256": "a42727b9c90b9941606e6de709b559a503ae65f49ba090e6f7d96f3e7db8c64b",
-      "zh": "团体\n<size=20>4</size>",
+      "zh": "组合\n<size=20>4</size>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -9929,7 +9929,7 @@
     {
       "ja": "ユニット\n<size=20>5</size>",
       "source_sha256": "b8347720552590e95aff5610e5a00e7f648c07969686ba04cd5b06e68413c96a",
-      "zh": "团体\n<size=20>5</size>",
+      "zh": "组合\n<size=20>5</size>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -9940,7 +9940,7 @@
     {
       "ja": "ユニット\n<size=20>6</size>",
       "source_sha256": "2219ccac5d1c6a3ab519ab432c6b599e1da2bc9ec0885477a67c56481fe2d197",
-      "zh": "团体\n<size=20>6</size>",
+      "zh": "组合\n<size=20>6</size>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -9951,7 +9951,7 @@
     {
       "ja": "ユニット\n<size=20>7</size>",
       "source_sha256": "e15e019e180efbdc27e02b9bc6ceb64dc34dad4890724cc0a9a4dd41649d57f3",
-      "zh": "团体\n<size=20>7</size>",
+      "zh": "组合\n<size=20>7</size>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -9962,7 +9962,7 @@
     {
       "ja": "ユニット\n<size=20>8</size>",
       "source_sha256": "cf614868b52c63068aca98b19b2b321af145df9ae210a16824f92c639bed8ddf",
-      "zh": "团体\n<size=20>8</size>",
+      "zh": "组合\n<size=20>8</size>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -9973,7 +9973,7 @@
     {
       "ja": "ユニット\n<size=20>9</size>",
       "source_sha256": "8594a79f5d28cab22ffb0bf7ecdaff307801e581ee97fb0cc472851c9ca2b1d2",
-      "zh": "团体\n<size=20>9</size>",
+      "zh": "组合\n<size=20>9</size>",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -10017,7 +10017,7 @@
     {
       "ja": "ユニットをランダムに選出",
       "source_sha256": "f4f631b0a98383b6d7781e6927846c939bb6fbce79351d5b941641d291c5d1c4",
-      "zh": "随机选出团体",
+      "zh": "随机选出组合",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -10028,7 +10028,7 @@
     {
       "ja": "ユニットメンバー",
       "source_sha256": "d236953e6e76228129c1681d2d23272747d04da226dc9065cabcc993e8a0119f",
-      "zh": "团体成员",
+      "zh": "组合成员",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -10319,7 +10319,7 @@
     {
       "ja": "ライブ開演ボタンを押した時点で元気またはチケットが消費されます\nまた、選曲された楽曲が未ダウンロードの場合、ダウンロードも同時に行われます",
       "source_sha256": "fefbaa91568c194397228f8db4b222c1eaf91f936c804f58a72be69cb004c941",
-      "zh": "按下演唱会开演按钮时，将消耗体力或门票\n此外，若所选歌曲尚未下载，将同时进行下载",
+      "zh": "按下演唱会开演按钮时，将消耗活力或演唱会券\n此外，若所选歌曲尚未下载，将同时进行下载",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -10364,7 +10364,7 @@
     {
       "ja": "ラウンジの名前",
       "source_sha256": "2181daa65c233eb06aa247788a99b997e1d689b55e9029ce3535bead624c412f",
-      "zh": "休息室名称",
+      "zh": "社交厅名称",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -10409,7 +10409,7 @@
     {
       "ja": "ラウンジ名ラウンジ名",
       "source_sha256": "3464e6c80d0e910d6c63ca089d25598ef48d5245100f9b7c6f1115460bec4167",
-      "zh": "休息室名称休息室名称",
+      "zh": "社交厅名称社交厅名称",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -11888,7 +11888,7 @@
     {
       "ja": "元気が ○○ 回復します\n使用しますか？",
       "source_sha256": "f5b804bbced718acd14c904f6c808528adb3583e82081bdf2dfdb5f763bee2f9",
-      "zh": "将恢复○○体力\n要使用吗？",
+      "zh": "将恢复○○活力\n要使用吗？",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -11943,7 +11943,7 @@
     {
       "ja": "元気を ○○ 回復する！",
       "source_sha256": "72b4c1ef2958776c35798e502dd787b0d2e1a0986b784b8219f48cfa738b28b1",
-      "zh": "恢复○○体力！",
+      "zh": "恢复○○活力！",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -13770,7 +13770,7 @@
     {
       "ja": "対象カードをマスターランク0から4に上げるためには、\n別途プラチナスターピースが最大32個必要です",
       "source_sha256": "0365db9dcc9f82d60d32b028e0c2b946ed69dc750ac2bbfa4b50bbc1ddaff291",
-      "zh": "将目标卡片的大师阶级从0提升至4，\n另外最多需要32个白金之星碎片",
+      "zh": "将目标卡片的大师阶级从0提升至4，\n另外最多需要32个白金星光碎片",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -14888,7 +14888,7 @@
     {
       "ja": "撮影した写真は、ご使用された端末にのみ保存されます\n\nアプリの再インストールや、端末の機種変更の際のデータ引継ぎ時には保存されませんのでご注意ください",
       "source_sha256": "76e5a535c0e8dfe743849e4d8d25c90089d6e9cd15960af889aba78673c5aaa2",
-      "zh": "拍摄的照片仅会保存在您当前使用的设备中\n\n请注意，在重新安装应用或更换设备引继数据时，不会一并保存照片",
+      "zh": "拍摄的照片仅会保存在您当前使用的设备中\n\n请注意，在重新安装应用或更换设备继承数据时，不会一并保存照片",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -15320,7 +15320,7 @@
     {
       "ja": "期間限定オートライブPASS",
       "source_sha256": "06ae6d6d07d1a2612df5ed4284c639b79c5748e5ded2ca6298c5ec59cb18ffe3",
-      "zh": "限时自动演出PASS",
+      "zh": "限时自动演出通行证",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -16216,7 +16216,7 @@
     {
       "ja": "次回以降表示しない",
       "source_sha256": "364dec49cb541ee64eae4298243e09db484fceb0eff16e87896a0bfd849d4821",
-      "zh": "以后不再显示",
+      "zh": "下次起不再显示",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -19059,7 +19059,7 @@
     {
       "ja": "送信",
       "source_sha256": "a6c1ceaf4bee1719f37dc10818dd8ff5e3fb3b597255b71608de2aa5cb351b72",
-      "zh": "传送",
+      "zh": "发送",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -19892,7 +19892,7 @@
     {
       "ja": "（アイテム名）を使用して\n元気が ○○ 回復しました",
       "source_sha256": "84f1d4257ad2ae78a91b203b561ec3b99dd842fc7266c57f15bfc4d3e51e0105",
-      "zh": "使用（道具名称），\n恢复了○○体力",
+      "zh": "使用（道具名称），\n恢复了○○活力",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -19925,7 +19925,7 @@
     {
       "ja": "２次元コードリーダー",
       "source_sha256": "fefd868b0091b08c4ef058d138c3d8afe01ace34338c4b2cdb147a2dd504657d",
-      "zh": "QR码读取器",
+      "zh": "二维码扫描器",
       "status": "accepted",
       "observed_versions": [
         "9.0.100",
@@ -20067,7 +20067,7 @@
     },
     {
       "ja": "同じユニット編成とゲストアイドルで\nこの楽曲をもう一度プレイしますか？",
-      "zh": "要用相同的编队和嘉宾偶像\n再次演奏这首乐曲吗？",
+      "zh": "要用相同的组合编成和嘉宾偶像\n再次演奏这首乐曲吗？",
       "status": "accepted",
       "source_sha256": "5ff1efec8fff578498c7e3e65748961aa18ee2a958f17173aff8e448f4b2a414"
     },
@@ -20127,7 +20127,7 @@
     },
     {
       "ja": "ライブチケット所持数",
-      "zh": "演唱会门票持有数",
+      "zh": "演唱会券持有数",
       "status": "accepted",
       "source_sha256": "aeafd3d07ac3d33f35b165a2e1abcc9e54bb753216cef29c821d1c9ab777f675"
     },

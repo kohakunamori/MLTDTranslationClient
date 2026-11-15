@@ -67,6 +67,67 @@ class TranslationPipelineTests(unittest.TestCase):
             with self.subTest(translation=translation), self.assertRaises(ValueError):
                 pipeline.validate_translation('続ける {0}', translation)
 
+    def test_hardened_tw_shinjitai_idol_studio_nao_and_markup_gates(self):
+        bad_cases = (
+            # Hardened TW / borrowing / traditional tokens
+            ('ありがとう', '感謝你'),
+            ('みんな全員集合', '大家全員集合'),
+            ('これにより', '藉着这次机会'),
+            ('劇中では', '於剧中登场'),
+            ('頑張ろう', '一起拚命吧'),
+            ('お姉ちゃん', '大姊'),
+            # Shinjitai / traditional idol names & newline-split evasion
+            ('佐竹美奈子と佐竹美奈子…じゃない、佐竹紗代子じゃない横山奈緒！', '高山紗代子'),
+            ('徳川まつりです', '徳川茉莉'),
+            ('大神環です', '大神環'),
+            ('髙橋ミナミ', '髙橋未奈美'),
+            ('髙橋ミナミ', '高桥ミナミ'),
+            # Idol names + newline-split evasions
+            ('エミリー', '艾米丽'),
+            ('松田亜利沙', '亚里\n沙'),
+            ('徳川まつり', '小\n祭'),
+            ('馬場このみ', '这位\n这美小姐'),
+            ('福田のり子', '福田纪子'),
+            ('福田のり子', '诺\n莉子'),
+            ('島原エレナ', '岛原艾蕾\n娜'),
+            ('ジュリア', '朱莉亚'),
+            ('永吉昴', '永吉\n昂'),
+            ('望月杏奈', '望月安娜'),
+            ('木下ひなた', '木下雏田'),
+            ('桜守歌織', '樱守香织'),
+            ('北沢志保', '北泽诗穗'),
+            # Mascot, unit shorthand, 765/961プロ, Nao sign-off
+            ('アオノリだよ', '阿奥\n诺里哦'),
+            ('ミラソニ', '蜜拉索尼'),
+            ('765プロのみんな', '765制\n作人的大家'),
+            ('961プロのアイドル', '961专业的偶像'),
+            ('よろしくね！\nなお', '请多关照哦！\n另外'),
+            # Malformed markup / stray backslashes
+            ('テスト', '测试<color=#ff0000></color>'),
+            ('テスト', '测试、】【'),
+            ('テスト\\01\\', '测试\\01\\\\n'),
+        )
+        for source_text, bad_zh in bad_cases:
+            with self.subTest(source=source_text, bad_zh=bad_zh), self.assertRaises(ValueError):
+                pipeline.validate_translation(source_text, bad_zh)
+
+        good_hardened_cases = (
+            ('福田のり子とのり子さん', '福田法子与法子小姐'),
+            ('作中のノリコ', '作品中的诺莉可'),
+            ('ドクター・アンナ', 'Dr. Anna'),
+            ('アンナ博士の実験', '安娜博士的实验'),
+            ('ジュリアンと呼ぶわ', '叫你朱利安吧'),
+            ('アオノリとミラソニ', '青海苔与米拉索尼'),
+            ('765プロと765プロデューサー', '765事务所与765制作人'),
+            ('よろしくね！\nなお', '请多关照哦！\n奈绪'),
+            ('このみかんとひなたぼっこ', '这个橘子与晒太阳'),
+            ('まつり湯へようこそ', '欢迎来到まつり汤'),
+            ('テスト\\01\\', '测试\\01\\'),
+        )
+        for source_text, good_zh in good_hardened_cases:
+            with self.subTest(source=source_text, good_zh=good_zh):
+                pipeline.validate_translation(source_text, good_zh)
+
     def test_corrupted_scripts_extb_meta_and_tw_calques_are_rejected(self):
         for source_text, bad_zh in (
             ('お知らせ', '通知Привет'),
@@ -266,10 +327,31 @@ class TranslationPipelineTests(unittest.TestCase):
             ('悪い意味じゃなくて', '没有别的意思'),
             ('バイクで来た', '骑自行车来的'),
             ('劇は盛り上がってます', '演出很热闹'),
+            ('松田亜利沙', '松田有纱'),
+            ('馬場このみ', '马场这个美'),
+            ('コノミさん', '这个美小姐'),
+            ('閃光☆HANABI団', '闪光☆花团'),
+            ('Angelステップ', 'Angel步骤'),
+            ('期間限定オートライブPASS', '限时自动直播PASS'),
+            ('スパークドリンク', '能量饮料'),
+            ('ライブチケット', '演唱会门票'),
+            ('マスターレッスン', '大师课程'),
+            ('ユニット編成', '队伍编组'),
+            ('ラウンジ名', '休息室名称'),
+            ('ラウンジマスター', '休息室室长'),
+            ('ユニット', '团体'),
+            ('元気が不足しています', '体力不足'),
         ):
             with self.subTest(source=source_text, bad=bad_zh), self.assertRaises(ValueError):
                 pipeline.validate_translation(source_text, bad_zh)
         pipeline.validate_translation('履歴書', '履历表')
+        pipeline.validate_translation('このみさんのこの美しい絵', '木实小姐的这幅美丽的画')
+        pipeline.validate_translation('馬場このみの美しさ', '马场木实这个美貌')
+        pipeline.validate_translation('スパークドリンク', '充电饮料')
+        pipeline.validate_translation('ライブチケット所持数', '演唱会券持有数')
+        pipeline.validate_translation('マスターレッスン', '明星\n课程')
+        pipeline.validate_translation('ユニット編成', '组合编成')
+        pipeline.validate_translation('ラウンジマスター', '社交厅厅长')
         pipeline.validate_translation('篠宮可憐', '篠宫可怜')
         pipeline.validate_translation('有名な著者', '知名著者')
         pipeline.validate_translation('田所あずささんと三浦あずさ', '田所あずさ与三浦梓')
@@ -350,6 +432,102 @@ class TranslationPipelineTests(unittest.TestCase):
             updated = json.loads(comp_path.read_text(encoding='utf-8'))['rows'][0]
             self.assertEqual(updated['zh'], '设置')
             self.assertEqual(updated['status'], 'accepted')
+
+    def test_validate_translation_rejects_ui_terminology_tw_and_shinjitai_regressions(self):
+        bad_cases = (
+            ("有効な期間限定オートライブPASSがありません", "没有有效的限时自动演出PASS"),
+            ("期間限定オートライブPASS", "自动演出PASS"),
+            ("期間限定オートライブPASS", "限时自动演出PASS"),
+            ("20000 円まで", "20000日圆为止"),
+            ("画面をご覧ください", "请查看萤幕"),
+            ("２次元コードリーダー", "２维码扫描器"),
+            ("2次元コードリーダー", "QR码读取器"),
+            ("自分のコードを表示", "显示自己的代码"),
+            ("次回以降表示しない", "以后不再显示"),
+            ("引き継ぎ", "继承数据"),
+            ("お問い合わせ", "联系客服"),
+            ("ゲスト", "助演"),
+            ("弊社サポートセンターまでお問い合わせください", "请联系我司客服中心"),
+            ("桜守さん", "桜守小姐"),
+            ("そうですよ――", "是这样的说——"),
+            ("カードアイコン", "点击卡片图示"),
+            ("出現率UP", "出现机率UP"),
+            ("通信エラー", "连线错误"),
+            ("ランキング機能", "排行榜机能"),
+            ("サイリウム", "挥舞萤光棒"),
+        )
+        for ja, bad_zh in bad_cases:
+            with self.subTest(ja=ja, bad_zh=bad_zh):
+                with self.assertRaises(ValueError):
+                    pipeline.validate_translation(ja, bad_zh)
+
+        good_cases = (
+            ("有効な期間限定オートライブPASSがありません", "没有有效的限时自动演出通行证"),
+            ("期間限定オートライブPASSとオートライブPASS", "限时自动演出通行证与自动演出PASS"),
+            ("オートライブPASS", "自动演唱会PASS"),
+            ("20000 円まで", "20000日元为止"),
+            ("２次元コードリーダー", "二维码扫描器"),
+            ("自分のコードを表示", "显示自己的二维码"),
+            ("次回以降表示しない", "下次起不再显示"),
+            ("引き継ぎ", "数据继承"),
+            ("データを引き継ぐ", "继承数据"),
+            ("お問い合わせ", "联系我们"),
+            ("ゲスト", "嘉宾"),
+            ("弊社サポートセンターまでお問い合わせください", "请联系本公司客服中心"),
+            ("グッズ発注", "又擅自订购周边了"),
+        )
+        for ja, good_zh in good_cases:
+            with self.subTest(ja=ja, good_zh=good_zh):
+                pipeline.validate_translation(ja, good_zh)
+
+    def test_collect_and_apply_ignore_baked_sprite_atlas_and_discovery_files(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.fixture(root, [
+                {"ja": "ガシャ", "zh": "", "translatable": True, "status": "untranslated"},
+            ])
+            atlas = root / "localization/9.0.200/apk-ui-strings-zhcn.json"
+            atlas.write_text(json.dumps({
+                "kind": "mltd-apk-ui-strings",
+                "policy": {"baked_pixels_are_not_text_records": True},
+                "surfaces": {
+                    "bottom-bar-footer": {
+                        "kind": "baked-sprite-atlas",
+                        "slots": [
+                            {"index": 5, "ja": "ガシャ", "zh": "转蛋", "provenance": "project_decision"},
+                        ],
+                    }
+                },
+            }, ensure_ascii=False), encoding="utf-8")
+            discovery_dir = root / "localization/9.0.200/discovery"
+            discovery_dir.mkdir(parents=True)
+            (discovery_dir / "resource-inventory.json").write_text(
+                json.dumps({"ja": "テスト", "zh": "测试", "objects": [{"ja": "x", "zh": "转蛋"}]}),
+                encoding="utf-8",
+            )
+            (discovery_dir / "automatic-text-request.json").write_text(
+                json.dumps({"kind": "mltd-client-source-text", "rows": []}),
+                encoding="utf-8",
+            )
+
+            queue = root / "queue.jsonl"
+            report = pipeline.TranslationPipeline(root).collect(queue)
+            self.assertEqual(report["items"], 1)
+            self.assertEqual(report["reused"], 0)
+            entry = json.loads(queue.read_text(encoding="utf-8"))
+            self.assertEqual(entry["source"], "ガシャ")
+            self.assertIn("runtime-bi-zhcn.json", entry["bundle"])
+
+            draft = root / "draft.jsonl"
+            entry["translation"] = "扭蛋"
+            draft.write_text(json.dumps(entry, ensure_ascii=False), encoding="utf-8")
+            apply_report = pipeline.TranslationPipeline(root).apply(draft)
+            self.assertEqual(apply_report["updated"], 1)
+            self.assertEqual(json.loads(source.read_text(encoding="utf-8"))["rows"][0]["zh"], "扭蛋")
+            self.assertEqual(
+                json.loads(atlas.read_text(encoding="utf-8"))["surfaces"]["bottom-bar-footer"]["slots"][0]["zh"],
+                "转蛋",
+            )
 
 
 if __name__ == '__main__':

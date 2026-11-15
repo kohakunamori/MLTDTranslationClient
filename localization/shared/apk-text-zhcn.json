@@ -177,7 +177,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "由于没有相机权限，无法启动２维码读取器\n要更改相机权限吗？"
+      "zh": "由于没有相机权限，无法启动二维码扫描器\n要更改相机权限吗？"
     },
     {
       "contexts": [
@@ -1313,7 +1313,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "无效的代码\n请使用活动专用的2次元码"
+      "zh": "无效的代码\n请使用活动专用的二维码"
     },
     {
       "contexts": [
@@ -1533,7 +1533,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "已有其他成员申请担任团长\n没能成为团长"
+      "zh": "已有其他成员申请担任厅长\n没能成为厅长"
     },
     {
       "contexts": [
@@ -1865,7 +1865,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "演出过程中应用已关闭\n要从中断处继续演出吗？\n（不会消耗体力或演出门票）"
+      "zh": "演出过程中应用已关闭\n要从中断处继续演出吗？\n（不会消耗活力或演唱会券）"
     },
     {
       "contexts": [
@@ -1972,7 +1972,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-10-13T14:27:51+00:00",
-      "zh": "要用相同的编队和嘉宾偶像\n再次演奏这首乐曲吗？"
+      "zh": "要用相同的组合编成和嘉宾偶像\n再次演奏这首乐曲吗？"
     },
     {
       "contexts": [
@@ -2210,7 +2210,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "由于主控权限已移交\n无法从社交厅退出"
+      "zh": "由于厅长权限已移交\n无法从社交厅退出"
     },
     {
       "contexts": [
@@ -2230,7 +2230,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-14T05:58:00Z",
-      "zh": "不恢复演出，直接前往剧场。\n如果此时不恢复演出，之后将无法再次恢复。\n（消耗的体力和演唱会门票也不会返还）\n\n确定要这样做吗？"
+      "zh": "不恢复演出，直接前往剧场。\n如果此时不恢复演出，之后将无法再次恢复。\n（消耗的活力和演唱会券也不会返还）\n\n确定要这样做吗？"
     },
     {
       "contexts": [
@@ -2720,7 +2720,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T14:36:55+00:00",
-      "zh": "不重新开始工作，前往剧场。\n如果在这里不重新开始工作，之后将无法重新开始工作。\n（消耗的体力和演唱会门票也不会恢复）\n\n真的可以吗？"
+      "zh": "不重新开始工作，前往剧场。\n如果在这里不重新开始工作，之后将无法重新开始工作。\n（消耗的活力和演唱会券也不会恢复）\n\n真的可以吗？"
     },
     {
       "contexts": [
@@ -2740,7 +2740,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "使用活力饮料后\n可以恢复活力"
+      "zh": "使用充电饮料后\n可以恢复活力"
     },
     {
       "contexts": [
@@ -3070,7 +3070,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "不继续演出，前往剧场\n如果在这里不继续演出，之后将无法再次继续演出\n（已消耗的体力、演出券、金币等也不会恢复）\n\n真的确定吗？"
+      "zh": "不继续演出，前往剧场\n如果在这里不继续演出，之后将无法再次继续演出\n（已消耗的活力、演唱会券、金币等也不会恢复）\n\n真的确定吗？"
     },
     {
       "contexts": [
@@ -3573,7 +3573,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-10-13T14:27:51+00:00",
-      "zh": "演唱会门票持有数"
+      "zh": "演唱会券持有数"
     },
     {
       "contexts": [
@@ -3753,7 +3753,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "演出中应用程序已关闭\n是否从中断处继续演出？\n（体力、演出门票、马尼等不会被消耗）"
+      "zh": "演出中应用程序已关闭\n是否从中断处继续演出？\n（活力、演唱会券、金币等不会被消耗）"
     },
     {
       "contexts": [
@@ -3993,7 +3993,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "工作过程中应用已结束\n要从头开始工作吗？\n(不会消耗体力）"
+      "zh": "工作过程中应用已结束\n要从头开始工作吗？\n(不会消耗活力）"
     },
     {
       "contexts": [
@@ -4253,7 +4253,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T14:36:55+00:00",
-      "zh": "由于恢复后的体力超过了最大体力值的2倍\n无法使用道具"
+      "zh": "由于恢复后的活力超过了最大活力值的2倍\n无法使用道具"
     },
     {
       "contexts": [
@@ -4411,7 +4411,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T14:36:55+00:00",
-      "zh": "数据转移已完成\n游玩本游戏需要同意使用条款\n请确认使用条款，然后点击「同意」"
+      "zh": "数据继承已完成\n游玩本游戏需要同意使用条款\n请确认使用条款，然后点击「同意」"
     },
     {
       "contexts": [
@@ -4787,7 +4787,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-13T10:26:15+00:00",
-      "zh": "由于处于活动期间，无法解散\n※若社交厅所属成员仅剩“厅主”，则可以解散社交厅"
+      "zh": "由于处于活动期间，无法解散\n※若社交厅所属成员仅剩“厅长”，则可以解散社交厅"
     },
     {
       "contexts": [
@@ -4947,7 +4947,7 @@
       "translatable": true,
       "translation_stage": "llm_translated",
       "updated_at": "2026-11-14T05:58:00Z",
-      "zh": "演唱会进行过程中应用已退出\n要从中途继续演唱会吗？\n※不会消耗体力、演唱会门票或金币等\n※如果运行不稳定，建议以2D模式游玩"
+      "zh": "演唱会进行过程中应用已退出\n要从中途继续演唱会吗？\n※不会消耗活力、演唱会券或金币等\n※如果运行不稳定，建议以2D模式游玩"
     }
   ],
   "schema_version": 1
