@@ -73,11 +73,16 @@ TW_UNCONDITIONAL = (
     "於剧", "关於", "不同於",
     "姊姊", "大姊", "好姊妹", "三姊妹", "兩姊妹", "两姊妹",
     "迎春花蕾所見之夢", "追逐夢想", "{0}天日間",
+    "点选", "點選", "脚踏车", "腳踏車", "计程车", "計程車", "高丽菜", "高麗菜",
+    "义大利", "義大利", "霜淇淋", "原子笔", "原子筆", "麦克笔", "麥克筆",
+    "百汇", "百匯", "凤梨", "鳳梨", "起司",
+    "种稙", "你佷", "渡假", "直接了当", "磅礡",
+    "草苺", "战戯", "戦戯", "通販节目", "仕掛け人大人", "裏读み", "祂",
 )
 ALWAYS_FORBIDDEN_TW_TERMS = ("感謝祭", "感謝", "全員")
 TW_BORROW_RE = re.compile(r"藉(?:着|著|此|助|口|机|以|这|工作|写真)")
 FALLBACK_TRADITIONAL_OUTPUT_CHARS = set(
-    "妳製觀藝體這為會來說對沒裡還時學應與發萬張聲點門間從將讓見過麼麗實該閉腦現給難當國們歡聽獎續緊認謝種樣個開關頭書話寫讀轉選氣亞達場樂"
+    "妳製觀藝體這為會來說對沒裡還時學應與發萬張聲點門間從將讓見過麼麗實該閉腦現給難當國們歡聽獎續緊認謝種樣個開關頭書話寫讀轉選氣亞達場樂牠祂搧麽礡"
 )
 SIMPLIFIED_ZHU_COMPOUND_RE = re.compile(
     r"著名(?!流)|著作(?!笔记)|名著|原著|显著|执著|著称|著者|编著|合著|巨著|专著|"
@@ -118,12 +123,18 @@ TRADITIONAL_IDOL_NAME_TOKENS = (
     ("詩花", "诗花"), ("奈緒", "奈绪"), ("琴葉", "琴叶"), ("千鶴", "千鹤"),
     ("徳川", "德川"), ("馬場", "马场"), ("大神環", "大神环"),
     ("髙橋", "高桥"), ("髙桥", "高桥"),
+    ("二階堂", "二阶堂"), ("宮尾", "宫尾"), ("天空橋", "天空桥"), ("伊織", "伊织"),
+    ("野々原", "野野原"), ("菜緒", "菜绪"), ("颯太", "飒太"),
+    ("凛音亞", "凛音亚"), ("慧深璃亞", "慧深璃亚"), ("逢路蘭", "逢路兰"), ("深淵海", "深渊海"),
+    ("笹森藍", "笹森蓝"), ("真田湊", "真田凑"), ("凛々加", "凛凛加"), ("神宮寺", "神宫寺"),
+    ("白石 䌷", "白石䌷"),
 )
 UNTRANSLATED_JAPANESE_FRAGMENT_RE = re.compile(
     r"わたくし|ぜんぜん[ぁ-ゖ一-龯]|知ってるけど|分かってない|"
     r"故意に[一-龯]|憧れ[一-龯]|本当に[一-龯ぁ-ゖ]|"
     r"[一-龯ァ-ヺぁ-ゖ]{2,}(?:ましょうか|しませんか)|"
-    r"かしみや|ぴょーん|必ゅ|さ玛|っ斯"
+    r"かしみや|ぴょーん|必ゅ|さ玛|っ斯|"
+    r"（りりか）|裏読み|裏读み"
 )
 ZH_BAD_MEANING_CUE_RE = re.compile(
     r"(?:坏(?:的)?(?:意思|意义|处|方面|事)|不好的(?:意思|意义|方面)|不好(?:意义|方面)|(?:不是说|并非|不算|并不是)不好|"
@@ -363,6 +374,30 @@ def _non_authoritative_idol_error(source: str, translation: str) -> str | None:
     for bad_cv in ("高桥ミナミ", "髙桥ミナミ", "髙橋ミナミ"):
         if bad_cv in compact:
             return f"LLM output uses non-authoritative CV name {bad_cv} instead of 高桥未奈美"
+    for bad_kanji, canonical_kanji in (
+        ("大和撫子", "大和抚子"),
+        ("陰界戦戯", "阴界战戏"),
+        ("六学窓", "六学窗"),
+        ("月兎", "月兔"),
+        ("詰将棋", "诘将棋"),
+    ):
+        if bad_kanji in compact:
+            return f"LLM output retains unconverted Japanese kanji {bad_kanji!r} instead of {canonical_kanji!r}"
+    if (
+        re.search(r"動画|ムービー|ビデオ", source)
+        and "映画" not in source
+        and "フィルム" not in source
+        and re.search(r"影片(?!场)", compact)
+    ):
+        return "LLM output uses zh-TW lexicon '影片' for video instead of '视频'"
+    if "うどん" in source and "乌龙面" in compact:
+        return "LLM output uses zh-TW lexicon '乌龙面' instead of '乌冬面'"
+    if re.search(r"プロジェクト|企画", source) and "专案" in compact:
+        return "LLM output uses zh-TW lexicon '专案' instead of '企划'"
+    if "バス" in source and "公车" in compact:
+        return "LLM output uses zh-TW lexicon '公车' instead of '公交车'"
+    if "推し" in source and "推し" in re.sub(r'[《「『“"][^》」』”"]*[》」』”"]', "", compact):
+        return "LLM output retains untranslated '推し' in zh-CN prose"
     if "765プロ" in source and "765プロデューサー" not in source:
         for bad_pro in (
             "765制作人", "765专业", "765职业", "765制作公司", "765制造所", "765制作所",
