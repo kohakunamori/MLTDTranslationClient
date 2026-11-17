@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -270,15 +271,45 @@ class TranslationPipelineTests(unittest.TestCase):
             path.write_text(json.dumps(doc))
             self.assertIsNone(dispatch.recovery_payload(root, 'owner/client', 'c' * 40))
 
-    def test_workflow_reports_provider_and_rejected_failures_before_settling_or_dispatching(self):
+    def test_dispatch_check_only_reports_readiness_without_invoking_gh(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = self.fixture(root, [{'ja': '続ける', 'zh': '', 'status': 'untranslated', 'translatable': True}])
+            output = root / 'github-output.txt'
+            with (patch.object(dispatch, 'ROOT', root),
+                  patch.dict(os.environ, {'GITHUB_OUTPUT': str(output)}),
+                  patch('sys.argv', ['dispatch_private_build', '--repository', 'owner/client',
+                                     '--commit', 'a' * 40, '--auto-route', '--check-only', '--github-output']),
+                  patch.object(dispatch.subprocess, 'run') as request):
+                self.assertEqual(dispatch.main(), 0)
+                request.assert_not_called()
+            self.assertEqual(output.read_text(encoding='utf-8'), 'ready=false\nevent_type=none\n')
+
+            doc = json.loads(source.read_text(encoding='utf-8'))
+            doc['rows'][0].update(zh='继续', status='accepted')
+            source.write_text(json.dumps(doc), encoding='utf-8')
+            output.write_text('', encoding='utf-8')
+            with (patch.object(dispatch, 'ROOT', root),
+                  patch.dict(os.environ, {'GITHUB_OUTPUT': str(output)}),
+                  patch('sys.argv', ['dispatch_private_build', '--repository', 'owner/client',
+                                     '--commit', 'a' * 40, '--auto-route', '--check-only', '--github-output']),
+                  patch.object(dispatch.subprocess, 'run') as request):
+                self.assertEqual(dispatch.main(), 0)
+                request.assert_not_called()
+            self.assertEqual(
+                output.read_text(encoding='utf-8'),
+                'ready=true\nevent_type=client-resources-updated\n',
+            )
+
+    def test_workflow_dispatches_saved_progress_before_reporting_failures(self):
         workflow = (ROOT / '.github/workflows/llm-translate-client.yml').read_text(encoding='utf-8')
         ordered = [
             '- name: Commit Client text translations to main',
-            '- name: Report provider failure after saving source progress',
-            '- name: Report rejected formatting after preserving valid progress',
             '- name: Hold the notification for a merge window',
             '- name: Dispatch the exact translated Client commit to Private Build',
             '- name: Request native recovery for a new unsupported official APK',
+            '- name: Report provider failure after saving source progress',
+            '- name: Report rejected formatting after preserving valid progress',
         ]
         positions = [workflow.index(step) for step in ordered]
         self.assertEqual(positions, sorted(positions))

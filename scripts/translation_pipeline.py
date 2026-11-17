@@ -433,21 +433,23 @@ def _non_authoritative_idol_error(source: str, translation: str) -> str | None:
 
 
 def _load_traditional_output_chars() -> set[str]:
-    map_path = (
-        Path(__file__).resolve().parents[1]
-        / ".translation-engine/pipelines/text/configs/traditional-to-simplified-char-map.json"
-    )
-    if map_path.is_file():
-        doc = json.loads(map_path.read_text(encoding="utf-8-sig"))
-        mapping = doc.get("map", {}) if isinstance(doc, dict) else {}
-        if isinstance(mapping, dict):
-            chars = {
-                str(src)
-                for src, dst in mapping.items()
-                if len(str(src)) == 1 and len(str(dst)) == 1 and str(src) != str(dst)
-            }
-            if chars:
-                return chars
+    repo_root = Path(__file__).resolve().parents[1]
+    for relative in (
+        ".translation-engine/pipelines/text/configs/traditional-to-simplified-char-map.json",
+        "schema/traditional-to-simplified-char-map.json",
+    ):
+        map_path = repo_root / relative
+        if map_path.is_file():
+            doc = json.loads(map_path.read_text(encoding="utf-8-sig"))
+            mapping = doc.get("map", {}) if isinstance(doc, dict) else {}
+            if isinstance(mapping, dict):
+                chars = {
+                    str(src)
+                    for src, dst in mapping.items()
+                    if len(str(src)) == 1 and len(str(dst)) == 1 and str(src) != str(dst)
+                }
+                if chars:
+                    return chars
     return set(FALLBACK_TRADITIONAL_OUTPUT_CHARS)
 
 

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 from pathlib import Path
 
@@ -23,16 +24,32 @@ def main() -> int:
     parser.add_argument("--require-ready", action="store_true")
     parser.add_argument("--recover-unsupported", action="store_true")
     parser.add_argument("--auto-route", action="store_true")
+    parser.add_argument("--check-only", action="store_true")
+    parser.add_argument("--github-output", action="store_true")
     args = parser.parse_args()
     recover = args.recover_unsupported
     state_path = ROOT / "manifests/apk-source-state.json"
     if args.auto_route and state_path.exists():
         recover = json.loads(state_path.read_text(encoding="utf-8")).get("build_supported") is False
-    event = (
-        recovery_payload(ROOT, args.repository, args.commit)
-        if recover
-        else payload(ROOT, args.repository, args.commit)
-    )
+    try:
+        event = (
+            recovery_payload(ROOT, args.repository, args.commit)
+            if recover
+            else payload(ROOT, args.repository, args.commit)
+        )
+    except ValueError:
+        if not args.check_only:
+            raise
+        event = None
+    if args.github_output:
+        target = os.environ.get("GITHUB_OUTPUT", "")
+        if target:
+            with open(target, "a", encoding="utf-8") as stream:
+                stream.write(f"ready={'true' if event is not None else 'false'}\n")
+                stream.write(f"event_type={event['event_type'] if event is not None else 'none'}\n")
+    if args.check_only:
+        print(f"ready={'true' if event is not None else 'false'} event_type={event['event_type'] if event is not None else 'none'}")
+        return 0
     if event is None:
         return 1 if args.require_ready else 0
     subprocess.run(
