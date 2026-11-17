@@ -77,20 +77,6 @@ jobs:
           python -m scripts.apk_input_state \
             --before "$BEFORE_SHA" --after "$AFTER_SHA" \
             --github-output --json
-      - name: Hold the notification for a merge window
-        id: settle
-        # Reached only when the decision above already said this push carries new APK bytes. A burst
-        # of such pushes then collapses: each candidate waits out the window, and the last one to
-        # arrive re-reads the branch head and stands down when a newer commit changed the same bytes,
-        # because that commit's own push notification is the one that must spend the build.
-        #
-        # `cancel-in-progress` deliberately stays false: cancelling is not a merge. A cancelled run
-        # would drop the only immediate trigger for the content that push carried, and the private
-        # build pins itself to the commit it was dispatched with rather than re-pinning to a newer
-        # one, so a dropped notification is a release that never happens. The settle is the mechanism
-        # that avoids the superseded build without dropping anything.
-        #
-        # A manual dispatch is exempt: a human asking for a build is the definition of on demand.
       - id: ready
         if: steps.decide.outputs.dispatch != 'false'
         name: Check whether Private Build has a ready payload
@@ -103,6 +89,18 @@ jobs:
             --auto-route --check-only --github-output
       - id: settle
         name: Hold the notification for a merge window
+        # Reached only when the decision above already said this push carries new APK bytes. A burst
+        # of such pushes then collapses: each candidate waits out the window, and the last one to
+        # arrive re-reads the branch head and stands down when a newer commit changed the same bytes,
+        # because that commit's own push notification is the one that must spend the build.
+        #
+        # `cancel-in-progress` deliberately stays false: cancelling is not a merge. A cancelled run
+        # would drop the only immediate trigger for the content that push carried, and the private
+        # build pins itself to the commit it was dispatched with rather than re-pinning to a newer
+        # one, so a dropped notification is a release that never happens. The settle is the mechanism
+        # that avoids the superseded build without dropping anything.
+        #
+        # A manual dispatch is exempt: a human asking for a build is the definition of on demand.
         # `vars.APK_DISPATCH_SETTLE_SECONDS` tunes the window without editing this file (0 disables
         # it); 600 matches the ten-to-fifteen minute window the delivery cadence was chosen for.
         if: steps.decide.outputs.dispatch != 'false' && steps.ready.outputs.ready == 'true'
