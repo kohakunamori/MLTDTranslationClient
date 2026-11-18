@@ -43,13 +43,14 @@ jobs:
     timeout-minutes: 90
     steps:
       - name: Checkout Client sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
-          fetch-depth: 1
+          fetch-depth: 0
+          filter: blob:none
           ref: main
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
 
@@ -102,7 +103,7 @@ jobs:
 
       - name: Checkout translation engine only for a nonempty queue
         if: steps.collect.outputs.items != '0'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: kohakunamori/MLTDTranslationAssets
           ref: main
@@ -117,7 +118,7 @@ jobs:
 
       - name: Set up uv
         if: steps.collect.outputs.items != '0'
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v10
         with:
           enable-cache: true
 
@@ -282,9 +283,24 @@ jobs:
       # re-reading the branch head collapses the two entry points into one notification per content:
       # if a newer commit changed the artifact inputs, that commit's own push notifier is the one that
       # dispatches, and this run stands down. Anything the settle cannot prove dispatches.
+      - name: Check whether the discovered commit changed APK inputs
+        id: discovery-inputs
+        if: inputs.smoke_test != true && github.event.action == 'apk-source-discovered' && steps.publish.outputs.changed != 'true' && inputs.retry_build != true
+        continue-on-error: true
+        shell: bash
+        env:
+          PAYLOAD_COMMIT: ${{ github.event.client_payload.commit }}
+          BEFORE_SHA: ${{ github.event.client_payload.commit && format('{0}~1', github.event.client_payload.commit) || 'HEAD~1' }}
+          AFTER_SHA: ${{ steps.publish.outputs.commit }}
+        run: |
+          set -euo pipefail
+          python -m scripts.apk_input_state \
+            --before "$BEFORE_SHA" --after "$AFTER_SHA" \
+            --github-output --json
+
       - name: Check whether committed progress is ready for Private Build
         id: ready
-        if: inputs.smoke_test != true && (steps.publish.outputs.changed == 'true' || (steps.translate.outcome != 'failure' && (inputs.retry_build == true || github.event.action == 'apk-source-discovered')))
+        if: inputs.smoke_test != true && (steps.publish.outputs.changed == 'true' || (steps.translate.outcome != 'failure' && (inputs.retry_build == true || (github.event.action == 'apk-source-discovered' && steps.discovery-inputs.outputs.dispatch != 'false'))))
         env:
           CLIENT_REPOSITORY: ${{ github.repository }}
           CLIENT_COMMIT: ${{ steps.publish.outputs.commit }}
@@ -295,7 +311,7 @@ jobs:
 
       - name: Hold the notification for a merge window
         id: settle
-        if: inputs.smoke_test != true && steps.ready.outputs.ready == 'true' && (steps.publish.outputs.changed == 'true' || (steps.translate.outcome != 'failure' && (inputs.retry_build == true || github.event.action == 'apk-source-discovered')))
+        if: inputs.smoke_test != true && steps.ready.outputs.ready == 'true' && (steps.publish.outputs.changed == 'true' || (steps.translate.outcome != 'failure' && (inputs.retry_build == true || (github.event.action == 'apk-source-discovered' && steps.discovery-inputs.outputs.dispatch != 'false'))))
         shell: bash
         env:
           TARGET_SHA: ${{ steps.publish.outputs.commit }}
@@ -306,7 +322,7 @@ jobs:
           python -m scripts.dispatch_settle --root "$GITHUB_WORKSPACE" --github-output --json
 
       - name: Dispatch the exact translated Client commit to Private Build
-        if: inputs.smoke_test != true && steps.source.outputs.build_supported == 'true' && steps.ready.outputs.ready == 'true' && steps.settle.outputs.dispatch != 'false' && (steps.publish.outputs.changed == 'true' || (steps.translate.outcome != 'failure' && (inputs.retry_build == true || github.event.action == 'apk-source-discovered')))
+        if: inputs.smoke_test != true && steps.source.outputs.build_supported == 'true' && steps.ready.outputs.ready == 'true' && steps.settle.outputs.dispatch != 'false' && (steps.publish.outputs.changed == 'true' || (steps.translate.outcome != 'failure' && (inputs.retry_build == true || (github.event.action == 'apk-source-discovered' && steps.discovery-inputs.outputs.dispatch != 'false'))))
         env:
           GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
           CLIENT_REPOSITORY: ${{ github.repository }}
@@ -319,7 +335,7 @@ jobs:
           python -m scripts.dispatch_private_build --repository "$CLIENT_REPOSITORY" --commit "$CLIENT_COMMIT" $flags
 
       - name: Request native recovery for a new unsupported official APK
-        if: inputs.smoke_test != true && steps.source.outputs.build_supported == 'false' && steps.ready.outputs.ready == 'true' && steps.settle.outputs.dispatch != 'false' && (steps.publish.outputs.changed == 'true' || (steps.translate.outcome != 'failure' && (inputs.retry_build == true || github.event.action == 'apk-source-discovered')))
+        if: inputs.smoke_test != true && steps.source.outputs.build_supported == 'false' && steps.ready.outputs.ready == 'true' && steps.settle.outputs.dispatch != 'false' && (steps.publish.outputs.changed == 'true' || (steps.translate.outcome != 'failure' && (inputs.retry_build == true || (github.event.action == 'apk-source-discovered' && steps.discovery-inputs.outputs.dispatch != 'false'))))
         env:
           GH_TOKEN: ${{ secrets.PRIVATE_BUILD_DISPATCH_TOKEN }}
           CLIENT_REPOSITORY: ${{ github.repository }}
@@ -357,7 +373,7 @@ jobs:
 
       - name: Upload translation diagnostics
         if: ${{ failure() || vars.MLTD_KEEP_SUCCESS_DIAGNOSTICS == 'true' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         continue-on-error: true
         with:
           name: client-translation-report-${{ github.run_id }}

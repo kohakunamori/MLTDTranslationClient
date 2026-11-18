@@ -206,6 +206,26 @@ class ArtifactInputDecisionTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stdout)
             self.assertIn(expected, output.read_text(encoding='utf-8'))
 
+    def test_llm_workflow_skips_private_build_for_extractor_only_discovery(self):
+        repository = self.fixture()
+        base = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=repository.root, check=True,
+                              text=True, stdout=subprocess.PIPE).stdout.strip()
+        repository.write('manifests/apk-source-state.json', json.dumps({
+            'client_version': '9.0.300',
+            'build_supported': True,
+            'extractor_fingerprint': 'abc123',
+        }))
+        head = repository.commit('extractor fingerprint bookkeeping only')
+
+        report = state.decide(repository.root, base, head)
+        self.assertFalse(report['changed'])
+        self.assertEqual(report['reason'], 'artifact_inputs_unchanged')
+
+        workflow_text = (ROOT / '.github/workflows/llm-translate-client.yml').read_text(encoding='utf-8')
+        self.assertIn('id: discovery-inputs', workflow_text)
+        self.assertIn("steps.discovery-inputs.outputs.dispatch != 'false'", workflow_text)
+        self.assertIn('fetch-depth: 0', workflow_text)
+
 
 if __name__ == '__main__':
     unittest.main()

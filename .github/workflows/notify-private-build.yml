@@ -49,14 +49,14 @@ jobs:
     # The merge window below waits before notifying the private Windows build.
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.sha }}
           # The decision compares this commit with the one it supersedes, so the
           # baseline object has to be in the clone instead of one commit deep.
           fetch-depth: 0
           filter: blob:none
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.11'
       - name: Validate the Client input before dispatch
